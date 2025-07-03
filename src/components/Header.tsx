@@ -4,14 +4,14 @@ import Link from 'next/link';
 const Header = () => {
   return (
     <div>
-      <div id="preloader">
+      {/* <div id="preloader">
         <div id="ctn-preloader" className="ctn-preloader">
           <div className="round_spinner">
             <div className="spinner"></div>
             <div className="text">
               <Image
-                width={200}
-                height={200}
+                width={100}
+                height={50}
                 src="/img/logo/Logo-2.png"
                 alt="logo"
               />
@@ -20,12 +20,12 @@ const Header = () => {
           <h2 className="head">Did You Know?</h2>
           <p></p>
         </div>
-      </div>
+      </div> */}
 
       {/* Header  */}
       <header className="header">
         <div className="header-menu header-menu-4" id="sticky">
-          <nav className="navbar navbar-expand-lg ">
+          <nav className="navbar navbar-expand-lg">
             <div className="container">
               <Link className="navbar-brand sticky_logo" href="index.html">
                 <Image

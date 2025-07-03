@@ -1,3 +1,7 @@
+import Banner from "@/pages/Banner";
+
 export default function Home() {
-  return <main>hello</main>;
+  return <main>
+    <Banner/>
+  </main>;
 }
