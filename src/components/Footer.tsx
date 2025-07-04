@@ -13,15 +13,20 @@ const Footer = () => {
               <div className="footer-widget wow fadeInLeft mb-30">
                 <div className="footer-text mb-20">
                   <p>
-                    Banca is a leading bank in the worldzone and a prominent international banking institution
+                    Banca is a leading bank in the worldzone and a prominent
+                    international banking institution
                   </p>
                 </div>
 
                 <span className="overline">COTATION</span>
 
                 <div className="footer-bold">
-                  <span className="counter">$<span>35.105</span></span>
-                  <span className="counter">-<span>0.46</span>%</span>
+                  <span className="counter">
+                    $<span>35.105</span>
+                  </span>
+                  <span className="counter">
+                    -<span>0.46</span>%
+                  </span>
                 </div>
                 <p className="time">2021-01-05 14:00 (INTERNATIONAL TIME)</p>
               </div>
@@ -49,12 +54,19 @@ const Footer = () => {
               },
               {
                 title: 'Direct Access',
-                links: ['Our news', 'Our press releases', 'Our job offers', 'Our websites'],
+                links: [
+                  'Our news',
+                  'Our press releases',
+                  'Our job offers',
+                  'Our websites',
+                ],
               },
             ].map((section, index) => (
               <div
                 key={index}
-                className={`col-lg-2 col-sm-6 text-center text-sm-start ${index === 0 ? 'ms-lg-5' : ''}`}
+                className={`col-lg-2 col-sm-6 text-center text-sm-start ${
+                  index === 0 ? 'ms-lg-5' : ''
+                }`}
               >
                 <div
                   className="footer-widget mb-30 wow fadeInUp"
@@ -86,7 +98,12 @@ const Footer = () => {
             {/* Logo */}
             <div className="col-lg-3 text-center text-lg-start">
               <Link href="/" className="p-0 m-0">
-                <Image src="/img/logo/Logo.png" alt="logo" width={130} height={40} />
+                <Image
+                  src="/img/logo/Logo.png"
+                  alt="logo"
+                  width={130}
+                  height={40}
+                />
               </Link>
             </div>
 
@@ -94,10 +111,14 @@ const Footer = () => {
             <div className="col-lg-5 text-center my-3 my-sm-0">
               <div className="copyright-text">
                 <p>
-                  Copyright &copy; Banca 2025.{' '}
-                  <br className="d-sm-none" />
-                  <Link className="ms-2" href="#">Privecy</Link> |{' '}
-                  <Link className="ms-0" href="#">Term of Use</Link>
+                  Copyright &copy; Banca 2025. <br className="d-sm-none" />
+                  <Link className="ms-2" href="#">
+                    Privecy
+                  </Link>{' '}
+                  |{' '}
+                  <Link className="ms-0" href="#">
+                    Term of Use
+                  </Link>
                 </p>
               </div>
             </div>
@@ -105,10 +126,18 @@ const Footer = () => {
             {/* Social */}
             <div className="col-lg-4 text-center text-lg-end">
               <div className="social-button">
-                <Link href="#"><i className="fab fa-facebook-f"></i></Link>
-                <Link href="#"><i className="fab fa-twitter"></i></Link>
-                <Link href="#"><i className="fab fa-pinterest-p"></i></Link>
-                <Link href="#"><i className="fab fa-linkedin-in"></i></Link>
+                <Link href="#">
+                  <i className="fab fa-facebook-f"></i>
+                </Link>
+                <Link href="#">
+                  <i className="fab fa-twitter"></i>
+                </Link>
+                <Link href="#">
+                  <i className="fab fa-pinterest-p"></i>
+                </Link>
+                <Link href="#">
+                  <i className="fab fa-linkedin-in"></i>
+                </Link>
               </div>
             </div>
           </div>
