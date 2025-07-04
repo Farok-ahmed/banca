@@ -1,5 +1,9 @@
-import Image from 'next/image';
+'use client'
 import React from 'react';
+import Slider from 'react-slick';
+import Image from 'next/image';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 interface Testimonial {
   id: number;
@@ -72,50 +76,73 @@ const testimonials: Testimonial[] = [
 ];
 
 const TestimonialSection = () => {
+  const settings = {
+    dots: true,
+    arrows: true,
+    infinite: true,
+    speed: 600,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 576,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
+
   return (
     <section className="client-area-2 pt-60 pb-60">
       <div className="container">
         <div className="section-title text-center mb-5">
           <span className="short-title-2">_Testimonials</span>
-          <h1 className="wow fadeInUp mb-3">
+          <h1 className="mb-3">
             Customer <span className="underline-shape">feedbacks</span>
           </h1>
-          <p className="wow fadeInUp" data-wow-delay="0.1s">
+          <p>
             There are many variations of passages of Lorem Ipsum available,
             <br />
             but the majority have suffered alteration in some form,
           </p>
         </div>
 
-        <div className="client-slider-2 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <Slider {...settings}>
           {testimonials.map((testimonial) => (
             <div
-              className="single-client wow fadeInUp p-4 border rounded shadow-sm"
+              className="px-3"
               key={testimonial.id}
               data-wow-delay={testimonial.delay || '0.1s'}
             >
-              <div className="rating mb-2 text-yellow-500">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <i className="icon_star" key={i}></i>
-                ))}
-              </div>
-              <p className="quote mb-4 text-sm text-gray-600">{testimonial.quote}</p>
-              <div className="client-info flex items-center gap-3">
-                <Image
-                  src={testimonial.image}
-                  alt={testimonial.name}
-                  width={50}
-                  height={50}
-                  className="rounded-full"
-                />
-                <div>
-                  <p className="font-semibold mb-0">{testimonial.name}</p>
-                  <span className="role text-xs text-gray-500">{testimonial.role}</span>
+              <div className="single-client p-4 border rounded shadow-sm h-100">
+                <div className="rating mb-2 text-warning">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <i className="bi bi-star-fill me-1" key={i}></i>
+                  ))}
+                </div>
+                <p className="quote mb-4 text-muted">{testimonial.quote}</p>
+                <div className="client-info d-flex align-items-center gap-3">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    width={50}
+                    height={50}
+                    className="rounded-circle"
+                  />
+                  <div>
+                    <p className="fw-semibold mb-0">{testimonial.name}</p>
+                    <span className="text-muted small">{testimonial.role}</span>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
-        </div>
+        </Slider>
       </div>
     </section>
   );
