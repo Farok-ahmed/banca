@@ -1,5 +1,6 @@
 import AboutSection from "@/components/AboutSection";
 import AboutTabs from "@/components/AboutTabs";
+import FaqSection from "@/components/FaqSection";
 import FeatureSteps from "@/components/Features";
 import Banner from "@/pages/Banner";
 
@@ -9,5 +10,6 @@ export default function Home() {
     <FeatureSteps/>
     <AboutSection/>
     <AboutTabs/>
+    <FaqSection/>
   </main>;
 }
