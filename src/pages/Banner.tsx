@@ -20,8 +20,8 @@ const Banner = () => {
             data-depth="-0.15"
             src="/img/home-4/shape-3.png"
             alt="Shape 3"
-            width={100}
-            height={100}
+            width={60}
+            height={40}
           />
         </div>
         <div className="shape" data-parallax='{"x": -40, "y": -150}'>
@@ -30,8 +30,8 @@ const Banner = () => {
             data-depth="-0.3"
             src="/img/home-4/shape-4.png"
             alt="Shape 4"
-            width={100}
-            height={100}
+            width={30}
+            height={30}
           />
         </div>
         <div
@@ -43,8 +43,8 @@ const Banner = () => {
             data-depth="0.5"
             src="/img/home-4/shape-5.png"
             alt="Shape 5"
-            width={100}
-            height={100}
+            width={10}
+            height={10}
           />
         </div>
 
@@ -84,24 +84,24 @@ const Banner = () => {
                     <Image
                       src="/img/home-4/cooperator-1.png"
                       alt="cooperator 1"
-                      width={80}
-                      height={40}
+                      width={100}
+                      height={30}
                     />
                   </a>
                   <a href="#">
                     <Image
                       src="/img/home-4/cooperator-2.png"
                       alt="cooperator 2"
-                      width={80}
-                      height={40}
+                      width={100}
+                      height={30}
                     />
                   </a>
                   <a href="#">
                     <Image
                       src="/img/home-4/cooperator-3.png"
                       alt="cooperator 3"
-                      width={80}
-                      height={40}
+                      width={100}
+                      height={30}
                     />
                   </a>
                 </div>
@@ -118,8 +118,8 @@ const Banner = () => {
                 className="shape"
                 src="/img/home-4/shape-1.png"
                 alt="Shape 1"
-                width={100}
-                height={100}
+                width={50}
+                height={30}
               />
               <h4>Loan calculator</h4>
               <form action="" className="d-flex flex-column">
