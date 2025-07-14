@@ -26,8 +26,8 @@ const ServiceComparison = () => {
                   <Image
                     src="/img/logo/Logo-2.png"
                     alt="Logo"
-                    width={120}
-                    height={40}
+                    width={105}
+                    height={30}
                   />
                 </th>
                 <th className="text-center" scope="col">

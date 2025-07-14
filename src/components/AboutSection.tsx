@@ -21,8 +21,8 @@ const AboutSection = () => {
                 data-wow-delay="0.1s"
                 src="/img/home-4/basic-info-2.png"
                 alt="Info 2"
-                width={200}
-                height={120}
+                width={180}
+                height={95}
               />
               <Image
                 className="msg-2 wow fadeInRight"
@@ -30,7 +30,7 @@ const AboutSection = () => {
                 src="/img/home-4/basic-info-3.png"
                 alt="Info 3"
                 width={200}
-                height={120}
+                height={60}
               />
             </div>
           </div>

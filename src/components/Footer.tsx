@@ -22,10 +22,10 @@ const Footer = () => {
 
                 <div className="footer-bold">
                   <span className="counter">
-                    $<span>35.105</span>
+                    $<span>22.818</span>
                   </span>
                   <span className="counter">
-                    -<span>0.46</span>%
+                    -<span>0.22</span>%
                   </span>
                 </div>
                 <p className="time">2021-01-05 14:00 (INTERNATIONAL TIME)</p>
@@ -113,7 +113,7 @@ const Footer = () => {
                 <p>
                   Copyright &copy; Banca 2025. <br className="d-sm-none" />
                   <Link className="ms-2" href="#">
-                    Privecy
+                    Privacy
                   </Link>{' '}
                   |{' '}
                   <Link className="ms-0" href="#">

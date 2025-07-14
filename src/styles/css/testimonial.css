@@ -1,0 +1,36 @@
+/* Customize slick dots */
+.slick-dots {
+  display: flex !important;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+
+.slick-dots li {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #d3d3d3;
+  transition: all 0.3s ease;
+}
+
+.slick-dots li.slick-active {
+  border: 2px solid #0d6efd;
+  background-color: white;
+  transform: scale(1.3);
+}
+
+/* Smooth slide animation */
+.slick-slide {
+  transition: all 0.5s ease-in-out;
+}
+
+/* Optional: underline style */
+.underline-custom {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+  text-decoration-color: #0d6efd;
+}
