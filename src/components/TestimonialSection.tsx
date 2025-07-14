@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import Image from 'next/image';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 interface Testimonial {
   id: number;
@@ -119,7 +120,7 @@ const TestimonialSection = () => {
               key={testimonial.id}
               data-wow-delay={testimonial.delay || '0.1s'}
             >
-              <div className="single-client p-4 border rounded shadow-sm h-100">
+              <div className="single-client p-4 rounded shadow-sm h-100 bg-white">
                 <div className="rating mb-2 text-warning">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <i className="bi bi-star-fill me-1" key={i}></i>

@@ -127,7 +127,7 @@ const Banner = () => {
                   <label className="label" htmlFor="loandetails01">
                     Type of Loan
                   </label>
-                  <select className="w-100" id="loandetails01">
+                  <select className="w-100 nice-select" id="loandetails01">
                     <option value="Debt-Financing">Debt Loan</option>
                     <option value="Equity-Finance">Installment loan</option>
                   </select>

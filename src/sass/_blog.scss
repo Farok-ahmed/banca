@@ -677,14 +677,14 @@ blockquote {
     z-index: -1;
   }
   &::before {
-    background-image: url(../img/blog/quote-left.png);
+    background-image: url('/img/blog/quote-left.png');
     left: 60px;
     top: 15px;
     height: 31px;
     width: 39px;
   }
   &::after {
-    background-image: url(../img/blog/quote-right.png);
+    background-image: url('/img/blog/quote-right.png');
     right: 63px;
     bottom: 0;
     height: 60px;
