@@ -15,15 +15,15 @@ const Header = () => {
                   className="main"
                   src="/img/logo/Logo.png"
                   alt="logo"
-                  width={150}
-                  height={50}
+                  width={130}
+                  height={40}
                 />
                 <Image
                   className="sticky"
                   src="/img/logo/Logo-2.png"
                   alt="logo sticky"
-                  width={150}
-                  height={50}
+                  width={130}
+                  height={40}
                 />
               </Link>
 
