@@ -43,15 +43,15 @@ const IndexCompany = () => {
             <div className="col-lg-5 text-center text-lg-start">
               <div className="banner-img">
                 <Image
-                  width={350}
-                  height={500}
+                  width={370}
+                  height={480}
                   className="img-1 wow fadeInLeft"
                   data-wow-delay="0.3s"
                   src="/img/home-5/banner-img-1.png"
                   alt=""
                 />
                 <Image
-                  width={200}
+                  width={220}
                   height={200}
                   className="img-2 wow fadeInRight"
                   data-wow-delay="0.8s"
@@ -132,8 +132,8 @@ const IndexCompany = () => {
                 data-wow-delay="0.1s"
               >
                 <Image
-                  width={300}
-                  height={300}
+                  width={50}
+                  height={50}
                   src="/img/home-5/feature-icon-1.svg"
                   alt=""
                 />
@@ -147,8 +147,8 @@ const IndexCompany = () => {
                 data-wow-delay="0.3s"
               >
                 <Image
-                  width={300}
-                  height={300}
+                  width={50}
+                  height={50}
                   src="/img/home-5/feature-icon-2.svg"
                   alt=""
                 />
@@ -163,8 +163,8 @@ const IndexCompany = () => {
                 data-wow-delay="0.5s"
               >
                 <Image
-                  width={300}
-                  height={300}
+                  width={50}
+                  height={50}
                   src="/img/home-5/feature-icon-3.svg"
                   alt=""
                 />
@@ -178,8 +178,8 @@ const IndexCompany = () => {
                 data-wow-delay="0.7s"
               >
                 <Image
-                  width={300}
-                  height={300}
+                  width={50}
+                  height={50}
                   src="/img/home-5/feature-icon-4.svg"
                   alt=""
                 />
@@ -193,8 +193,8 @@ const IndexCompany = () => {
                 data-wow-delay="0.9s"
               >
                 <Image
-                  width={300}
-                  height={300}
+                  width={50}
+                  height={50}
                   src="/img/home-5/feature-icon-5.svg"
                   alt=""
                 />
@@ -208,8 +208,8 @@ const IndexCompany = () => {
                 data-wow-delay="1.1s"
               >
                 <Image
-                  width={300}
-                  height={300}
+                  width={50}
+                  height={50}
                   src="/img/home-5/feature-icon-6.svg"
                   alt=""
                 />
@@ -223,8 +223,8 @@ const IndexCompany = () => {
                 data-wow-delay="1.3s"
               >
                 <Image
-                  width={300}
-                  height={300}
+                  width={50}
+                  height={50}
                   src="/img/home-5/feature-icon-7.svg"
                   alt=""
                 />
@@ -279,37 +279,37 @@ const IndexCompany = () => {
             <div className="col-lg-6 wow fadeInRight">
               <div className="sms-flow">
                 <Image
-                  width={300}
-                  height={300}
+                  width={90}
+                  height={85}
                   className="arrow-1"
                   src="/img/home-5/about-arrow-1.png"
                   alt=""
                 />
                 <Image
-                  width={300}
-                  height={300}
+                  width={30}
+                  height={65}
                   className="arrow-2"
                   src="/img/home-5/about-arrow-2.png"
                   alt=""
                 />
                 <Image
-                  width={300}
-                  height={300}
+                  width={540}
+                  height={130}
                   className="msg-1 wow fadeInUp"
                   data-wow-delay="0.1s"
                   src="/img/home-5/msg-1.png"
                   alt=""
                 />
                 <Image
-                  width={300}
-                  height={300}
+                  width={290}
+                  height={120}
                   className="msg-2"
                   src="/img/home-5/msg-2.png"
                   alt=""
                 />
                 <Image
-                  width={300}
-                  height={300}
+                  width={500}
+                  height={160}
                   className="msg-3 wow fadeInDown"
                   data-wow-delay="0.3s"
                   src="/img/home-5/msg-3.png"
@@ -325,15 +325,15 @@ const IndexCompany = () => {
                 <div className="shape-1"></div>
                 <div className="shape-2"></div>
                 <Image
-                  width={300}
-                  height={300}
+                  width={700}
+                  height={800}
                   className="img-1 img-fluid"
                   src="/img/home-5/card-holder.png"
                   alt=""
                 />
                 <Image
                   width={300}
-                  height={300}
+                  height={250}
                   className="img-2 wow fadeInRight"
                   data-wow-delay="0.2s"
                   src="/img/home-5/bank-balance.png"
