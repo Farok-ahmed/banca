@@ -6,12 +6,12 @@ import './globals.css';
 import '../styles/animate.css';
 import '../styles/default.css';
 import '../styles/nice-select.css';
+import '../styles/nouislider.min.css';
 import '../styles/slick-theme.css';
 import '../styles/slick.css';
 import '../styles/elegent-icons.min.css';
 import '../styles/css/all.min.css';
 import '../styles/intlTellInput.css';
-import '../styles/nouislider.min.css';
 import '../sass/main.scss';
 import '../styles/responsive.css';
 
