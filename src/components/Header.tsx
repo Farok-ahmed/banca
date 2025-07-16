@@ -76,7 +76,7 @@ const Header = () => {
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link href="/index-app" className="nav-link">
+                        <Link href="/mobile-app" className="nav-link">
                           Mobile App
                         </Link>
                       </li>
