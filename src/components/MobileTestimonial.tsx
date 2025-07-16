@@ -68,9 +68,9 @@ const ClientSlider = () => {
 
   const settings = {
     dots: true,
-    arrows: false,
     infinite: true,
     speed: 500,
+    arrows:false,
     slidesToShow: 3,
     slidesToScroll: 3,
     responsive: [
@@ -95,13 +95,15 @@ const ClientSlider = () => {
     <section className="client-area pt-110">
       <div className="container">
         <div className="section-title">
-          <h2 className="wow fadeInUp mb-0">What Our Client Say</h2>
+          <h1 className="wow fadeInUp mb-0">What Our Client Say</h1>
         </div>
 
         <div className="client-slider pt-45 pb-140">
           <Slider {...settings}>
             {clients.map((client, index) => (
-              <div className="single-client px-3" key={index}>
+              <div key={index}>
+
+              <div className="single-client px-3" >
                 <Image
                   width={200}
                   height={200}
@@ -125,6 +127,7 @@ const ClientSlider = () => {
                     ))}
                   </div>
                 </div>
+              </div>
               </div>
             ))}
           </Slider>

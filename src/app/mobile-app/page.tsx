@@ -1,3 +1,4 @@
+import NewsSlider from '@/components/BancaNews';
 import ClientSlider from '@/components/MobileTestimonial';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -80,8 +81,8 @@ const MobileApp = () => {
                   </h1>
                   <div className="img-area mt-35">
                     <Image
-                      width={200}
-                      height={200}
+                      width={400}
+                      height={180}
                       className="img-fluid"
                       data-depth="0.6"
                       src="/img/banner/person.png"
@@ -933,7 +934,10 @@ const MobileApp = () => {
 
         <ClientSlider/>
 
-        <section className="news-area pt-200 pb-110">
+        {/* news slider */}
+        <NewsSlider/>
+
+        {/* <section className="news-area pt-200 pb-110">
           <div className="container ">
             <div className="section-title pt-30">
               <h2 className="wow fadeInUp">Banca Latest News</h2>
@@ -1155,7 +1159,7 @@ const MobileApp = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
 
       <footer className="footer footer-1">
