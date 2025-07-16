@@ -1,3 +1,4 @@
+import ClientSlider from '@/components/MobileTestimonial';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -34,38 +35,38 @@ const MobileApp = () => {
           </div>
           <div className="logos">
             <Image
-              width={200}
-              height={200}
+              width={110}
+              height={110}
               src="/img/banner/Logo-1.png"
               alt="social"
             />
             <Image
-              width={200}
-              height={200}
+              width={110}
+              height={110}
               src="/img/banner/Logo-2.png"
               alt="social"
             />
             <Image
-              width={200}
-              height={200}
+              width={110}
+              height={110}
               src="/img/banner/Logo-3.png"
               alt="social"
             />
             <Image
-              width={200}
-              height={200}
+              width={110}
+              height={110}
               src="/img/banner/Logo-4.png"
               alt="social"
             />
             <Image
-              width={200}
-              height={200}
+              width={110}
+              height={110}
               src="/img/banner/Logo-5.png"
               alt="social"
             />
             <Image
-              width={200}
-              height={200}
+              width={110}
+              height={110}
               src="/img/banner/Logo-6.png"
               alt="social"
             />
@@ -104,8 +105,8 @@ const MobileApp = () => {
                     <div className="col-lg-3 col-6">
                       <div className="statistics-widget-1 text-start pt-10">
                         <Image
-                          width={200}
-                          height={200}
+                          width={50}
+                          height={60}
                           src="/img/banner/icon-1.svg"
                           alt="icon"
                         />
@@ -119,8 +120,8 @@ const MobileApp = () => {
                     <div className="col-lg-3 col-6">
                       <div className="statistics-widget-1 text-start pt-10">
                         <Image
-                          width={200}
-                          height={200}
+                          width={50}
+                          height={60}
                           src="/img/banner/icon-2.svg"
                           alt="icon"
                         />
@@ -133,8 +134,8 @@ const MobileApp = () => {
                     <div className="col-lg-3 col-6">
                       <div className="statistics-widget-1 text-start pt-10">
                         <Image
-                          width={200}
-                          height={200}
+                          width={50}
+                          height={60}
                           src="/img/banner/icon-3.svg"
                           alt="icon"
                         />
@@ -147,8 +148,8 @@ const MobileApp = () => {
                     <div className="col-lg-3 col-6">
                       <div className="statistics-widget-1 text-start pt-10">
                         <Image
-                          width={200}
-                          height={200}
+                          width={50}
+                          height={60}
                           src="/img/banner/icon-4.svg"
                           alt="icon"
                         />
@@ -184,8 +185,8 @@ const MobileApp = () => {
                 <div className="feature-card-widget wow fadeInUp">
                   <div className="card-img">
                     <Image
-                      width={200}
-                      height={200}
+                      width={60}
+                      height={60}
                       src="/img/feature/icon-1.svg"
                       alt="feature svg"
                     />
@@ -204,8 +205,8 @@ const MobileApp = () => {
                 >
                   <div className="card-img">
                     <Image
-                      width={200}
-                      height={200}
+                      width={60}
+                      height={60}
                       src="/img/feature/icon-2.svg"
                       alt="feature svg"
                     />
@@ -224,8 +225,8 @@ const MobileApp = () => {
                 >
                   <div className="card-img">
                     <Image
-                      width={200}
-                      height={200}
+                      width={60}
+                      height={60}
                       src="/img/feature/icon-3.svg"
                       alt="feature svg"
                     />
@@ -244,8 +245,8 @@ const MobileApp = () => {
                 >
                   <div className="card-img">
                     <Image
-                      width={200}
-                      height={200}
+                      width={60}
+                      height={60}
                       src="/img/feature/icon-4.svg"
                       alt="feature svg"
                     />
@@ -267,22 +268,22 @@ const MobileApp = () => {
               <div className="col-md-6 mx-auto">
                 <div className="img-content">
                   <Image
-                    width={200}
-                    height={200}
+                    width={1010}
+                    height={860}
                     className="bg-img"
                     src="/img/track-progress/shape-bg.png"
-                    alt=""
+                    alt="shape image"
                   />
                   <Image
-                    width={200}
-                    height={200}
+                    width={400}
+                    height={600}
                     className="track-3 wow fadeInUp"
                     src="/img/track-progress/track-1.png"
                     alt=""
                   />
                   <Image
-                    width={200}
-                    height={200}
+                    width={420}
+                    height={270}
                     className="track-img track-1 wow fadeInRight"
                     data-wow-delay="0.3s"
                     src="/img/track-progress/track-2.png"
@@ -290,7 +291,7 @@ const MobileApp = () => {
                   />
                   <Image
                     width={200}
-                    height={200}
+                    height={250}
                     className="track-img track-2 wow fadeInRight"
                     data-wow-delay="0.5s"
                     src="/img/track-progress/track-3.png"
@@ -347,14 +348,14 @@ const MobileApp = () => {
               <div className="col-md-6 mx-auto offset-xl-1 order-1 order-lg-2">
                 <div className="img-content">
                   <Image
-                    width={200}
-                    height={200}
+                    width={960}
+                    height={800}
                     className="bg-img"
                     src="/img/card-payment/shape-bg.png"
                     alt=""
                   />
                   <Image
-                    width={200}
+                    width={400}
                     height={200}
                     className="card-1 img-fluid wow fadeInLeft"
                     src="/img/card-payment/card-1.png"
@@ -362,7 +363,7 @@ const MobileApp = () => {
                   />
                   <Image
                     width={200}
-                    height={200}
+                    height={530}
                     className="card-2 wow fadeInLeft"
                     data-wow-delay="0.3s"
                     src="/img/card-payment/card-2.png"
@@ -380,21 +381,21 @@ const MobileApp = () => {
               <div className="col-md-6 mx-auto mx-lg-0 text-center">
                 <div className="img-content">
                   <Image
-                    width={200}
-                    height={200}
+                    width={1090}
+                    height={1030}
                     className="bg-img"
                     src="/img/internet-banking/shape-bg.png"
                     alt=""
                   />
                   <Image
-                    width={200}
-                    height={200}
+                    width={480}
+                    height={600}
                     className="bank-main img-fluid wow fadeInUp"
                     src="/img/internet-banking/img-1.png"
                     alt=""
                   />
                   <Image
-                    width={200}
+                    width={240}
                     height={200}
                     className="bank-1 img-fluid wow fadeInRight"
                     data-wow-delay="0.3s"
@@ -402,16 +403,16 @@ const MobileApp = () => {
                     alt=""
                   />
                   <Image
-                    width={200}
-                    height={200}
+                    width={310}
+                    height={350}
                     className="bank-2 img-fluid wow fadeInLeft"
                     data-wow-delay="0.6s"
                     src="/img/internet-banking/img-3.png"
                     alt=""
                   />
                   <Image
-                    width={200}
-                    height={200}
+                    width={415}
+                    height={430}
                     className="bank-3 img-fluid wow fadeInRight"
                     data-wow-delay="0.8s"
                     src="/img/internet-banking/info.png"
@@ -455,8 +456,8 @@ const MobileApp = () => {
                 <div className="single-security-widget wow fadeInUp">
                   <div className="security-img text-center">
                     <Image
-                      width={200}
-                      height={200}
+                      width={600}
+                      height={400}
                       className="img-fluid round-15"
                       src="/img/security-tips/img-1.png"
                       alt="security image"
@@ -536,7 +537,9 @@ const MobileApp = () => {
           </div>
         </section>
 
-        <section className="client-area pt-110 ">
+          {/* what our client say */}
+
+        {/* <section className="client-area pt-110 ">
           <div className="container">
             <div className="section-title">
               <h2 className="wow fadeInUp mb-0">What Our Client Say</h2>
@@ -926,7 +929,9 @@ const MobileApp = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
+
+        <ClientSlider/>
 
         <section className="news-area pt-200 pb-110">
           <div className="container ">
@@ -1162,8 +1167,8 @@ const MobileApp = () => {
                   <div className="flog mb-35">
                     <Link href="index.html">
                       <Image
-                        width={200}
-                        height={200}
+                        width={100}
+                        height={35}
                         src="/img/logo/Logo.png"
                         alt="logo"
                       />
