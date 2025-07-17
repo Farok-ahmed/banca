@@ -66,8 +66,8 @@ const SampleBanca = () => {
               </div>
               <div className="col-lg-5 d-none d-lg-block position-relative">
                 <Image
-                  width={200}
-                  height={200}
+                  width={670}
+                  height={700}
                   className="person-img "
                   src="/img/banner/person-2.png"
                   alt=""
@@ -602,7 +602,7 @@ const SampleBanca = () => {
                 <div className="row">
                   <div className="col-12">
                     <Image
-                      width={200}
+                      width={960}
                       height={200}
                       className="main-img img-fluid"
                       src="/img/help-ad/img-1.png"
@@ -644,8 +644,8 @@ const SampleBanca = () => {
                       <div className="shape">
                         {' '}
                         <Image
-                          width={200}
-                          height={200}
+                          width={100}
+                          height={100}
                           src="/img/help-ad/shape.png"
                           alt="shape"
                         />
@@ -1218,6 +1218,8 @@ const SampleBanca = () => {
                   </div>
                 </div>
               </div>
+
+              
               <div className="col-lg-6">
                 <div className="faq-widget-2">
                   <div className="accordion" id="accordionExample">
@@ -1594,7 +1596,7 @@ const SampleBanca = () => {
                   <div className="truspilot mt-40">
                     <Image
                       width={120}
-                      height={80}
+                      height={70}
                       src="/img/footer/Trustpilot.png"
                       alt="Trustpilot"
                     />
