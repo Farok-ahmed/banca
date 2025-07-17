@@ -113,26 +113,26 @@ const LoanSteps = () => {
                   >
                     <div className="shapes">
                       <Image
-                        width={40}
-                        height={40}
+                        width={120}
+                        height={60}
                         src="/img/feature/shape-6.png"
                         alt="shape"
                       />
                       <Image
-                        width={40}
-                        height={40}
+                        width={100}
+                        height={70}
                         src="/img/feature/shape-10.png"
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/shape-4.png"
                         alt="shape"
                       />
                       <Image
-                        width={100}
-                        height={100}
+                        width={30}
+                        height={30}
                         src="/img/feature/shape-3.png"
                         alt="shape"
                       />
@@ -143,8 +143,8 @@ const LoanSteps = () => {
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/shape-12.png"
                         alt="shape"
                       />
@@ -171,46 +171,46 @@ const LoanSteps = () => {
                   >
                     <div className="shapes">
                       <Image
-                        width={200}
-                        height={200}
+                        width={35}
+                        height={60}
                         src="/img/feature/shape-13.png"
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={80}
+                        height={50}
                         src="/img/feature/shape-14.png"
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={100}
+                        height={30}
                         src="/img/feature/shape-15.png"
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={50}
+                        height={50}
                         src="/img/feature/shape-11.png"
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={50}
+                        height={50}
                         src="/img/feature/shape-12.png"
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={10}
+                        height={10}
                         src="/img/feature/shape-5.png"
                         alt="shape"
                       />
                     </div>
                     <div className="feature-img">
                       <Image
-                        width={30}
-                        height={30}
+                        width={90}
+                        height={50}
                         src="/img/feature/icon-6.png"
                         alt=""
                       />
@@ -228,39 +228,39 @@ const LoanSteps = () => {
                   >
                     <div className="shapes">
                       <Image
-                        width={200}
-                        height={200}
+                        width={160}
+                        height={50}
                         src="/img/feature/shape-1.png"
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={70}
+                        height={40}
                         src="/img/feature/shape-2.png"
                         alt="shape"
                       />
                       <Image
-                        width={10}
-                        height={10}
+                        width={130}
+                        height={60}
                         src="/img/feature/shape-6.png"
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={40}
+                        height={40}
                         src="/img/feature/shape-9.png"
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={50}
+                        height={50}
                         src="/img/feature/shape-11.png"
                         alt="shape"
                       />
                     </div>
                     <div className="feature-img">
                       <Image
-                        width={90}
+                        width={80}
                         height={50}
                         src="/img/feature/icon-7.png"
                         alt=""
@@ -1056,7 +1056,7 @@ const LoanSteps = () => {
                 <Link href="index.html" className="p-0 m-0">
                   <Image
                     width={90}
-                    height={40}
+                    height={35}
                     src="/img/logo/Logo.png"
                     alt="logo"
                   />
