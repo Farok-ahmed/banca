@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
 import Image from 'next/image';
+import Link from 'next/link';
 
 const LoanSteps = () => {
   return (
@@ -15,8 +16,8 @@ const LoanSteps = () => {
               <div className="col-md-6">
                 <div className="banner-content">
                   <Image
-                    width={200}
-                    height={200}
+                    width={160}
+                    height={180}
                     data-parallax='{"x": 0, "y": 250, "rotateZ":0}'
                     className="shape"
                     src="/img/banner/shape-3.png"
@@ -29,19 +30,19 @@ const LoanSteps = () => {
                     Banca is the one you can rely that will support you all the
                     way by offering Home Loan facilities.
                   </p>
-                  <a
+                  <Link
                     href="loan.html"
                     data-wow-delay="0.5s"
                     className="wow fadeInUp theme-btn theme-btn-lg mt-50"
                   >
                     Apply now <i className="arrow_right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className=" col-md-6 col-lg-5 offset-lg-1 pt-40">
                 <div className="banner-img">
                   <Image
-                    width={200}
+                    width={400}
                     height={200}
                     className="main-img img-fluid wow fadeInRight"
                     src="/img/banner/banner-img-2.png"
@@ -49,8 +50,8 @@ const LoanSteps = () => {
                   />
                   <div className="shapes">
                     <Image
-                      width={200}
-                      height={200}
+                      width={90}
+                      height={150}
                       data-parallax='{"x": 0, "y": 130, "rotateZ":0}'
                       className="shape-1"
                       src="/img/banner/shape-1.png"
@@ -65,31 +66,31 @@ const LoanSteps = () => {
                       alt="shape"
                     />
                     <Image
-                      width={200}
-                      height={200}
+                      width={100}
+                      height={100}
                       data-parallax='{"x": 250, "y":0, "rotateZ":0}'
                       className="shape-3"
                       src="/img/banner/shape-4.png"
                       alt="shape"
                     />
                     <Image
-                      width={200}
-                      height={200}
+                      width={20}
+                      height={20}
                       data-parallax='{"x": -200, "y": 250, "rotateZ":0}'
                       className="shape-4"
                       src="/img/banner/shape-5.png"
                       alt="shape"
                     />
                     <Image
-                      width={200}
-                      height={200}
+                      width={20}
+                      height={20}
                       className="shape-5"
                       src="/img/banner/shape-6.png"
                       alt="shape"
                     />
                     <Image
-                      width={200}
-                      height={200}
+                      width={20}
+                      height={20}
                       className="shape-6"
                       src="/img/banner/shape-7.png"
                       alt="shape"
@@ -112,14 +113,14 @@ const LoanSteps = () => {
                   >
                     <div className="shapes">
                       <Image
-                        width={200}
-                        height={200}
+                        width={40}
+                        height={40}
                         src="/img/feature/shape-6.png"
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={40}
+                        height={40}
                         src="/img/feature/shape-10.png"
                         alt="shape"
                       />
@@ -130,14 +131,14 @@ const LoanSteps = () => {
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={100}
+                        height={100}
                         src="/img/feature/shape-3.png"
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/shape-12.png"
                         alt="shape"
                       />
@@ -151,8 +152,8 @@ const LoanSteps = () => {
 
                     <div className="feature-img">
                       <Image
-                        width={200}
-                        height={200}
+                        width={90}
+                        height={50}
                         src="/img/feature/icon-5.png"
                         alt=""
                       />
@@ -208,8 +209,8 @@ const LoanSteps = () => {
                     </div>
                     <div className="feature-img">
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/icon-6.png"
                         alt=""
                       />
@@ -239,8 +240,8 @@ const LoanSteps = () => {
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
+                        width={10}
+                        height={10}
                         src="/img/feature/shape-6.png"
                         alt="shape"
                       />
@@ -259,8 +260,8 @@ const LoanSteps = () => {
                     </div>
                     <div className="feature-img">
                       <Image
-                        width={200}
-                        height={200}
+                        width={90}
+                        height={50}
                         src="/img/feature/icon-7.png"
                         alt=""
                       />
@@ -309,9 +310,9 @@ const LoanSteps = () => {
                         Considered2
                       </li>
                     </ul>
-                    <a href="loan.html" className="theme-btn mt-20 w-100">
+                    <Link href="loan.html" className="theme-btn mt-20 w-100">
                       Apply for loans
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="col-xl-3 col-md-6 ">
@@ -326,12 +327,12 @@ const LoanSteps = () => {
                         then 50% of your total income in order to qialify.
                       </li>
                     </ul>
-                    <a
+                    <Link
                       href="#"
                       className="theme-btn theme-btn-light w-100 mt-30"
                     >
                       Learn more
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -362,8 +363,8 @@ const LoanSteps = () => {
                 >
                   <div className="icon-bg-1">
                     <Image
-                      width={200}
-                      height={200}
+                      width={30}
+                      height={30}
                       src="/img/corporate-finance/icon-5.svg"
                       alt="icon"
                     />
@@ -373,9 +374,9 @@ const LoanSteps = () => {
                     The best business account to send and receive payments on a
                     daily basis.
                   </p>
-                  <a href="#" className="theme-btn theme-btn-outlined mt-45">
+                  <Link href="#" className="theme-btn theme-btn-outlined mt-45">
                     Find Out More
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="col-xl-3 col-md-6">
@@ -385,8 +386,8 @@ const LoanSteps = () => {
                 >
                   <div className="icon-bg-2">
                     <Image
-                      width={200}
-                      height={200}
+                      width={30}
+                      height={30}
                       src="/img/corporate-finance/icon-2.svg"
                       alt="icon"
                     />
@@ -395,9 +396,9 @@ const LoanSteps = () => {
                   <p>
                     Optimize your teams expenses by always staying in control.
                   </p>
-                  <a href="#" className="theme-btn theme-btn-outlined mt-45">
+                  <Link href="#" className="theme-btn theme-btn-outlined mt-45">
                     Find Out More
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="col-xl-3 col-md-6">
@@ -407,8 +408,8 @@ const LoanSteps = () => {
                 >
                   <div className="icon-bg-3">
                     <Image
-                      width={200}
-                      height={200}
+                      width={30}
+                      height={30}
                       src="/img/corporate-finance/icon-3.svg"
                       alt="icon"
                     />
@@ -418,9 +419,9 @@ const LoanSteps = () => {
                     Open a business account for the online deposit of your share
                     capital.
                   </p>
-                  <a href="#" className="theme-btn theme-btn-outlined mt-45">
+                  <Link href="#" className="theme-btn theme-btn-outlined mt-45">
                     Find Out More
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="col-xl-3 col-md-6">
@@ -430,8 +431,8 @@ const LoanSteps = () => {
                 >
                   <div className="icon-bg-4">
                     <Image
-                      width={200}
-                      height={200}
+                      width={30}
+                      height={30}
                       src="/img/corporate-finance/icon-4.svg"
                       alt="icon"
                     />
@@ -441,9 +442,9 @@ const LoanSteps = () => {
                     Stay focused on your core business by managing your finances
                     and accounting.
                   </p>
-                  <a href="#" className="theme-btn theme-btn-outlined mt-45">
+                  <Link href="#" className="theme-btn theme-btn-outlined mt-45">
                     Find Out More
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -473,8 +474,8 @@ const LoanSteps = () => {
                   <div className="widget-header">
                     <div className="widget-img">
                       <Image
-                        width={200}
-                        height={200}
+                        width={70}
+                        height={70}
                         src="/img/how-works/icon-1.png"
                         alt="icon"
                       />
@@ -532,8 +533,8 @@ const LoanSteps = () => {
                   <div className="widget-header">
                     <div className="widget-img">
                       <Image
-                        width={200}
-                        height={200}
+                        width={70}
+                        height={70}
                         src="/img/how-works/icon-2.png"
                         alt="icon"
                       />
@@ -584,56 +585,56 @@ const LoanSteps = () => {
           <div className="security-priority pt-90 pb-95 text-center">
             <div className="shapes">
               <Image
-                width={200}
-                height={200}
+                width={60}
+                height={60}
                 src="/img/security-tips/shape-1.png"
                 alt="shape"
               />
               <Image
-                width={200}
-                height={200}
+                width={40}
+                height={40}
                 src="/img/security-tips/shape-2.png"
                 alt="shape"
               />
               <Image
-                width={200}
-                height={200}
+                width={40}
+                height={40}
                 src="/img/security-tips/shape-3.png"
                 alt="shape"
               />
               <Image
-                width={200}
-                height={200}
+                width={170}
+                height={100}
                 src="/img/security-tips/shape-4.png"
                 alt="shape"
               />
               <Image
-                width={200}
-                height={200}
+                width={60}
+                height={60}
                 src="/img/security-tips/shape-5.png"
                 alt="shape"
               />
               <Image
-                width={200}
-                height={200}
+                width={100}
+                height={100}
                 src="/img/security-tips/shape-6.png"
                 alt="shape"
               />
               <Image
-                width={200}
-                height={200}
+                width={40}
+                height={40}
                 src="/img/security-tips/shape-1.png"
                 alt="shape"
               />
               <Image
                 width={200}
-                height={200}
+                height={250}
                 data-parallax='{"x": -60, "y": 150, "rotateZ":-15}'
                 src="/img/security-tips/shape-7.png"
                 alt="shape"
               />
               <Image
-                width={200}
+                width={100}
                 height={200}
                 data-parallax='{"x": 0, "y": -150, "rotateZ":0}'
                 src="/img/security-tips/shape-8.png"
@@ -644,8 +645,8 @@ const LoanSteps = () => {
               <div className="row">
                 <div className="col-xl-6 mx-auto">
                   <Image
-                    width={200}
-                    height={200}
+                    width={60}
+                    height={70}
                     src="/img/security-tips/security-priority.png"
                     alt="icon"
                   />
@@ -653,7 +654,7 @@ const LoanSteps = () => {
                   <p>
                     We always have your security in mind. Rest easy knowing your
                     data is protected with 128-bit encryption.{' '}
-                    <a href="#">Learn more.</a>
+                    <Link href="#">Learn more.</Link>
                   </p>
                 </div>
               </div>
@@ -854,8 +855,8 @@ const LoanSteps = () => {
               <div className="col-md-4 offset-lg-1 mt-4 mt-md-0 ps-lg-5">
                 <div className="faq-img">
                   <Image
-                    width={200}
-                    height={200}
+                    width={900}
+                    height={900}
                     className="img-fluid"
                     src="/img/faq/illustration.png"
                     alt="faq-image"
@@ -873,39 +874,39 @@ const LoanSteps = () => {
                 <div className="cta cta-bg-primary">
                   <div className="shapes">
                     <Image
-                      width={200}
-                      height={200}
+                      width={50}
+                      height={50}
                       src="/img/cta/icon-1.png"
                       alt="shape"
                     />
                     <Image
-                      width={200}
-                      height={200}
+                      width={60}
+                      height={30}
                       data-parallax='{"x": 150, "y": 0, "rotateZ":-0}'
                       src="/img/cta/icon-2.png"
                       alt="shape"
                     />
                     <Image
-                      width={200}
-                      height={200}
+                      width={140}
+                      height={100}
                       src="/img/cta/icon-3.png"
                       alt="shape"
                     />
                     <Image
-                      width={200}
-                      height={200}
+                      width={100}
+                      height={100}
                       src="/img/cta/icon-4.png"
                       alt="shape"
                     />
                     <Image
-                      width={200}
-                      height={200}
+                      width={90}
+                      height={100}
                       src="/img/cta/icon-5.png"
                       alt="shape"
                     />
                     <Image
-                      width={200}
-                      height={200}
+                      width={60}
+                      height={40}
                       data-parallax='{"x": 400, "y": 0, "rotateZ":0}'
                       src="/img/cta/icon-6.png"
                       alt="shape"
@@ -925,12 +926,12 @@ const LoanSteps = () => {
 
                     <div className="col-md-5 text-center text-md-end">
                       <div className="cta-content   text-md-end mt-3 mt-md-0">
-                        <a
+                        <Link
                           href="contact.html"
                           className="theme-btn theme-btn-alt wow fadeInLeft m-0"
                         >
                           Contact Us
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -978,16 +979,16 @@ const LoanSteps = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <a href="#"> Our core Businesses</a>
+                        <Link href="#"> Our core Businesses</Link>
                       </li>
                       <li>
-                        <a href="#"> Our company purpose</a>
+                        <Link href="#"> Our company purpose</Link>
                       </li>
                       <li>
-                        <a href="#"> Jobs & Careers</a>
+                        <Link href="#"> Jobs & Careers</Link>
                       </li>
                       <li>
-                        <a href="#"> Our Responsibility</a>
+                        <Link href="#"> Our Responsibility</Link>
                       </li>
                     </ul>
                   </div>
@@ -1004,16 +1005,16 @@ const LoanSteps = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <a href="#"> Compliance Publications</a>
+                        <Link href="#"> Compliance Publications</Link>
                       </li>
                       <li>
-                        <a href="#"> Annual Reports</a>
+                        <Link href="#"> Annual Reports</Link>
                       </li>
                       <li>
-                        <a href="#"> CSR Reports</a>
+                        <Link href="#"> CSR Reports</Link>
                       </li>
                       <li>
-                        <a href="#"> Financial documentation</a>
+                        <Link href="#"> Financial documentation</Link>
                       </li>
                     </ul>
                   </div>
@@ -1030,16 +1031,16 @@ const LoanSteps = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <a href="#">Our news</a>
+                        <Link href="#">Our news</Link>
                       </li>
                       <li>
-                        <a href="#">Our press releases</a>
+                        <Link href="#">Our press releases</Link>
                       </li>
                       <li>
-                        <a href="#">Our job offers</a>
+                        <Link href="#">Our job offers</Link>
                       </li>
                       <li>
-                        <a href="#">Our websites</a>
+                        <Link href="#">Our websites</Link>
                       </li>
                     </ul>
                   </div>
@@ -1052,43 +1053,43 @@ const LoanSteps = () => {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-3 text-center text-lg-start">
-                <a href="index.html" className="p-0 m-0">
+                <Link href="index.html" className="p-0 m-0">
                   <Image
-                    width={200}
-                    height={200}
+                    width={90}
+                    height={40}
                     src="/img/logo/Logo.png"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
               <div className="col-lg-5 text-center my-3 my-sm-0">
                 <div className="copyright-text">
                   <p>
                     Copyright &copy; Banca 2025. <br className="d-sm-none" />{' '}
-                    <a className="ms-2" href="#">
-                      Privecy
-                    </a>{' '}
+                    <Link className="ms-2" href="#">
+                      Privacy
+                    </Link>{' '}
                     |
-                    <a className="ms-0" href="#">
+                    <Link className="ms-0" href="#">
                       Term of Use
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>
               <div className="col-lg-4 text-center text-lg-end ">
                 <div className="social-button">
-                  <a href="#">
+                  <Link href="#">
                     <i className="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link href="#">
                     <i className="fab fa-twitter"></i>
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link href="#">
                     <i className="fab fa-pinterest-p"></i>
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link href="#">
                     <i className="fab fa-linkedin-in"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
