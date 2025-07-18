@@ -1,8 +1,14 @@
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
+import { useState } from 'react';
+import Flatpickr from 'react-flatpickr';
+import 'flatpickr/dist/themes/light.css';
 
 const SmallBank = () => {
+  const [startDate, setStartDate] = useState<Date[] | null>(null);
+  const [endDate, setEndDate] = useState<Date[] | null>(null);
   return (
     <div>
       <header className="header">
@@ -1153,24 +1159,40 @@ const SmallBank = () => {
                         </span>
                       </div>
                     </div>
-                    <div className="d-flex loan-start-date">
+
+                    <div
+                      className="d-flex loan-start-date"
+                      style={{ gap: '20px' }}
+                    >
                       <div>
                         <div className="range-label">Start Date</div>
                         <div className="inp-container">
-                          <input
-                            type="text"
+                          <Flatpickr
                             id="loanStartDate"
                             placeholder="Select Date"
+                            className="form-control"
+                            value={startDate as Date[]}
+                            onChange={(date) => setStartDate(date)}
+                            options={{
+                              dateFormat: 'd F Y',
+                              position: 'above',
+                            }}
                           />
                         </div>
                       </div>
                       <div>
                         <div className="range-label">End Date</div>
                         <div className="inp-container">
-                          <input
-                            type="text"
+                          <Flatpickr
                             id="loanEndDate"
                             placeholder="Select Date"
+                            className="form-control"
+                            value={endDate as Date[]}
+                            onChange={(date) => setEndDate(date)}
+                            options={{
+                              dateFormat: 'd F Y',
+                              position: 'above',
+                            }}
                           />
                         </div>
                       </div>
