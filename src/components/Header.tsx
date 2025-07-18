@@ -91,12 +91,12 @@ const Header = () => {
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link href="/index-finance" className="nav-link">
+                        <Link href="/finance-sass-app" className="nav-link">
                           Finance Sass App
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <Link href="/index-small-bank" className="nav-link">
+                        <Link href="/small-bank" className="nav-link">
                           Small Bank
                         </Link>
                       </li>

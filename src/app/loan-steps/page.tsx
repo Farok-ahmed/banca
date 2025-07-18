@@ -1065,11 +1065,11 @@ const LoanSteps = () => {
               <div className="col-lg-5 text-center my-3 my-sm-0">
                 <div className="copyright-text">
                   <p>
-                    Copyright &copy; Banca 2025. <br className="d-sm-none" />{' '}
+                    Copyright &copy; Banca 2025.<br className="d-sm-none" />{' '}
                     <Link className="ms-2" href="#">
-                      Privacy
-                    </Link>{' '}
-                    |
+                      Privacy 
+                    </Link>
+                    | 
                     <Link className="ms-0" href="#">
                       Term of Use
                     </Link>
