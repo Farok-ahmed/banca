@@ -1,10 +1,347 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
 import Image from 'next/image';
 import Link from 'next/link';
+import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 const LoanSteps = () => {
   return (
     <div>
+      <header className="header">
+        <div className="header-top py-2">
+          <div className="container">
+            <div className="row align-items-center">
+              <div className="col-md-6">
+                <div className="header-info-left">
+                  <div className="language-list">
+                    <select id="select-lang">
+                      <option value="English">English</option>
+                      <option value="Bangla">Bangla</option>
+                      <option value="French">French</option>
+                      <option value="Hindi">Hindi</option>
+                    </select>
+                  </div>
+
+                  <div className="timestamp ms-4">
+                    {' '}
+                    <i className="icon_clock_alt"></i> Mon - Fri 10:00-18:00
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-6">
+                <div className="header-info-right">
+                  <ul>
+                    <li>
+                      <Image
+                        width={20}
+                        height={20}
+                        className="img-fluid"
+                        src="/img/phone-outline-white.png"
+                        alt="phone"
+                      />
+                      <Link href="tel:01234567890">+01234-567890</Link>
+                    </li>
+
+                    <li>
+                      <i className="icon_mail_alt"></i>
+                      <Link href="mailto:bancainfo@email.com">
+                        bancainfo@email.com
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="header-menu header-menu-2" id="sticky">
+          <nav className="navbar navbar-expand-lg ">
+            <div className="container">
+              <Link className="navbar-brand" href="index.html">
+                <Image
+                  width={110}
+                  height={35}
+                  src="/img/logo/Logo-2.png"
+                  // srcset="/img/logo/Logo-2@2x.png 2x"
+                  alt="logo"
+                />
+              </Link>
+              <button
+                className="navbar-toggler collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="menu_toggle">
+                  <span className="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                  <span className="hamburger-cross">
+                    <span></span>
+                    <span></span>
+                  </span>
+                </span>
+              </button>
+
+              <div
+                className="collapse navbar-collapse"
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav menu ms-auto">
+                  <li className="nav-item dropdown submenu ">
+                    <Link
+                      href="#"
+                      className="nav-link dropdown-toggle active"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Home
+                    </Link>
+                    <i
+                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
+                      aria-hidden="true"
+                      data-bs-toggle="dropdown"
+                    ></i>
+                    <ul className="dropdown-menu">
+                      <li className="nav-item ">
+                        <Link href="/" className="nav-link">
+                          Smart Finance
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link href="/index-company" className="nav-link ">
+                          Loan Company
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link href="/mobile-app" className="nav-link">
+                          Mobile App
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link href="/simple-banca" className="nav-link ">
+                          Simple Banca
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link href="/loan-steps" className="nav-link active">
+                          Loan Steps
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link href="/finance-sass-app" className="nav-link">
+                          Finance Sass App
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link href="/small-bank" className="nav-link">
+                          Small Bank
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li className="nav-item dropdown submenu">
+                    <Link
+                      className="nav-link dropdown-toggle"
+                      href="loan.html"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Loan
+                    </Link>
+                    <i
+                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
+                      aria-hidden="false"
+                      data-bs-toggle="dropdown"
+                    ></i>
+
+                    <ul className="dropdown-menu">
+                      <li className="nav-item">
+                        <Link className="nav-link" href="loan.html">
+                          Get loan
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link
+                          className="nav-link"
+                          href="#"
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded="false"
+                        >
+                          Loan Application
+                        </Link>
+                        <i
+                          className="arrow_carrot-down_alt2 mobile_dropdown_icon"
+                          aria-hidden="false"
+                          data-bs-toggle="dropdown"
+                        ></i>
+
+                        <ul className="dropdown-menu">
+                          <li className="nav-item">
+                            <Link className="nav-link" href="loan-details.html">
+                              Step 01
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link
+                              className="nav-link"
+                              href="personal-details.html"
+                            >
+                              Step 02
+                            </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link className="nav-link" href="document-upload.html">
+                              Step 03
+                            </Link>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </li>
+                  <li className="nav-item dropdown submenu">
+                    <Link
+                      className="nav-link dropdown-toggle"
+                      href="career.html"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Job Pages
+                    </Link>
+                    <i
+                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
+                      aria-hidden="false"
+                      data-bs-toggle="dropdown"
+                    ></i>
+                    <ul className="dropdown-menu">
+                      <li className="nav-item">
+                        <Link className="nav-link" href="career.html">
+                          Career
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" href="job-post.html">
+                          Jobs
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" href="job-application.html">
+                          Job Application
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li className="nav-item dropdown submenu">
+                    <Link
+                      className="nav-link dropdown-toggle"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Pages
+                    </Link>
+                    <i
+                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
+                      aria-hidden="false"
+                      data-bs-toggle="dropdown"
+                    ></i>
+                    <ul className="dropdown-menu ">
+                      <li className="nav-item">
+                        <Link className="nav-link" href="card.html">
+                          Cards
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" href="about.html">
+                          About Us
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" href="contact.html">
+                          Contact Us
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" href="error.html">
+                          404 Error
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                  <li className="nav-item dropdown submenu">
+                    <Link
+                      className="nav-link dropdown-toggle"
+                      href="blog.html"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      Blog
+                    </Link>
+                    <i
+                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
+                      aria-hidden="false"
+                      data-bs-toggle="dropdown"
+                    ></i>
+                    <ul className="dropdown-menu ">
+                      <li className="nav-item">
+                        <Link className="nav-link" href="blog.html">
+                          Blog Listing
+                        </Link>
+                      </li>
+                      <li className="nav-item">
+                        <Link className="nav-link" href="blog-details.html">
+                          Blog Details
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+                <Link
+                  className="theme-btn"
+                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
+                  target="_blank"
+                >
+                  Buy Banca
+                </Link>
+                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
+                  <label htmlFor="something" className="tab-btn tab-btns">
+                    {/* <ion-icon name="moon"></ion-icon> */}
+                    <IoMoonOutline name="moon" />
+                  </label>
+                  <label htmlFor="something" className="tab-btn">
+                    {/* <ion-icon name="sunny"></ion-icon> */}
+                    <IoSunnyOutline name="sunny" />
+                  </label>
+                  <label className=" ball" htmlFor="something"></label>
+                  <input
+                    type="checkbox"
+                    name="something"
+                    id="something"
+                    className="dark_mode_switcher"
+                  />
+                </div>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+
       <main>
         <section
           className="banner-area-2 pt-200 pb-95"
@@ -1065,11 +1402,12 @@ const LoanSteps = () => {
               <div className="col-lg-5 text-center my-3 my-sm-0">
                 <div className="copyright-text">
                   <p>
-                    Copyright &copy; Banca 2025.<br className="d-sm-none" />{' '}
+                    Copyright &copy; Banca 2025.
+                    <br className="d-sm-none" />{' '}
                     <Link className="ms-2" href="#">
-                      Privacy 
+                      Privacy
                     </Link>
-                    | 
+                    |
                     <Link className="ms-0" href="#">
                       Term of Use
                     </Link>

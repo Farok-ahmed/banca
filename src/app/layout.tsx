@@ -15,7 +15,6 @@ import '../styles/intlTellInput.css';
 import '../sass/main.scss';
 import '../styles/responsive.css';
 
-import Header from '@/components/Header';
 const geistSans = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
@@ -40,9 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Header />
         {children}
-        {/* <Footer /> */}
       </body>
     </html>
   );

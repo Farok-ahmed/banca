@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { MoonIcon, SunIcon } from '@heroicons/react/24/solid';
+import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 const Header = () => {
   return (
@@ -232,28 +232,30 @@ const Header = () => {
                   </li>
                 </ul>
 
-                <a
+                <Link
                   className="theme-btn theme-btn-rounded-2 theme-btn-alt"
                   href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Buy Banca
-                </a>
+                </Link>
 
                 <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
-                  <label htmlFor="darkMode" className="tab-btn tab-btns">
-                    <MoonIcon className="w-6 h-6 text-gray-700 dark:text-yellow-400" />
+                  <label htmlFor="something" className="tab-btn tab-btns">
+                    {/* <ion-icon name="moon"></ion-icon> */}
+                    <IoMoonOutline name='moon'/>
                   </label>
-                  <label htmlFor="darkMode" className="tab-btn">
-                    <SunIcon className="w-6 h-6 text-yellow-500 dark:text-gray-200" />
+                  <label htmlFor="something" className="tab-btn">
+                    {/* <ion-icon name="sunny"></ion-icon> */}
+                    <IoSunnyOutline name="sunny"/>
                   </label>
-                  <label className="ball" htmlFor="darkMode"></label>
+                  <label className=" ball" htmlFor="something"></label>
                   <input
                     type="checkbox"
-                    name="darkMode"
-                    id="darkMode"
-                    className="dark_mode_switcher hidden"
+                    name="something"
+                    id="something"
+                    className="dark_mode_switcher"
                   />
                 </div>
               </div>
