@@ -1,82 +1,199 @@
-'use client';
+'use client'; // if using Next.js 13 app router
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import noUiSlider from 'nouislider';
+import 'nouislider/dist/nouislider.css';
 import Flatpickr from 'react-flatpickr';
-import 'flatpickr/dist/themes/material_blue.css';
+import 'flatpickr/dist/themes/material_green.css';
+import Link from 'next/link';
 
 const LoanCalculator = () => {
-  const [loanAmount, setLoanAmount] = useState(10000);
-  const [interestRate, setInterestRate] = useState(10);
-  const [duration, setDuration] = useState(1);
-  const [durationType, setDurationType] = useState<'year' | 'month' | 'week'>('year');
-  const [startDate, setStartDate] = useState<Date | unknown>(null);
-  const [endDate, setEndDate] = useState<Date | unknown>(null);
+  // Date states for Flatpickr
+  const [startDate, setStartDate] = useState<Date[]>([]);
+  const [endDate, setEndDate] = useState<Date[]>([]);
 
-  const [emi, setEmi] = useState(0);
-  const [totalPayable, setTotalPayable] = useState(0);
-  const [interestPayable, setInterestPayable] = useState(0);
+  // Refs for slider containers
+  const loanAmountRef = useRef<HTMLDivElement>(null);
+  const roiRef = useRef<HTMLDivElement>(null);
+  const yearRangeRef = useRef<HTMLDivElement>(null);
+  const monthRangeRef = useRef<HTMLDivElement>(null);
+  const weekRangeRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    calculateLoan();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [loanAmount, interestRate, duration, durationType]);
+    if (loanAmountRef.current) {
+      noUiSlider.create(loanAmountRef.current, {
+        start: [5000],
+        range: {
+          min: 1000,
+          max: 100000,
+        },
+        connect: [true, false],
+        tooltips: true,
+        format: {
+          to: (value) => Math.round(value).toString(),
+          from: (value) => Number(value),
+        },
+      });
+      loanAmountRef.current.noUiSlider?.on('update', (values) => {
+        const input = document.getElementById('SetRange') as HTMLInputElement;
+        if (input) input.value = values[0].toString();
+      });
+    }
 
-  const calculateLoan = () => {
-    let months = duration;
+    if (roiRef.current) {
+      noUiSlider.create(roiRef.current, {
+        start: [5],
+        range: {
+          min: 0,
+          max: 20,
+        },
+        connect: [true, false],
+        tooltips: true,
+        format: {
+          to: (value) => value.toFixed(2),
+          from: (value) => Number(value),
+        },
+      });
+      roiRef.current.noUiSlider?.on('update', (values) => {
+        const input = document.getElementById('SetRoiRange') as HTMLInputElement;
+        if (input) input.value = values[0].toString();
+      });
+    }
 
-    if (durationType === 'year') months *= 12;
-    else if (durationType === 'week') months = Math.floor(duration * 4.33); // approx
+    if (yearRangeRef.current) {
+      noUiSlider.create(yearRangeRef.current, {
+        start: [1],
+        range: {
+          min: 1,
+          max: 30,
+        },
+        connect: [true, false],
+        tooltips: true,
+        format: {
+          to: (value) => Math.round(value).toString(),
+          from: (value) => Number(value),
+        },
+      });
+      yearRangeRef.current.noUiSlider?.on('update', (values) => {
+        const input = document.getElementById('SetMonthRange') as HTMLInputElement;
+        if (input) input.value = values[0].toString();
+      });
+    }
 
-    const monthlyRate = interestRate / (12 * 100);
-    const emiCalc =
-      (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, months)) /
-      (Math.pow(1 + monthlyRate, months) - 1);
+    if (monthRangeRef.current) {
+      noUiSlider.create(monthRangeRef.current, {
+        start: [12],
+        range: {
+          min: 1,
+          max: 360,
+        },
+        connect: [true, false],
+        tooltips: true,
+        format: {
+          to: (value) => Math.round(value).toString(),
+          from: (value) => Number(value),
+        },
+      });
+      monthRangeRef.current.noUiSlider?.on('update', (values) => {
+        const input = document.getElementById('SetMonthRange') as HTMLInputElement;
+        if (input) input.value = values[0].toString();
+      });
+    }
 
-    const total = emiCalc * months;
-    const interest = total - loanAmount;
+    if (weekRangeRef.current) {
+      noUiSlider.create(weekRangeRef.current, {
+        start: [52],
+        range: {
+          min: 1,
+          max: 1560,
+        },
+        connect: [true, false],
+        tooltips: true,
+        format: {
+          to: (value) => Math.round(value).toString(),
+          from: (value) => Number(value),
+        },
+      });
+      weekRangeRef.current.noUiSlider?.on('update', (values) => {
+        const input = document.getElementById('SetMonthRange') as HTMLInputElement;
+        if (input) input.value = values[0].toString();
+      });
+    }
 
-    setEmi(emiCalc);
-    setTotalPayable(total);
-    setInterestPayable(interest);
-  };
-
-  const handleTermTab = (type: 'year' | 'month' | 'week') => {
-    setDurationType(type);
-    setDuration(1);
-  };
+    // Cleanup on unmount
+    return () => {
+      [
+        loanAmountRef,
+        roiRef,
+        yearRangeRef,
+        monthRangeRef,
+        weekRangeRef,
+      ].forEach((ref) => {
+        if (ref.current?.noUiSlider) {
+          ref.current.noUiSlider.destroy();
+        }
+      });
+    };
+  }, []);
 
   return (
     <section className="calculator-area-2">
       <div className="container">
         <div className="section-title">
           <span className="short-title-2">Loan calculator</span>
-          <h1 className="wow fadeInUp text-white">Calculate and confirm your loans</h1>
+          <h1 className="wow fadeInUp text-white">
+            Calculate and confirm your loans
+          </h1>
         </div>
 
         <div className="calculator-widget-2 mt-50">
           <div className="row gy-lg-0 gy-3">
             <div className="col-lg-7">
-              <div className="single-calculator-widget wow fadeInUp" data-wow-delay="0.1s">
+              <div
+                className="single-calculator-widget wow fadeInUp"
+                data-wow-delay="0.1s"
+              >
                 <h4>Loan Calculator</h4>
-
                 <div className="range-label mt-40">Loan Term</div>
                 <nav>
-                  <div className="nav nav-tabs loan-type-select" role="tablist">
+                  <div
+                    className="nav nav-tabs loan-type-select"
+                    id="nav-tab"
+                    role="tablist"
+                  >
                     <button
-                      className={`nav-link ${durationType === 'year' ? 'active' : ''}`}
-                      onClick={() => handleTermTab('year')}
+                      className="nav-link active"
+                      id="yearTab-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#yearTab"
+                      type="button"
+                      role="tab"
+                      aria-controls="yearTab"
+                      aria-selected="false"
                     >
                       Yearly
                     </button>
                     <button
-                      className={`nav-link ${durationType === 'month' ? 'active' : ''}`}
-                      onClick={() => handleTermTab('month')}
+                      className="nav-link "
+                      id="monthTab-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#monthTab"
+                      type="button"
+                      role="tab"
+                      aria-controls="monthTab"
+                      aria-selected="false"
                     >
                       Monthly
                     </button>
                     <button
-                      className={`nav-link ${durationType === 'week' ? 'active' : ''}`}
-                      onClick={() => handleTermTab('week')}
+                      className="nav-link"
+                      id="weekTab-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#weekTab"
+                      type="button"
+                      role="tab"
+                      aria-controls="weekTab"
+                      aria-selected="false"
                     >
                       Weekly
                     </button>
@@ -85,12 +202,13 @@ const LoanCalculator = () => {
 
                 <div className="range-label">Loan Amount</div>
                 <div className="single-range">
+                  <div id="RangeSlider" ref={loanAmountRef}></div>
                   <div className="input-group">
                     <input
-                      type="number"
-                      value={loanAmount}
-                      onChange={(e) => setLoanAmount(Number(e.target.value))}
-                      className="form-control"
+                      className="noTextMerge"
+                      type="text"
+                      id="SetRange"
+                      readOnly
                     />
                     <span className="input-group-text">$</span>
                   </div>
@@ -98,39 +216,67 @@ const LoanCalculator = () => {
 
                 <div className="range-label">Interest Rate</div>
                 <div className="single-range">
+                  <div id="RoiRangeSlider" ref={roiRef}></div>
                   <div className="input-group">
-                    <input
-                      type="number"
-                      value={interestRate}
-                      onChange={(e) => setInterestRate(Number(e.target.value))}
-                      className="form-control"
-                    />
+                    <input type="text" id="SetRoiRange" readOnly />
                     <span className="input-group-text">%</span>
                   </div>
                 </div>
 
                 <div className="range-label">Loan Duration</div>
                 <div className="single-range">
+                  <div className="tab-content">
+                    <div
+                      className="tab-pane fade show active"
+                      id="yearTab"
+                      role="tabpanel"
+                      aria-labelledby="yearTab"
+                    >
+                      <div id="YearRangeSlider" ref={yearRangeRef}></div>
+                    </div>
+                    <div
+                      className="tab-pane fade"
+                      id="monthTab"
+                      role="tabpanel"
+                      aria-labelledby="monthTab"
+                    >
+                      <div id="MonthRangeSlider" ref={monthRangeRef}></div>
+                    </div>
+                    <div
+                      className="tab-pane fade"
+                      id="weekTab"
+                      role="tabpanel"
+                      aria-labelledby="weekTab"
+                    >
+                      <div id="WeekRangeSlider" ref={weekRangeRef}></div>
+                    </div>
+                  </div>
                   <div className="input-group">
                     <input
-                      type="number"
-                      value={duration}
-                      onChange={(e) => setDuration(Number(e.target.value))}
-                      className="form-control"
+                      className="noTextMerge"
+                      type="text"
+                      id="SetMonthRange"
+                      readOnly
                     />
-                    <span className="input-group-text">{durationType}</span>
+                    <span className="input-group-text loanTermIndicator">
+                      @example.com
+                    </span>
                   </div>
                 </div>
 
-                <div className="d-flex loan-start-date" style={{ gap: '20px' }}>
+                <div
+                  className="d-flex loan-start-date"
+                  style={{ gap: '20px' }}
+                >
                   <div>
                     <div className="range-label">Start Date</div>
                     <div className="inp-container">
                       <Flatpickr
+                        id="loanStartDate"
                         placeholder="Select Date"
                         className="form-control"
-                        value={startDate as Date[]}
-                        onChange={(date) => setStartDate(date[0])}
+                        value={startDate}
+                        onChange={(date) => setStartDate(date)}
                         options={{
                           dateFormat: 'd F Y',
                           position: 'above',
@@ -142,10 +288,11 @@ const LoanCalculator = () => {
                     <div className="range-label">End Date</div>
                     <div className="inp-container">
                       <Flatpickr
+                        id="loanEndDate"
                         placeholder="Select Date"
                         className="form-control"
-                        value={endDate as Date[]}
-                        onChange={(date) => setEndDate(date[0])}
+                        value={endDate}
+                        onChange={(date) => setEndDate(date)}
                         options={{
                           dateFormat: 'd F Y',
                           position: 'above',
@@ -157,13 +304,15 @@ const LoanCalculator = () => {
               </div>
             </div>
 
-            {/* Result Side */}
             <div className="col-lg-5 pl-lg-35">
-              <div className="calculator-result-widget wow fadeInUp" data-wow-delay="0.3s">
+              <div
+                className="calculator-result-widget wow fadeInUp"
+                data-wow-delay="0.3s"
+              >
                 <div className="pie-wrapper mt-25" id="loan_graph_circle">
                   <div className="label">
                     Total Amount
-                    <h2 className="LoanTotalAmount">${totalPayable.toFixed(2)}</h2>
+                    <h2 className="LoanTotalAmount"></h2>
                   </div>
                   <div className="pie">
                     <div className="left-side half-circle"></div>
@@ -171,7 +320,6 @@ const LoanCalculator = () => {
                   </div>
                   <div className="circle-border"></div>
                 </div>
-
                 <div className="graph-indicator">
                   <div>
                     <span className="blue-dot"></span> EMI Amount
@@ -180,32 +328,33 @@ const LoanCalculator = () => {
                     <span className="orange-dot"></span> Interest Payable
                   </div>
                 </div>
-
                 <ul className="loan-calculation list-unstyled">
                   <li>
-                    <span className="label">EMI Amount (Principal + Interest)</span>
-                    <span className="amount">${(emi * (durationType === 'year' ? duration * 12 : durationType === 'month' ? duration : duration * 4.33)).toFixed(2)}</span>
+                    <span className="label">
+                      EMI Amount (Principal + Interest)
+                    </span>
+                    <span className="amount LoanTotalAmount"></span>
                   </li>
                   <li>
                     <span className="label">Interest Payable</span>
-                    <span className="amount">${interestPayable.toFixed(2)}</span>
+                    <span className="amount" id="InterestPayable"></span>
                   </li>
                   <li>
                     <span className="label">Loan Duration</span>
-                    <span className="amount">
-                      {duration} {durationType}(s)
-                    </span>
+                    <span className="amount LoanTotalDuration"></span>
                   </li>
                   <li>
                     <span className="label">Your EMI Amount</span>
-                    <span className="amount">${emi.toFixed(2)}</span>
+                    <span className="amount" id="emiAmount"></span>
                   </li>
                 </ul>
-
-                <a href="personal-details.html" className="theme-btn theme-btn-lg mt-20 w-100">
+                <Link
+                  href="personal-details.html"
+                  className="theme-btn theme-btn-lg mt-20 w-100"
+                >
                   Apply Now
                   <i className="arrow_right"></i>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

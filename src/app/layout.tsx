@@ -29,6 +29,9 @@ export const metadata: Metadata = {
   title: 'Banca - Banking & Business Loan Bootstrap-5 HTML Template',
   description:
     'Banca is a banking and business loan bootstrap-5 HTML template with a modern, clean, and professional design. It is a great choice for any financial institution or business looking to create a modern and professional website.',
+    icons:{
+      icon: '/img/favicon.png'
+    }
 };
 
 export default function RootLayout({

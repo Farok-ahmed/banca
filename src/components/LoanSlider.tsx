@@ -6,6 +6,25 @@ import Image from 'next/image';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
+  <div
+    className="slick-prev"
+    onClick={onClick}
+    style={{ cursor: 'pointer', zIndex: 10 }}
+  >
+    prev
+  </div>
+);
+
+const NextArrow = ({ onClick }: { onClick?: () => void }) => (
+  <div
+    className="slick-next"
+    onClick={onClick}
+    style={{ cursor: 'pointer', zIndex: 10 }}
+  >
+    next
+  </div>
+);
 
 const LoanSlider = () => {
   const settings = {
@@ -14,8 +33,38 @@ const LoanSlider = () => {
     infinite: true,
     speed: 600,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     autoplay: true,
+    nextArrow: (
+      <div>
+        <div
+          style={{
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          className="d-flex justify-content-center align-items-center"
+        >
+          <i className="arrow_right"></i>
+        </div>
+      </div>
+    ),
+    prevArrow: (
+      <div>
+        <div
+          style={{
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+          className="d-flex justify-content-center align-items-center"
+        >
+          <i className="arrow_left"></i>
+        </div>
+      </div>
+    ),
     customPaging: () => (
       <button
         style={{
@@ -25,13 +74,11 @@ const LoanSlider = () => {
         }}
       ></button>
     ),
-    appendDots: (dots: ReactNode) => {
-      return (
-        <ul style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
-          {dots}
-        </ul>
-      );
-    },
+    appendDots: (dots: ReactNode) => (
+      <ul style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+        {dots}
+      </ul>
+    ),
     responsive: [
       {
         breakpoint: 992,
@@ -116,17 +163,19 @@ const LoanSlider = () => {
         <div className="loan-slider pt-80">
           <Slider {...settings}>
             {slides.map((slide, index) => (
-              <div className="single-slide" key={index}>
-                <div className="icon">
-                  <Image
-                    src={slide.image}
-                    width={50}
-                    height={50}
-                    alt={slide.title}
-                  />
+              <div key={index}>
+                <div className="single-slide">
+                  <div className="icon">
+                    <Image
+                      src={slide.image}
+                      width={50}
+                      height={50}
+                      alt={slide.title}
+                    />
+                  </div>
+                  <h4>{slide.title}</h4>
+                  <p>{slide.description}</p>
                 </div>
-                <h4>{slide.title}</h4>
-                <p>{slide.description}</p>
               </div>
             ))}
           </Slider>
