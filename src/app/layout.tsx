@@ -14,6 +14,7 @@ import '../styles/css/all.min.css';
 import '../styles/intlTellInput.css';
 import '../sass/main.scss';
 import '../styles/responsive.css';
+import PreLoader from '@/components/Loader';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -42,6 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <PreLoader/>
         {children}
       </body>
     </html>

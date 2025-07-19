@@ -6,26 +6,6 @@ import Image from 'next/image';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
-  <div
-    className="slick-prev"
-    onClick={onClick}
-    style={{ cursor: 'pointer', zIndex: 10 }}
-  >
-    prev
-  </div>
-);
-
-const NextArrow = ({ onClick }: { onClick?: () => void }) => (
-  <div
-    className="slick-next"
-    onClick={onClick}
-    style={{ cursor: 'pointer', zIndex: 10 }}
-  >
-    next
-  </div>
-);
-
 const LoanSlider = () => {
   const settings = {
     dots: true,

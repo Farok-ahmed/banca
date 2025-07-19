@@ -1,4 +1,4 @@
-'use client'; // if using Next.js 13 app router
+'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
 import noUiSlider from 'nouislider';
