@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/role-supports-aria-props */
+import LoanAccordion from '@/components/LoanAccordion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
@@ -1005,7 +1005,7 @@ const LoanSteps = () => {
               <h2 className="mb-0 wow fadeInUp">Frequently asked questions</h2>
             </div>
 
-            <div className="row pt-30 align-items-end">
+            {/* <div className="row pt-30 align-items-end">
               <div className="col-lg-7 col-md-8">
                 <div className="faq-widget">
                   <div className="accordion" id="accordionExample">
@@ -1200,7 +1200,8 @@ const LoanSteps = () => {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
+            <LoanAccordion/>
           </div>
         </section>
 
@@ -1393,7 +1394,7 @@ const LoanSteps = () => {
                 <Link href="index.html" className="p-0 m-0">
                   <Image
                     width={90}
-                    height={35}
+                    height={30}
                     src="/img/logo/Logo.png"
                     alt="logo"
                   />
