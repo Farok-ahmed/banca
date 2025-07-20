@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/role-supports-aria-props */
+import FinanceAccordion from '@/components/FinanceAccordion';
 import PricingPlan from '@/components/PricingPlan';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -993,7 +993,7 @@ const FinanceSassApp = () => {
 
         <PricingPlan />
 
-        <section className="saas-faq-area bg-white">
+        {/* <section className="saas-faq-area bg-white">
           <div className="container">
             <div
               className="saas-section-title text-center mb-60 wow fadeInUp"
@@ -1210,7 +1210,9 @@ const FinanceSassApp = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
+
+        <FinanceAccordion/>
 
         <section className="saas-subscribe-area cta-4">
           <div className="container">

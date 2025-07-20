@@ -4,7 +4,19 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 const PricingPlan = () => {
-  const [activeTab, setActiveTab] = useState<'monthly' | 'yearly'>('monthly');
+  const [isMonthly, setIsMonthly] = useState(true);
+
+  const handleMonthlyClick = () => {
+    if (!isMonthly) setIsMonthly(true);
+  };
+
+  const handleYearlyClick = () => {
+    if (isMonthly) setIsMonthly(false);
+  };
+
+  const togglePricing = () => {
+    setIsMonthly((prev) => !prev);
+  };
 
   return (
     <section className="saas-pricing-area bg-white">
@@ -17,124 +29,156 @@ const PricingPlan = () => {
             The perfect <span>pricings</span> plans
           </h2>
           <p>
-            There are many variations of passages of Lorem Ipsum available but them
-            <br />
-            majority have suffered alteration form injected.
+            There are many variations of passages of Lorem Ipsum available
+            but them
+            <br /> majority have suffered alteration form injected.
           </p>
         </div>
 
-        {/* ==== Toggle Switch === */}
-        <div className="pricing_tab_btn text-center mb-4">
+        {/* Toggle Button */}
+        <div className="pricing_tab_btn active text-center" style={{ cursor: 'pointer' }}>
           <span
-            className={activeTab === 'monthly' ? 'fw-bold text-dark' : 'text-muted'}
-            style={{ cursor: 'pointer', marginRight: '10px' }}
-            onClick={() => setActiveTab('monthly')}
+            onClick={handleMonthlyClick}
+            className={!isMonthly ? 'text-muted' : ''}
           >
             Monthly
           </span>
-          <span className="toggle"></span>
+          <span className="toggle" onClick={togglePricing}></span>
           <span
-            className={activeTab === 'yearly' ? 'fw-bold text-dark' : 'text-muted'}
-            style={{ cursor: 'pointer', marginLeft: '10px' }}
-            onClick={() => setActiveTab('yearly')}
+            onClick={handleYearlyClick}
+            className={isMonthly ? 'text-muted' : ''}
           >
             Yearly
           </span>
         </div>
 
-        {/* ==== Pricing Content ==== */}
         <div className="pricing_inner">
           {/* Monthly Pricing */}
-          {activeTab === 'monthly' && (
-            <div className="price_items month">
-              <div className="row justify-content-center">
-                {/* Repeat this for all plans */}
-                <PricingCard
-                  title="Basic Plan"
-                  price="$15"
-                  duration="/month"
-                />
-                <PricingCard
-                  title="Premium Plan"
-                  price="$25"
-                  duration="/month"
-                />
-                <PricingCard
-                  title="Business Plan"
-                  price="$45"
-                  duration="/month"
-                />
+          <div className={`price_items month ${!isMonthly ? 'd-none' : ''}`}>
+            <div className="row justify-content-center">
+              {/* Monthly Basic Plan */}
+              <div className="col-xl-4 col-md-6">
+                <div className="price_item wow fadeInUp">
+                  <div className="price_header">
+                    <h6>Basic Plan</h6>
+                    <p>There are many variations of passages of Lorem Ipsum available but the word.</p>
+                  </div>
+                  <div className="price">
+                    $15<sub>/month</sub>
+                  </div>
+                  <ul className="service_list list-unstyled">
+                    <li><i className="icon_check_alt"></i>Non ipsum metus vulputate</li>
+                    <li><i className="icon_check_alt"></i>There are variations of passages</li>
+                    <li><i className="icon_check_alt"></i>Alteration some form injected</li>
+                  </ul>
+                  <Link href="contact.html" className="price_btn theme-btn theme-btn-alt">Choose Plan</Link>
+                </div>
+              </div>
+
+              {/* Monthly Premium Plan */}
+              <div className="col-xl-4 col-md-6">
+                <div className="price_item wow fadeInUp">
+                  <div className="price_header">
+                    <h6>Premium Plan</h6>
+                    <p>There are many variations of passages of Lorem Ipsum available but the word.</p>
+                  </div>
+                  <div className="price">
+                    $25<sub>/month</sub>
+                  </div>
+                  <ul className="service_list list-unstyled">
+                    <li><i className="icon_check_alt"></i>Non ipsum metus vulputate</li>
+                    <li><i className="icon_check_alt"></i>There are variations of passages</li>
+                    <li><i className="icon_check_alt"></i>Alteration some form injected</li>
+                  </ul>
+                  <Link href="contact.html" className="price_btn theme-btn theme-btn-alt">Choose Plan</Link>
+                </div>
+              </div>
+
+              {/* Monthly Business Plan */}
+              <div className="col-xl-4 col-md-6">
+                <div className="price_item wow fadeInUp">
+                  <div className="price_header">
+                    <h6>Business Plan</h6>
+                    <p>There are many variations of passages of Lorem Ipsum available but the word.</p>
+                  </div>
+                  <div className="price">
+                    $45<sub>/month</sub>
+                  </div>
+                  <ul className="service_list list-unstyled">
+                    <li><i className="icon_check_alt"></i>Non ipsum metus vulputate</li>
+                    <li><i className="icon_check_alt"></i>There are variations of passages</li>
+                    <li><i className="icon_check_alt"></i>Alteration some form injected</li>
+                  </ul>
+                  <Link href="contact.html" className="price_btn theme-btn theme-btn-alt">Choose Plan</Link>
+                </div>
               </div>
             </div>
-          )}
+          </div>
 
           {/* Yearly Pricing */}
-          {activeTab === 'yearly' && (
-            <div className="price_items year">
-              <div className="row justify-content-center">
-                <PricingCard
-                  title="Basic Plan"
-                  price="$25"
-                  duration="/year"
-                />
-                <PricingCard
-                  title="Premium Plan"
-                  price="$35"
-                  duration="/year"
-                />
-                <PricingCard
-                  title="Business Plan"
-                  price="$55"
-                  duration="/year"
-                />
+          <div className={`price_items year ${isMonthly ? 'd-none' : ''}`}>
+            <div className="row justify-content-center">
+              {/* Yearly Basic Plan */}
+              <div className="col-xl-4 col-md-6">
+                <div className="price_item wow fadeInUp">
+                  <div className="price_header">
+                    <h6>Basic Plan</h6>
+                    <p>There are many variations of passages of Lorem Ipsum available but the word.</p>
+                  </div>
+                  <div className="price">
+                    $25<sub>/ Year</sub>
+                  </div>
+                  <ul className="service_list list-unstyled">
+                    <li><i className="icon_check_alt"></i>Non ipsum metus vulputate</li>
+                    <li><i className="icon_check_alt"></i>There are variations of passages</li>
+                    <li><i className="icon_check_alt"></i>Alteration some form injected</li>
+                  </ul>
+                  <Link href="contact.html" className="price_btn theme-btn theme-btn-alt">Choose Plan</Link>
+                </div>
+              </div>
+
+              {/* Yearly Premium Plan */}
+              <div className="col-xl-4 col-md-6">
+                <div className="price_item wow fadeInUp">
+                  <div className="price_header">
+                    <h6>Premium Plan</h6>
+                    <p>There are many variations of passages of Lorem Ipsum available but the word.</p>
+                  </div>
+                  <div className="price">
+                    $35<sub>/ Year</sub>
+                  </div>
+                  <ul className="service_list list-unstyled">
+                    <li><i className="icon_check_alt"></i>Non ipsum metus vulputate</li>
+                    <li><i className="icon_check_alt"></i>There are variations of passages</li>
+                    <li><i className="icon_check_alt"></i>Alteration some form injected</li>
+                  </ul>
+                  <Link href="contact.html" className="price_btn theme-btn theme-btn-alt">Choose Plan</Link>
+                </div>
+              </div>
+
+              {/* Yearly Business Plan */}
+              <div className="col-xl-4 col-md-6">
+                <div className="price_item wow fadeInUp">
+                  <div className="price_header">
+                    <h6>Business Plan</h6>
+                    <p>There are many variations of passages of Lorem Ipsum available but the word.</p>
+                  </div>
+                  <div className="price">
+                    $55<sub>/ Year</sub>
+                  </div>
+                  <ul className="service_list list-unstyled">
+                    <li><i className="icon_check_alt"></i>Non ipsum metus vulputate</li>
+                    <li><i className="icon_check_alt"></i>There are variations of passages</li>
+                    <li><i className="icon_check_alt"></i>Alteration some form injected</li>
+                  </ul>
+                  <Link href="contact.html" className="price_btn theme-btn theme-btn-alt">Choose Plan</Link>
+                </div>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
     </section>
-  );
-};
-
-// === PricingCard component for reusability ===
-const PricingCard = ({
-  title,
-  price,
-  duration,
-}: {
-  title: string;
-  price: string;
-  duration: string;
-}) => {
-  return (
-    <div className="col-xl-4 col-md-6">
-      <div className="price_item wow fadeInUp">
-        <div className="price_header">
-          <h6>{title}</h6>
-          <p>
-            There are many variations of passages of Lorem Ipsum available but the word.
-          </p>
-        </div>
-        <div className="price">
-          {price}
-          <sub>{duration}</sub>
-        </div>
-        <ul className="service_list list-unstyled">
-          <li>
-            <i className="icon_check_alt"></i>Non ipsum metus vulputate
-          </li>
-          <li>
-            <i className="icon_check_alt"></i>There are variations of passages
-          </li>
-          <li>
-            <i className="icon_check_alt"></i>Alteration some form injected
-          </li>
-        </ul>
-        <Link href="contact.html" className="price_btn theme-btn theme-btn-alt">
-          Choose Plan
-        </Link>
-      </div>
-    </div>
   );
 };
 
