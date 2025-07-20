@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export default function PreLoader() {
   const pathname = usePathname();
@@ -25,7 +26,7 @@ export default function PreLoader() {
         <div className="round_spinner">
           <div className="spinner"></div>
           <div className="text">
-            <img src="/img/logo/Logo-2.png" alt="Logo" />
+            <Image width={140} height={40} src="/img/logo/Logo-2.png" alt="Logo" />
           </div>
         </div>
         <h2 className="head">Did You Know?</h2>

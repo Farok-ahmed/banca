@@ -798,6 +798,8 @@ const IndexCompany = () => {
                         </span>
                       </div>
                     </div>
+                    
+                    {/* flicker calendar */}
                     <div
                       className="d-flex loan-start-date"
                       style={{ gap: '20px' }}

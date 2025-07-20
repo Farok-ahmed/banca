@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/role-supports-aria-props */
+import FAQAccordion from '@/components/FaqAccordion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
@@ -1474,8 +1474,8 @@ const SampleBanca = () => {
                   <div className="shape ">
                     <div className="box">
                       <Image
-                        width={200}
-                        height={200}
+                        width={300}
+                        height={300}
                         className="layer layer2"
                         data-depth="0.5"
                         src="/img/faq/Shape.png"
@@ -1521,7 +1521,7 @@ const SampleBanca = () => {
                 </div>
               </div>
 
-              <div className="col-lg-6">
+              {/* <div className="col-lg-6">
                 <div className="faq-widget-2">
                   <div className="accordion" id="accordionExample">
                     <div
@@ -1837,7 +1837,9 @@ const SampleBanca = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
+
+              <FAQAccordion/>
             </div>
           </div>
         </section>
