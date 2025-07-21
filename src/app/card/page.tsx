@@ -268,9 +268,9 @@ const CardPage = () => {
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="about.html">
+                        <Link className="nav-link" href="/about-us">
                           About Us
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link" href="contact.html">
