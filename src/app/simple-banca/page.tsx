@@ -246,7 +246,7 @@ const SampleBanca = () => {
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle"
                       href="blog.html"
                       role="button"
@@ -255,7 +255,7 @@ const SampleBanca = () => {
                       aria-expanded="false"
                     >
                       Blog
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -263,9 +263,9 @@ const SampleBanca = () => {
                     ></i>
                     <ul className="dropdown-menu ">
                       <li className="nav-item">
-                        <a className="nav-link" href="blog.html">
+                        <Link className="nav-link" href="/blog-listing">
                           Blog Listing
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link" href="blog-details.html">
@@ -391,33 +391,33 @@ const SampleBanca = () => {
                     >
                       <div className="shapes">
                         <Image
-                          width={200}
-                          height={200}
+                          width={110}
+                          height={60}
                           src="/img/feature/shape-17.png"
                           alt="shape"
                         />
                         <Image
-                          width={200}
-                          height={200}
+                          width={70}
+                          height={60}
                           src="/img/feature/shape-18.png"
                           alt="shape"
                         />
                         <Image
-                          width={200}
-                          height={200}
+                          width={30}
+                          height={30}
                           src="/img/feature/shape-19.png"
                           alt="shape"
                         />
                         <Image
-                          width={200}
-                          height={200}
+                          width={20}
+                          height={20}
                           src="/img/feature/shape-20.png"
                           alt="shape"
                         />
                       </div>
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/icon-8.svg"
                         alt="icon"
                       />
@@ -433,8 +433,8 @@ const SampleBanca = () => {
                     >
                       <div className="shapes">
                         <Image
-                          width={200}
-                          height={200}
+                          width={100}
+                          height={60}
                           src="/img/feature/shape-21.png"
                           alt="shape"
                         />
@@ -458,8 +458,8 @@ const SampleBanca = () => {
                         />
                       </div>
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/icon-9.svg"
                         alt="icon"
                       />
@@ -518,8 +518,8 @@ const SampleBanca = () => {
                         />
                       </div>
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/icon-10.svg"
                         alt="icon"
                       />
@@ -534,34 +534,33 @@ const SampleBanca = () => {
                       data-wow-delay="0.7s"
                     >
                       <div className="shapes">
-                        <Image
-                          width={200}
-                          height={200}
+                      <Image
+                          width={110}
+                          height={60}
                           src="/img/feature/shape-17.png"
                           alt="shape"
                         />
                         <Image
-                          width={200}
-                          height={200}
+                          width={70}
+                          height={60}
                           src="/img/feature/shape-18.png"
                           alt="shape"
                         />
                         <Image
-                          width={200}
-                          height={200}
+                          width={30}
+                          height={30}
                           src="/img/feature/shape-19.png"
                           alt="shape"
                         />
                         <Image
-                          width={200}
-                          height={200}
+                          width={20}
+                          height={20}
                           src="/img/feature/shape-20.png"
-                          alt="shape"
-                        />
+                          alt="shape"/>
                       </div>
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/icon-8.svg"
                         alt="icon"
                       />
@@ -602,8 +601,8 @@ const SampleBanca = () => {
                         />
                       </div>
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/icon-9.svg"
                         alt="icon"
                       />
@@ -662,8 +661,8 @@ const SampleBanca = () => {
                         />
                       </div>
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/icon-10.svg"
                         alt="icon"
                       />
@@ -678,34 +677,34 @@ const SampleBanca = () => {
                       data-wow-delay="1.3s"
                     >
                       <div className="shapes">
-                        <Image
-                          width={200}
-                          height={200}
+                      <Image
+                          width={110}
+                          height={60}
                           src="/img/feature/shape-17.png"
                           alt="shape"
                         />
                         <Image
-                          width={200}
-                          height={200}
+                          width={70}
+                          height={60}
                           src="/img/feature/shape-18.png"
                           alt="shape"
                         />
                         <Image
-                          width={200}
-                          height={200}
+                          width={30}
+                          height={30}
                           src="/img/feature/shape-19.png"
                           alt="shape"
                         />
                         <Image
-                          width={200}
-                          height={200}
+                          width={20}
+                          height={20}
                           src="/img/feature/shape-20.png"
                           alt="shape"
                         />
                       </div>
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/icon-8.svg"
                         alt="icon"
                       />
@@ -746,8 +745,8 @@ const SampleBanca = () => {
                         />
                       </div>
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/icon-9.svg"
                         alt="icon"
                       />
@@ -806,8 +805,8 @@ const SampleBanca = () => {
                         />
                       </div>
                       <Image
-                        width={200}
-                        height={200}
+                        width={30}
+                        height={30}
                         src="/img/feature/icon-10.svg"
                         alt="icon"
                       />
@@ -821,6 +820,7 @@ const SampleBanca = () => {
                 </div>
               </div>
             </div>
+
             <div className="calculator mt-60">
               <div className="steps d-flex flex-wrap justify-content-between mt-50 mr-30 ml-30">
                 <div className="single-step mt-2 mt-sm-0">
@@ -1839,7 +1839,7 @@ const SampleBanca = () => {
                 </div>
               </div> */}
 
-              <FAQAccordion/>
+              <FAQAccordion />
             </div>
           </div>
         </section>
