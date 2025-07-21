@@ -269,7 +269,7 @@ const BlogDetails = () => {
                     ></i>
                     <ul className="dropdown-menu ">
                       <li className="nav-item">
-                        <a className="nav-link" href="card.html">
+                        <a className="nav-link" href="/card">
                           Cards
                         </a>
                       </li>
