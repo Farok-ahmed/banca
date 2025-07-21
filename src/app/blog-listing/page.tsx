@@ -425,8 +425,8 @@ const BlogListing = () => {
                       >
                         <div className="blog-img">
                           <Image
-                            width={200}
-                            height={200}
+                            width={180}
+                            height={230}
                             src="/img/blog/blog-1.png"
                             alt="blog-img"
                           />
@@ -445,8 +445,8 @@ const BlogListing = () => {
                           <div className="post-info">
                             <div className="author">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
@@ -454,8 +454,8 @@ const BlogListing = () => {
                             </div>
                             <div className="post-date">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -472,8 +472,8 @@ const BlogListing = () => {
                       >
                         <div className="blog-img">
                           <Image
-                            width={200}
-                            height={200}
+                            width={180}
+                            height={230}
                             src="/img/blog/blog-2.png"
                             alt="blog-img"
                           />
@@ -492,8 +492,8 @@ const BlogListing = () => {
                           <div className="post-info">
                             <div className="author">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
@@ -501,8 +501,8 @@ const BlogListing = () => {
                             </div>
                             <div className="post-date">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -519,8 +519,8 @@ const BlogListing = () => {
                       >
                         <div className="blog-img">
                           <Image
-                            width={200}
-                            height={200}
+                            width={180}
+                            height={230}
                             src="/img/blog/blog-3.png"
                             alt="blog-img"
                           />
@@ -539,8 +539,8 @@ const BlogListing = () => {
                           <div className="post-info">
                             <div className="author">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
@@ -548,8 +548,8 @@ const BlogListing = () => {
                             </div>
                             <div className="post-date">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -566,8 +566,8 @@ const BlogListing = () => {
                       >
                         <div className="blog-img">
                           <Image
-                            width={200}
-                            height={200}
+                            width={180}
+                            height={230}
                             src="/img/blog/blog-4.png"
                             alt="blog-img"
                           />
@@ -586,8 +586,8 @@ const BlogListing = () => {
                           <div className="post-info">
                             <div className="author">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
@@ -595,8 +595,8 @@ const BlogListing = () => {
                             </div>
                             <div className="post-date">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -613,8 +613,8 @@ const BlogListing = () => {
                       >
                         <div className="blog-img">
                           <Image
-                            width={200}
-                            height={200}
+                            width={180}
+                            height={230}
                             src="/img/blog/blog-5.png"
                             alt="blog-img"
                           />
@@ -633,8 +633,8 @@ const BlogListing = () => {
                           <div className="post-info">
                             <div className="author">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
@@ -642,8 +642,8 @@ const BlogListing = () => {
                             </div>
                             <div className="post-date">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -660,8 +660,8 @@ const BlogListing = () => {
                       >
                         <div className="blog-img">
                           <Image
-                            width={200}
-                            height={200}
+                            width={180}
+                            height={230}
                             src="/img/blog/blog-6.png"
                             alt="blog-img"
                           />
@@ -680,8 +680,8 @@ const BlogListing = () => {
                           <div className="post-info">
                             <div className="author">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
@@ -689,8 +689,8 @@ const BlogListing = () => {
                             </div>
                             <div className="post-date">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -707,8 +707,8 @@ const BlogListing = () => {
                       >
                         <div className="blog-img">
                           <Image
-                            width={200}
-                            height={200}
+                            width={180}
+                            height={230}
                             src="/img/blog/blog-7.png"
                             alt="blog-img"
                           />
@@ -727,8 +727,8 @@ const BlogListing = () => {
                           <div className="post-info">
                             <div className="author">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
@@ -736,8 +736,8 @@ const BlogListing = () => {
                             </div>
                             <div className="post-date">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -754,8 +754,8 @@ const BlogListing = () => {
                       >
                         <div className="blog-img">
                           <Image
-                            width={200}
-                            height={200}
+                            width={180}
+                            height={230}
                             src="/img/blog/blog-8.png"
                             alt="blog-img"
                           />
@@ -774,8 +774,8 @@ const BlogListing = () => {
                           <div className="post-info">
                             <div className="author">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
@@ -783,8 +783,8 @@ const BlogListing = () => {
                             </div>
                             <div className="post-date">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -801,8 +801,8 @@ const BlogListing = () => {
                       >
                         <div className="blog-img">
                           <Image
-                            width={200}
-                            height={200}
+                            width={180}
+                            height={230}
                             src="/img/blog/blog-9.png"
                             alt="blog-img"
                           />
@@ -821,8 +821,8 @@ const BlogListing = () => {
                           <div className="post-info">
                             <div className="author">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
@@ -830,8 +830,8 @@ const BlogListing = () => {
                             </div>
                             <div className="post-date">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -848,8 +848,8 @@ const BlogListing = () => {
                       >
                         <div className="blog-img">
                           <Image
-                            width={200}
-                            height={200}
+                            width={180}
+                            height={230}
                             src="/img/blog/blog-10.png"
                             alt="blog-img"
                           />
@@ -868,8 +868,8 @@ const BlogListing = () => {
                           <div className="post-info">
                             <div className="author">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
@@ -877,8 +877,8 @@ const BlogListing = () => {
                             </div>
                             <div className="post-date">
                               <Image
-                                width={200}
-                                height={200}
+                                width={20}
+                                height={20}
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -941,8 +941,8 @@ const BlogListing = () => {
                       <div className="col-md-4">
                         <a href="#">
                           <Image
-                            width={200}
-                            height={200}
+                            width={30}
+                            height={30}
                             src="/img/social/facebook-logo.svg"
                             alt="faceebook"
                           />
@@ -953,8 +953,8 @@ const BlogListing = () => {
                       <div className="col-md-4">
                         <a href="#">
                           <Image
-                            width={200}
-                            height={200}
+                            width={30}
+                            height={30}
                             src="/img/social/twitter.svg"
                             alt="twitter"
                           />
@@ -965,8 +965,8 @@ const BlogListing = () => {
                       <div className="col-md-4">
                         <a href="#">
                           <Image
-                            width={200}
-                            height={200}
+                            width={30}
+                            height={30}
                             src="/img/social/youtube.svg"
                             alt="youtube"
                           />
@@ -1025,8 +1025,8 @@ const BlogListing = () => {
                     <ul className="recent-post">
                       <li>
                         <Image
-                          width={200}
-                          height={200}
+                          width={80}
+                          height={80}
                           src="/img/blog/recent-post-1.png"
                           alt="recent-post"
                         />
@@ -1038,8 +1038,8 @@ const BlogListing = () => {
                           </h6>
                           <div className="post-date">
                             <Image
-                              width={200}
-                              height={200}
+                              width={20}
+                              height={20}
                               src="/img/blog/calendar-outline.svg"
                               alt="calender"
                             />
@@ -1049,8 +1049,8 @@ const BlogListing = () => {
                       </li>
                       <li>
                         <Image
-                          width={200}
-                          height={200}
+                          width={80}
+                          height={80}
                           src="/img/blog/recent-post-2.png"
                           alt="recent-post"
                         />
@@ -1060,8 +1060,8 @@ const BlogListing = () => {
                           </h6>
                           <div className="post-date">
                             <Image
-                              width={200}
-                              height={200}
+                              width={20}
+                              height={20}
                               src="/img/blog/calendar-outline.svg"
                               alt="calender"
                             />
@@ -1071,8 +1071,8 @@ const BlogListing = () => {
                       </li>
                       <li>
                         <Image
-                          width={200}
-                          height={200}
+                          width={80}
+                          height={80}
                           src="/img/blog/recent-post-3.png"
                           alt="recent-post"
                         />
@@ -1084,8 +1084,8 @@ const BlogListing = () => {
                           </h6>
                           <div className="post-date">
                             <Image
-                              width={200}
-                              height={200}
+                              width={20}
+                              height={20}
                               src="/img/blog/calendar-outline.svg"
                               alt="calender"
                             />
@@ -1095,8 +1095,8 @@ const BlogListing = () => {
                       </li>
                       <li>
                         <Image
-                          width={200}
-                          height={200}
+                          width={80}
+                          height={80}
                           src="/img/blog/recent-post-4.png"
                           alt="recent-post"
                         />
@@ -1108,8 +1108,8 @@ const BlogListing = () => {
                           </h6>
                           <div className="post-date">
                             <Image
-                              width={200}
-                              height={200}
+                              width={20}
+                              height={20}
                               src="/img/blog/calendar-outline.svg"
                               alt="calender"
                             />
