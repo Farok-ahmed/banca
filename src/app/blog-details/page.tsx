@@ -1,8 +1,7 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
-const BlogListing = () => {
+const BlogDetails = () => {
   return (
     <div>
       <header className="header">
@@ -30,21 +29,19 @@ const BlogListing = () => {
                 <div className="header-info-right">
                   <ul>
                     <li>
-                      <Image
-                        width={20}
-                        height={20}
+                      <img
                         className="img-fluid"
                         src="/img/phone-outline.png"
                         alt="phone"
                       />
-                      <Link href="tel:01234567890">+01234-567890</Link>
+                      <a href="tel:01234567890">+01234-567890</a>
                     </li>
 
                     <li>
                       <i className="icon_mail_alt"></i>
-                      <Link href="mailto:bancainfo@email.com">
+                      <a href="mailto:bancainfo@email.com">
                         bancainfo@email.com
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -56,20 +53,16 @@ const BlogListing = () => {
           <nav className="navbar navbar-expand-lg ">
             <div className="container">
               <Link className="navbar-brand sticky_logo" href="index.html">
-                <Image
-                  width={110}
-                  height={35}
+                <img
                   className="main"
                   src="/img/logo/Logo.png"
-                  // srcset="img/logo/Logo@2x.png 2x"
+                  srcset="img/logo/Logo@2x.png 2x"
                   alt="logo"
                 />
-                <Image
-                  width={110}
-                  height={35}
+                <img
                   className="sticky"
                   src="/img/logo/Logo-2.png"
-                  // srcset="img/logo/Logo-2@2x.png 2x"
+                  srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
               </Link>
@@ -308,14 +301,14 @@ const BlogListing = () => {
                     ></i>
                     <ul className="dropdown-menu ">
                       <li className="nav-item">
-                        <Link className="nav-link active" href="/blog-listing">
+                        <a className="nav-link" href="blog.html">
                           Blog Listing
-                        </Link>
+                        </a>
                       </li>
                       <li className="nav-item">
-                        <Link className="nav-link" href="/blog-details">
+                        <a className="nav-link active" href="blog-details.html">
                           Blog Details
-                        </Link>
+                        </a>
                       </li>
                     </ul>
                   </li>
@@ -329,10 +322,10 @@ const BlogListing = () => {
                 </Link>
                 <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
                   <label htmlFor="something" className="tab-btn tab-btns">
-                    <IoMoonOutline name="moon" />
+                  <IoMoonOutline name="moon" />
                   </label>
                   <label htmlFor="something" className="tab-btn">
-                    <IoSunnyOutline name="sunny" />
+                  <IoSunnyOutline name="sunny" />
                   </label>
                   <label className=" ball" htmlFor="something"></label>
                   <input
@@ -352,58 +345,36 @@ const BlogListing = () => {
         <section className="breadcrumb-area" id="banner_animation2">
           <div
             className="breadcrumb-widget breadcrumb-widget-2  pt-200 pb-145"
-            style={{ backgroundImage: `url(/img/breadcrumb/bg-3.jpg)` }}
+            style={{ backgroundImage: `url(img/breadcrumb/bg-3.jpg)` }}
           >
             <div className="shapes">
               <div
-                className="one-shape shape-1"
-                data-parallax='{"x": 100, "y": 0, "rotateZ":0}'
+                className="one-shape shape-3"
+                data-parallax='{"x": -100, "y": 0, "rotateZ":0}'
               >
-                <Image
-                  width={200}
-                  height={200}
-                  src="/img/breadcrumb/Polygon-1.png"
-                  alt="shape"
-                />
+                <img src="/img/breadcrumb/Polygon-3.png" alt="shape" />
               </div>
               <div
-                className="one-shape shape-2"
-                data-parallax='{"x": 200, "y": 50, "rotateZ":0}'
+                className="one-shape shape-4"
+                data-parallax='{"x": -200, "y": 0, "rotateZ":0}'
               >
-                <Image
-                  width={200}
-                  height={200}
-                  src="/img/breadcrumb/Polygon-2.png"
-                  alt="shape"
-                />
+                <img src="/img/breadcrumb/Polygon-4.png" alt="shape" />
               </div>
             </div>
             <div className="container">
               <div className="row">
-                <div className="col-lg-7 mx-auto">
+                <div className="col-lg-8 mx-auto">
                   <div className="breadcrumb-content pt-50">
-                    <h1>Blog</h1>
-                    <div className="search-box mt-20">
-                      <form action="#">
-                        <div className="input-group">
-                          <input
-                            className="form-control"
-                            type="text"
-                            placeholder="Search for topic..."
-                          />
-                          <button className="search-btn input-group-append">
-                            {' '}
-                            <i className="icon_search "></i>
-                          </button>
-                        </div>
-                      </form>
-                    </div>
-
-                    <div className="popular-tags d-flex flex-wrap justify-content-center align-items-center mt-20">
-                      <span>Popular Tags:</span>
-                      <a href="#">Business</a>
-                      <a href="#">Financial</a>
-                      <a href="#">Case Study</a>
+                    <h1>How To Save Enough Money To Buy A Home</h1>
+                    <div className="post-info mt-5">
+                      <div className="autor mr-20">
+                        <img src="/img/blog/user-profile.png" alt="icon" />
+                        <span>Zain Siphron</span>
+                      </div>
+                      <div className="date">
+                        <img src="/img/blog/calendar-outline.png" alt="icon" />
+                        <span>March 18, 2021</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -414,48 +385,159 @@ const BlogListing = () => {
 
         <section className="pt-120 pb-120 bg_disable">
           <div className="container">
-            <div className="row">
-              <div className="col-lg-8 ">
-                <div className="blog-post-widget">
-                  <div className="row gy-4 ">
+            <div className="row gy-lg-0 gy-4">
+              <div className="col-lg-1 position-relative">
+                <div className="blog-share-widget d-flex d-lg-block align-items-center">
+                  <p>Share Now</p>
+                  <div className="social-link">
+                    <Link href="#">
+                      <i className="fab fa-facebook-f"></i>
+                    </Link>
+                    <Link href="#">
+                      <i className="fab fa-linkedin-in"></i>
+                    </Link>
+                    <Link href="#">
+                      <i className="fab fa-instagram"></i>
+                    </Link>
+                    <Link href="#">
+                      <i className="fab fa-twitter"></i>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-7">
+                <div className="post-details-widget pb-70 border-bottom position-relative">
+                  <img
+                    className="post-img w-100"
+                    src="/img/blog/blog-details-img.jpg"
+                    alt="post image"
+                  />
+
+                  <p className="post-text mt-35">
+                    Tomfoolery crikey bits and bobs brilliant bamboozled down
+                    the pub amongst brolly hanky panky, cack bonnet arse over
+                    tit burke bugger all mate bodge fanny around butty, Richard
+                    spiffing a load of old tosh porkies hunky-dory ruddy dropped
+                    a clanger. Plastered it’s all gone to pot I brilliant young
+                    delinquent excuse my French
+                  </p>
+                  <p className="post-text mb-0">
+                    Bugger all mate chinwag skive off bender cack chap baking
+                    cakes brown bread bodge wind up, amongst mush David lurgy
+                    burke blow off bits and bobs faff about dropped a clanger,
+                    such a fibber so I said spiffing codswallop bite your arm
+                    off my lady bleeding tosser.
+                  </p>
+
+                  <ul className="feature-list">
+                    <li>Shop configurations</li>
+                    <li>Installing Sylius ecommerce shop</li>
+                    <li>Check system requirements</li>
+                    <li>Setting up the database</li>
+                    <li>Loading sample data for the environment</li>
+                    <li>Assets installation</li>
+                  </ul>
+                  <blockquote className="wow fadeInUp">
+                    <p>
+                      He legged it that blatant brown bread some dodgy chav
+                      super a blinding shot my lady lavatory cup of char cor
+                      blimey guvnor get stuffed mate you mug cobblers off his
+                      nut pukka
+                    </p>
+                    <div className="author">
+                      <img
+                        className="img-fluid rounded-circle"
+                        src="/img/blog/quote-author.png"
+                        alt=""
+                      />
+                      <div>
+                        <h6>Jesus Requena </h6>
+                        <span>Support Engineer, Aliexpress</span>
+                      </div>
+                    </div>
+                  </blockquote>
+                  <img
+                    className="post-img w-100"
+                    src="/img/blog/blog-details-img-2.jpg"
+                    alt="post img"
+                  />
+                  <p className="post-text mt-40 pb-2">
+                    He legged it that blatant brown bread some dodgy chav super
+                    a blinding shot my lady lavatory cup of char cor blimey
+                    guvnor get stuffed mate you mug cobblers off his nut pukka,
+                    give us a bell ummm I’m telling burke A bit of how’s your
+                    father starkers daft hanky panky bog-standard golly gosh
+                    William a load of old tosh brolly Queen’s English bits and
+                    bobs bugger, grub geeza cracking goal cheesed off bog baking
+                    cakes James Bond up the duff mufty morish do one wellies
+                    zonked I. Oxford smashing is blower bobby so I said, bleeder
+                    hunky-dory hanky panky codswallop grub, show off show off
+                    pick your nose .
+                  </p>
+
+                  <h2>Install Sylius via SSH</h2>
+                  <p className="post-text mt-20">
+                    Nancy boy vagabond A bit of how’s your father starkers
+                    baking cakes boot dropped a clanger my lady bender blow off
+                    bugger all mate, jolly good brolly posh ummm I’m telling get
+                    stuffed mate up the duff haggle lost the plot off his nut
+                    wind up loo, I don’t want no agro.
+                  </p>
+                  <div className="tag-widget mt-35">
+                    <h6>Tags :</h6>
+                    <Link href="#">business</Link>
+                    <Link href="#">web design</Link>
+                    <Link href="#">software</Link>
+                  </div>
+                </div>
+                <div className="author-media-widget mt-90 mb-90">
+                  <div className="author-img">
+                    <img
+                      className="rounded-circle"
+                      src="/img/blog/author-1.png"
+                      alt="author"
+                    />
+                  </div>
+                  <div className="author-info">
+                    <h6>Ahmad Bator</h6>
+                    <p>
+                      Loo tomfoolery jolly good bloke chancer chimney pot nice
+                      one a, he nicked it mufty Oxford say wind up bits and bobs
+                      cheeky bugger, amongst cack bugger Eaton William skive
+                      off.!
+                    </p>
+                  </div>
+                </div>
+                <div className="related-post-widget pb-90">
+                  <h4 className="blog-widget-title mb-45">Related Post</h4>
+                  <div className="row gy-md-0 gy-4">
                     <div className="col-md-6">
                       <div
                         className="blog-widget-2 wow fadeInUp"
                         data-wow-delay="0.1s"
                       >
                         <div className="blog-img">
-                          <Image
-                            width={180}
-                            height={230}
-                            src="/img/blog/blog-1.png"
-                            alt="blog-img"
-                          />
+                          <img src="/img/blog/blog-9.png" alt="blog-img" />
                           <div className="catagory bg_primary">buisiness</div>
                         </div>
                         <div className="blog-content">
-                          <h4>
-                            <a href="blog-details.html">
-                              Five Steps to Buying for Your Home Loan
-                            </a>
-                          </h4>
+                          <h5>
+                            <a href="#">Why Set Impossible Goals for 2021?</a>
+                          </h5>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
                             lavatory only...
                           </p>
                           <div className="post-info">
                             <div className="author">
-                              <Image
-                                width={20}
-                                height={20}
+                              <img
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
                               <span>Zain Siphron</span>
                             </div>
                             <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
+                              <img
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -471,273 +553,29 @@ const BlogListing = () => {
                         data-wow-delay="0.3s"
                       >
                         <div className="blog-img">
-                          <Image
-                            width={180}
-                            height={230}
-                            src="/img/blog/blog-2.png"
-                            alt="blog-img"
-                          />
-                          <div className="catagory yellow-bg">loan</div>
+                          <img src="/img/blog/blog-7.png" alt="blog-img" />
+                          <div className="catagory bg_primary">buisiness</div>
                         </div>
                         <div className="blog-content">
-                          <h4>
-                            <a href="blog-details.html">
-                              How To Save Enough Money To Buy A Home
-                            </a>
-                          </h4>
-                          <p>
-                            Cup of char brilliant horse play bro bread sloshed
-                            lavatory only...
-                          </p>
-                          <div className="post-info">
-                            <div className="author">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/user-profile.svg"
-                                alt="user profile"
-                              />
-                              <span>Zain Siphron</span>
-                            </div>
-                            <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calendar"
-                              />
-                              <span>March 18, 2021</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div
-                        className="blog-widget-2 wow fadeInUp"
-                        data-wow-delay="0.1s"
-                      >
-                        <div className="blog-img">
-                          <Image
-                            width={180}
-                            height={230}
-                            src="/img/blog/blog-3.png"
-                            alt="blog-img"
-                          />
-                          <div className="catagory green-bg">Securiey</div>
-                        </div>
-                        <div className="blog-content">
-                          <h4>
-                            <a href="blog-details.html">
-                              Create A WordPress Multi Step Form
-                            </a>
-                          </h4>
-                          <p>
-                            Cup of char brilliant horse play bro bread sloshed
-                            lavatory only...
-                          </p>
-                          <div className="post-info">
-                            <div className="author">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/user-profile.svg"
-                                alt="user profile"
-                              />
-                              <span>Zain Siphron</span>
-                            </div>
-                            <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calendar"
-                              />
-                              <span>March 18, 2021</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div
-                        className="blog-widget-2 wow fadeInUp"
-                        data-wow-delay="0.3s"
-                      >
-                        <div className="blog-img">
-                          <Image
-                            width={180}
-                            height={230}
-                            src="/img/blog/blog-4.png"
-                            alt="blog-img"
-                          />
-                          <div className="catagory sky-bg">buisiness</div>
-                        </div>
-                        <div className="blog-content">
-                          <h4>
-                            <a href="blog-details.html">
-                              What Happens to Your Debt When You Die?
-                            </a>
-                          </h4>
-                          <p>
-                            Cup of char brilliant horse play bro bread sloshed
-                            lavatory only...
-                          </p>
-                          <div className="post-info">
-                            <div className="author">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/user-profile.svg"
-                                alt="user profile"
-                              />
-                              <span>Zain Siphron</span>
-                            </div>
-                            <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calendar"
-                              />
-                              <span>March 18, 2021</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div
-                        className="blog-widget-2 wow fadeInUp"
-                        data-wow-delay="0.1s"
-                      >
-                        <div className="blog-img">
-                          <Image
-                            width={180}
-                            height={230}
-                            src="/img/blog/blog-5.png"
-                            alt="blog-img"
-                          />
-                          <div className="catagory deep-green-bg">banking</div>
-                        </div>
-                        <div className="blog-content">
-                          <h4>
-                            <a href="blog-details.html">
-                              How Do Banca Banks Make Money?
-                            </a>
-                          </h4>
-                          <p>
-                            Cup of char brilliant horse play bro bread sloshed
-                            lavatory only...
-                          </p>
-                          <div className="post-info">
-                            <div className="author">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/user-profile.svg"
-                                alt="user profile"
-                              />
-                              <span>Zain Siphron</span>
-                            </div>
-                            <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calendar"
-                              />
-                              <span>March 18, 2021</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div
-                        className="blog-widget-2 wow fadeInUp"
-                        data-wow-delay="0.3s"
-                      >
-                        <div className="blog-img">
-                          <Image
-                            width={180}
-                            height={230}
-                            src="/img/blog/blog-6.png"
-                            alt="blog-img"
-                          />
-                          <div className="catagory yellow-bg">loan</div>
-                        </div>
-                        <div className="blog-content">
-                          <h4>
-                            <a href="blog-details.html">
-                              Finance Your Property in a Market
-                            </a>
-                          </h4>
-                          <p>
-                            Cup of char brilliant horse play bro bread sloshed
-                            lavatory only...
-                          </p>
-                          <div className="post-info">
-                            <div className="author">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/user-profile.svg"
-                                alt="user profile"
-                              />
-                              <span>Zain Siphron</span>
-                            </div>
-                            <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calendar"
-                              />
-                              <span>March 18, 2021</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div
-                        className="blog-widget-2 wow fadeInUp"
-                        data-wow-delay="0.1s"
-                      >
-                        <div className="blog-img">
-                          <Image
-                            width={180}
-                            height={230}
-                            src="/img/blog/blog-7.png"
-                            alt="blog-img"
-                          />
-                          <div className="catagory violet-bg">finances</div>
-                        </div>
-                        <div className="blog-content">
-                          <h4>
-                            <a href="blog-details.html">
+                          <h5>
+                            <a href="#">
                               How our revamped API can help your finances
                             </a>
-                          </h4>
+                          </h5>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
                             lavatory only...
                           </p>
                           <div className="post-info">
                             <div className="author">
-                              <Image
-                                width={20}
-                                height={20}
+                              <img
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
                               <span>Zain Siphron</span>
                             </div>
                             <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
+                              <img
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -745,178 +583,192 @@ const BlogListing = () => {
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div
-                        className="blog-widget-2 wow fadeInUp"
-                        data-wow-delay="0.3s"
-                      >
-                        <div className="blog-img">
-                          <Image
-                            width={180}
-                            height={230}
-                            src="/img/blog/blog-8.png"
-                            alt="blog-img"
-                          />
-                          <div className="catagory violet-bg">finances</div>
-                        </div>
-                        <div className="blog-content">
-                          <h4>
-                            <a href="blog-details.html">
-                              Linking your finances and your business
-                            </a>
-                          </h4>
-                          <p>
-                            Cup of char brilliant horse play bro bread sloshed
-                            lavatory only...
-                          </p>
-                          <div className="post-info">
-                            <div className="author">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/user-profile.svg"
-                                alt="user profile"
-                              />
-                              <span>Zain Siphron</span>
-                            </div>
-                            <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calendar"
-                              />
-                              <span>March 18, 2021</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div
-                        className="blog-widget-2 wow fadeInUp"
-                        data-wow-delay="0.1s"
-                      >
-                        <div className="blog-img">
-                          <Image
-                            width={180}
-                            height={230}
-                            src="/img/blog/blog-9.png"
-                            alt="blog-img"
-                          />
-                          <div className="catagory bg_primary">buisiness</div>
-                        </div>
-                        <div className="blog-content">
-                          <h4>
-                            <a href="blog-details.html">
-                              Why Set Impossible Goals for 2021?
-                            </a>
-                          </h4>
-                          <p>
-                            Cup of char brilliant horse play bro bread sloshed
-                            lavatory only...
-                          </p>
-                          <div className="post-info">
-                            <div className="author">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/user-profile.svg"
-                                alt="user profile"
-                              />
-                              <span>Zain Siphron</span>
-                            </div>
-                            <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calendar"
-                              />
-                              <span>March 18, 2021</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-md-6">
-                      <div
-                        className="blog-widget-2 wow fadeInUp"
-                        data-wow-delay="0.3s"
-                      >
-                        <div className="blog-img">
-                          <Image
-                            width={180}
-                            height={230}
-                            src="/img/blog/blog-10.png"
-                            alt="blog-img"
-                          />
-                          <div className="catagory yellow-bg">loan</div>
-                        </div>
-                        <div className="blog-content">
-                          <h4>
-                            <a href="blog-details.html">
-                              How Banca elevated the design to code.
-                            </a>
-                          </h4>
-                          <p>
-                            Cup of char brilliant horse play bro bread sloshed
-                            lavatory only...
-                          </p>
-                          <div className="post-info">
-                            <div className="author">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/user-profile.svg"
-                                alt="user profile"
-                              />
-                              <span>Zain Siphron</span>
-                            </div>
-                            <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calendar"
-                              />
-                              <span>March 18, 2021</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="row mt-55">
-                    <div className="col-12">
-                      <div className="pagination-widget">
-                        <ul>
-                          <li>
-                            <a className="active" href="#">
-                              1
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">2</a>
-                          </li>
-                          <li>
-                            <a href="#">3</a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              {' '}
-                              <i className="arrow_carrot-right "></i>{' '}
-                            </a>
-                          </li>
-                        </ul>
                       </div>
                     </div>
                   </div>
                 </div>
+
+                <div className="blog-comment-widget pb-90">
+                  <h4 className="blog-widget-title">3 Comments</h4>
+
+                  <div className="comment-author">
+                    <ul>
+                      <li>
+                        <div className="comments-box">
+                          <div className="comments-avatar">
+                            <img
+                              className="rounded-circle"
+                              src="/img/blog/comment-1.png"
+                              alt="img"
+                            />
+                          </div>
+                          <div className="comments-text">
+                            <div className="avatar-name">
+                              <h5>Karon Balina</h5>
+                              <div className="post-date">
+                                <img
+                                  src="/img/blog/calendar-outline.svg"
+                                  alt=""
+                                />
+                                <span>March 18, 2021</span>
+                              </div>
+                              <a className="reply" href="#">
+                                Reply <i className="arrow_right"></i>
+                              </a>
+                            </div>
+                            <p>
+                              Wouldn’t it be better practice to use
+                              get_the_title(..) in this case? directly accessing
+                              the post object’s data member would bypass
+                              applying filters and enforcing protected and
+                              private settings, unless that’s explicitly
+                              desired.
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                      <li className="children">
+                        <div className="comments-box">
+                          <div className="comments-avatar">
+                            <img
+                              className="rounded-circle"
+                              src="/img/blog/comment-2.png"
+                              alt="img"
+                            />
+                          </div>
+                          <div className="comments-text">
+                            <div className="avatar-name">
+                              <h5>Julias Roy</h5>
+                              <div className="post-date">
+                                <img
+                                  src="/img/blog/calendar-outline.svg"
+                                  alt=""
+                                />
+                                <span>March 18, 2021</span>
+                              </div>
+                              <a className="reply" href="#">
+                                Reply <i className="arrow_right"></i>
+                              </a>
+                            </div>
+                            <p>
+                              Thenks Demo User for Wouldn’t it be better
+                              practice to use get_the_title.
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="comments-box">
+                          <div className="comments-avatar">
+                            <img
+                              className="rounded-circle"
+                              src="/img/blog/comment-3.png"
+                              alt="img"
+                            />
+                          </div>
+                          <div className="comments-text">
+                            <div className="avatar-name">
+                              <h5>Arista Williamson</h5>
+                              <div className="post-date">
+                                <img
+                                  src="/img/blog/calendar-outline.svg"
+                                  alt=""
+                                />
+                                <span>March 18, 2021</span>
+                              </div>
+                              <a className="reply" href="#">
+                                Reply <i className="arrow_right"></i>
+                              </a>
+                            </div>
+                            <p>
+                              Wouldn’t it be better practice to use
+                              get_the_title(..) in this case? directly accessing
+                              the post object’s data member would bypass
+                              applying filters and enforcing protected and
+                              private settings, unless that’s explicitly
+                              desired.
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="blog-leave-reply">
+                  <h4 className="blog-widget-title mb-10">Leave a Reply </h4>
+                  <p className="pt-2">
+                    Your email address will not be published. Required fields
+                    are marked *
+                  </p>
+
+                  <form action="#">
+                    <div className="row gy-lg-0 gy-4 mt-5">
+                      <div className="col-md-6">
+                        <div className="floating-input">
+                          <input
+                            className="form-control"
+                            type="text"
+                            placeholder="Full name"
+                            id="f-name"
+                          />
+                          <label htmlFor="f-name">Full name*</label>
+                        </div>
+                      </div>
+                      <div className="col-md-6">
+                        <div className="floating-input">
+                          <input
+                            className="form-control"
+                            type="email"
+                            placeholder="email"
+                            id="email-address"
+                          />
+                          <label htmlFor="email-address">email*</label>
+                        </div>
+                      </div>
+                      <div className="col-12 mt-lg-30">
+                        <div className="floating-input">
+                          <input
+                            className="form-control"
+                            type="email"
+                            placeholder="Website (Optional)"
+                            id="websiteInfo"
+                          />
+                          <label htmlFor="websiteInfo">
+                            Website (Optional)
+                          </label>
+                        </div>
+                      </div>
+                      <div className="col-12 mt-lg-30">
+                        <div className="floating-input">
+                          <textarea
+                            className="form-control"
+                            placeholder="Comment type..."
+                            cols={30}
+                            rows={5}
+                            id="commentInfo"
+                          ></textarea>
+                          <label htmlFor="commentInfo">Comment type...</label>
+                        </div>
+                      </div>
+                      <div className="col-12 mt-lg-30">
+                        <input type="checkbox" id="checkRadio" />
+                        <label className="check-label" htmlFor="checkRadio">
+                          Save my name, email, and website in this browser for
+                          the next time I comment.
+                        </label>
+                      </div>
+                      <div className="col-12">
+                        <button className="theme-btn mt-35" type="submit">
+                          Post Comment
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
               </div>
-              <div className="col-lg-4 ps-xl-5 mt-5 mt-lg-0">
+
+              <div className="col-lg-4 ps-xl-5">
                 <div className="blog-sidebar-widget ps-lg-2">
                   <div className="widget-subscribe">
                     <h4 className="widget-title mb-15">
@@ -940,9 +792,7 @@ const BlogListing = () => {
                     <div className="row text-center gx-3 gy-3 gy-md-0">
                       <div className="col-md-4">
                         <a href="#">
-                          <Image
-                            width={30}
-                            height={30}
+                          <img
                             src="/img/social/facebook-logo.svg"
                             alt="faceebook"
                           />
@@ -951,28 +801,18 @@ const BlogListing = () => {
                         </a>
                       </div>
                       <div className="col-md-4">
-                        <a href="#">
-                          <Image
-                            width={30}
-                            height={30}
-                            src="/img/social/twitter.svg"
-                            alt="twitter"
-                          />
+                        <Link href="#">
+                          <img src="/img/social/twitter.svg" alt="twitter" />
                           <h6>107.2K</h6>
                           <span>Followers</span>
-                        </a>
+                        </Link>
                       </div>
                       <div className="col-md-4">
-                        <a href="#">
-                          <Image
-                            width={30}
-                            height={30}
-                            src="/img/social/youtube.svg"
-                            alt="youtube"
-                          />
+                        <Link href="#">
+                          <img src="/img/social/youtube.svg" alt="youtube" />
                           <h6>90.6K</h6>
                           <span>Subscribers</span>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -1024,9 +864,7 @@ const BlogListing = () => {
 
                     <ul className="recent-post">
                       <li>
-                        <Image
-                          width={80}
-                          height={80}
+                        <img
                           src="/img/blog/recent-post-1.png"
                           alt="recent-post"
                         />
@@ -1037,9 +875,7 @@ const BlogListing = () => {
                             </a>
                           </h6>
                           <div className="post-date">
-                            <Image
-                              width={20}
-                              height={20}
+                            <img
                               src="/img/blog/calendar-outline.svg"
                               alt="calender"
                             />
@@ -1048,9 +884,7 @@ const BlogListing = () => {
                         </div>
                       </li>
                       <li>
-                        <Image
-                          width={80}
-                          height={80}
+                        <img
                           src="/img/blog/recent-post-2.png"
                           alt="recent-post"
                         />
@@ -1059,9 +893,7 @@ const BlogListing = () => {
                             <a href="#">10 classNameic Summer Vacations</a>
                           </h6>
                           <div className="post-date">
-                            <Image
-                              width={20}
-                              height={20}
+                            <img
                               src="/img/blog/calendar-outline.svg"
                               alt="calender"
                             />
@@ -1070,9 +902,7 @@ const BlogListing = () => {
                         </div>
                       </li>
                       <li>
-                        <Image
-                          width={80}
-                          height={80}
+                        <img
                           src="/img/blog/recent-post-3.png"
                           alt="recent-post"
                         />
@@ -1083,9 +913,7 @@ const BlogListing = () => {
                             </a>
                           </h6>
                           <div className="post-date">
-                            <Image
-                              width={20}
-                              height={20}
+                            <img
                               src="/img/blog/calendar-outline.svg"
                               alt="calender"
                             />
@@ -1094,9 +922,7 @@ const BlogListing = () => {
                         </div>
                       </li>
                       <li>
-                        <Image
-                          width={80}
-                          height={80}
+                        <img
                           src="/img/blog/recent-post-4.png"
                           alt="recent-post"
                         />
@@ -1107,9 +933,7 @@ const BlogListing = () => {
                             </a>
                           </h6>
                           <div className="post-date">
-                            <Image
-                              width={20}
-                              height={20}
+                            <img
                               src="/img/blog/calendar-outline.svg"
                               alt="calender"
                             />
@@ -1181,16 +1005,16 @@ const BlogListing = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <Link href="#"> Our core Businesses</Link>
+                        <a href="#"> Our core Businesses</a>
                       </li>
                       <li>
-                        <Link href="#"> Our company purpose</Link>
+                        <a href="#"> Our 'company purpose'</a>
                       </li>
                       <li>
-                        <Link href="#"> Jobs & Careers</Link>
+                        <a href="#"> Jobs & Careers</a>
                       </li>
                       <li>
-                        <Link href="#"> Our Responsibility</Link>
+                        <a href="#"> Our Responsibility</a>
                       </li>
                     </ul>
                   </div>
@@ -1256,27 +1080,22 @@ const BlogListing = () => {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-3 text-center text-lg-start">
-                <Link href="index.html" className="p-0 m-0">
-                  <Image
-                    width={90}
-                    height={35}
-                    src="/img/logo/Logo.png"
-                    alt="logo"
-                  />
-                </Link>
+                <a href="index.html" className="p-0 m-0">
+                  <img src="/img/logo/Logo.png" alt="logo" />
+                </a>
               </div>
               <div className="col-lg-5 text-center my-3 my-sm-0">
                 <div className="copyright-text">
                   <p>
                     Copyright &copy; Banca 2025.
                     <br className="d-sm-none" />{' '}
-                    <Link className="ms-2" href="#">
+                    <a className="ms-2" href="#">
                       Privecy
-                    </Link>{' '}
+                    </a>{' '}
                     |
-                    <Link className="ms-0" href="#">
+                    <a className="ms-0" href="#">
                       Term of Use
-                    </Link>
+                    </a>
                   </p>
                 </div>
               </div>
@@ -1304,4 +1123,4 @@ const BlogListing = () => {
   );
 };
 
-export default BlogListing;
+export default BlogDetails;
