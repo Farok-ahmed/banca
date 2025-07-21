@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
@@ -29,19 +30,21 @@ const BlogDetails = () => {
                 <div className="header-info-right">
                   <ul>
                     <li>
-                      <img
+                      <Image
+                        width={15}
+                        height={15}
                         className="img-fluid"
                         src="/img/phone-outline.png"
                         alt="phone"
                       />
-                      <a href="tel:01234567890">+01234-567890</a>
+                      <Link href="tel:01234567890">+01234-567890</Link>
                     </li>
 
                     <li>
                       <i className="icon_mail_alt"></i>
-                      <a href="mailto:bancainfo@email.com">
+                      <Link href="mailto:bancainfo@email.com">
                         bancainfo@email.com
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -53,16 +56,20 @@ const BlogDetails = () => {
           <nav className="navbar navbar-expand-lg ">
             <div className="container">
               <Link className="navbar-brand sticky_logo" href="index.html">
-                <img
+                <Image
+                  width={110}
+                  height={35}
                   className="main"
                   src="/img/logo/Logo.png"
-                  srcset="img/logo/Logo@2x.png 2x"
+                  // srcset="img/logo/Logo@2x.png 2x"
                   alt="logo"
                 />
-                <img
+                <Image
+                  width={110}
+                  height={35}
                   className="sticky"
                   src="/img/logo/Logo-2.png"
-                  srcset="img/logo/Logo-2@2x.png 2x"
+                  // srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
               </Link>
@@ -322,10 +329,10 @@ const BlogDetails = () => {
                 </Link>
                 <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
                   <label htmlFor="something" className="tab-btn tab-btns">
-                  <IoMoonOutline name="moon" />
+                    <IoMoonOutline name="moon" />
                   </label>
                   <label htmlFor="something" className="tab-btn">
-                  <IoSunnyOutline name="sunny" />
+                    <IoSunnyOutline name="sunny" />
                   </label>
                   <label className=" ball" htmlFor="something"></label>
                   <input
@@ -368,11 +375,21 @@ const BlogDetails = () => {
                     <h1>How To Save Enough Money To Buy A Home</h1>
                     <div className="post-info mt-5">
                       <div className="autor mr-20">
-                        <img src="/img/blog/user-profile.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/blog/user-profile.png"
+                          alt="icon"
+                        />
                         <span>Zain Siphron</span>
                       </div>
                       <div className="date">
-                        <img src="/img/blog/calendar-outline.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/blog/calendar-outline.png"
+                          alt="icon"
+                        />
                         <span>March 18, 2021</span>
                       </div>
                     </div>
@@ -407,7 +424,9 @@ const BlogDetails = () => {
               </div>
               <div className="col-lg-7">
                 <div className="post-details-widget pb-70 border-bottom position-relative">
-                  <img
+                  <Image
+                    width={200}
+                    height={400}
                     className="post-img w-100"
                     src="/img/blog/blog-details-img.jpg"
                     alt="post image"
@@ -445,7 +464,9 @@ const BlogDetails = () => {
                       nut pukka
                     </p>
                     <div className="author">
-                      <img
+                      <Image
+                        width={50}
+                        height={40}
                         className="img-fluid rounded-circle"
                         src="/img/blog/quote-author.png"
                         alt=""
@@ -456,7 +477,9 @@ const BlogDetails = () => {
                       </div>
                     </div>
                   </blockquote>
-                  <img
+                  <Image
+                    width={200}
+                    height={400}
                     className="post-img w-100"
                     src="/img/blog/blog-details-img-2.jpg"
                     alt="post img"
@@ -492,7 +515,9 @@ const BlogDetails = () => {
                 </div>
                 <div className="author-media-widget mt-90 mb-90">
                   <div className="author-img">
-                    <img
+                    <Image
+                      width={50}
+                      height={50}
                       className="rounded-circle"
                       src="/img/blog/author-1.png"
                       alt="author"
@@ -517,12 +542,19 @@ const BlogDetails = () => {
                         data-wow-delay="0.1s"
                       >
                         <div className="blog-img">
-                          <img src="/img/blog/blog-9.png" alt="blog-img" />
+                          <Image
+                            width={200}
+                            height={200}
+                            src="/img/blog/blog-9.png"
+                            alt="blog-img"
+                          />
                           <div className="catagory bg_primary">buisiness</div>
                         </div>
                         <div className="blog-content">
                           <h5>
-                            <a href="#">Why Set Impossible Goals for 2021?</a>
+                            <Link href="#">
+                              Why Set Impossible Goals for 2021?
+                            </Link>
                           </h5>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
@@ -530,14 +562,18 @@ const BlogDetails = () => {
                           </p>
                           <div className="post-info">
                             <div className="author">
-                              <img
+                              <Image
+                                width={20}
+                                height={20}
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
                               <span>Zain Siphron</span>
                             </div>
                             <div className="post-date">
-                              <img
+                              <Image
+                                width={20}
+                                height={20}
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -553,7 +589,12 @@ const BlogDetails = () => {
                         data-wow-delay="0.3s"
                       >
                         <div className="blog-img">
-                          <img src="/img/blog/blog-7.png" alt="blog-img" />
+                          <Image
+                            width={200}
+                            height={200}
+                            src="/img/blog/blog-7.png"
+                            alt="blog-img"
+                          />
                           <div className="catagory bg_primary">buisiness</div>
                         </div>
                         <div className="blog-content">
@@ -568,14 +609,18 @@ const BlogDetails = () => {
                           </p>
                           <div className="post-info">
                             <div className="author">
-                              <img
+                              <Image
+                                width={20}
+                                height={20}
                                 src="/img/blog/user-profile.svg"
                                 alt="user profile"
                               />
                               <span>Zain Siphron</span>
                             </div>
                             <div className="post-date">
-                              <img
+                              <Image
+                                width={20}
+                                height={20}
                                 src="/img/blog/calendar-outline.svg"
                                 alt="calendar"
                               />
@@ -596,7 +641,9 @@ const BlogDetails = () => {
                       <li>
                         <div className="comments-box">
                           <div className="comments-avatar">
-                            <img
+                            <Image
+                              width={50}
+                              height={50}
                               className="rounded-circle"
                               src="/img/blog/comment-1.png"
                               alt="img"
@@ -606,7 +653,9 @@ const BlogDetails = () => {
                             <div className="avatar-name">
                               <h5>Karon Balina</h5>
                               <div className="post-date">
-                                <img
+                                <Image
+                                  width={20}
+                                  height={20}
                                   src="/img/blog/calendar-outline.svg"
                                   alt=""
                                 />
@@ -630,7 +679,9 @@ const BlogDetails = () => {
                       <li className="children">
                         <div className="comments-box">
                           <div className="comments-avatar">
-                            <img
+                            <Image
+                              width={50}
+                              height={50}
                               className="rounded-circle"
                               src="/img/blog/comment-2.png"
                               alt="img"
@@ -640,7 +691,9 @@ const BlogDetails = () => {
                             <div className="avatar-name">
                               <h5>Julias Roy</h5>
                               <div className="post-date">
-                                <img
+                                <Image
+                                  width={20}
+                                  height={20}
                                   src="/img/blog/calendar-outline.svg"
                                   alt=""
                                 />
@@ -660,7 +713,9 @@ const BlogDetails = () => {
                       <li>
                         <div className="comments-box">
                           <div className="comments-avatar">
-                            <img
+                            <Image
+                              width={50}
+                              height={50}
                               className="rounded-circle"
                               src="/img/blog/comment-3.png"
                               alt="img"
@@ -670,7 +725,9 @@ const BlogDetails = () => {
                             <div className="avatar-name">
                               <h5>Arista Williamson</h5>
                               <div className="post-date">
-                                <img
+                                <Image
+                                  width={20}
+                                  height={20}
                                   src="/img/blog/calendar-outline.svg"
                                   alt=""
                                 />
@@ -791,25 +848,37 @@ const BlogDetails = () => {
                   <div className="widget-social mt-40">
                     <div className="row text-center gx-3 gy-3 gy-md-0">
                       <div className="col-md-4">
-                        <a href="#">
-                          <img
+                        <Link href="#">
+                          <Image
+                            width={30}
+                            height={30}
                             src="/img/social/facebook-logo.svg"
                             alt="faceebook"
                           />
                           <h6>815.5K</h6>
                           <span>Fans</span>
-                        </a>
+                        </Link>
                       </div>
                       <div className="col-md-4">
                         <Link href="#">
-                          <img src="/img/social/twitter.svg" alt="twitter" />
+                          <Image
+                            width={30}
+                            height={30}
+                            src="/img/social/twitter.svg"
+                            alt="twitter"
+                          />
                           <h6>107.2K</h6>
                           <span>Followers</span>
                         </Link>
                       </div>
                       <div className="col-md-4">
                         <Link href="#">
-                          <img src="/img/social/youtube.svg" alt="youtube" />
+                          <Image
+                            width={30}
+                            height={30}
+                            src="/img/social/youtube.svg"
+                            alt="youtube"
+                          />
                           <h6>90.6K</h6>
                           <span>Subscribers</span>
                         </Link>
@@ -864,7 +933,9 @@ const BlogDetails = () => {
 
                     <ul className="recent-post">
                       <li>
-                        <img
+                        <Image
+                          width={80}
+                          height={80}
                           src="/img/blog/recent-post-1.png"
                           alt="recent-post"
                         />
@@ -875,7 +946,9 @@ const BlogDetails = () => {
                             </a>
                           </h6>
                           <div className="post-date">
-                            <img
+                            <Image
+                              width={20}
+                              height={20}
                               src="/img/blog/calendar-outline.svg"
                               alt="calender"
                             />
@@ -884,7 +957,9 @@ const BlogDetails = () => {
                         </div>
                       </li>
                       <li>
-                        <img
+                        <Image
+                          width={80}
+                          height={80}
                           src="/img/blog/recent-post-2.png"
                           alt="recent-post"
                         />
@@ -893,7 +968,9 @@ const BlogDetails = () => {
                             <a href="#">10 classNameic Summer Vacations</a>
                           </h6>
                           <div className="post-date">
-                            <img
+                            <Image
+                              width={20}
+                              height={20}
                               src="/img/blog/calendar-outline.svg"
                               alt="calender"
                             />
@@ -902,7 +979,9 @@ const BlogDetails = () => {
                         </div>
                       </li>
                       <li>
-                        <img
+                        <Image
+                          width={80}
+                          height={80}
                           src="/img/blog/recent-post-3.png"
                           alt="recent-post"
                         />
@@ -913,7 +992,9 @@ const BlogDetails = () => {
                             </a>
                           </h6>
                           <div className="post-date">
-                            <img
+                            <Image
+                              width={20}
+                              height={20}
                               src="/img/blog/calendar-outline.svg"
                               alt="calender"
                             />
@@ -922,7 +1003,9 @@ const BlogDetails = () => {
                         </div>
                       </li>
                       <li>
-                        <img
+                        <Image
+                          width={80}
+                          height={80}
                           src="/img/blog/recent-post-4.png"
                           alt="recent-post"
                         />
@@ -933,7 +1016,9 @@ const BlogDetails = () => {
                             </a>
                           </h6>
                           <div className="post-date">
-                            <img
+                            <Image
+                              width={20}
+                              height={20}
                               src="/img/blog/calendar-outline.svg"
                               alt="calender"
                             />
@@ -1008,7 +1093,7 @@ const BlogDetails = () => {
                         <a href="#"> Our core Businesses</a>
                       </li>
                       <li>
-                        <a href="#"> Our 'company purpose'</a>
+                        <a href="#"> Our company purpose</a>
                       </li>
                       <li>
                         <a href="#"> Jobs & Careers</a>
@@ -1080,9 +1165,14 @@ const BlogDetails = () => {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-3 text-center text-lg-start">
-                <a href="index.html" className="p-0 m-0">
-                  <img src="/img/logo/Logo.png" alt="logo" />
-                </a>
+                <Link href="index.html" className="p-0 m-0">
+                  <Image
+                    width={90}
+                    height={35}
+                    src="/img/logo/Logo.png"
+                    alt="logo"
+                  />
+                </Link>
               </div>
               <div className="col-lg-5 text-center my-3 my-sm-0">
                 <div className="copyright-text">
