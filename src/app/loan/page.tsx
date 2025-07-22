@@ -195,12 +195,12 @@ const Loanpage = () => {
                             </a>
                           </li>
                           <li className="nav-item">
-                            <a
+                            <Link
                               className="nav-link"
-                              href="personal-details.html"
+                              href="/loan/personal-details"
                             >
                               Step 02
-                            </a>
+                            </Link>
                           </li>
                           <li className="nav-item">
                             <a className="nav-link" href="document-upload.html">
@@ -790,13 +790,13 @@ const Loanpage = () => {
                           $ 3,495*
                         </h1>
 
-                        <a
-                          href="personal-details.html"
+                        <Link
+                          href="/loan/personal-details"
                           className="theme-btn theme-btn-lg mt-40"
                         >
                           Apply Now
                           <i className="arrow_right"></i>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
