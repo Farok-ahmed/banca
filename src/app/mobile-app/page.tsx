@@ -1,313 +1,227 @@
+'use client'
 import NewsSlider from '@/components/BancaNews';
 import ClientSlider from '@/components/MobileTestimonial';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
+import classNames from 'classnames';
+import { useState } from 'react';
+import { useTheme } from '@/contextAPi/ThemeContext';
 
 const MobileApp = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const { theme, toggleTheme } = useTheme();
+
+  const handleMenuToggle = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const toggleDropdown = (label: string) => {
+    setOpenDropdown(prev => (prev === label ? null : label));
+  };
+
+  // helper to render caret icon on mobile
+  const renderMobileDropdownIcon = (label: string) => (
+    <i
+      className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none ms-1"
+      aria-hidden="true"
+      onClick={(e) => {
+        e.preventDefault();
+        toggleDropdown(label);
+      }}
+      style={{ cursor: 'pointer' }}
+    ></i>
+  );
   return (
     <div>
       <header className="header">
-        <div className="header-menu header-menu-1" id="sticky">
-          <nav className="navbar navbar-expand-lg ">
-            <div className="container">
-              <Link className="navbar-brand sticky_logo" href="index.html">
-                <Image
-                  width={110}
-                  height={35}
-                  className="main"
-                  src="/img/logo/Logo.png"
-                  // srcset="img/logo/Logo@2x.png 2x"
-                  alt="logo"
-                />
-                <Image
-                  width={110}
-                  height={35}
-                  className="sticky"
-                  src="/img/logo/Logo-3.png"
-                  // srcset="img/logo/Logo-3@2x.png 2x"
-                  alt="logo"
-                />
-              </Link>
-              <button
-                className="navbar-toggler collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
-                <span className="menu_toggle">
-                  <span className="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </span>
-                  <span className="hamburger-cross">
-                    <span></span>
-                    <span></span>
-                  </span>
+      <div className="header-menu header-menu-4" id="sticky">
+        <nav className="navbar navbar-expand-lg">
+          <div className="container">
+            {/* Logo */}
+            <Link className="navbar-brand sticky_logo" href="/">
+              <Image
+                className="main"
+                src="/img/logo/Logo.png"
+                alt="logo"
+                width={130}
+                height={40}
+              />
+              <Image
+                className="sticky"
+                src="/img/logo/Logo-2.png"
+                alt="logo sticky"
+                width={130}
+                height={40}
+              />
+            </Link>
+
+            {/* Hamburger Toggle */}
+            <button
+              className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
+              type="button"
+              onClick={handleMenuToggle}
+              aria-expanded={menuOpen}
+              aria-label="Toggle navigation"
+            >
+              <span className="menu_toggle">
+                <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </span>
-              </button>
+                <span className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}>
+                  <span></span>
+                  <span></span>
+                </span>
+              </span>
+            </button>
 
-              <div
-                className="collapse navbar-collapse"
-                id="navbarSupportedContent"
+            {/* Menu */}
+            <div
+              className={classNames('collapse navbar-collapse right-nav', {
+                show: menuOpen,
+              })}
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav menu ms-auto">
+
+                {/* Helper: Dropdown Menu Item */}
+                {[
+                  {
+                    label: 'Home',
+                    href: '/',
+                    sub: [
+                      ['/', 'Smart Finance'],
+                      ['/index-company', 'Loan Company'],
+                      ['/mobile-app', 'Mobile App'],
+                      ['/simple-banca', 'Simple Banca'],
+                      ['/loan-steps', 'Loan Steps'],
+                      ['/finance-sass-app', 'Finance Sass App'],
+                      ['/small-bank', 'Small Bank']
+                    ]
+                  },
+                  {
+                    label: 'Loan',
+                    href: '/loan',
+                    sub: [
+                      ['/loan', 'Get Loan'],
+                      ['/loan-details', 'Loan Application', [
+                        ['/loan-details', 'Step 01'],
+                        ['/personal-details', 'Step 02'],
+                        ['/document-upload', 'Step 03']
+                      ]]
+                    ]
+                  },
+                  {
+                    label: 'Job Pages',
+                    href: '/career',
+                    sub: [
+                      ['/career', 'Career'],
+                      ['/jobs', 'Jobs'],
+                      ['/job-application', 'Job Application']
+                    ]
+                  },
+                  {
+                    label: 'Pages',
+                    href: '/card',
+                    sub: [
+                      ['/card', 'Cards'],
+                      ['/about-us', 'About Us'],
+                      ['/contact-us', 'Contact Us'],
+                      ['/error', '404 Error']
+                    ]
+                  },
+                  {
+                    label: 'Blog',
+                    href: '/blog-listing',
+                    sub: [
+                      ['/blog-listing', 'Blog Listing'],
+                      ['/blog-details', 'Blog Details']
+                    ]
+                  }
+                ].map((item, idx) => (
+                  <li className="nav-item dropdown submenu" key={idx}>
+                    <Link href={item.href} className="nav-link dropdown-toggle">
+                      {item.label}
+                      {renderMobileDropdownIcon(item.label)}
+                    </Link>
+
+                    <ul
+                      className={classNames('dropdown-menu', {
+                        show: openDropdown === item.label
+                      })}
+                    >
+                      {item.sub.map((subItem, subIdx) =>
+                        Array.isArray(subItem[2]) ? (
+                          <li className="nav-item dropdown submenu" key={subIdx}>
+                            <Link href="#" className="nav-link dropdown-toggle">
+                              {subItem[1]}
+                              {renderMobileDropdownIcon(`${item.label}-nested-${subIdx}`)}
+                            </Link>
+                            <ul
+                              className={classNames('dropdown-menu', {
+                                show: openDropdown === `${item.label}-nested-${subIdx}`
+                              })}
+                            >
+                              {subItem[2].map(([href, label], innerIdx) => (
+                                <li className="nav-item" key={innerIdx}>
+                                  <Link href={href} className="nav-link">{label}</Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </li>
+                        ) : (
+                          <li className="nav-item" key={subIdx}>
+                            <Link href={subItem[0]} className="nav-link">{subItem[1]}</Link>
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA Button */}
+              <Link
+                className="theme-btn theme-btn-rounded-2 theme-btn-alt"
+                href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <ul className="navbar-nav menu ms-auto">
-                  <li className="nav-item dropdown submenu ">
-                    <Link
-                      href="#"
-                      className="nav-link dropdown-toggle active"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Home
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="true"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item ">
-                        <Link href="/" className="nav-link">
-                          Smart Finance
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/index-company" className="nav-link">
-                          Loan Company
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/mobile-app" className="nav-link active">
-                          Mobile App
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/simple-banca" className="nav-link ">
-                          Simple Banca
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/loan-steps" className="nav-link">
-                          Loan Steps
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/finance-sass-app" className="nav-link">
-                          Finance Sass App
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/small-bank" className="nav-link">
-                          Small Bank
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="loan.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Loan
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
+                Download
+              </Link>
 
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link"
-                          href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
-                          target="_blank"
-                        >
-                          Buy Banca
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link"
-                          href="#"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          Loan Application
-                        </Link>
-                        <i
-                          className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                          aria-hidden="false"
-                          data-bs-toggle="dropdown"
-                        ></i>
-
-                        <ul className="dropdown-menu">
-                          <li className="nav-item">
-                            <Link className="nav-link" href="loan-details.html">
-                              Step 01
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link
-                              className="nav-link"
-                              href="personal-details.html"
-                            >
-                              Step 02
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link
-                              className="nav-link"
-                              href="document-upload.html"
-                            >
-                              Step 03
-                            </Link>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="career.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Job Pages
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="career.html">
-                          Career
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="job-post.html">
-                          Jobs
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="job-application.html">
-                          Job Application
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Pages
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu ">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="card.html">
-                          Cards
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="about.html">
-                          About Us
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="contact.html">
-                          Contact Us
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="error.html">
-                          404 Error
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="blog.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Blog
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu ">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="blog.html">
-                          Blog Listing
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="blog-details.html">
-                          Blog Details
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-                <a className="theme-btn theme-btn-rounded-2" href="#">
-                  Download
-                </a>
-                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
+              {/* Dark Mode Toggle */}
+              <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
                   <label htmlFor="something" className="tab-btn tab-btns">
-                    {/* <ion-icon name="moon"></ion-icon> */}
-                    <IoMoonOutline name="moon" />
+                    <IoMoonOutline />
                   </label>
                   <label htmlFor="something" className="tab-btn">
-                    {/* <ion-icon name="sunny"></ion-icon> */}
-                    <IoSunnyOutline name="sunny" />
+                    <IoSunnyOutline />
                   </label>
-                  <label className=" ball" htmlFor="something"></label>
+                  <label
+                    className={`ball `}
+                    style={{
+                      left: theme === 'body_dark' ? 3 : 26
+                    }}
+                    htmlFor="something"
+                  ></label>
                   <input
                     type="checkbox"
                     name="something"
                     id="something"
                     className="dark_mode_switcher"
+                    checked={theme === 'body_dark'}
+                    onChange={toggleTheme}
                   />
                 </div>
-              </div>
             </div>
-          </nav>
-        </div>
-      </header>
+          </div>
+        </nav>
+      </div>
+    </header>
 
       <main>
         <section className="banner-area" id="banner_animation">
@@ -843,13 +757,13 @@ const MobileApp = () => {
 
         {/* what our client say */}
 
-        {/* <section className="client-area pt-110 ">
+        <section className="client-area pt-110 ">
           <div className="container">
             <div className="section-title">
               <h2 className="wow fadeInUp mb-0">What Our Client Say</h2>
             </div>
 
-            <div className=" client-slider pt-45 pb-140">
+            {/* <div className="client-slider pt-45 pb-140">
               <div className="single-client wow fadeInUp" data-wow-delay="0.1s">
                 <Image
                   width={200}
@@ -1174,7 +1088,9 @@ const MobileApp = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
+
+            <ClientSlider />
 
             <div className="row pt-110">
               <div className="col-md-12 position-relative">
@@ -1233,9 +1149,9 @@ const MobileApp = () => {
               </div>
             </div>
           </div>
-        </section> */}
+        </section>
 
-        <ClientSlider />
+        
 
         {/* news slider */}
         <NewsSlider />
@@ -1590,13 +1506,33 @@ const MobileApp = () => {
           <div className="container-lg container-fluid">
             <div className="row align-items-center ">
               <div className="col-lg-3">
-                <div className="d-flex justify-content-center d-lg-block">
-                  <select id="select-lang">
+                <div
+                  className="language-list position-relative"
+                  style={{ width: '130px' }}
+                >
+                  <select
+                    className="form-select border-0 shadow-none pe-4"
+                    aria-label="Language select"
+                    style={{
+                      appearance: 'none',
+                      backgroundColor: '#171d24',
+                      color: '#ffffff',
+                      cursor: 'pointer',
+                      border: 'none',
+                      boxShadow: 'none',
+                      width: '100%',
+                      padding: '6px 12px',
+                    }}
+                  >
                     <option value="English">English</option>
                     <option value="Bangla">Bangla</option>
                     <option value="French">French</option>
                     <option value="Hindi">Hindi</option>
                   </select>
+
+                  <span className="position-absolute top-50 end-0 translate-middle-y me-2">
+                    <i className="bi bi-chevron-down text-white"></i>
+                  </span>
                 </div>
               </div>
               <div className="col-lg-5  text-center short-text">

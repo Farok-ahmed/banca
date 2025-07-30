@@ -1,7 +1,40 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable react/no-unescaped-entities */
+'use client';
+
+import Image from 'next/image';
 import Link from 'next/link';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
+import { useState } from 'react';
+import { useTheme } from '@/contextAPi/ThemeContext';
 
 const Aboutpage = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const handleMenuToggle = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const handleDropdownToggle = (label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  };
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+
+  const settings = {
+    dots: true,
+    arrows: false,
+    infinite: true,
+    autoplay: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
     <div>
       <header className="header">
@@ -10,13 +43,28 @@ const Aboutpage = () => {
             <div className="row align-items-center">
               <div className="col-md-5">
                 <div className="header-info-left">
-                  <div className="language-list">
-                    <select name="page-language-list" id="select-lang">
+                  <div className="language-list position-relative w-auto">
+                    <select
+                      className="form-select border-0 shadow-none text-white pe-5 ps-1"
+                      aria-label="Language select"
+                      style={{
+                        appearance: 'none',
+                        backgroundColor: '#171d24',
+                        color: '#ffffff',
+                        cursor: 'pointer',
+                        border: 'none',
+                        boxShadow: 'none',
+                      }}
+                    >
                       <option value="English">English</option>
                       <option value="Bangla">Bangla</option>
                       <option value="French">French</option>
                       <option value="Hindi">Hindi</option>
                     </select>
+
+                    <span className="position-absolute top-50 end-0 translate-middle-y me-2 text-white">
+                      <i className="bi bi-chevron-down ms-2 text-white pointer-events-none"></i>
+                    </span>
                   </div>
 
                   <div className="timestamp ms-4">
@@ -29,19 +77,21 @@ const Aboutpage = () => {
                 <div className="header-info-right">
                   <ul>
                     <li>
-                      <img
+                      <Image
+                        width={15}
+                        height={15}
                         className="img-fluid"
                         src="/img/phone-outline-white.png"
                         alt="phone"
                       />
-                      <a href="tel:01234567890">+01234-567890</a>
+                      <Link href="tel:01234567890">+01234-567890</Link>
                     </li>
 
                     <li>
                       <i className="icon_mail_alt"></i>
-                      <a href="mailto:bancainfo@email.com">
+                      <Link href="mailto:bancainfo@email.com">
                         bancainfo@email.com
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -53,43 +103,48 @@ const Aboutpage = () => {
         <div className="header-menu header-menu-2 bg_white" id="sticky">
           <nav className="navbar navbar-expand-lg ">
             <div className="container">
-              <Link className="navbar-brand" href="index.html">
-                <img
+              <Link className="navbar-brand" href="/">
+                <Image
+                  width={110}
+                  height={35}
                   src="/img/logo/Logo-2.png"
-                  srcset="img/logo/Logo-2@2x.png 2x"
+                  // srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
               </Link>
+
+
+              {/* Hamburger Toggle */}
               <button
-                className="navbar-toggler collapsed"
+                className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
+                onClick={handleMenuToggle}
+                aria-expanded={menuOpen}
                 aria-label="Toggle navigation"
               >
                 <span className="menu_toggle">
-                  <span className="hamburger">
+                  <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
                     <span></span>
                     <span></span>
                     <span></span>
                   </span>
-                  <span className="hamburger-cross">
+                  <span
+                    className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}
+                  >
                     <span></span>
                     <span></span>
                   </span>
                 </span>
               </button>
 
-              <div
+              {/* <div
                 className="collapse navbar-collapse"
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
                   <li className="nav-item dropdown submenu ">
-                    <a
-                      href="#"
+                    <Link
+                      href="/"
                       className="nav-link dropdown-toggle "
                       role="button"
                       data-bs-toggle="dropdown"
@@ -97,7 +152,7 @@ const Aboutpage = () => {
                       aria-expanded="false"
                     >
                       Home
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="true"
@@ -105,53 +160,53 @@ const Aboutpage = () => {
                     ></i>
                     <ul className="dropdown-menu">
                       <li className="nav-item ">
-                        <a href="index.html" className="nav-link">
+                        <Link href="/" className="nav-link">
                           Smart Finance
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-company.html" className="nav-link">
+                        <Link href="/index-company" className="nav-link">
                           Loan Company
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-app.html" className="nav-link">
+                        <Link href="/mobile-app" className="nav-link">
                           Mobile App
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-simple.html" className="nav-link ">
+                        <Link href="/simple-banca" className="nav-link ">
                           Simple Banca
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-loan.html" className="nav-link">
+                        <Link href="/loan-steps" className="nav-link">
                           Loan Steps
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-finance.html" className="nav-link">
+                        <Link href="/finance-sass-app" className="nav-link">
                           Finance Sass App
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-small-bank.html" className="nav-link">
+                        <Link href="/small-bank" className="nav-link">
                           Small Bank
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle"
-                      href="loan.html"
+                      href="/loan"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Loan
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -160,21 +215,21 @@ const Aboutpage = () => {
 
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a className="nav-link" href="loan.html">
+                        <Link className="nav-link" href="/loan">
                           Get loan
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
+                        <Link
                           className="nav-link"
-                          href="#"
+                          href="/loan-details"
                           role="button"
                           data-bs-toggle="dropdown"
                           aria-haspopup="true"
                           aria-expanded="false"
                         >
                           Loan Application
-                        </a>
+                        </Link>
                         <i
                           className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                           aria-hidden="false"
@@ -183,38 +238,35 @@ const Aboutpage = () => {
 
                         <ul className="dropdown-menu">
                           <li className="nav-item">
-                            <a className="nav-link" href="loan-details.html">
+                            <Link className="nav-link" href="/loan-details">
                               Step 01
-                            </a>
+                            </Link>
                           </li>
                           <li className="nav-item">
-                            <a
-                              className="nav-link"
-                              href="personal-details.html"
-                            >
+                            <Link className="nav-link" href="/personal-details">
                               Step 02
-                            </a>
+                            </Link>
                           </li>
                           <li className="nav-item">
-                            <a className="nav-link" href="document-upload.html">
+                            <Link className="nav-link" href="/document-upload">
                               Step 03
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle"
-                      href="career.html"
+                      href="/career"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Job Pages
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -222,33 +274,33 @@ const Aboutpage = () => {
                     ></i>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a className="nav-link" href="career.html">
+                        <Link className="nav-link" href="/career">
                           Career
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="job-post.html">
+                        <Link className="nav-link" href="/jobs">
                           Jobs
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="job-application.html">
+                        <Link className="nav-link" href="/job-application">
                           Job Application
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle active"
-                      href="#"
+                      href="/card"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Pages
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -256,14 +308,14 @@ const Aboutpage = () => {
                     ></i>
                     <ul className="dropdown-menu ">
                       <li className="nav-item">
-                        <a className="nav-link" href="card.html">
+                        <Link className="nav-link" href="/card">
                           Cards
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link active" href="about.html">
+                        <Link className="nav-link active" href="/about-us">
                           About Us
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
                         <Link className="nav-link" href="/contact-us">
@@ -271,23 +323,23 @@ const Aboutpage = () => {
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="error.html">
+                        <Link className="nav-link" href="/error">
                           404 Error
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle"
-                      href="blog.html"
+                      href="/blog-listing"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Blog
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -295,14 +347,14 @@ const Aboutpage = () => {
                     ></i>
                     <ul className="dropdown-menu ">
                       <li className="nav-item">
-                        <a className="nav-link" href="blog.html">
+                        <Link className="nav-link" href="/blog-listing">
                           Blog Listing
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="blog-details.html">
+                        <Link className="nav-link" href="/blog-details">
                           Blog Details
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
@@ -327,6 +379,194 @@ const Aboutpage = () => {
                     name="something"
                     id="something"
                     className="dark_mode_switcher"
+                    onChange={toggleDarkMode}
+  checked={isDarkMode}
+                  />
+                </div>
+              </div> */}
+
+              <div
+                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav menu ms-auto">
+                  {[
+                    {
+                      label: 'Home',
+                      href: '/',
+                      submenu: [
+                        { text: 'Smart Finance', link: '/' },
+                        { text: 'Loan Company', link: '/index-company' },
+                        { text: 'Mobile App', link: '/mobile-app' },
+                        { text: 'Simple Banca', link: '/simple-banca' },
+                        { text: 'Loan Steps', link: '/loan-steps' },
+                        { text: 'Finance Sass App', link: '/finance-sass-app' },
+                        { text: 'Small Bank', link: '/small-bank' },
+                      ],
+                    },
+                    {
+                      label: 'Loan',
+                      href: '/loan',
+                      submenu: [
+                        { text: 'Get loan', link: '/loan' },
+                        {
+                          text: 'Loan Application',
+                          link: '/loan-details',
+                          submenu: [
+                            { text: 'Step 01', link: '/loan-details' },
+                            { text: 'Step 02', link: '/personal-details' },
+                            { text: 'Step 03', link: '/document-upload' },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      label: 'Job Pages',
+                      href: '/career',
+                      submenu: [
+                        { text: 'Career', link: '/career' },
+                        { text: 'Jobs', link: '/jobs' },
+                        { text: 'Job Application', link: '/job-application' },
+                      ],
+                    },
+                    {
+                      label: 'Pages',
+                      href: '/card',
+                      submenu: [
+                        { text: 'Cards', link: '/card' },
+                        { text: 'About Us', link: '/about-us' },
+                        { text: 'Contact Us', link: '/contact-us' },
+                        { text: '404 Error', link: '/error' },
+                      ],
+                    },
+                    {
+                      label: 'Blog',
+                      href: '/blog-listing',
+                      submenu: [
+                        { text: 'Blog Listing', link: '/blog-listing' },
+                        { text: 'Blog Details', link: '/blog-details' },
+                      ],
+                    },
+                  ].map((item, idx) => (
+                    <li key={idx} className="nav-item dropdown submenu">
+                      <Link
+                        href={item.href}
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === item.label}
+                        onClick={(e) => {
+                          if (isMobile) {
+                            e.preventDefault();
+                            handleDropdownToggle(item.label);
+                          }
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      <i
+                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                        aria-hidden="true"
+                        onClick={() => handleDropdownToggle(item.label)}
+                        style={{ cursor: 'pointer' }}
+                      ></i>
+
+                      <ul
+                        className={`dropdown-menu ${
+                          openDropdown === item.label ? 'show' : ''
+                        }`}
+                      >
+                        {item.submenu?.map((sub, i) => (
+                          <li
+                            key={i}
+                            className={`nav-item ${
+                              sub.submenu ? 'dropdown submenu' : ''
+                            }`}
+                          >
+                            <Link
+                              href={sub.link}
+                              className="nav-link"
+                              onClick={(e) => {
+                                if (isMobile && sub.submenu) {
+                                  e.preventDefault();
+                                  handleDropdownToggle(
+                                    `${item.label}-${sub.text}`
+                                  );
+                                }
+                              }}
+                            >
+                              {sub.text}
+                            </Link>
+                            {sub.submenu && (
+                              <>
+                                <i
+                                  className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                                  aria-hidden="true"
+                                  onClick={() =>
+                                    handleDropdownToggle(
+                                      `${item.label}-${sub.text}`
+                                    )
+                                  }
+                                  style={{ cursor: 'pointer' }}
+                                ></i>
+                                <ul
+                                  className={`dropdown-menu ${
+                                    openDropdown === `${item.label}-${sub.text}`
+                                      ? 'show'
+                                      : ''
+                                  }`}
+                                >
+                                  {sub.submenu.map((deep, j) => (
+                                    <li key={j} className="nav-item">
+                                      <Link
+                                        href={deep.link}
+                                        className="nav-link"
+                                      >
+                                        {deep.text}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  className="theme-btn"
+                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
+                  target="_blank"
+                >
+                  Buy Banca
+                </Link>
+
+                {/* Dark Mode Toggle */}
+                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
+                  <label htmlFor="something" className="tab-btn tab-btns">
+                    <IoMoonOutline />
+                  </label>
+                  <label htmlFor="something" className="tab-btn">
+                    <IoSunnyOutline />
+                  </label>
+                  <label
+                    className={`ball`}
+                    style={{
+                      left: theme === 'body_dark' ? 3 : 26
+                    }}
+                    htmlFor="something"
+                  ></label>
+                  <input
+                    type="checkbox"
+                    name="something"
+                    id="something"
+                    className="dark_mode_switcher"
+                    checked={theme === 'body_dark'}
+                    onChange={toggleTheme}
                   />
                 </div>
               </div>
@@ -350,7 +590,7 @@ const Aboutpage = () => {
                       Believing, banking and achieving different
                     </h1>
                   </div>
-                  <a
+                  <Link
                     className="theme-btn-2 theme-btn-primary mt-45 wow fadeInUp"
                     data-wow-delay="0.4s"
                     href="#"
@@ -359,14 +599,14 @@ const Aboutpage = () => {
                       <span className="horizontal-line"></span>
                     </span>
                     View our 2019 Annual Report
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="bg_white pt-90 pb-160 ">
+        <section className="bg_white pt-90 pb-160">
           <div className="container">
             <div className="description-widget">
               <div className="row">
@@ -404,28 +644,34 @@ const Aboutpage = () => {
 
         <section className="statistics-area pt-135 pb-140 bg_disable">
           <div className="container">
-            <div className="row gy-lg-0 gy-4 ">
+            <div className="row gy-lg-0 gy-4">
               <div className="col-lg-7">
                 <div className="statistics-widget-2 wow fadeInUp">
                   <div className="row gx-0">
-                    <div className="col-7">
-                      <div className="statistics-slider h-100">
-                        <div className="widget-content  widget-1">
+                    <div
+                      className="col-7"
+                      style={{ backgroundColor: '#610fc9' }}
+                    >
+                      <Slider {...settings} className="statistics-slider">
+                        <div className="widget-content">
                           <h1 className="stat-counter">15,000</h1>
                           <p>We employ 15,000 people around the world</p>
                         </div>
-                        <div className="widget-content  widget-1">
+                        <div className="widget-content">
                           <h1 className="stat-counter">10,000</h1>
                           <p>We employ 15,000 people around the world</p>
                         </div>
-                        <div className="widget-content  widget-1">
+                        <div className="widget-content">
                           <h1 className="stat-counter">25,000</h1>
                           <p>We employ 15,000 people around the world</p>
                         </div>
-                      </div>
+                      </Slider>
                     </div>
                     <div className="col-5">
-                      <img
+                      <Image
+                        width={200}
+                        height={200}
+                        style={{ height: 200 }}
                         className="img-fluid"
                         src="/img/statistics/img-1.png"
                         alt="img"
@@ -434,12 +680,16 @@ const Aboutpage = () => {
                   </div>
                 </div>
               </div>
+
               <div className="col-lg-5">
                 <div
                   className="statistics-widget-2  wow fadeInUp"
                   data-wow-delay="0.2s"
                 >
-                  <div className="widget-content widget-2">
+                  <div
+                    className="widget-content widget-2"
+                    style={{ height: 200 }}
+                  >
                     <h1 className="stat-counter">125</h1>
                     <p>Our colleagues come from 125 different countries</p>
                   </div>
@@ -565,7 +815,7 @@ const Aboutpage = () => {
                   >
                     <ul className="nav nav-tabs" id="myTab" role="tablist">
                       <li className="nav-item" role="presentation">
-                        <a
+                        <Link
                           className="nav-link active"
                           id="2020-tab"
                           data-bs-toggle="tab"
@@ -575,10 +825,10 @@ const Aboutpage = () => {
                           aria-selected="true"
                         >
                           2020
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item" role="presentation">
-                        <a
+                        <Link
                           className="nav-link"
                           id="2019-tab"
                           data-bs-toggle="tab"
@@ -588,10 +838,10 @@ const Aboutpage = () => {
                           aria-selected="false"
                         >
                           2019
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item" role="presentation">
-                        <a
+                        <Link
                           className="nav-link"
                           id="2018-tab"
                           data-bs-toggle="tab"
@@ -601,10 +851,10 @@ const Aboutpage = () => {
                           aria-selected="false"
                         >
                           2018
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item" role="presentation">
-                        <a
+                        <Link
                           className="nav-link"
                           id="2017-tab"
                           data-bs-toggle="tab"
@@ -614,10 +864,10 @@ const Aboutpage = () => {
                           aria-selected="false"
                         >
                           2017
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item" role="presentation">
-                        <a
+                        <Link
                           className="nav-link "
                           id="2016-tab"
                           data-bs-toggle="tab"
@@ -627,10 +877,10 @@ const Aboutpage = () => {
                           aria-selected="false"
                         >
                           2016
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item" role="presentation">
-                        <a
+                        <Link
                           className="nav-link "
                           id="2015-tab"
                           data-bs-toggle="tab"
@@ -640,10 +890,10 @@ const Aboutpage = () => {
                           aria-selected="false"
                         >
                           2015
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item" role="presentation">
-                        <a
+                        <Link
                           className="nav-link "
                           id="2014-tab"
                           data-bs-toggle="tab"
@@ -653,7 +903,7 @@ const Aboutpage = () => {
                           aria-selected="false"
                         >
                           2014 and before
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -814,13 +1064,13 @@ const Aboutpage = () => {
                 </div>
               </div>
               <div className="col-sm-4 text-end">
-                <a
+                <Link
                   href="#"
                   className="theme-btn theme-btn-outlined wow fadeInLeft"
                 >
                   {' '}
                   see more <i className="arrow_carrot-right "></i>
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -830,13 +1080,13 @@ const Aboutpage = () => {
                   className="single-leadership-widget wow fadeInUp "
                   data-wow-delay="0.1s"
                 >
-                  <a href="#">
+                  <Link href="#">
                     <img src="/img/leadership/img-1.png" alt="leader-1" />
                     <div className="leader-info">
                       <h5>Eldridge Robles</h5>
                       <p>Co-Founder, Conis</p>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -845,13 +1095,13 @@ const Aboutpage = () => {
                   className="single-leadership-widget wow fadeInUp "
                   data-wow-delay="0.3s"
                 >
-                  <a href="#">
+                  <Link href="#">
                     <img src="/img/leadership/img-2.png" alt="leader-2" />
                     <div className="leader-info">
                       <h5>Eldridge Robles</h5>
                       <p>Co-Founder, Conis</p>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="col-lg-4">
@@ -859,13 +1109,13 @@ const Aboutpage = () => {
                   className="single-leadership-widget wow fadeInUp "
                   data-wow-delay="0.5s"
                 >
-                  <a href="#">
+                  <Link href="#">
                     <img src="/img/leadership/img-3.png" alt="leader-3" />
                     <div className="leader-info">
                       <h5>Eldridge Robles</h5>
                       <p>Co-Founder, Conis</p>
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -886,9 +1136,9 @@ const Aboutpage = () => {
               </div>
               <div className="col-md-6 ">
                 <div className="cta-content mt-3 mt-sm-0 text-sm-end text-center">
-                  <a href="#" className="theme-btn wow fadeInLeft">
+                  <Link href="#" className="theme-btn wow fadeInLeft">
                     See results
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -934,16 +1184,16 @@ const Aboutpage = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <a href="#"> Our core Businesses</a>
+                        <Link href="#"> Our core Businesses</Link>
                       </li>
                       <li>
-                        <a href="#"> Our 'company purpose'</a>
+                        <Link href="#"> Our company purpose</Link>
                       </li>
                       <li>
-                        <a href="#"> Jobs & Careers</a>
+                        <Link href="#"> Jobs & Careers</Link>
                       </li>
                       <li>
-                        <a href="#"> Our Responsibility</a>
+                        <Link href="#"> Our Responsibility</Link>
                       </li>
                     </ul>
                   </div>
@@ -1009,22 +1259,27 @@ const Aboutpage = () => {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-3 text-center text-lg-start">
-                <a href="index.html" className="p-0 m-0">
-                  <img src="/img/logo/Logo.png" alt="logo" />
-                </a>
+                <Link href="/" className="p-0 m-0">
+                  <Image
+                    width={90}
+                    height={30}
+                    src="/img/logo/Logo.png"
+                    alt="logo"
+                  />
+                </Link>
               </div>
               <div className="col-lg-5 text-center my-3 my-sm-0">
                 <div className="copyright-text">
                   <p>
                     Copyright &copy; Banca 2025.
                     <br className="d-sm-none" />{' '}
-                    <a className="ms-2" href="#">
+                    <Link className="ms-2" href="#">
                       Privacy
-                    </a>{' '}
+                    </Link>{' '}
                     |
-                    <a className="ms-0" href="#">
+                    <Link className="ms-0" href="#">
                       Term of Use
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>

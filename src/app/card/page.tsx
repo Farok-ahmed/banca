@@ -1,8 +1,26 @@
+'use client'
+/* eslint-disable react/no-unescaped-entities */
+import { useTheme } from '@/contextAPi/ThemeContext';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 const CardPage = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const handleMenuToggle = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const handleDropdownToggle = (label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  };
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+
   return (
     <div>
       <header className="header">
@@ -11,13 +29,21 @@ const CardPage = () => {
             <div className="row align-items-center">
               <div className="col-md-5">
                 <div className="header-info-left">
-                  <div className="language-list">
-                    <select name="language-list" id="select-lang">
-                      <option value="English">English</option>
+                  <div className="language-list position-relative w-auto">
+                    <select
+                      className="form-select border-0 shadow-none cursor-pointer"
+                      aria-label="Language select"
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <option selected>English</option>
                       <option value="Bangla">Bangla</option>
                       <option value="French">French</option>
                       <option value="Hindi">Hindi</option>
                     </select>
+
+                    <span className="position-absolute top-50 end-0 translate-middle-y me-2">
+                      <i className="bi bi-chevron-down ms-2 text-muted pointer-events-none"></i>
+                    </span>
                   </div>
 
                   <div className="timestamp ms-4">
@@ -30,19 +56,21 @@ const CardPage = () => {
                 <div className="header-info-right">
                   <ul>
                     <li>
-                      <img
+                      <Image
+                        width={15}
+                        height={15}
                         className="img-fluid"
                         src="/img/phone-outline.png"
                         alt="phone"
                       />
-                      <a href="tel:01234567890">+01234-567890</a>
+                      <Link href="tel:01234567890">+01234-567890</Link>
                     </li>
 
                     <li>
                       <i className="icon_mail_alt"></i>
-                      <a href="mailto:bancainfo@email.com">
+                      <Link href="mailto:bancainfo@email.com">
                         bancainfo@email.com
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -53,50 +81,57 @@ const CardPage = () => {
         <div className="header-menu header-menu-3" id="sticky">
           <nav className="navbar navbar-expand-lg ">
             <div className="container">
-              <a className="navbar-brand sticky_logo" href="index.html">
-                <img
+              <Link className="navbar-brand sticky_logo" href="/">
+                <Image
+                  width={90}
+                  height={30}
                   className="main"
                   src="/img/logo/Logo.png"
-                  srcset="img/logo/Logo@2x.png 2x"
+                  // srcset="img/logo/Logo@2x.png 2x"
                   alt="logo"
                 />
-                <img
+                <Image
+                  width={90}
+                  height={30}
                   className="sticky"
                   src="/img/logo/Logo-2.png"
-                  srcset="img/logo/Logo-2@2x.png 2x"
+                  // srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
-              </a>
+              </Link>
+
+
+              {/* Hamburger Toggle */}
               <button
-                className="navbar-toggler collapsed"
+                className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
+                onClick={handleMenuToggle}
+                aria-expanded={menuOpen}
                 aria-label="Toggle navigation"
               >
                 <span className="menu_toggle">
-                  <span className="hamburger">
+                  <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
                     <span></span>
                     <span></span>
                     <span></span>
                   </span>
-                  <span className="hamburger-cross">
+                  <span
+                    className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}
+                  >
                     <span></span>
                     <span></span>
                   </span>
                 </span>
               </button>
 
-              <div
+              {/* <div
                 className="collapse navbar-collapse"
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
                   <li className="nav-item dropdown submenu ">
-                    <a
-                      href="#"
+                    <Link
+                      href="/"
                       className="nav-link dropdown-toggle "
                       role="button"
                       data-bs-toggle="dropdown"
@@ -104,7 +139,7 @@ const CardPage = () => {
                       aria-expanded="false"
                     >
                       Home
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="true"
@@ -112,53 +147,53 @@ const CardPage = () => {
                     ></i>
                     <ul className="dropdown-menu">
                       <li className="nav-item ">
-                        <a href="index.html" className="nav-link">
+                        <Link href="/" className="nav-link">
                           Smart Finance
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-company.html" className="nav-link">
+                        <Link href="/index-company" className="nav-link">
                           Loan Company
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-app.html" className="nav-link">
+                        <Link href="/mobile-app" className="nav-link">
                           Mobile App
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-simple.html" className="nav-link">
+                        <Link href="/simple-banca" className="nav-link">
                           Simple Banca
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-loan.html" className="nav-link">
+                        <Link href="/loan-steps" className="nav-link">
                           Loan Steps
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-finance.html" className="nav-link">
+                        <Link href="/finance-sass-app" className="nav-link">
                           Finance Sass App
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-small-bank.html" className="nav-link">
+                        <Link href="/small-bank" className="nav-link">
                           Small Bank
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle"
-                      href="loan.html"
+                      href="/loan"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Loan
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -167,21 +202,21 @@ const CardPage = () => {
 
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a className="nav-link" href="loan.html">
+                        <Link className="nav-link" href="/loan">
                           Get loan
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
+                        <Link
                           className="nav-link"
-                          href="#"
+                          href="/loan-details"
                           role="button"
                           data-bs-toggle="dropdown"
                           aria-haspopup="true"
                           aria-expanded="false"
                         >
                           Loan Application
-                        </a>
+                        </Link>
                         <i
                           className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                           aria-hidden="false"
@@ -190,38 +225,35 @@ const CardPage = () => {
 
                         <ul className="dropdown-menu">
                           <li className="nav-item">
-                            <a className="nav-link" href="loan-details.html">
+                            <Link className="nav-link" href="/loan-details">
                               Step 01
-                            </a>
+                            </Link>
                           </li>
                           <li className="nav-item">
-                            <a
-                              className="nav-link"
-                              href="personal-details.html"
-                            >
+                            <Link className="nav-link" href="/personal-details">
                               Step 02
-                            </a>
+                            </Link>
                           </li>
                           <li className="nav-item">
-                            <a className="nav-link" href="document-upload.html">
+                            <Link className="nav-link" href="/document-upload">
                               Step 03
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle"
-                      href="career.html"
+                      href="/career"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Job Pages
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -229,33 +261,33 @@ const CardPage = () => {
                     ></i>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a className="nav-link" href="career.html">
+                        <Link className="nav-link" href="/career">
                           Career
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="job-post.html">
+                        <Link className="nav-link" href="/jobs">
                           Jobs
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="job-application.html">
+                        <Link className="nav-link" href="/job-application">
                           Job Application
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle active"
-                      href="#"
+                      href="/card"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Pages
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -263,9 +295,9 @@ const CardPage = () => {
                     ></i>
                     <ul className="dropdown-menu ">
                       <li className="nav-item">
-                        <a className="nav-link active" href="card.html">
+                        <Link className="nav-link active" href="/card">
                           Cards
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
                         <Link className="nav-link" href="/about-us">
@@ -273,28 +305,28 @@ const CardPage = () => {
                         </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="contact.html">
+                        <Link className="nav-link" href="/contact-us">
                           Contact Us
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="error.html">
+                        <Link className="nav-link" href="/error">
                           404 Error
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle"
-                      href="blog.html"
+                      href="/blog-listing"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Blog
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -302,25 +334,25 @@ const CardPage = () => {
                     ></i>
                     <ul className="dropdown-menu ">
                       <li className="nav-item">
-                        <a className="nav-link" href="blog.html">
+                        <Link className="nav-link" href="/blog-listing">
                           Blog Listing
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="blog-details.html">
+                        <Link className="nav-link" href="/blog-details">
                           Blog Details
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                 </ul>
-                <a
+                <Link
                   className="theme-btn theme-btn-outlined_alt"
                   href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
                   target="_blank"
                 >
                   Buy Banca
-                </a>
+                </Link>
                 <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
                   <label htmlFor="something" className="tab-btn tab-btns">
                     <IoMoonOutline name="moon" />
@@ -334,6 +366,191 @@ const CardPage = () => {
                     name="something"
                     id="something"
                     className="dark_mode_switcher"
+                  />
+                </div>
+              </div> */}
+              <div
+                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav menu ms-auto">
+                  {[
+                    {
+                      label: 'Home',
+                      href: '/',
+                      submenu: [
+                        { text: 'Smart Finance', link: '/' },
+                        { text: 'Loan Company', link: '/index-company' },
+                        { text: 'Mobile App', link: '/mobile-app' },
+                        { text: 'Simple Banca', link: '/simple-banca' },
+                        { text: 'Loan Steps', link: '/loan-steps' },
+                        { text: 'Finance Sass App', link: '/finance-sass-app' },
+                        { text: 'Small Bank', link: '/small-bank' },
+                      ],
+                    },
+                    {
+                      label: 'Loan',
+                      href: '/loan',
+                      submenu: [
+                        { text: 'Get loan', link: '/loan' },
+                        {
+                          text: 'Loan Application',
+                          link: '/loan-details',
+                          submenu: [
+                            { text: 'Step 01', link: '/loan-details' },
+                            { text: 'Step 02', link: '/personal-details' },
+                            { text: 'Step 03', link: '/document-upload' },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      label: 'Job Pages',
+                      href: '/career',
+                      submenu: [
+                        { text: 'Career', link: '/career' },
+                        { text: 'Jobs', link: '/jobs' },
+                        { text: 'Job Application', link: '/job-application' },
+                      ],
+                    },
+                    {
+                      label: 'Pages',
+                      href: '/card',
+                      submenu: [
+                        { text: 'Cards', link: '/card' },
+                        { text: 'About Us', link: '/about-us' },
+                        { text: 'Contact Us', link: '/contact-us' },
+                        { text: '404 Error', link: '/error' },
+                      ],
+                    },
+                    {
+                      label: 'Blog',
+                      href: '/blog-listing',
+                      submenu: [
+                        { text: 'Blog Listing', link: '/blog-listing' },
+                        { text: 'Blog Details', link: '/blog-details' },
+                      ],
+                    },
+                  ].map((item, idx) => (
+                    <li key={idx} className="nav-item dropdown submenu">
+                      <Link
+                        href={item.href}
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === item.label}
+                        onClick={(e) => {
+                          if (isMobile) {
+                            e.preventDefault();
+                            handleDropdownToggle(item.label);
+                          }
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      <i
+                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                        aria-hidden="true"
+                        onClick={() => handleDropdownToggle(item.label)}
+                        style={{ cursor: 'pointer' }}
+                      ></i>
+
+                      <ul
+                        className={`dropdown-menu ${
+                          openDropdown === item.label ? 'show' : ''
+                        }`}
+                      >
+                        {item.submenu?.map((sub, i) => (
+                          <li
+                            key={i}
+                            className={`nav-item ${
+                              sub.submenu ? 'dropdown submenu' : ''
+                            }`}
+                          >
+                            <Link
+                              href={sub.link}
+                              className="nav-link"
+                              onClick={(e) => {
+                                if (isMobile && sub.submenu) {
+                                  e.preventDefault();
+                                  handleDropdownToggle(
+                                    `${item.label}-${sub.text}`
+                                  );
+                                }
+                              }}
+                            >
+                              {sub.text}
+                            </Link>
+                            {sub.submenu && (
+                              <>
+                                <i
+                                  className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                                  aria-hidden="true"
+                                  onClick={() =>
+                                    handleDropdownToggle(
+                                      `${item.label}-${sub.text}`
+                                    )
+                                  }
+                                  style={{ cursor: 'pointer' }}
+                                ></i>
+                                <ul
+                                  className={`dropdown-menu ${
+                                    openDropdown === `${item.label}-${sub.text}`
+                                      ? 'show'
+                                      : ''
+                                  }`}
+                                >
+                                  {sub.submenu.map((deep, j) => (
+                                    <li key={j} className="nav-item">
+                                      <Link
+                                        href={deep.link}
+                                        className="nav-link"
+                                      >
+                                        {deep.text}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  className="theme-btn theme-btn-outlined_alt"
+                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
+                  target="_blank"
+                >
+                  Buy Banca
+                </Link>
+
+                {/* Dark Mode Toggle */}
+                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
+                  <label htmlFor="something" className="tab-btn tab-btns">
+                    <IoMoonOutline />
+                  </label>
+                  <label htmlFor="something" className="tab-btn">
+                    <IoSunnyOutline />
+                  </label>
+                  <label
+                    className={`ball`}
+                    style={{
+                      left: theme === 'body_dark' ? 3 : 26
+                    }}
+                    htmlFor="something"
+                  ></label>
+                  <input
+                    type="checkbox"
+                    name="something"
+                    id="something"
+                    className="dark_mode_switcher"
+                    checked={theme === 'body_dark'}
+                    onChange={toggleTheme}
                   />
                 </div>
               </div>
@@ -356,13 +573,13 @@ const CardPage = () => {
                     Without an annuity, it gives you cashback on all your
                     purchases and access to months without interest.
                   </p>
-                  <a
+                  <Link
                     href="#"
                     className="wow fadeInUp theme-btn theme-btn-outlined_alt mt-50"
                     data-wow-delay="0.4s"
                   >
                     I want my BancaCard
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="col-md-6 mx-auto text-center text-sm-end">
@@ -371,7 +588,9 @@ const CardPage = () => {
                     className="shape"
                     data-parallax='{"x": -120, "y": 90, "rotateZ":0}'
                   >
-                    <img
+                    <Image
+                      width={180}
+                      height={150}
                       data-depth="-0.06"
                       className="layer "
                       src="/img/card/hero-img-2.png"
@@ -382,19 +601,31 @@ const CardPage = () => {
                     className="shape"
                     data-parallax='{"x": -70, "y": 0, "rotateZ":190}'
                   >
-                    <img src="/img/card/hero-img-3.png" alt="img" />
+                    <Image
+                      width={70}
+                      height={70}
+                      src="/img/card/hero-img-3.png"
+                      alt="img"
+                    />
                   </div>
                   <div
                     className="shape"
                     data-parallax='{"x": -70, "y": 0, "rotateX":190}'
                   >
-                    <img src="/img/card/hero-img-4.png" alt="img" />
+                    <Image
+                      width={50}
+                      height={50}
+                      src="/img/card/hero-img-4.png"
+                      alt="img"
+                    />
                   </div>
                   <div
                     className="shape"
                     data-parallax='{"x": -90, "y": 20, "rotateZ":0}'
                   >
-                    <img
+                    <Image
+                      width={60}
+                      height={60}
                       data-depth="-0.05"
                       className="layer "
                       src="/img/card/hero-img-5.png"
@@ -405,7 +636,9 @@ const CardPage = () => {
                     className="shape"
                     data-parallax='{"x": -250, "y": 100, "rotateY":360}'
                   >
-                    <img
+                    <Image
+                      width={40}
+                      height={40}
                       data-depth="0.05"
                       className="layer "
                       src="/img/card/hero-img-6.png"
@@ -416,7 +649,9 @@ const CardPage = () => {
                     className="shape"
                     data-parallax='{"x": 0, "y": 150, "rotateZ":0}'
                   >
-                    <img
+                    <Image
+                      width={100}
+                      height={100}
                       data-depth="-0.09"
                       className="layer "
                       src="/img/card/hero-img-7.png"
@@ -427,20 +662,29 @@ const CardPage = () => {
                     className="shape"
                     data-parallax='{"x": 0, "y": -90, "rotateZ":0}'
                   >
-                    <img src="/img/card/hero-img-8.png" alt="img" />
+                    <Image
+                      width={100}
+                      height={100}
+                      src="/img/card/hero-img-8.png"
+                      alt="img"
+                    />
                   </div>
                   <div
                     className="shape"
                     data-parallax='{"x": 75, "y": -20, "rotateZ":0}'
                   >
-                    <img
+                    <Image
+                      width={200}
+                      height={160}
                       data-depth="0.04"
                       className="layer "
                       src="/img/card/hero-card.png"
                       alt="img"
                     />
                   </div>
-                  <img
+                  <Image
+                    width={300}
+                    height={300}
                     data-parallax='{"x": 50, "y": -50, "rotateZ":0}'
                     className="person-img "
                     src="/img/card/hero-img.png"
@@ -464,44 +708,52 @@ const CardPage = () => {
               <div className="col-lg-8 border-start text-center pl-lg-60">
                 <div className="row gy-md-0 gy-4 align-items-center h-100">
                   <div className="col-md-3 col-6">
-                    <a href="#">
-                      <img
+                    <Link href="#">
+                      <Image
+                        width={200}
+                        height={100}
                         className="img-fluid wow fadeInRight"
                         data-wow-delay="0.1s"
                         src="/img/card/company-logo-1.png"
                         alt="logo"
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="col-md-3 col-6">
-                    <a href="#">
-                      <img
+                    <Link href="#">
+                      <Image
+                        width={200}
+                        height={100}
                         className="img-fluid wow fadeInRight"
                         data-wow-delay="0.3s"
                         src="/img/card/company-logo-2.png"
                         alt="logo"
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="col-md-3 col-6">
-                    <a href="#">
-                      <img
+                    <Link href="#">
+                      <Image
+                        width={200}
+                        height={100}
                         className="img-fluid wow fadeInRight"
                         data-wow-delay="0.5s"
                         src="/img/card/company-logo-3.png"
                         alt="logo"
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="col-md-3 col-6">
-                    <a href="#">
-                      <img
+                    <Link href="#">
+                      <Image
+                        width={180}
+                        height={80}
                         className="img-fluid wow fadeInRight"
                         data-wow-delay="0.7s"
                         src="/img/card/company-logo-4.png"
                         alt="logo"
                       />
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -528,7 +780,12 @@ const CardPage = () => {
                   className="feature-card-widget-5 wow fadeInUp"
                   data-wow-delay="0.1s"
                 >
-                  <img src="/img/feature/icon-11.svg" alt="icon" />
+                  <Image
+                    width={40}
+                    height={40}
+                    src="/img/feature/icon-11.svg"
+                    alt="icon"
+                  />
                   <h4 className="mt-30 mb-15"> Online banking</h4>
                   <p>
                     Online banking, also known as internet banking or web
@@ -541,7 +798,12 @@ const CardPage = () => {
                   className="feature-card-widget-5 wow fadeInUp"
                   data-wow-delay="0.3s"
                 >
-                  <img src="/img/feature/icon-12.svg" alt="icon" />
+                  <Image
+                    width={40}
+                    height={40}
+                    src="/img/feature/icon-12.svg"
+                    alt="icon"
+                  />
                   <h4 className="mt-30 mb-15">Up to 20.000$ limit</h4>
                   <p>
                     Online banking, also known as internet banking or web
@@ -554,7 +816,12 @@ const CardPage = () => {
                   className="feature-card-widget-5 wow fadeInUp"
                   data-wow-delay="0.5s"
                 >
-                  <img src="/img/feature/icon-13.svg" alt="icon" />
+                  <Image
+                    width={40}
+                    height={40}
+                    src="/img/feature/icon-13.svg"
+                    alt="icon"
+                  />
                   <h4 className="mt-30 mb-15">Protection & security</h4>
                   <p>
                     Online banking, also known as internet banking or web
@@ -567,7 +834,12 @@ const CardPage = () => {
                   className="feature-card-widget-5 wow fadeInUp"
                   data-wow-delay="0.7s"
                 >
-                  <img src="/img/feature/icon-14.svg" alt="icon" />
+                  <Image
+                    width={40}
+                    height={40}
+                    src="/img/feature/icon-14.svg"
+                    alt="icon"
+                  />
                   <h4 className="mt-30 mb-15">Mobile application</h4>
                   <p>
                     Online banking, also known as internet banking or web
@@ -580,7 +852,12 @@ const CardPage = () => {
                   className="feature-card-widget-5 wow fadeInUp"
                   data-wow-delay="0.9s"
                 >
-                  <img src="/img/feature/icon-15.svg" alt="icon" />
+                  <Image
+                    width={40}
+                    height={40}
+                    src="/img/feature/icon-15.svg"
+                    alt="icon"
+                  />
                   <h4 className="mt-30 mb-15">Online Shopping</h4>
                   <p>
                     Online banking, also known as internet banking or web
@@ -593,7 +870,12 @@ const CardPage = () => {
                   className="feature-card-widget-5 wow fadeInUp"
                   data-wow-delay="1.1s"
                 >
-                  <img src="/img/feature/icon-16.svg" alt="icon" />
+                  <Image
+                    width={40}
+                    height={40}
+                    src="/img/feature/icon-16.svg"
+                    alt="icon"
+                  />
                   <h4 className="mt-30 mb-15">Small payments fees</h4>
                   <p>
                     Online banking, also known as internet banking or web
@@ -611,15 +893,29 @@ const CardPage = () => {
               <div className="col-lg-6 col-md-9 mx-auto">
                 <div className="card-img">
                   <div className="logo">
-                    <img src="/img/card/visa.png" alt="logo" />
-                    <img src="/img/card/mastercard.png" alt="logo" />
+                    <Image
+                      width={140}
+                      height={140}
+                      src="/img/card/visa.png"
+                      alt="logo"
+                    />
+                    <Image
+                      width={140}
+                      height={140}
+                      src="/img/card/mastercard.png"
+                      alt="logo"
+                    />
                   </div>
-                  <img
+                  <Image
+                    width={650}
+                    height={650}
                     className="bg-img"
                     src="/img/card/payment-bg.png"
                     alt="bg img"
                   />
-                  <img
+                  <Image
+                    width={400}
+                    height={500}
                     className="img-fluid wow fadeInUp"
                     src="/img/card/credit-card.png"
                     alt="credit-card"
@@ -647,7 +943,12 @@ const CardPage = () => {
                       className="payment-system mt-80 wow fadeInRight"
                       data-wow-delay="0.1s"
                     >
-                      <img src="/img/card/online-payment.svg" alt="icon" />
+                      <Image
+                        width={50}
+                        height={50}
+                        src="/img/card/online-payment.svg"
+                        alt="icon"
+                      />
                       <h5 className="mt-20 mb-10">Online Payments</h5>
                       <p>We acceept many type payments getway that you love.</p>
                     </div>
@@ -657,7 +958,12 @@ const CardPage = () => {
                       className="payment-system mt-65 wow fadeInRight"
                       data-wow-delay="0.3s"
                     >
-                      <img src="/img/card/safebox.svg" alt="icon" />
+                      <Image
+                        width={50}
+                        height={50}
+                        src="/img/card/safebox.svg"
+                        alt="icon"
+                      />
                       <h5 className="mt-20 mb-10">Safe Deposit</h5>
                       <p>You can trust us for your deposit. No hidden fee.</p>
                     </div>
@@ -692,7 +998,12 @@ const CardPage = () => {
                   data-wow-delay="0.1s"
                 >
                   <div className="icon mr-20">
-                    <img src="/img/card/money-transfer.png" alt="icon" />
+                    <Image
+                      width={50}
+                      height={50}
+                      src="/img/card/money-transfer.png"
+                      alt="icon"
+                    />
                   </div>
                   <div className="card-content">
                     <h6>Set daily maximum transaction limitation.</h6>
@@ -707,7 +1018,12 @@ const CardPage = () => {
                   data-wow-delay="0.3s"
                 >
                   <div className="icon mr-20">
-                    <img src="/img/card/reminder.png" alt="icon" />
+                    <Image
+                      width={50}
+                      height={50}
+                      src="/img/card/reminder.png"
+                      alt="icon"
+                    />
                   </div>
                   <div className="card-content">
                     <h6>Customize your next payment schedule.</h6>
@@ -722,7 +1038,12 @@ const CardPage = () => {
                   data-wow-delay="0.5s"
                 >
                   <div className="icon mr-20">
-                    <img src="/img/card/refresh.png" alt="icon" />
+                    <Image
+                      width={50}
+                      height={50}
+                      src="/img/card/refresh.png"
+                      alt="icon"
+                    />
                   </div>
                   <div className="card-content">
                     <h6>Get latest update about your payments.</h6>
@@ -735,13 +1056,17 @@ const CardPage = () => {
               </div>
               <div className="col-lg-6 order-lg-2 order-1 pl-lg-50">
                 <div className="card-img mb-5 mb-sm-0">
-                  <img
+                  <Image
+                    width={600}
+                    height={720}
                     className="img-fluid"
                     src="/img/card/card-img-bg.png"
                     alt="bg image"
                   />
                   <div className="shape-1">
-                    <img
+                    <Image
+                      width={400}
+                      height={400}
                       className="layer wow rotateInUpRight"
                       data-wow-delay="1.2s"
                       data-depth="0.2"
@@ -750,7 +1075,9 @@ const CardPage = () => {
                     />
                   </div>
                   <div className="shape-2">
-                    <img
+                    <Image
+                      width={400}
+                      height={300}
                       className="layer wow rotateInUpRight"
                       data-wow-delay="0.6s"
                       data-depth="0.15"
@@ -759,7 +1086,9 @@ const CardPage = () => {
                     />
                   </div>
                   <div className="shape-3">
-                    <img
+                    <Image
+                      width={400}
+                      height={400}
                       className="layer wow rotateInUpRight"
                       data-depth="0.3"
                       src="/img/card/Card-image-3.png"
@@ -791,7 +1120,12 @@ const CardPage = () => {
                   className="content-box pr-lg-30 pl-lg-30 wow fadeInUp"
                   data-wow-delay="0.1s"
                 >
-                  <img src="/img/card/layout.svg" alt="icon" />
+                  <Image
+                    width={70}
+                    height={70}
+                    src="/img/card/layout.svg"
+                    alt="icon"
+                  />
                   <h4 className="mt-30 mb-15">Easy to Use</h4>
                   <p>
                     There are many variations of passages of Lorem Ipsum
@@ -805,14 +1139,21 @@ const CardPage = () => {
                   data-wow-delay="0.3s"
                 >
                   <div className="line-shape">
-                    <img
+                    <Image
+                      width={650}
+                      height={50}
                       className="wow zoomIn"
                       data-wow-delay="0.1s"
                       src="/img/card/line-shape.png"
                       alt="shape"
                     />
                   </div>
-                  <img src="/img/card/salary.svg" alt="icon" />
+                  <Image
+                    width={70}
+                    height={70}
+                    src="/img/card/salary.svg"
+                    alt="icon"
+                  />
                   <h4 className="mt-30 mb-15">Faster Payments</h4>
                   <p>
                     There are many variations of passages of Lorem Ipsum
@@ -825,7 +1166,12 @@ const CardPage = () => {
                   className="content-box pr-lg-30 pl-lg-30 wow fadeInUp"
                   data-wow-delay="0.5s"
                 >
-                  <img src="/img/card/antivirus.svg" alt="icon" />
+                  <Image
+                    width={70}
+                    height={70}
+                    src="/img/card/antivirus.svg"
+                    alt="icon"
+                  />
                   <h4 className="mt-30 mb-15">100% Secure</h4>
                   <p>
                     There are many variations of passages of Lorem Ipsum
@@ -860,34 +1206,51 @@ const CardPage = () => {
                   className="credit-card-box-widget wow fadeInUp"
                   data-wow-delay="0.1s"
                 >
-                  <img
+                  <Image
+                    width={200}
+                    height={160}
                     className="w-100"
-                    src="img/card/Card-image-4.png"
+                    src="/img/card/Card-image-4.png"
                     alt="card"
                   />
                   <div className="card-content">
                     <h4>Debit Card</h4>
                     <p>
                       <span>
-                        <img src="/img/card/icon-1.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/card/icon-1.png"
+                          alt="icon"
+                        />
                       </span>
                       Max: 60 days
                     </p>
                     <p>
                       <span>
-                        <img src="/img/card/icon-2.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/card/icon-2.png"
+                          alt="icon"
+                        />
                       </span>
                       Payment fee: 1%
                     </p>
                     <p>
                       <span>
-                        <img src="/img/card/icon-3.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/card/icon-3.png"
+                          alt="icon"
+                        />
                       </span>
                       Max credit: $20.000
                     </p>
-                    <a href="#" className="mt-25">
+                    <Link href="#" className="mt-25">
                       Learn more <i className="arrow_right"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -896,7 +1259,9 @@ const CardPage = () => {
                   className="credit-card-box-widget wow fadeInUp"
                   data-wow-delay="0.3s"
                 >
-                  <img
+                  <Image
+                    width={200}
+                    height={160}
                     className="w-100"
                     src="/img/card/Card-image-5.png"
                     alt="card"
@@ -905,25 +1270,40 @@ const CardPage = () => {
                     <h4>Credit Card</h4>
                     <p>
                       <span>
-                        <img src="/img/card/icon-1.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/card/icon-1.png"
+                          alt="icon"
+                        />
                       </span>
                       Max: 60 days
                     </p>
                     <p>
                       <span>
-                        <img src="/img/card/icon-2.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/card/icon-2.png"
+                          alt="icon"
+                        />
                       </span>
                       Payment fee: 1%
                     </p>
                     <p>
                       <span>
-                        <img src="/img/card/icon-3.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/card/icon-3.png"
+                          alt="icon"
+                        />
                       </span>
                       Max credit: $20.000
                     </p>
-                    <a href="#" className="mt-25">
+                    <Link href="#" className="mt-25">
                       Learn more <i className="arrow_right"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -932,7 +1312,9 @@ const CardPage = () => {
                   className="credit-card-box-widget wow fadeInUp"
                   data-wow-delay="0.5s"
                 >
-                  <img
+                  <Image
+                    width={200}
+                    height={160}
                     className="w-100"
                     src="/img/card/Card-image-6.png"
                     alt="card"
@@ -941,25 +1323,40 @@ const CardPage = () => {
                     <h4>MasterCard</h4>
                     <p>
                       <span>
-                        <img src="/img/card/icon-1.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/card/icon-1.png"
+                          alt="icon"
+                        />
                       </span>
                       Max: 60 days
                     </p>
                     <p>
                       <span>
-                        <img src="/img/card/icon-2.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/card/icon-2.png"
+                          alt="icon"
+                        />
                       </span>
                       Payment fee: 1%
                     </p>
                     <p>
                       <span>
-                        <img src="/img/card/icon-3.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/card/icon-3.png"
+                          alt="icon"
+                        />
                       </span>
                       Max credit: $20.000
                     </p>
-                    <a href="#" className="mt-25">
+                    <Link href="#" className="mt-25">
                       Learn more <i className="arrow_right"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -968,7 +1365,9 @@ const CardPage = () => {
                   className="credit-card-box-widget wow fadeInUp"
                   data-wow-delay="0.7s"
                 >
-                  <img
+                  <Image
+                    width={200}
+                    height={160}
                     className="w-100"
                     src="/img/card/Card-image-7.png"
                     alt="card"
@@ -977,25 +1376,40 @@ const CardPage = () => {
                     <h4>Visa Card</h4>
                     <p>
                       <span>
-                        <img src="/img/card/icon-1.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/card/icon-1.png"
+                          alt="icon"
+                        />
                       </span>
                       Max: 60 days
                     </p>
                     <p>
                       <span>
-                        <img src="/img/card/icon-2.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/card/icon-2.png"
+                          alt="icon"
+                        />
                       </span>
                       Payment fee: 1%
                     </p>
                     <p>
                       <span>
-                        <img src="/img/card/icon-3.png" alt="icon" />
+                        <Image
+                          width={20}
+                          height={20}
+                          src="/img/card/icon-3.png"
+                          alt="icon"
+                        />
                       </span>
                       Max credit: $20.000
                     </p>
-                    <a href="#" className="mt-25">
+                    <Link href="#" className="mt-25">
                       Learn more <i className="arrow_right"></i>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -1009,7 +1423,12 @@ const CardPage = () => {
               className="shape"
               data-parallax='{"x": 0, "y": 0, "rotateZ":20}'
             >
-              <img src="/img/card/right-arrow.png" alt="img" />
+              <Image
+                width={80}
+                height={60}
+                src="/img/card/right-arrow.png"
+                alt="img"
+              />
             </div>
 
             <div
@@ -1017,16 +1436,33 @@ const CardPage = () => {
               data-parallax='{"x": 200, "y": 90, "rotateZ":0}'
             >
               <div className="fly-msg">
-                <img src="/img/card/mail.png" alt="" />
-                <img src="/img/card/wings-1.png" alt="" />
-                <img src="/img/card/wings-2.png" alt="" />
+                <Image
+                  width={110}
+                  height={110}
+                  src="/img/card/mail.png"
+                  alt=""
+                />
+                <Image
+                  width={110}
+                  height={90}
+                  src="/img/card/wings-1.png"
+                  alt=""
+                />
+                <Image
+                  width={110}
+                  height={90}
+                  src="/img/card/wings-2.png"
+                  alt=""
+                />
               </div>
             </div>
             <div
               className="shape"
               data-parallax='{"x": 0, "y": 0, "rotateZ":-6}'
             >
-              <img
+              <Image
+                width={200}
+                height={220}
                 className="wow fadeInRight"
                 src="/img/card/postbox.png"
                 alt="img"
@@ -1036,7 +1472,12 @@ const CardPage = () => {
               className="shape"
               data-parallax='{"x": -200, "y": 0, "rotateZ":0}'
             >
-              <img src="/img/card/cloud.png" alt="img" />
+              <Image
+                width={60}
+                height={40}
+                src="/img/card/cloud.png"
+                alt="img"
+              />
             </div>
           </div>
           <div className="container">
@@ -1052,9 +1493,12 @@ const CardPage = () => {
                       className="form-control"
                       placeholder="Your  email address"
                     />
-                    <a href="#" className="input-append theme-btn theme-btn-lg">
+                    <Link
+                      href="#"
+                      className="input-append theme-btn theme-btn-lg"
+                    >
                       Subscribe
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -1101,16 +1545,16 @@ const CardPage = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <a href="#"> Our core Businesses</a>
+                        <Link href="#"> Our core Businesses</Link>
                       </li>
                       <li>
-                        <a href="#"> Our 'company purpose'</a>
+                        <Link href="#"> Our company purpose</Link>
                       </li>
                       <li>
-                        <a href="#"> Jobs & Careers</a>
+                        <Link href="#"> Jobs & Careers</Link>
                       </li>
                       <li>
-                        <a href="#"> Our Responsibility</a>
+                        <Link href="#"> Our Responsibility</Link>
                       </li>
                     </ul>
                   </div>
@@ -1127,16 +1571,16 @@ const CardPage = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <a href="#"> Compliance Publications</a>
+                        <Link href="#"> Compliance Publications</Link>
                       </li>
                       <li>
-                        <a href="#"> Annual Reports</a>
+                        <Link href="#"> Annual Reports</Link>
                       </li>
                       <li>
-                        <a href="#"> CSR Reports</a>
+                        <Link href="#"> CSR Reports</Link>
                       </li>
                       <li>
-                        <a href="#"> Financial documentation</a>
+                        <Link href="#"> Financial documentation</Link>
                       </li>
                     </ul>
                   </div>
@@ -1153,16 +1597,16 @@ const CardPage = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <a href="#">Our news</a>
+                        <Link href="#">Our news</Link>
                       </li>
                       <li>
-                        <a href="#">Our press releases</a>
+                        <Link href="#">Our press releases</Link>
                       </li>
                       <li>
-                        <a href="#">Our job offers</a>
+                        <Link href="#">Our job offers</Link>
                       </li>
                       <li>
-                        <a href="#">Our websites</a>
+                        <Link href="#">Our websites</Link>
                       </li>
                     </ul>
                   </div>
@@ -1189,13 +1633,13 @@ const CardPage = () => {
                   <p>
                     Copyright &copy; Banca 2025.
                     <br className="d-sm-none" />{' '}
-                    <a className="ms-2" href="#">
+                    <Link className="ms-2" href="#">
                       Privacy
-                    </a>{' '}
+                    </Link>{' '}
                     |
-                    <a className="ms-0" href="#">
+                    <Link className="ms-0" href="#">
                       Term of Use
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>

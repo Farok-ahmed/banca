@@ -1,278 +1,160 @@
+'use client';
+
 import FinanceAccordion from '@/components/FinanceAccordion';
 import PricingPlan from '@/components/PricingPlan';
+import { useTheme } from '@/contextAPi/ThemeContext';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 const FinanceSassApp = () => {
+  const { theme, toggleTheme } = useTheme();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const handleMenuToggle = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const handleDropdownToggle = (label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  };
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
   return (
     <div>
       <header className="header">
         <div className="header-menu header-menu-2" id="sticky">
-          <nav className="navbar navbar-expand-lg ">
+          <nav className="navbar navbar-expand-lg">
             <div className="container">
-              <Link className="navbar-brand" href="index.html">
+              <Link className="navbar-brand" href="/">
                 <Image
                   width={110}
                   height={35}
                   src="/img/logo/Logo-2.png"
-                  // srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
               </Link>
+
+              {/* Hamburger Toggle */}
               <button
-                className="navbar-toggler collapsed"
+                className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
+                onClick={handleMenuToggle}
+                aria-expanded={menuOpen}
                 aria-label="Toggle navigation"
               >
                 <span className="menu_toggle">
-                  <span className="hamburger">
+                  <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
                     <span></span>
                     <span></span>
                     <span></span>
                   </span>
-                  <span className="hamburger-cross">
+                  <span
+                    className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}
+                  >
                     <span></span>
                     <span></span>
                   </span>
                 </span>
               </button>
 
-              <div
-                className="collapse navbar-collapse"
+              {/* <div
+                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
                 id="navbarSupportedContent"
               >
-                <ul className="navbar-nav menu ms-5 me-auto">
-                  <li className="nav-item dropdown submenu ">
-                    <Link
-                      href="#"
-                      className="nav-link dropdown-toggle active"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Home
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="true"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item ">
-                        <Link href="/" className="nav-link">
-                          Smart Finance
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/index-company" className="nav-link">
-                          Loan Company
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/mobile-app" className="nav-link">
-                          Mobile App
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/simple-banca" className="nav-link ">
-                          Simple Banca
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/loan-steps" className="nav-link">
-                          Loan Steps
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          href="/finance-sass-app"
-                          className="nav-link active"
-                        >
-                          Finance Sass App
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/small-bank" className="nav-link">
-                          Small Bank
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="loan.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Loan
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
+                <ul className="navbar-nav menu ms-auto">
+                  
+                  {[
+                    {
+                      label: 'Home',
+                      href: '/',
+                      submenu: [
+                        'Smart Finance',
+                        'Loan Company',
+                        'Mobile App',
+                        'Simple Banca',
+                        'Loan Steps',
+                        'Finance Sass App',
+                        'Small Bank',
+                      ],
+                      subhref: [
+                        '/',
+                        '/index-company',
+                        '/mobile-app',
+                        '/simple-banca',
+                        '/loan-steps',
+                        '/finance-sass-app',
+                        '/small-bank',
+                      ],
+                    },
+                    {
+                      label: 'Loan',
+                      href: '/loan',
+                      submenu: ['Get loan', 'Loan Application'],
+                      subhref: ['/loan', '/loan-details'],
+                    },
+                    {
+                      label: 'Job Pages',
+                      href: '/career',
+                      submenu: ['Career', 'Jobs', 'Job Application'],
+                      subhref: ['/career', '/jobs', '/job-application'],
+                    },
+                    {
+                      label: 'Pages',
+                      href: '/card',
+                      submenu: ['Cards', 'About Us', 'Contact Us', '404 Error'],
+                      subhref: ['/card', '/about-us', '/contact-us', '/error'],
+                    },
+                    {
+                      label: 'Blog',
+                      href: '/blog-listing',
+                      submenu: ['Blog Listing', 'Blog Details'],
+                      subhref: ['/blog-listing', '/blog-details'],
+                    },
+                  ].map((item, idx) => (
+                    <li key={idx} className="nav-item dropdown submenu">
+                      <Link
+                        href={item.href}
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === item.label}
+                        onClick={(e) => {
+                          if (isMobile) {
+                            e.preventDefault();
+                            handleDropdownToggle(item.label);
+                          }
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      <i
+                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                        aria-hidden="true"
+                        onClick={() => handleDropdownToggle(item.label)}
+                        style={{ cursor: 'pointer' }}
+                      ></i>
 
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="loan.html">
-                          Get loan
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link"
-                          href="#"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          Loan Application
-                        </Link>
-                        <i
-                          className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                          aria-hidden="false"
-                          data-bs-toggle="dropdown"
-                        ></i>
-
-                        <ul className="dropdown-menu">
-                          <li className="nav-item">
-                            <Link className="nav-link" href="loan-details.html">
-                              Step 01
+                      <ul
+                        className={`dropdown-menu ${
+                          openDropdown === item.label ? 'show' : ''
+                        }`}
+                      >
+                        {item.submenu.map((text, i) => (
+                          <li className="nav-item" key={i}>
+                            <Link href={item.subhref[i]} className="nav-link">
+                              {text}
                             </Link>
                           </li>
-                          <li className="nav-item">
-                            <Link
-                              className="nav-link"
-                              href="personal-details.html"
-                            >
-                              Step 02
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link
-                              className="nav-link"
-                              href="document-upload.html"
-                            >
-                              Step 03
-                            </Link>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="career.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Job Pages
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="career.html">
-                          Career
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="job-post.html">
-                          Jobs
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="job-application.html">
-                          Job Application
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Pages
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu ">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="card.html">
-                          Cards
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="about.html">
-                          About Us
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="contact.html">
-                          Contact Us
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="error.html">
-                          404 Error
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="blog.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Blog
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu ">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="blog.html">
-                          Blog Listing
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="blog-details.html">
-                          Blog Details
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
                 </ul>
+
                 <Link
                   className="theme-btn"
                   href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
@@ -280,21 +162,202 @@ const FinanceSassApp = () => {
                 >
                   Buy Banca
                 </Link>
+
+                
                 <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
                   <label htmlFor="something" className="tab-btn tab-btns">
-                    {/* <ion-icon name="moon"></ion-icon> */}
-                    <IoMoonOutline name="moon" />
+                    <IoMoonOutline />
                   </label>
                   <label htmlFor="something" className="tab-btn">
-                    {/* <ion-icon name="sunny"></ion-icon> */}
-                    <IoSunnyOutline name="sunny" />
+                    <IoSunnyOutline />
                   </label>
-                  <label className=" ball" htmlFor="something"></label>
+                  <label
+                    className={`ball ${
+                      theme === 'dark' ? 'ball-left' : 'ball-right'
+                    }`}
+                    htmlFor="something"
+                  ></label>
                   <input
                     type="checkbox"
                     name="something"
                     id="something"
                     className="dark_mode_switcher"
+                    checked={theme === 'dark'}
+                    onChange={toggleTheme}
+                  />
+                </div>
+              </div> */}
+              <div
+                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav menu ms-auto">
+                  {[
+                    {
+                      label: 'Home',
+                      href: '/',
+                      submenu: [
+                        ['/', 'Smart Finance'],
+                        ['/index-company', 'Loan Company'],
+                        ['/mobile-app', 'Mobile App'],
+                        ['/simple-banca', 'Simple Banca'],
+                        ['/loan-steps', 'Loan Steps'],
+                        ['/finance-sass-app', 'Finance Sass App'],
+                        ['/small-bank', 'Small Bank'],
+                      ],
+                    },
+                    {
+                      label: 'Loan',
+                      href: '/loan',
+                      submenu: [
+                        ['/loan', 'Get loan'],
+                        [
+                          '/loan-details',
+                          'Loan Application',
+                          [
+                            ['/loan-details', 'Step 01'],
+                            ['/personal-details', 'Step 02'],
+                            ['/document-upload', 'Step 03'],
+                          ],
+                        ],
+                      ],
+                    },
+                    {
+                      label: 'Job Pages',
+                      href: '/career',
+                      submenu: [
+                        ['/career', 'Career'],
+                        ['/jobs', 'Jobs'],
+                        ['/job-application', 'Job Application'],
+                      ],
+                    },
+                    {
+                      label: 'Pages',
+                      href: '/card',
+                      submenu: [
+                        ['/card', 'Cards'],
+                        ['/about-us', 'About Us'],
+                        ['/contact-us', 'Contact Us'],
+                        ['/error', '404 Error'],
+                      ],
+                    },
+                    {
+                      label: 'Blog',
+                      href: '/blog-listing',
+                      submenu: [
+                        ['/blog-listing', 'Blog Listing'],
+                        ['/blog-details', 'Blog Details'],
+                      ],
+                    },
+                  ].map((item, idx) => (
+                    <li key={idx} className="nav-item dropdown submenu">
+                      <Link
+                        href={item.href}
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === item.label}
+                        onClick={(e) => {
+                          if (isMobile) {
+                            e.preventDefault();
+                            handleDropdownToggle(item.label);
+                          }
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      <i
+                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                        aria-hidden="true"
+                        onClick={() => handleDropdownToggle(item.label)}
+                        style={{ cursor: 'pointer' }}
+                      ></i>
+
+                      <ul
+                        className={`dropdown-menu ${
+                          openDropdown === item.label ? 'show' : ''
+                        }`}
+                      >
+                        {item.submenu.map((sub, subIdx) => {
+                          if (Array.isArray(sub[2])) {
+                            return (
+                              <li
+                                className="nav-item dropdown submenu"
+                                key={subIdx}
+                              >
+                                <Link
+                                  href={sub[0]}
+                                  className="nav-link dropdown-toggle"
+                                  onClick={(e) => {
+                                    if (isMobile) {
+                                      e.preventDefault();
+                                    }
+                                  }}
+                                >
+                                  {sub[1]}
+                                </Link>
+                                <ul className="dropdown-menu">
+                                  {sub[2].map(
+                                    (child: [string, string], i: number) => (
+                                      <li className="nav-item" key={i}>
+                                        <Link
+                                          href={child[0]}
+                                          className="nav-link"
+                                        >
+                                          {child[1]}
+                                        </Link>
+                                      </li>
+                                    )
+                                  )}
+                                </ul>
+                              </li>
+                            );
+                          } else {
+                            return (
+                              <li className="nav-item" key={subIdx}>
+                                <Link href={sub[0]} className="nav-link">
+                                  {sub[1]}
+                                </Link>
+                              </li>
+                            );
+                          }
+                        })}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  className="theme-btn"
+                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
+                  target="_blank"
+                >
+                  Buy Banca
+                </Link>
+
+                {/* Dark Mode Toggle */}
+                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
+                  <label htmlFor="something" className="tab-btn tab-btns">
+                    <IoMoonOutline />
+                  </label>
+                  <label htmlFor="something" className="tab-btn">
+                    <IoSunnyOutline />
+                  </label>
+                  <label
+                    className={`ball`}
+                    htmlFor="something"
+                    style={{
+                      left: theme === 'body_dark' ? 3 : 26
+                    }}
+                  ></label>
+                  <input
+                    type="checkbox"
+                    name="something"
+                    id="something"
+                    className="dark_mode_switcher"
+                    checked={theme === 'body_dark'}
+                    onChange={toggleTheme}
                   />
                 </div>
               </div>
@@ -336,7 +399,7 @@ const FinanceSassApp = () => {
                     <i className="arrow_right-up"></i>
                   </Link>
                   <Link
-                    href="loan.html"
+                    href="/"
                     className="wow fadeInUp mt-50 theme-btn theme-btn-lg theme-btn-alt"
                     data-wow-delay="0.5s"
                   >
@@ -483,9 +546,9 @@ const FinanceSassApp = () => {
                     There are many variations in passage lorem Ipsum available
                     of them will.
                   </p>
-                  <a href="#" className="text-btn">
+                  <Link href="#" className="text-btn">
                     Learn More
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="col-lg-4">
@@ -1212,7 +1275,7 @@ const FinanceSassApp = () => {
           </div>
         </section> */}
 
-        <FinanceAccordion/>
+        <FinanceAccordion />
 
         <section className="saas-subscribe-area cta-4">
           <div className="container">
@@ -1365,15 +1428,17 @@ const FinanceSassApp = () => {
                   </p>
                 </div>
               </div>
-              <div className="col-lg-5 col-md-6 px-2">
-                <ul className="list-unstyled payment-list">
+
+              <div className="col-lg-5 col-md-6 ">
+                <ul className="list-unstyled payment-list d-flex flex-wrap gap-1 align-items-center">
                   <li>
                     <Link href="#">
                       <Image
                         width={40}
                         height={30}
                         src="/img/saas-app/visa.png"
-                        alt=""
+                        alt="Visa"
+                        className="payment-icon"
                       />
                     </Link>
                   </li>
@@ -1383,7 +1448,8 @@ const FinanceSassApp = () => {
                         width={40}
                         height={30}
                         src="/img/saas-app/amazon.png"
-                        alt=""
+                        alt="Amazon"
+                        className="payment-icon"
                       />
                     </Link>
                   </li>
@@ -1393,7 +1459,8 @@ const FinanceSassApp = () => {
                         width={40}
                         height={30}
                         src="/img/saas-app/stripe.png"
-                        alt=""
+                        alt="Stripe"
+                        className="payment-icon"
                       />
                     </Link>
                   </li>
@@ -1403,7 +1470,8 @@ const FinanceSassApp = () => {
                         width={40}
                         height={30}
                         src="/img/saas-app/paypal.png"
-                        alt=""
+                        alt="Paypal"
+                        className="payment-icon"
                       />
                     </Link>
                   </li>
@@ -1413,7 +1481,8 @@ const FinanceSassApp = () => {
                         width={40}
                         height={30}
                         src="/img/saas-app/amex.png"
-                        alt=""
+                        alt="Amex"
+                        className="payment-icon"
                       />
                     </Link>
                   </li>
@@ -1423,7 +1492,8 @@ const FinanceSassApp = () => {
                         width={40}
                         height={33}
                         src="/img/saas-app/discover.png"
-                        alt=""
+                        alt="Discover"
+                        className="payment-icon"
                       />
                     </Link>
                   </li>

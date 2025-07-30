@@ -208,6 +208,11 @@
 /*----------------------------------------*/
 /*   New Version
 /*----------------------------------------*/
+.body_dark .services-area .table .feature-head {
+  color: #fff;
+  background-color: #000;
+}
+
 .services-area {
   .table {
     thead {
@@ -234,7 +239,7 @@
       font-size: 18px;
       font-weight: 500;
       line-height: 21px;
-      color: #101010;
+      // color: #101010;
       .fa-check-circle {
         font-size: 20px;
         color: var(--brand_color);
@@ -257,6 +262,8 @@
     td,
     th {
       padding: 27px 20px;
+      background-color: #000;
+      color: #fff;
     }
     tbody {
       tr {
@@ -327,7 +334,7 @@
         border-bottom: 2px solid transparent;
         margin-bottom: -1px;
         &.active {
-          color: #000;
+          // color: #000;
           border-color: var(--brand_color);
           background: transparent;
         }

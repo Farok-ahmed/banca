@@ -43,7 +43,7 @@ const LoanSliderSection = () => {
     autoplaySpeed: 3000,
     responsive: [
       {
-        breakpoint: 1024, // for tablets
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
         },

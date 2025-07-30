@@ -1,7 +1,27 @@
+'use client';
+import BankCalculator from '@/components/BankCalculator';
+import CenterMode from '@/components/CenterMode';
+import { useTheme } from '@/contextAPi/ThemeContext';
+import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 const Loanpage = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const handleMenuToggle = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const handleDropdownToggle = (label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  };
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+
   return (
     <div>
       <header className="header">
@@ -10,13 +30,22 @@ const Loanpage = () => {
             <div className="row align-items-center">
               <div className="col-md-5">
                 <div className="header-info-left">
-                  <div className="language-list">
-                    <select name="page-language-list" id="select-lang">
-                      <option value="English">English</option>
+                  <div className="language-list position-relative w-auto">
+                    <select
+                      className="form-select border-0 shadow-none cursor-pointer"
+                      aria-label="Language select"
+                      style={{ cursor: 'pointer' }}
+                      defaultValue={'English'}
+                    >
+                      <option>English</option>
                       <option value="Bangla">Bangla</option>
                       <option value="French">French</option>
                       <option value="Hindi">Hindi</option>
                     </select>
+
+                    <span className="position-absolute top-50 end-0 translate-middle-y me-2">
+                      <i className="bi bi-chevron-down ms-2 text-muted pointer-events-none"></i>
+                    </span>
                   </div>
 
                   <div className="timestamp ms-4">
@@ -29,19 +58,21 @@ const Loanpage = () => {
                 <div className="header-info-right">
                   <ul>
                     <li>
-                      <img
+                      <Image
+                        width={15}
+                        height={15}
                         className="img-fluid"
                         src="/img/phone-outline.png"
                         alt="phone"
                       />
-                      <a href="tel:01234567890">+01234-567890</a>
+                      <Link href="tel:01234567890">+01234-567890</Link>
                     </li>
 
                     <li>
                       <i className="icon_mail_alt"></i>
-                      <a href="mailto:bancainfo@email.com">
+                      <Link href="mailto:bancainfo@email.com">
                         bancainfo@email.com
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -51,269 +82,144 @@ const Loanpage = () => {
         </div>
 
         <div className="header-menu header-menu-3" id="sticky">
-          <nav className="navbar navbar-expand-lg ">
+          <nav className="navbar navbar-expand-lg">
             <div className="container">
               <Link className="navbar-brand sticky_logo" href="index.html">
-                <img
+                <Image
+                  width={90}
+                  height={30}
                   className="main"
                   src="/img/logo/Logo.png"
-                  srcset="img/logo/Logo@2x.png 2x"
+                  // srcset="img/logo/Logo@2x.png 2x"
                   alt="logo"
                 />
-                <img
+                <Image
+                  width={90}
+                  height={30}
                   className="sticky"
                   src="/img/logo/Logo-2.png"
-                  srcset="img/logo/Logo-2@2x.png 2x"
+                  // srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
               </Link>
+              
+              {/* Hamburger Toggle */}
               <button
-                className="navbar-toggler collapsed"
+                className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
+                onClick={handleMenuToggle}
+                aria-expanded={menuOpen}
                 aria-label="Toggle navigation"
               >
                 <span className="menu_toggle">
-                  <span className="hamburger">
+                  <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
                     <span></span>
                     <span></span>
                     <span></span>
                   </span>
-                  <span className="hamburger-cross">
+                  <span
+                    className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}
+                  >
                     <span></span>
                     <span></span>
                   </span>
                 </span>
               </button>
 
-              <div
-                className="collapse navbar-collapse"
+              {/* <div
+                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
-                  <li className="nav-item dropdown submenu ">
-                    <a
-                      href="#"
-                      className="nav-link dropdown-toggle"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Home
-                    </a>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="true"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item ">
-                        <a href="index.html" className="nav-link">
-                          Smart Finance
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a href="index-company.html" className="nav-link">
-                          Loan Company
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a href="index-app.html" className="nav-link">
-                          Mobile App
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a href="index-simple.html" className="nav-link">
-                          Simple Banca
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a href="index-loan.html" className="nav-link">
-                          Loan Steps
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a href="index-finance.html" className="nav-link">
-                          Finance Sass App
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a href="index-small-bank.html" className="nav-link">
-                          Small Bank
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <a
-                      className="nav-link dropdown-toggle active"
-                      href="loan.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Loan
-                    </a>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
+                  {[
+                    {
+                      label: 'Home',
+                      href: '/',
+                      submenu: [
+                        'Smart Finance',
+                        'Loan Company',
+                        'Mobile App',
+                        'Simple Banca',
+                        'Loan Steps',
+                        'Finance Sass App',
+                        'Small Bank',
+                      ],
+                      subhref: [
+                        '/',
+                        '/index-company',
+                        '/mobile-app',
+                        '/simple-banca',
+                        '/loan-steps',
+                        '/finance-sass-app',
+                        '/small-bank',
+                      ],
+                    },
+                    {
+                      label: 'Loan',
+                      href: '/loan',
+                      submenu: ['Get loan', 'Loan Application'],
+                      subhref: ['/loan', '/loan-details'],
+                    },
+                    {
+                      label: 'Job Pages',
+                      href: '/career',
+                      submenu: ['Career', 'Jobs', 'Job Application'],
+                      subhref: ['/career', '/jobs', '/job-application'],
+                    },
+                    {
+                      label: 'Pages',
+                      href: '/card',
+                      submenu: ['Cards', 'About Us', 'Contact Us', '404 Error'],
+                      subhref: ['/card', '/about-us', '/contact-us', '/error'],
+                    },
+                    {
+                      label: 'Blog',
+                      href: '/blog-listing',
+                      submenu: ['Blog Listing', 'Blog Details'],
+                      subhref: ['/blog-listing', '/blog-details'],
+                    },
+                  ].map((item, idx) => (
+                    <li key={idx} className="nav-item dropdown submenu">
+                      <Link
+                        href={item.href}
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === item.label}
+                        onClick={(e) => {
+                          if (isMobile) {
+                            e.preventDefault();
+                            handleDropdownToggle(item.label);
+                          }
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      <i
+                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                        aria-hidden="true"
+                        onClick={() => handleDropdownToggle(item.label)}
+                        style={{ cursor: 'pointer' }}
+                      ></i>
 
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <a className="nav-link active" href="loan.html">
-                          Get loan
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a
-                          className="nav-link"
-                          href="#"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          Loan Application
-                        </a>
-                        <i
-                          className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                          aria-hidden="false"
-                          data-bs-toggle="dropdown"
-                        ></i>
-
-                        <ul className="dropdown-menu">
-                          <li className="nav-item">
-                            <a className="nav-link" href="loan-details.html">
-                              Step 01
-                            </a>
-                          </li>
-                          <li className="nav-item">
-                            <Link
-                              className="nav-link"
-                              href="/loan/personal-details"
-                            >
-                              Step 02
+                      <ul
+                        className={`dropdown-menu ${
+                          openDropdown === item.label ? 'show' : ''
+                        }`}
+                      >
+                        {item.submenu.map((text, i) => (
+                          <li className="nav-item" key={i}>
+                            <Link href={item.subhref[i]} className="nav-link">
+                              {text}
                             </Link>
                           </li>
-                          <li className="nav-item">
-                            <a className="nav-link" href="document-upload.html">
-                              Step 03
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <a
-                      className="nav-link dropdown-toggle"
-                      href="career.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Job Pages
-                    </a>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <a className="nav-link" href="career.html">
-                          Career
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="job-post.html">
-                          Jobs
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="job-application.html">
-                          Job Application
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <a
-                      className="nav-link dropdown-toggle"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Pages
-                    </a>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu ">
-                      <li className="nav-item">
-                        <a className="nav-link" href="card.html">
-                          Cards
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="about.html">
-                          About Us
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="contact.html">
-                          Contact Us
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="error.html">
-                          404 Error
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <a
-                      className="nav-link dropdown-toggle"
-                      href="blog.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Blog
-                    </a>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu ">
-                      <li className="nav-item">
-                        <a className="nav-link" href="blog.html">
-                          Blog Listing
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="blog-details.html">
-                          Blog Details
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
                 </ul>
+
                 <Link
                   className="theme-btn theme-btn-outlined"
                   href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
@@ -321,19 +227,212 @@ const Loanpage = () => {
                 >
                   Buy Banca
                 </Link>
+
                 <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
                   <label htmlFor="something" className="tab-btn tab-btns">
-                    <IoMoonOutline name="moon" />
+                    <IoMoonOutline />
                   </label>
                   <label htmlFor="something" className="tab-btn">
-                    <IoSunnyOutline name="sunny" />
+                    <IoSunnyOutline />
                   </label>
-                  <label className=" ball" htmlFor="something"></label>
+                  <label
+                    className={`ball ${
+                      theme === 'dark' ? 'ball-left' : 'ball-right'
+                    }`}
+                    htmlFor="something"
+                  ></label>
                   <input
                     type="checkbox"
                     name="something"
                     id="something"
                     className="dark_mode_switcher"
+                    checked={theme === 'dark'}
+                    onChange={toggleTheme}
+                  />
+                </div>
+              </div> */}
+              <div
+                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav menu ms-auto">
+                  {[
+                    {
+                      label: 'Home',
+                      href: '/',
+                      submenu: [
+                        { text: 'Smart Finance', link: '/' },
+                        { text: 'Loan Company', link: '/index-company' },
+                        { text: 'Mobile App', link: '/mobile-app' },
+                        { text: 'Simple Banca', link: '/simple-banca' },
+                        { text: 'Loan Steps', link: '/loan-steps' },
+                        { text: 'Finance Sass App', link: '/finance-sass-app' },
+                        { text: 'Small Bank', link: '/small-bank' },
+                      ],
+                    },
+                    {
+                      label: 'Loan',
+                      href: '/loan',
+                      submenu: [
+                        { text: 'Get loan', link: '/loan' },
+                        {
+                          text: 'Loan Application',
+                          link: '/loan-details',
+                          submenu: [
+                            { text: 'Step 01', link: '/loan-details' },
+                            { text: 'Step 02', link: '/personal-details' },
+                            { text: 'Step 03', link: '/document-upload' },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      label: 'Job Pages',
+                      href: '/career',
+                      submenu: [
+                        { text: 'Career', link: '/career' },
+                        { text: 'Jobs', link: '/jobs' },
+                        { text: 'Job Application', link: '/job-application' },
+                      ],
+                    },
+                    {
+                      label: 'Pages',
+                      href: '/card',
+                      submenu: [
+                        { text: 'Cards', link: '/card' },
+                        { text: 'About Us', link: '/about-us' },
+                        { text: 'Contact Us', link: '/contact-us' },
+                        { text: '404 Error', link: '/error' },
+                      ],
+                    },
+                    {
+                      label: 'Blog',
+                      href: '/blog-listing',
+                      submenu: [
+                        { text: 'Blog Listing', link: '/blog-listing' },
+                        { text: 'Blog Details', link: '/blog-details' },
+                      ],
+                    },
+                  ].map((item, idx) => (
+                    <li key={idx} className="nav-item dropdown submenu">
+                      <Link
+                        href={item.href}
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === item.label}
+                        onClick={(e) => {
+                          if (isMobile) {
+                            e.preventDefault();
+                            handleDropdownToggle(item.label);
+                          }
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      <i
+                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                        aria-hidden="true"
+                        onClick={() => handleDropdownToggle(item.label)}
+                        style={{ cursor: 'pointer' }}
+                      ></i>
+
+                      <ul
+                        className={`dropdown-menu ${
+                          openDropdown === item.label ? 'show' : ''
+                        }`}
+                      >
+                        {item.submenu?.map((sub, i) => (
+                          <li
+                            key={i}
+                            className={`nav-item ${
+                              sub.submenu ? 'dropdown submenu' : ''
+                            }`}
+                          >
+                            <Link
+                              href={sub.link}
+                              className="nav-link"
+                              onClick={(e) => {
+                                if (isMobile && sub.submenu) {
+                                  e.preventDefault();
+                                  handleDropdownToggle(
+                                    `${item.label}-${sub.text}`
+                                  );
+                                }
+                              }}
+                            >
+                              {sub.text}
+                            </Link>
+                            {sub.submenu && (
+                              <>
+                                <i
+                                  className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                                  aria-hidden="true"
+                                  onClick={() =>
+                                    handleDropdownToggle(
+                                      `${item.label}-${sub.text}`
+                                    )
+                                  }
+                                  style={{ cursor: 'pointer' }}
+                                ></i>
+                                <ul
+                                  className={`dropdown-menu ${
+                                    openDropdown === `${item.label}-${sub.text}`
+                                      ? 'show'
+                                      : ''
+                                  }`}
+                                >
+                                  {sub.submenu.map((deep, j) => (
+                                    <li key={j} className="nav-item">
+                                      <Link
+                                        href={deep.link}
+                                        className="nav-link"
+                                      >
+                                        {deep.text}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  className="theme-btn theme-btn-outlined_alt"
+                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
+                  target="_blank"
+                >
+                  Buy Banca
+                </Link>
+
+                {/* Dark Mode Toggle */}
+                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
+                  <label htmlFor="something" className="tab-btn tab-btns">
+                    <IoMoonOutline />
+                  </label>
+                  <label htmlFor="something" className="tab-btn">
+                    <IoSunnyOutline />
+                  </label>
+                  <label
+                    className={`ball`}
+                    htmlFor="something"
+                    style={{
+                      left: theme === 'body_dark' ? 3 : 26
+                    }}
+                  ></label>
+                  <input
+                    type="checkbox"
+                    name="something"
+                    id="something"
+                    className="dark_mode_switcher"
+                    checked={theme === 'body_dark'}
+                    onChange={toggleTheme}
                   />
                 </div>
               </div>
@@ -356,13 +455,13 @@ const Loanpage = () => {
                       Get your loan approved in 3 steps
                     </h1>
                   </div>
-                  <a
+                  <Link
                     className="theme-btn theme-btn-lg theme-btn-alt mt-50 wow fadeInUp"
                     data-wow-delay="0.2s"
-                    href="loan-details.html"
+                    href="/loan-details"
                   >
                     Get started <i className="arrow_right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -376,7 +475,12 @@ const Loanpage = () => {
                         className="steps-widget pr-30 pl-30 wow fadeInUp"
                         data-wow-delay="0.1s"
                       >
-                        <img src="/img/steps/icon-1.png" alt="icon" />
+                        <Image
+                          width={50}
+                          height={50}
+                          src="/img/steps/icon-1.png"
+                          alt="icon"
+                        />
                         <h4>
                           <Link href="#">Check Eligibility</Link>
                         </h4>
@@ -391,7 +495,12 @@ const Loanpage = () => {
                         className="steps-widget pr-30 pl-30 wow fadeInUp"
                         data-wow-delay="0.3s"
                       >
-                        <img src="/img/steps/icon-2.png" alt="icon" />
+                        <Image
+                          width={50}
+                          height={50}
+                          src="/img/steps/icon-2.png"
+                          alt="icon"
+                        />
                         <h4>
                           <a href="#">Submit Documents</a>
                         </h4>
@@ -406,7 +515,12 @@ const Loanpage = () => {
                         className="steps-widget pr-30 pl-30 wow fadeInUp"
                         data-wow-delay="0.5s"
                       >
-                        <img src="/img/steps/icon-3.png" alt="icon" />
+                        <Image
+                          width={50}
+                          height={50}
+                          src="/img/steps/icon-3.png"
+                          alt="icon"
+                        />
                         <h4>
                           <a href="#">Approval in Principle</a>
                         </h4>
@@ -444,11 +558,15 @@ const Loanpage = () => {
                         data-wow-delay="0.1s"
                       >
                         <div className="icon">
-                          <img
+                          <Image
+                            width={30}
+                            height={35}
                             src="/img/apply-loan/icon-1.1.png"
                             alt="icon-1"
                           />
-                          <img
+                          <Image
+                            width={30}
+                            height={35}
                             src="/img/apply-loan/icon-1.2.png"
                             alt="icon-1.2"
                           />
@@ -456,11 +574,11 @@ const Loanpage = () => {
                         <div className="apply-content">
                           <span className="title">How much do you need?</span>
                           <p className="d-flex">
-                            ${' '}
+                            $
                             <input
                               className="w-100"
                               type="text"
-                              value="5,000"
+                              defaultValue="5,000"
                             />{' '}
                           </p>
                         </div>
@@ -472,30 +590,62 @@ const Loanpage = () => {
                         data-wow-delay="0.3s"
                       >
                         <div className="icon">
-                          <img
+                          <Image
+                            width={35}
+                            height={35}
                             src="/img/apply-loan/icon-2.1.png"
                             alt="icon-2"
                           />
-                          <img
+                          <Image
+                            width={35}
+                            height={35}
                             src="/img/apply-loan/icon-2.2.png"
                             alt="icon-2.2"
                           />
                         </div>
                         <div className="apply-content">
-                          <span className="title">Type of Loan</span>
-                          <select name="select-loan-type" id="select-loan-type">
-                            <option>Select your Loan</option>
-                            <option value="Home Loan">Home Loan</option>
-                            <option value="Loan Against Property">
-                              Loan Against Property
-                            </option>
-                            <option value="Loan Renovation">
-                              Loan Renovation
-                            </option>
-                            <option value="Commercial Property">
-                              Commercial Property
-                            </option>
-                          </select>
+                          {/* Label */}
+                          <span
+                            className="title d-block text-muted"
+                            style={{ fontSize: '14px' }}
+                          >
+                            Type of Loan
+                          </span>
+
+                          {/* Dropdown */}
+                          <div className="position-relative">
+                            <select
+                              name="select-loan-type"
+                              id="select-loan-type"
+                              className="form-select border-0 ps-0 pe-4 fw-semibold"
+                              style={{
+                                appearance: 'none',
+                                backgroundColor: 'transparent',
+                                boxShadow: 'none',
+                                color: '#000',
+                                // fontSize: '16px',
+                                cursor: 'pointer',
+                                fontWeight: 'normal',
+                              }}
+                            >
+                              <option>Select your Loan</option>
+                              <option value="Home Loan">Home Loan</option>
+                              <option value="Loan Against Property">
+                                Loan Against Property
+                              </option>
+                              <option value="Loan Renovation">
+                                Loan Renovation
+                              </option>
+                              <option value="Commercial Property">
+                                Commercial Property
+                              </option>
+                            </select>
+
+                            {/* Chevron icon */}
+                            <span className="position-absolute top-50 end-0 translate-middle-y me-2 text-dark">
+                              <i className="bi bi-chevron-down"></i>
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -505,32 +655,36 @@ const Loanpage = () => {
                         data-wow-delay="0.5s"
                       >
                         <div className="icon">
-                          <img
+                          <Image
+                            width={30}
+                            height={35}
                             src="/img/apply-loan/icon-3.1.png"
                             alt="icon-3"
                           />
-                          <img
+                          <Image
+                            width={30}
+                            height={35}
                             src="/img/apply-loan/icon-3.2.png"
                             alt="icon-3.2"
                           />
                         </div>
+
                         <div className="apply-content">
                           <span className="title">
                             Where do you currently live?
                           </span>
                           <div
-                            className="select-location d-flex align-items-center"
+                            className="select-location d-flex align-items-center position-relative w-100"
                             id="locationSlectParent"
                           >
                             <select
-                              className="w-100"
+                              className="w-100 custom-select-no-arrow"
                               name="select-location"
                               id="locationSelect"
+                              defaultValue={'Bandarban'}
                             >
                               <option value="Bagerhat">Bagerhat</option>
-                              <option value="Bandarban" selected>
-                                Bandarban
-                              </option>
+                              <option value="Bandarban">Bandarban</option>
                               <option value="Barguna">Barguna</option>
                               <option value="Barisal">Barisal</option>
                               <option value="Bhola">Bhola</option>
@@ -541,90 +695,8 @@ const Loanpage = () => {
                               <option value="Brahmmanbaria">
                                 Brahmmanbaria
                               </option>
-                              <option value="Chandpur">Chandpur</option>
-                              <option value="Chapai Nawabganj">
-                                Chapai Nawabganj
-                              </option>
-                              <option value="Chittagong">Chittagong</option>
-                              <option value="Chuadanga">Chuadanga</option>
-                              <option value="Chottogram Metro">
-                                Chottogram Metro
-                              </option>
-                              <option value="Cox&#039;s Bazar">
-                                Cox&#039;s Bazar
-                              </option>
-                              <option value="Coxsbazar">Coxsbazar</option>
-                              <option value="Cumilla">Cumilla</option>
-                              <option value="Dhaka">Dhaka</option>
-                              <option value="Dinajpur">Dinajpur</option>
-                              <option value="Dhaka Metro">Dhaka Metro</option>
-                              <option value="Faridpur">Faridpur</option>
-                              <option value="Feni">Feni</option>
-                              <option value="Gaibandha">Gaibandha</option>
-                              <option value="Gazipur">Gazipur</option>
-                              <option value="Gazipur Metro">
-                                Gazipur Metro
-                              </option>
-                              <option value="Gopalgonj">Gopalgonj</option>
-                              <option value="Habigonj">Habigonj</option>
-                              <option value="Jaflong">Jaflong</option>
-                              <option value="Jamalpur">Jamalpur</option>
-                              <option value="Jessore">Jessore</option>
-                              <option value="Jhalokathi">Jhalokathi</option>
-                              <option value="Jhenaidah">Jhenaidah</option>
-                              <option value="Joypurhat">Joypurhat</option>
-                              <option value="Khagrachari">Khagrachari</option>
-                              <option value="Khulna">Khulna</option>
-                              <option value="Kishoregonj">Kishoregonj</option>
-                              <option value="Khulna Metro">Khulna Metro</option>
-                              <option value="Kurigram">Kurigram</option>
-                              <option value="Kustia">Kustia</option>
-                              <option value="Lalmonirhat">Lalmonirhat</option>
-                              <option value="Laxmipur">Laxmipur</option>
-                              <option value="Madaripur">Madaripur</option>
-                              <option value="Magura">Magura</option>
-                              <option value="Manikgonj">Manikgonj</option>
-                              <option value="Meherpur">Meherpur</option>
-                              <option value="Moulabhibazar">
-                                Moulabhibazar
-                              </option>
-                              <option value="Munshigonj">Munshigonj</option>
-                              <option value="Mymensingh">Mymensingh</option>
-                              <option value="Naogaon">Naogaon</option>
-                              <option value="Narail">Narail</option>
-                              <option value="Narayangonj">Narayangonj</option>
-                              <option value="Narsingdi">Narsingdi</option>
-                              <option value="Natore">Natore</option>
-                              <option value="Netrokona">Netrokona</option>
-                              <option value="Nilphamari">Nilphamari</option>
-                              <option value="Noakhali">Noakhali</option>
-                              <option value="Pabna">Pabna</option>
-                              <option value="Panchagarh">Panchagarh</option>
-                              <option value="Patuakhali">Patuakhali</option>
-                              <option value="Pirojpur">Pirojpur</option>
-                              <option value="Rajbari">Rajbari</option>
-                              <option value="Rajshahi">Rajshahi</option>
-                              <option value="Rangamati">Rangamati</option>
-                              <option value="Rangpur">Rangpur</option>
-                              <option value="Rajshahi Metro ">
-                                Rajshahi Metro{' '}
-                              </option>
-                              <option value="Rangpur Metro ">
-                                Rangpur Metro{' '}
-                              </option>
-                              <option value="Saint Martin">Saint Martin</option>
-                              <option value="Satkhira">Satkhira</option>
-                              <option value="Shariatpur">Shariatpur</option>
-                              <option value="Sherpur">Sherpur</option>
-                              <option value="Sirajgonj">Sirajgonj</option>
-                              <option value="Sylhet Metro">Sylhet Metro</option>
-                              <option value="Srimangal">Srimangal</option>
-                              <option value="Sunamgonj">Sunamgonj</option>
-                              <option value="Sylhet">Sylhet</option>
-                              <option value="Tangail">Tangail</option>
-                              <option value="Teknaf">Teknaf</option>
-                              <option value="Thakurgaon">Thakurgaon</option>
                             </select>
+
                             <span className="close" id="readOnlyClose">
                               <i className="icon_close"></i>
                             </span>
@@ -635,7 +707,9 @@ const Loanpage = () => {
 
                     <div className="col-12 mt-15 d-flex wow fadeInLeft">
                       <div className="icon">
-                        <img
+                        <Image
+                          width={15}
+                          height={15}
                           className="img=fluid"
                           src="/img/steps/sheild.png"
                           alt="sheild"
@@ -662,7 +736,7 @@ const Loanpage = () => {
           </div>
         </section>
 
-        <section className="pt-125 pb-140 bg_white">
+        {/* <section className="pt-125 pb-140 bg_white">
           <div className="container">
             <div className="row ">
               <div className="col-lg-6 mx-auto">
@@ -698,7 +772,7 @@ const Loanpage = () => {
                             <span className="active_bar"></span>
                           </li>
                           <li className="nav-item" role="presentation">
-                            <a
+                            <Link
                               className="nav-link month-tab"
                               id="monthTab-tab"
                               data-bs-toggle="tab"
@@ -708,10 +782,10 @@ const Loanpage = () => {
                               aria-selected="true"
                             >
                               Month
-                            </a>
+                            </Link>
                           </li>
                           <li className="nav-item " role="presentation">
-                            <a
+                            <Link
                               className="nav-link year-tab active"
                               id="yearTab-tab"
                               data-bs-toggle="tab"
@@ -721,7 +795,7 @@ const Loanpage = () => {
                               aria-selected="false"
                             >
                               Year
-                            </a>
+                            </Link>
                           </li>
                         </ul>
 
@@ -804,9 +878,11 @@ const Loanpage = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
-        <section className="pt-140 pb-140 testimonial-area bg_disable">
+        <BankCalculator />
+
+        {/* <section className="pt-140 pb-140 testimonial-area bg_disable">
           <div className="container-fluid px-0">
             <div className="testimonial-slider">
               <div className="single-slider container px-0">
@@ -892,13 +968,13 @@ const Loanpage = () => {
                     <div className="col-8 d-flex align-items-center">
                       <div className="testimonial-content">
                         <div className="watch-button">
-                          <a
+                          <Link
                             data-fancybox
                             href="https://www.youtube.com/watch?v=xcJtL7QggTI"
                           >
                             <i className="fa fa-play"></i>
                             watch the video
-                          </a>
+                          </Link>
                         </div>
                         <h2>Making dreams a reality!</h2>
                         <p className="pr-lg-60">
@@ -928,13 +1004,13 @@ const Loanpage = () => {
                     <div className="col-8 d-flex align-items-center">
                       <div className="testimonial-content">
                         <div className="watch-button">
-                          <a
+                          <Link
                             data-fancybox
                             href="https://www.youtube.com/watch?v=xcJtL7QggTI"
                           >
                             <i className="fa fa-play"></i>
                             watch the video
-                          </a>
+                          </Link>
                         </div>
                         <h2>Making dreams a reality!</h2>
                         <p className="pr-lg-60">
@@ -955,7 +1031,8 @@ const Loanpage = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
+        <CenterMode />
       </main>
 
       <footer className="footer footer-3">
@@ -996,10 +1073,10 @@ const Loanpage = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <a href="#"> Our core Businesses</a>
+                        <Link href="#"> Our core Businesses</Link>
                       </li>
                       <li>
-                        <Link href="#"> Our 'company purpose'</Link>
+                        <Link href="#"> Our company purpose</Link>
                       </li>
                       <li>
                         <Link href="#"> Jobs & Careers</Link>
@@ -1071,22 +1148,27 @@ const Loanpage = () => {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-3 text-center text-lg-start">
-                <a href="index.html" className="p-0 m-0">
-                  <img src="/img/logo/Logo.png" alt="logo" />
-                </a>
+                <Link href="/" className="p-0 m-0">
+                  <Image
+                    width={90}
+                    height={30}
+                    src="/img/logo/Logo.png"
+                    alt="logo"
+                  />
+                </Link>
               </div>
               <div className="col-lg-5 text-center my-3 my-sm-0">
                 <div className="copyright-text">
                   <p>
                     Copyright &copy; Banca 2025.
                     <br className="d-sm-none" />{' '}
-                    <a className="ms-2" href="#">
-                      Privecy
-                    </a>{' '}
+                    <Link className="ms-2" href="#">
+                      Privacy
+                    </Link>{' '}
                     |
-                    <a className="ms-0" href="#">
+                    <Link className="ms-0" href="#">
                       Term of Use
-                    </a>
+                    </Link>
                   </p>
                 </div>
               </div>

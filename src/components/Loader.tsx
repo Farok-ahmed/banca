@@ -1,22 +1,28 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
-import Image from "next/image";
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+
+const getRandomQuote = () => {
+  const quotes = [
+    'We design kbDoc for the readers, optimizing not for page views or engagement',
+    'kbDoc turns out that context is a key part of learning.',
+    'You can create any type of product documentation with kbDoc',
+    'Advanced visual search system powered by Ajax',
+  ];
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+
+  if (randomIndex < 0 || randomIndex >= quotes.length) return getRandomQuote();
+
+  return quotes[randomIndex];
+};
 
 export default function PreLoader() {
-  const pathname = usePathname();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true);
-
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [pathname]);
+    setLoading(false);
+  }, []);
 
   if (!loading) return null;
 
@@ -26,11 +32,16 @@ export default function PreLoader() {
         <div className="round_spinner">
           <div className="spinner"></div>
           <div className="text">
-            <Image width={140} height={40} src="/img/logo/Logo-2.png" alt="Logo" />
+            <Image
+              width={140}
+              height={40}
+              src="/img/logo/Logo-2.png"
+              alt="Logo"
+            />
           </div>
         </div>
         <h2 className="head">Did You Know?</h2>
-        <p></p>
+        <p>{getRandomQuote()}</p>
       </div>
     </div>
   );

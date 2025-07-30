@@ -4187,7 +4187,7 @@ header .header-top .header-info-right ul li i {
   font-size: 18px;
   font-weight: 600;
   line-height: 27px;
-  color: #000000;
+  /* color: #000000; */
 }
 .services-area .table .feature-item {
   width: 31%;
@@ -8154,7 +8154,7 @@ header .header-top .header-info-right ul li i {
   line-height: 30px;
 }
 .cta-4 .cta-content .theme-btn {
-  background-color: var(--secondary_color);
+  background-color: #171d24;
   height: 60px;
   line-height: 57px;
   padding: 0 40px;

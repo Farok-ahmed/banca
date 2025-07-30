@@ -1,8 +1,25 @@
+'use client';
+import { useTheme } from '@/contextAPi/ThemeContext';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 const BlogListing = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const handleMenuToggle = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const handleDropdownToggle = (label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  };
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+
   return (
     <div>
       <header className="header">
@@ -11,13 +28,21 @@ const BlogListing = () => {
             <div className="row align-items-center">
               <div className="col-md-5">
                 <div className="header-info-left">
-                  <div className="language-list">
-                    <select id="select-lang">
-                      <option value="English">English</option>
+                  <div className="language-list position-relative w-auto">
+                    <select
+                      className="form-select border-0 shadow-none cursor-pointer"
+                      aria-label="Language select"
+                      style={{ cursor: 'pointer' }}
+                    >
+                      <option selected>English</option>
                       <option value="Bangla">Bangla</option>
                       <option value="French">French</option>
                       <option value="Hindi">Hindi</option>
                     </select>
+
+                    <span className="position-absolute top-50 end-0 translate-middle-y me-2">
+                      <i className="bi bi-chevron-down ms-2 text-muted pointer-events-none"></i>
+                    </span>
                   </div>
 
                   <div className="timestamp ms-4">
@@ -31,8 +56,8 @@ const BlogListing = () => {
                   <ul>
                     <li>
                       <Image
-                        width={20}
-                        height={20}
+                        width={15}
+                        height={15}
                         className="img-fluid"
                         src="/img/phone-outline.png"
                         alt="phone"
@@ -55,13 +80,12 @@ const BlogListing = () => {
         <div className="header-menu header-menu-3" id="sticky">
           <nav className="navbar navbar-expand-lg ">
             <div className="container">
-              <Link className="navbar-brand sticky_logo" href="index.html">
+              <Link className="navbar-brand sticky_logo" href="/">
                 <Image
                   width={110}
                   height={35}
                   className="main"
                   src="/img/logo/Logo.png"
-                  // srcset="img/logo/Logo@2x.png 2x"
                   alt="logo"
                 />
                 <Image
@@ -69,40 +93,41 @@ const BlogListing = () => {
                   height={35}
                   className="sticky"
                   src="/img/logo/Logo-2.png"
-                  // srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
               </Link>
+
+              {/* Hamburger Toggle */}
               <button
-                className="navbar-toggler collapsed"
+                className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
+                onClick={handleMenuToggle}
+                aria-expanded={menuOpen}
                 aria-label="Toggle navigation"
               >
                 <span className="menu_toggle">
-                  <span className="hamburger">
+                  <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
                     <span></span>
                     <span></span>
                     <span></span>
                   </span>
-                  <span className="hamburger-cross">
+                  <span
+                    className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}
+                  >
                     <span></span>
                     <span></span>
                   </span>
                 </span>
               </button>
 
-              <div
+              {/* <div
                 className="collapse navbar-collapse"
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
                   <li className="nav-item dropdown submenu ">
-                    <a
-                      href="#"
+                    <Link
+                      href="/"
                       className="nav-link dropdown-toggle"
                       role="button"
                       data-bs-toggle="dropdown"
@@ -110,7 +135,7 @@ const BlogListing = () => {
                       aria-expanded="false"
                     >
                       Home
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="true"
@@ -118,53 +143,53 @@ const BlogListing = () => {
                     ></i>
                     <ul className="dropdown-menu">
                       <li className="nav-item ">
-                        <a href="index.html" className="nav-link">
+                        <Link href="/" className="nav-link">
                           Smart Finance
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-company.html" className="nav-link">
+                        <Link href="/index-company" className="nav-link">
                           Loan Company
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-app.html" className="nav-link">
+                        <Link href="/mobile-app" className="nav-link">
                           Mobile App
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-simple.html" className="nav-link ">
+                        <Link href="/simple-banca" className="nav-link ">
                           Simple Banca
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-loan.html" className="nav-link">
+                        <Link href="/loan-steps" className="nav-link">
                           Loan Steps
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-finance.html" className="nav-link">
+                        <Link href="/finance-sass-app" className="nav-link">
                           Finance Sass App
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a href="index-small-bank.html" className="nav-link">
+                        <Link href="/small-bank" className="nav-link">
                           Small Bank
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle"
-                      href="loan.html"
+                      href="/loan"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Loan
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -173,21 +198,21 @@ const BlogListing = () => {
 
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a className="nav-link" href="loan.html">
+                        <Link className="nav-link" href="/loan">
                           Get loan
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a
+                        <Link
                           className="nav-link"
-                          href="#"
+                          href="/loan-details"
                           role="button"
                           data-bs-toggle="dropdown"
                           aria-haspopup="true"
                           aria-expanded="false"
                         >
                           Loan Application
-                        </a>
+                        </Link>
                         <i
                           className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                           aria-hidden="false"
@@ -196,38 +221,35 @@ const BlogListing = () => {
 
                         <ul className="dropdown-menu">
                           <li className="nav-item">
-                            <a className="nav-link" href="loan-details.html">
+                            <Link className="nav-link" href="/loan-details">
                               Step 01
-                            </a>
+                            </Link>
                           </li>
                           <li className="nav-item">
-                            <a
-                              className="nav-link"
-                              href="personal-details.html"
-                            >
+                            <Link className="nav-link" href="/personal-details">
                               Step 02
-                            </a>
+                            </Link>
                           </li>
                           <li className="nav-item">
-                            <a className="nav-link" href="document-upload.html">
+                            <Link className="nav-link" href="/document-upload">
                               Step 03
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle"
-                      href="career.html"
+                      href="/career"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Job Pages
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -235,33 +257,33 @@ const BlogListing = () => {
                     ></i>
                     <ul className="dropdown-menu">
                       <li className="nav-item">
-                        <a className="nav-link" href="career.html">
+                        <Link className="nav-link" href="/career">
                           Career
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="job-post.html">
+                        <Link className="nav-link" href="/jobs">
                           Jobs
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="job-application.html">
+                        <Link className="nav-link" href="/job-application">
                           Job Application
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle"
-                      href="#"
+                      href="/card"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Pages
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -269,38 +291,38 @@ const BlogListing = () => {
                     ></i>
                     <ul className="dropdown-menu ">
                       <li className="nav-item">
-                        <a className="nav-link" href="card.html">
+                        <Link className="nav-link" href="/card">
                           Cards
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="about.html">
+                        <Link className="nav-link" href="/about-us">
                           About Us
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="contact.html">
+                        <Link className="nav-link" href="/contact-us">
                           Contact Us
-                        </a>
+                        </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="error.html">
+                        <Link className="nav-link" href="/error">
                           404 Error
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   </li>
                   <li className="nav-item dropdown submenu">
-                    <a
+                    <Link
                       className="nav-link dropdown-toggle active"
-                      href="blog.html"
+                      href="/blog-listing"
                       role="button"
                       data-bs-toggle="dropdown"
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
                       Blog
-                    </a>
+                    </Link>
                     <i
                       className="arrow_carrot-down_alt2 mobile_dropdown_icon"
                       aria-hidden="false"
@@ -340,6 +362,191 @@ const BlogListing = () => {
                     name="something"
                     id="something"
                     className="dark_mode_switcher"
+                  />
+                </div>
+              </div> */}
+              <div
+                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav menu ms-auto">
+                  {[
+                    {
+                      label: 'Home',
+                      href: '/',
+                      submenu: [
+                        { text: 'Smart Finance', link: '/' },
+                        { text: 'Loan Company', link: '/index-company' },
+                        { text: 'Mobile App', link: '/mobile-app' },
+                        { text: 'Simple Banca', link: '/simple-banca' },
+                        { text: 'Loan Steps', link: '/loan-steps' },
+                        { text: 'Finance Sass App', link: '/finance-sass-app' },
+                        { text: 'Small Bank', link: '/small-bank' },
+                      ],
+                    },
+                    {
+                      label: 'Loan',
+                      href: '/loan',
+                      submenu: [
+                        { text: 'Get loan', link: '/loan' },
+                        {
+                          text: 'Loan Application',
+                          link: '/loan-details',
+                          submenu: [
+                            { text: 'Step 01', link: '/loan-details' },
+                            { text: 'Step 02', link: '/personal-details' },
+                            { text: 'Step 03', link: '/document-upload' },
+                          ],
+                        },
+                      ],
+                    },
+                    {
+                      label: 'Job Pages',
+                      href: '/career',
+                      submenu: [
+                        { text: 'Career', link: '/career' },
+                        { text: 'Jobs', link: '/jobs' },
+                        { text: 'Job Application', link: '/job-application' },
+                      ],
+                    },
+                    {
+                      label: 'Pages',
+                      href: '/card',
+                      submenu: [
+                        { text: 'Cards', link: '/card' },
+                        { text: 'About Us', link: '/about-us' },
+                        { text: 'Contact Us', link: '/contact-us' },
+                        { text: '404 Error', link: '/error' },
+                      ],
+                    },
+                    {
+                      label: 'Blog',
+                      href: '/blog-listing',
+                      submenu: [
+                        { text: 'Blog Listing', link: '/blog-listing' },
+                        { text: 'Blog Details', link: '/blog-details' },
+                      ],
+                    },
+                  ].map((item, idx) => (
+                    <li key={idx} className="nav-item dropdown submenu">
+                      <Link
+                        href={item.href}
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === item.label}
+                        onClick={(e) => {
+                          if (isMobile) {
+                            e.preventDefault();
+                            handleDropdownToggle(item.label);
+                          }
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      <i
+                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                        aria-hidden="true"
+                        onClick={() => handleDropdownToggle(item.label)}
+                        style={{ cursor: 'pointer' }}
+                      ></i>
+
+                      <ul
+                        className={`dropdown-menu ${
+                          openDropdown === item.label ? 'show' : ''
+                        }`}
+                      >
+                        {item.submenu?.map((sub, i) => (
+                          <li
+                            key={i}
+                            className={`nav-item ${
+                              sub.submenu ? 'dropdown submenu' : ''
+                            }`}
+                          >
+                            <Link
+                              href={sub.link}
+                              className="nav-link"
+                              onClick={(e) => {
+                                if (isMobile && sub.submenu) {
+                                  e.preventDefault();
+                                  handleDropdownToggle(
+                                    `${item.label}-${sub.text}`
+                                  );
+                                }
+                              }}
+                            >
+                              {sub.text}
+                            </Link>
+                            {sub.submenu && (
+                              <>
+                                <i
+                                  className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                                  aria-hidden="true"
+                                  onClick={() =>
+                                    handleDropdownToggle(
+                                      `${item.label}-${sub.text}`
+                                    )
+                                  }
+                                  style={{ cursor: 'pointer' }}
+                                ></i>
+                                <ul
+                                  className={`dropdown-menu ${
+                                    openDropdown === `${item.label}-${sub.text}`
+                                      ? 'show'
+                                      : ''
+                                  }`}
+                                >
+                                  {sub.submenu.map((deep, j) => (
+                                    <li key={j} className="nav-item">
+                                      <Link
+                                        href={deep.link}
+                                        className="nav-link"
+                                      >
+                                        {deep.text}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  className="theme-btn theme-btn-outlined_alt"
+                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
+                  target="_blank"
+                >
+                  Buy Banca
+                </Link>
+
+                {/* Dark Mode Toggle */}
+                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
+                  <label htmlFor="something" className="tab-btn tab-btns">
+                    <IoMoonOutline />
+                  </label>
+                  <label htmlFor="something" className="tab-btn">
+                    <IoSunnyOutline />
+                  </label>
+                  <label
+                    className={`ball`}
+                    style={{
+                      left: theme === 'body_dark' ? 3 : 26,
+                    }}
+                    htmlFor="something"
+                  ></label>
+                  <input
+                    type="checkbox"
+                    name="something"
+                    id="something"
+                    className="dark_mode_switcher"
+                    checked={theme === 'body_dark'}
+                    onChange={toggleTheme}
                   />
                 </div>
               </div>
@@ -1259,7 +1466,7 @@ const BlogListing = () => {
                 <Link href="index.html" className="p-0 m-0">
                   <Image
                     width={90}
-                    height={35}
+                    height={30}
                     src="/img/logo/Logo.png"
                     alt="logo"
                   />
@@ -1269,10 +1476,10 @@ const BlogListing = () => {
                 <div className="copyright-text">
                   <p>
                     Copyright &copy; Banca 2025.
-                    <br className="d-sm-none" />{' '}
+                    <br className="d-sm-none" />
                     <Link className="ms-2" href="#">
-                      Privecy
-                    </Link>{' '}
+                      Privacy
+                    </Link>
                     |
                     <Link className="ms-0" href="#">
                       Term of Use

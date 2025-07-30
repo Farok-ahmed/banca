@@ -1,9 +1,25 @@
+'use client';
 import LoanAccordion from '@/components/LoanAccordion';
+import { useTheme } from '@/contextAPi/ThemeContext';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 const LoanSteps = () => {
+  const { theme, toggleTheme } = useTheme();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const handleMenuToggle = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const handleDropdownToggle = (label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  };
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
   return (
     <div>
       <header className="header">
@@ -12,13 +28,28 @@ const LoanSteps = () => {
             <div className="row align-items-center">
               <div className="col-md-6">
                 <div className="header-info-left">
-                  <div className="language-list">
-                    <select id="select-lang">
+                  <div className="language-list position-relative w-auto">
+                    <select
+                      className="form-select border-0 shadow-none text-white pe-5 ps-1"
+                      aria-label="Language select"
+                      style={{
+                        appearance: 'none',
+                        backgroundColor: '#171d24',
+                        color: '#ffffff',
+                        cursor: 'pointer',
+                        border: 'none',
+                        boxShadow: 'none',
+                      }}
+                    >
                       <option value="English">English</option>
                       <option value="Bangla">Bangla</option>
                       <option value="French">French</option>
                       <option value="Hindi">Hindi</option>
                     </select>
+
+                    <span className="position-absolute top-50 end-0 translate-middle-y me-2 text-white">
+                      <i className="bi bi-chevron-down ms-2 text-white pointer-events-none"></i>
+                    </span>
                   </div>
 
                   <div className="timestamp ms-4">
@@ -54,33 +85,34 @@ const LoanSteps = () => {
           </div>
         </div>
         <div className="header-menu header-menu-2" id="sticky">
-          <nav className="navbar navbar-expand-lg ">
+          <nav className="navbar navbar-expand-lg">
             <div className="container">
-              <Link className="navbar-brand" href="index.html">
+              <Link className="navbar-brand" href="/">
                 <Image
                   width={110}
                   height={35}
                   src="/img/logo/Logo-2.png"
-                  // srcset="/img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
               </Link>
+
+              {/* Hamburger Toggle */}
               <button
-                className="navbar-toggler collapsed"
+                className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
+                onClick={handleMenuToggle}
+                aria-expanded={menuOpen}
                 aria-label="Toggle navigation"
               >
                 <span className="menu_toggle">
-                  <span className="hamburger">
+                  <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
                     <span></span>
                     <span></span>
                     <span></span>
                   </span>
-                  <span className="hamburger-cross">
+                  <span
+                    className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}
+                  >
                     <span></span>
                     <span></span>
                   </span>
@@ -88,230 +120,100 @@ const LoanSteps = () => {
               </button>
 
               <div
-                className="collapse navbar-collapse"
+                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
-                  <li className="nav-item dropdown submenu ">
-                    <Link
-                      href="#"
-                      className="nav-link dropdown-toggle active"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Home
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="true"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item ">
-                        <Link href="/" className="nav-link">
-                          Smart Finance
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/index-company" className="nav-link ">
-                          Loan Company
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/mobile-app" className="nav-link">
-                          Mobile App
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/simple-banca" className="nav-link ">
-                          Simple Banca
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/loan-steps" className="nav-link active">
-                          Loan Steps
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/finance-sass-app" className="nav-link">
-                          Finance Sass App
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/small-bank" className="nav-link">
-                          Small Bank
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="loan.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Loan
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
+                  {/* Repeat for all dropdowns */}
+                  {[
+                    {
+                      label: 'Home',
+                      href: '/',
+                      submenu: [
+                        'Smart Finance',
+                        'Loan Company',
+                        'Mobile App',
+                        'Simple Banca',
+                        'Loan Steps',
+                        'Finance Sass App',
+                        'Small Bank',
+                      ],
+                      subhref: [
+                        '/',
+                        '/index-company',
+                        '/mobile-app',
+                        '/simple-banca',
+                        '/loan-steps',
+                        '/finance-sass-app',
+                        '/small-bank',
+                      ],
+                    },
+                    {
+                      label: 'Loan',
+                      href: '/loan',
+                      submenu: ['Get loan', 'Loan Application'],
+                      subhref: ['/loan', '/loan-details'],
+                    },
+                    {
+                      label: 'Job Pages',
+                      href: '/career',
+                      submenu: ['Career', 'Jobs', 'Job Application'],
+                      subhref: ['/career', '/jobs', '/job-application'],
+                    },
+                    {
+                      label: 'Pages',
+                      href: '/card',
+                      submenu: ['Cards', 'About Us', 'Contact Us', '404 Error'],
+                      subhref: ['/card', '/about-us', '/contact-us', '/error'],
+                    },
+                    {
+                      label: 'Blog',
+                      href: '/blog-listing',
+                      submenu: ['Blog Listing', 'Blog Details'],
+                      subhref: ['/blog-listing', '/blog-details'],
+                    },
+                  ].map((item, idx) => (
+                    <li key={idx} className="nav-item dropdown submenu">
+                      <Link
+                        href={item.href}
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === item.label}
+                        onClick={(e) => {
+                          if (isMobile) {
+                            e.preventDefault();
+                            handleDropdownToggle(item.label);
+                          }
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      <i
+                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                        aria-hidden="true"
+                        onClick={() => handleDropdownToggle(item.label)}
+                        style={{ cursor: 'pointer' }}
+                      ></i>
 
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="loan.html">
-                          Get loan
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link"
-                          href="#"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          Loan Application
-                        </Link>
-                        <i
-                          className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                          aria-hidden="false"
-                          data-bs-toggle="dropdown"
-                        ></i>
-
-                        <ul className="dropdown-menu">
-                          <li className="nav-item">
-                            <Link className="nav-link" href="loan-details.html">
-                              Step 01
+                      <ul
+                        className={`dropdown-menu ${
+                          openDropdown === item.label ? 'show' : ''
+                        }`}
+                      >
+                        {item.submenu.map((text, i) => (
+                          <li className="nav-item" key={i}>
+                            <Link href={item.subhref[i]} className="nav-link">
+                              {text}
                             </Link>
                           </li>
-                          <li className="nav-item">
-                            <Link
-                              className="nav-link"
-                              href="personal-details.html"
-                            >
-                              Step 02
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link className="nav-link" href="document-upload.html">
-                              Step 03
-                            </Link>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="career.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Job Pages
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="career.html">
-                          Career
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="job-post.html">
-                          Jobs
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="job-application.html">
-                          Job Application
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Pages
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu ">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="card.html">
-                          Cards
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="about.html">
-                          About Us
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="contact.html">
-                          Contact Us
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="error.html">
-                          404 Error
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="blog.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Blog
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu ">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="blog.html">
-                          Blog Listing
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="blog-details.html">
-                          Blog Details
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
                 </ul>
+
                 <Link
                   className="theme-btn"
                   href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
@@ -319,21 +221,29 @@ const LoanSteps = () => {
                 >
                   Buy Banca
                 </Link>
+
+                {/* Dark Mode Toggle */}
                 <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
                   <label htmlFor="something" className="tab-btn tab-btns">
-                    {/* <ion-icon name="moon"></ion-icon> */}
-                    <IoMoonOutline name="moon" />
+                    <IoMoonOutline />
                   </label>
                   <label htmlFor="something" className="tab-btn">
-                    {/* <ion-icon name="sunny"></ion-icon> */}
-                    <IoSunnyOutline name="sunny" />
+                    <IoSunnyOutline />
                   </label>
-                  <label className=" ball" htmlFor="something"></label>
+                  <label
+                    className={`ball`}
+                    htmlFor="something"
+                    style={{
+                      left: theme === 'body_dark' ? 3 : 26
+                    }}
+                  ></label>
                   <input
                     type="checkbox"
                     name="something"
                     id="something"
                     className="dark_mode_switcher"
+                    checked={theme === 'body_dark'}
+                    onChange={toggleTheme}
                   />
                 </div>
               </div>
@@ -1201,7 +1111,7 @@ const LoanSteps = () => {
                 </div>
               </div>
             </div> */}
-            <LoanAccordion/>
+            <LoanAccordion />
           </div>
         </section>
 

@@ -1,302 +1,434 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+import * as noUiSlider from 'nouislider';
 import FAQAccordion from '@/components/FaqAccordion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
+import 'nouislider/dist/nouislider.css';
+import FeatureSlider from '@/components/SimpleAccordion';
+import SimplebancaSlider from '@/components/SimplebancaSlider';
+import { useTheme } from '@/contextAPi/ThemeContext';
+
+interface HTMLDivElementWithSlider extends HTMLDivElement {
+  noUiSlider?: noUiSlider.API;
+}
 
 const SampleBanca = () => {
+  const amountSliderRef = useRef<HTMLDivElementWithSlider>(null);
+  const periodSliderRef = useRef<HTMLDivElementWithSlider>(null);
+  const { theme, toggleTheme } = useTheme();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  const [amount, setAmount] = useState(5000);
+  const [period, setPeriod] = useState(3);
+
+  const handleMenuToggle = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
+  const handleDropdownToggle = (label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  };
+
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+
+  useEffect(() => {
+    if (amountSliderRef.current && !amountSliderRef.current.noUiSlider) {
+      noUiSlider.create(amountSliderRef.current, {
+        start: [amount],
+        connect: [true, false],
+        range: {
+          min: 5000,
+          max: 250000,
+        },
+        step: 1000,
+        tooltips: false,
+        format: {
+          to: (value: number) => `$${Math.round(value)}`,
+          from: (value: string) => Number(value.replace(/\$/g, '')),
+        },
+      });
+
+      amountSliderRef.current.noUiSlider?.on(
+        'update',
+        (values: (string | number)[], handle: number) => {
+          const val = Number(values[handle].toString().replace(/\$/g, ''));
+          setAmount(val);
+        }
+      );
+    }
+
+    if (periodSliderRef.current && !periodSliderRef.current.noUiSlider) {
+      noUiSlider.create(periodSliderRef.current, {
+        start: [period],
+        connect: [true, false],
+        range: {
+          min: 1,
+          max: 5,
+        },
+        step: 1,
+        tooltips: false,
+        format: {
+          to: (value: number) => `${Math.round(value)}y`,
+          from: (value: string) => Number(value.replace(/y/g, '')),
+        },
+      });
+
+      periodSliderRef.current.noUiSlider?.on(
+        'update',
+        (values: (string | number)[], handle: number) => {
+          const val = Number(values[handle].toString().replace(/y/g, ''));
+          setPeriod(val);
+        }
+      );
+    }
+
+    return () => {
+      amountSliderRef.current?.noUiSlider?.destroy();
+      periodSliderRef.current?.noUiSlider?.destroy();
+    };
+  }, []);
+
   return (
     <div>
       <header className="header">
-        <div className="header-menu header-menu-4" id="sticky">
-          <nav className="navbar navbar-expand-lg ">
+        <div className="header-menu header-menu-2" id="sticky">
+          <nav className="navbar navbar-expand-lg">
             <div className="container">
-              <Link className="navbar-brand sticky_logo" href="index.html">
+              <Link className="navbar-brand" href="/">
                 <Image
                   width={110}
                   height={35}
-                  className="main"
-                  src="/img/logo/Logo.png"
-                  // srcset="img/logo/Logo@2x.png 2x"
-                  alt="logo"
-                />
-                <Image
-                  width={110}
-                  height={35}
-                  className="sticky"
                   src="/img/logo/Logo-2.png"
-                  // srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
               </Link>
+
+              {/* Hamburger Toggle */}
               <button
-                className="navbar-toggler collapsed"
+                className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
                 type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
+                onClick={handleMenuToggle}
+                aria-expanded={menuOpen}
                 aria-label="Toggle navigation"
               >
                 <span className="menu_toggle">
-                  <span className="hamburger">
+                  <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
                     <span></span>
                     <span></span>
                     <span></span>
                   </span>
-                  <span className="hamburger-cross">
+                  <span
+                    className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}
+                  >
                     <span></span>
                     <span></span>
                   </span>
                 </span>
               </button>
 
-              <div
-                className="collapse navbar-collapse"
+              {/* <div
+                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
-                  <li className="nav-item dropdown submenu ">
-                    <Link
-                      href="#"
-                      className="nav-link dropdown-toggle active"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Home
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="true"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item ">
-                        <Link href="/" className="nav-link">
-                          Smart Finance
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/index-company" className="nav-link">
-                          Loan Company
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/mobile-app" className="nav-link">
-                          Mobile App
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/simple-banca" className="nav-link active">
-                          Simple Banca
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/loan-steps" className="nav-link">
-                          Loan Steps
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/finance-sass-app" className="nav-link">
-                          Finance Sass App
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/small-bank" className="nav-link">
-                          Small Bank
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="loan.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Loan
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
+                  
+                  {[
+                    {
+                      label: 'Home',
+                      href: '/',
+                      submenu: [
+                        'Smart Finance',
+                        'Loan Company',
+                        'Mobile App',
+                        'Simple Banca',
+                        'Loan Steps',
+                        'Finance Sass App',
+                        'Small Bank',
+                      ],
+                      subhref: [
+                        '/',
+                        '/index-company',
+                        '/mobile-app',
+                        '/simple-banca',
+                        '/loan-steps',
+                        '/finance-sass-app',
+                        '/small-bank',
+                      ],
+                    },
+                    {
+                      label: 'Loan',
+                      href: '/loan',
+                      submenu: ['Get loan', 'Loan Application'],
+                      subhref: ['/loan', '/loan-details'],
+                    },
+                    {
+                      label: 'Job Pages',
+                      href: '/career',
+                      submenu: ['Career', 'Jobs', 'Job Application'],
+                      subhref: ['/career', '/jobs', '/job-application'],
+                    },
+                    {
+                      label: 'Pages',
+                      href: '/card',
+                      submenu: ['Cards', 'About Us', 'Contact Us', '404 Error'],
+                      subhref: ['/card', '/about-us', '/contact-us', '/error'],
+                    },
+                    {
+                      label: 'Blog',
+                      href: '/blog-listing',
+                      submenu: ['Blog Listing', 'Blog Details'],
+                      subhref: ['/blog-listing', '/blog-details'],
+                    },
+                  ].map((item, idx) => (
+                    <li key={idx} className="nav-item dropdown submenu">
+                      <Link
+                        href={item.href}
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === item.label}
+                        onClick={(e) => {
+                          if (isMobile) {
+                            e.preventDefault();
+                            handleDropdownToggle(item.label);
+                          }
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      <i
+                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                        aria-hidden="true"
+                        onClick={() => handleDropdownToggle(item.label)}
+                        style={{ cursor: 'pointer' }}
+                      ></i>
 
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="loan.html">
-                          Get loan
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link"
-                          href="#"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          Loan Application
-                        </Link>
-                        <i
-                          className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                          aria-hidden="false"
-                          data-bs-toggle="dropdown"
-                        ></i>
-
-                        <ul className="dropdown-menu">
-                          <li className="nav-item">
-                            <a className="nav-link" href="loan-details.html">
-                              Step 01
-                            </a>
+                      <ul
+                        className={`dropdown-menu ${
+                          openDropdown === item.label ? 'show' : ''
+                        }`}
+                      >
+                        {item.submenu.map((text, i) => (
+                          <li className="nav-item" key={i}>
+                            <Link href={item.subhref[i]} className="nav-link">
+                              {text}
+                            </Link>
                           </li>
-                          <li className="nav-item">
-                            <a
-                              className="nav-link"
-                              href="personal-details.html"
-                            >
-                              Step 02
-                            </a>
-                          </li>
-                          <li className="nav-item">
-                            <a className="nav-link" href="document-upload.html">
-                              Step 03
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <a
-                      className="nav-link dropdown-toggle"
-                      href="career.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Job Pages
-                    </a>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <a className="nav-link" href="career.html">
-                          Career
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="job-post.html">
-                          Jobs
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="job-application.html">
-                          Job Application
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <a
-                      className="nav-link dropdown-toggle"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Pages
-                    </a>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu ">
-                      <li className="nav-item">
-                        <a className="nav-link" href="card.html">
-                          Cards
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="about.html">
-                          About Us
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="contact.html">
-                          Contact Us
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="error.html">
-                          404 Error
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="blog.html"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Blog
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu ">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="/blog-listing">
-                          Blog Listing
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="blog-details.html">
-                          Blog Details
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
+                        ))}
+                      </ul>
+                    </li>
+                  ))}
                 </ul>
-                <a
-                  className="theme-btn theme-btn-rounded-2 theme-btn-alt"
+
+                <Link
+                  className="theme-btn"
                   href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
                   target="_blank"
                 >
                   Buy Banca
-                </a>
+                </Link>
+
+                
                 <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
                   <label htmlFor="something" className="tab-btn tab-btns">
-                    {/* <ion-icon name="moon"></ion-icon> */}
-                    <IoMoonOutline name="moon" />
+                    <IoMoonOutline />
                   </label>
                   <label htmlFor="something" className="tab-btn">
-                    {/* <ion-icon name="sunny"></ion-icon> */}
-                    <IoSunnyOutline name="sunny" />
+                    <IoSunnyOutline />
                   </label>
-                  <label className=" ball" htmlFor="something"></label>
+                  <label
+                    className={`ball ${
+                      theme === 'dark' ? 'ball-left' : 'ball-right'
+                    }`}
+                    htmlFor="something"
+                  ></label>
                   <input
                     type="checkbox"
                     name="something"
                     id="something"
                     className="dark_mode_switcher"
+                    checked={theme === 'dark'}
+                    onChange={toggleTheme}
+                  />
+                </div>
+              </div> */}
+
+<div
+                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav menu ms-auto">
+                  {[
+                    {
+                      label: 'Home',
+                      href: '/',
+                      submenu: [
+                        ['/', 'Smart Finance'],
+                        ['/index-company', 'Loan Company'],
+                        ['/mobile-app', 'Mobile App'],
+                        ['/simple-banca', 'Simple Banca'],
+                        ['/loan-steps', 'Loan Steps'],
+                        ['/finance-sass-app', 'Finance Sass App'],
+                        ['/small-bank', 'Small Bank'],
+                      ],
+                    },
+                    {
+                      label: 'Loan',
+                      href: '/loan',
+                      submenu: [
+                        ['/loan', 'Get loan'],
+                        [
+                          '/loan-details',
+                          'Loan Application',
+                          [
+                            ['/loan-details', 'Step 01'],
+                            ['/personal-details', 'Step 02'],
+                            ['/document-upload', 'Step 03'],
+                          ],
+                        ],
+                      ],
+                    },
+                    {
+                      label: 'Job Pages',
+                      href: '/career',
+                      submenu: [
+                        ['/career', 'Career'],
+                        ['/jobs', 'Jobs'],
+                        ['/job-application', 'Job Application'],
+                      ],
+                    },
+                    {
+                      label: 'Pages',
+                      href: '/card',
+                      submenu: [
+                        ['/card', 'Cards'],
+                        ['/about-us', 'About Us'],
+                        ['/contact-us', 'Contact Us'],
+                        ['/error', '404 Error'],
+                      ],
+                    },
+                    {
+                      label: 'Blog',
+                      href: '/blog-listing',
+                      submenu: [
+                        ['/blog-listing', 'Blog Listing'],
+                        ['/blog-details', 'Blog Details'],
+                      ],
+                    },
+                  ].map((item, idx) => (
+                    <li key={idx} className="nav-item dropdown submenu">
+                      <Link
+                        href={item.href}
+                        className="nav-link dropdown-toggle"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded={openDropdown === item.label}
+                        onClick={(e) => {
+                          if (isMobile) {
+                            e.preventDefault();
+                            handleDropdownToggle(item.label);
+                          }
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      <i
+                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                        aria-hidden="true"
+                        onClick={() => handleDropdownToggle(item.label)}
+                        style={{ cursor: 'pointer' }}
+                      ></i>
+
+                      <ul
+                        className={`dropdown-menu ${
+                          openDropdown === item.label ? 'show' : ''
+                        }`}
+                      >
+                        {item.submenu.map((sub, subIdx) => {
+                          if (Array.isArray(sub[2])) {
+                            return (
+                              <li
+                                className="nav-item dropdown submenu"
+                                key={subIdx}
+                              >
+                                <Link
+                                  href={sub[0]}
+                                  className="nav-link dropdown-toggle"
+                                  onClick={(e) => {
+                                    if (isMobile) {
+                                      e.preventDefault();
+                                    }
+                                  }}
+                                >
+                                  {sub[1]}
+                                </Link>
+                                <ul className="dropdown-menu">
+                                  {sub[2].map(
+                                    (child: [string, string], i: number) => (
+                                      <li className="nav-item" key={i}>
+                                        <Link
+                                          href={child[0]}
+                                          className="nav-link"
+                                        >
+                                          {child[1]}
+                                        </Link>
+                                      </li>
+                                    )
+                                  )}
+                                </ul>
+                              </li>
+                            );
+                          } else {
+                            return (
+                              <li className="nav-item" key={subIdx}>
+                                <Link href={sub[0]} className="nav-link">
+                                  {sub[1]}
+                                </Link>
+                              </li>
+                            );
+                          }
+                        })}
+                      </ul>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link
+                  className="theme-btn"
+                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
+                  target="_blank"
+                >
+                  Buy Banca
+                </Link>
+
+                {/* Dark Mode Toggle */}
+                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
+                  <label htmlFor="something" className="tab-btn tab-btns">
+                    <IoMoonOutline />
+                  </label>
+                  <label htmlFor="something" className="tab-btn">
+                    <IoSunnyOutline />
+                  </label>
+                  <label
+                    className={`ball `}
+                    htmlFor="something"
+                    style={{
+                      left: theme === 'body_dark' ? 3 : 26
+                    }}
+                  ></label>
+                  <input
+                    type="checkbox"
+                    name="something"
+                    id="something"
+                    className="dark_mode_switcher"
+                    checked={theme === 'body_dark'}
+                    onChange={toggleTheme}
                   />
                 </div>
               </div>
@@ -313,8 +445,8 @@ const SampleBanca = () => {
               data-parallax='{"x": 220, "y": 0, "rotateZ":0}'
             >
               <Image
-                width={200}
-                height={200}
+                width={600}
+                height={500}
                 className="wow slideInRight"
                 data-wow-delay="0.2s"
                 src="/img/banner/slide-shape-1.png"
@@ -326,8 +458,8 @@ const SampleBanca = () => {
               data-parallax='{"x": 270, "y": 0, "rotateZ":0}'
             >
               <Image
-                width={200}
-                height={200}
+                width={500}
+                height={500}
                 className="wow slideInRight"
                 data-wow-delay="0.6s"
                 src="/img/banner/slide-shape-2.png"
@@ -339,8 +471,8 @@ const SampleBanca = () => {
               data-parallax='{"x": 330, "y": 0, "rotateZ":0}'
             >
               <Image
-                width={200}
-                height={200}
+                width={500}
+                height={500}
                 className="wow slideInRight"
                 data-wow-delay="1.3s"
                 src="/img/banner/slide-shape-3.png"
@@ -356,14 +488,14 @@ const SampleBanca = () => {
                     Compare Loans From Several Banks Find The Cheapest Loan
                   </h1>
 
-                  <a
-                    href="loan.html"
+                  <Link
+                    href="/loan"
                     className="wow fadeInUp mt-50 theme-btn theme-btn-rounded-2 theme-btn-lg theme-btn-alt"
                     data-wow-delay="0.3s"
                   >
                     Apply Now
                     <i className="arrow_right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
               <div className="col-lg-5 d-none d-lg-block position-relative">
@@ -381,7 +513,7 @@ const SampleBanca = () => {
 
         <section className="feature-calculator pt-120 pb-140 bg_white">
           <div className="container">
-            <div className="feature">
+            {/* <div className="feature">
               <div className="row">
                 <div className="col-md-12">
                   <div className="feature-slider">
@@ -425,7 +557,7 @@ const SampleBanca = () => {
                       <h5>
                         Got a <span> question about Mortgage Loan?</span>
                       </h5>
-                      <a href="#">Write to us</a>
+                      <Link href="#">Write to us</Link>
                     </div>
                     <div
                       className="feature-card-widget-3 wow fadeInLeft  card-2"
@@ -439,20 +571,20 @@ const SampleBanca = () => {
                           alt="shape"
                         />
                         <Image
-                          width={200}
-                          height={200}
+                          width={20}
+                          height={20}
                           src="/img/feature/shape-22.png"
                           alt="shape"
                         />
                         <Image
-                          width={200}
-                          height={200}
+                          width={100}
+                          height={80}
                           src="/img/feature/shape-23.png"
                           alt="shape"
                         />
                         <Image
-                          width={200}
-                          height={200}
+                          width={20}
+                          height={20}
                           src="/img/feature/shape-24.png"
                           alt="shape"
                         />
@@ -467,7 +599,7 @@ const SampleBanca = () => {
                       <h5>
                         Got a <span> question about Mortgage Loan?</span>
                       </h5>
-                      <a href="#">Write to us</a>
+                      <Link href="#">Write to us</Link>
                     </div>
                     <div
                       className="feature-card-widget-3 wow fadeInLeft  card-3"
@@ -527,14 +659,14 @@ const SampleBanca = () => {
                       <h5>
                         Got a <span> question about Mortgage Loan?</span>
                       </h5>
-                      <a href="#">Write to us</a>
+                      <Link href="#">Write to us</Link>
                     </div>
                     <div
                       className="feature-card-widget-3 wow fadeInLeft  card-1"
                       data-wow-delay="0.7s"
                     >
                       <div className="shapes">
-                      <Image
+                        <Image
                           width={110}
                           height={60}
                           src="/img/feature/shape-17.png"
@@ -556,7 +688,8 @@ const SampleBanca = () => {
                           width={20}
                           height={20}
                           src="/img/feature/shape-20.png"
-                          alt="shape"/>
+                          alt="shape"
+                        />
                       </div>
                       <Image
                         width={30}
@@ -568,7 +701,7 @@ const SampleBanca = () => {
                       <h5>
                         Got a <span> question about Mortgage Loan?</span>
                       </h5>
-                      <a href="#">Write to us</a>
+                      <Link href="#">Write to us</Link>
                     </div>
                     <div
                       className="feature-card-widget-3 wow fadeInLeft  card-2"
@@ -610,7 +743,7 @@ const SampleBanca = () => {
                       <h5>
                         Got a <span> question about Mortgage Loan?</span>
                       </h5>
-                      <a href="#">Write to us</a>
+                      <Link href="#">Write to us</Link>
                     </div>
                     <div
                       className="feature-card-widget-3 wow fadeInLeft  card-3"
@@ -670,14 +803,14 @@ const SampleBanca = () => {
                       <h5>
                         Got a <span> question about Mortgage Loan?</span>
                       </h5>
-                      <a href="#">Write to us</a>
+                      <Link href="#">Write to us</Link>
                     </div>
                     <div
                       className="feature-card-widget-3 wow fadeInLeft  card-1"
                       data-wow-delay="1.3s"
                     >
                       <div className="shapes">
-                      <Image
+                        <Image
                           width={110}
                           height={60}
                           src="/img/feature/shape-17.png"
@@ -712,7 +845,7 @@ const SampleBanca = () => {
                       <h5>
                         Got a <span> question about Mortgage Loan?</span>
                       </h5>
-                      <a href="#">Write to us</a>
+                      <Link href="#">Write to us</Link>
                     </div>
                     <div
                       className="feature-card-widget-3 wow fadeInLeft  card-2"
@@ -754,7 +887,7 @@ const SampleBanca = () => {
                       <h5>
                         Got a <span> question about Mortgage Loan?</span>
                       </h5>
-                      <a href="#">Write to us</a>
+                      <Link href="#">Write to us</Link>
                     </div>
                     <div
                       className="feature-card-widget-3 wow fadeInLeft  card-3"
@@ -814,12 +947,13 @@ const SampleBanca = () => {
                       <h5>
                         Got a <span> question about Mortgage Loan?</span>
                       </h5>
-                      <a href="#">Write to us</a>
+                      <Link href="#">Write to us</Link>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
+            <FeatureSlider/>
 
             <div className="calculator mt-60">
               <div className="steps d-flex flex-wrap justify-content-between mt-50 mr-30 ml-30">
@@ -833,7 +967,8 @@ const SampleBanca = () => {
                   <span>3</span>Choose the best offer
                 </div>
               </div>
-              <div className="row border-bottom gx-0 px-4">
+
+              {/* <div className="row border-bottom gx-0 px-4">
                 <div className="col-lg-6 border-end ">
                   <div className="calculator-slider pt-40 pb-5 ps-md-4 pe-md-5 px-1">
                     <label>Loan Amount</label>
@@ -863,7 +998,50 @@ const SampleBanca = () => {
                     <span className="range">Min 1 year - Max 5 years</span>
                   </div>
                 </div>
+              </div> */}
+
+              <div className="row border-bottom gx-0 px-4">
+                {/* Loan Amount */}
+                <div className="col-lg-6 border-end">
+                  <div className="calculator-slider pt-40 pb-5 ps-md-4 pe-md-5 px-1">
+                    <label>Loan Amount</label>
+                    <div className="d-flex align-items-center">
+                      <div
+                        className="range-slider me-3 w-100"
+                        ref={amountSliderRef}
+                      ></div>
+                      <input
+                        className="range-input form-control w-auto"
+                        type="text"
+                        value={`$${amount.toLocaleString()}`}
+                        readOnly
+                      />
+                    </div>
+                    <span className="range">Min $5,000 - Max $250,000</span>
+                  </div>
+                </div>
+
+                {/* Loan Period */}
+                <div className="col-lg-6">
+                  <div className="calculator-slider pt-40 pb-5 ps-md-4 ps-lg-5 pe-md-4 px-1">
+                    <label className="label-2">Loan Period</label>
+                    <div className="d-flex align-items-center">
+                      <div
+                        className="range-slider me-3 w-100"
+                        ref={periodSliderRef}
+                      ></div>
+                      <input
+                        className="range-input form-control w-auto"
+                        type="text"
+                        value={`${period} year${period > 1 ? 's' : ''}`}
+                        readOnly
+                      />
+                    </div>
+                    <span className="range">Min 1 year - Max 5 years</span>
+                  </div>
+                </div>
               </div>
+
               <div className="expected-payment mt-50 mr-30 ml-30 mb-50">
                 <div className="bg_disable d-flex justify-content-between flex-wrap sec-head align-items-center">
                   <div>
@@ -880,13 +1058,13 @@ const SampleBanca = () => {
                 </p>
 
                 <div className="text-center mt-45">
-                  <a
-                    href="loan-details.html"
+                  <Link
+                    href="/loan-details"
                     className="theme-btn theme-btn-rounded"
                   >
                     {' '}
                     Next <i className="arrow_right"></i>{' '}
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -995,7 +1173,7 @@ const SampleBanca = () => {
             </div>
             <div className="row justify-content-between mt-35 gy-sm-0 gy-4  text-center text-lg-start">
               <div className="col-lg-2 col-6">
-                <a
+                <Link
                   href="#"
                   className="single-brand wow fadeInRight"
                   data-wow-delay="0.1s"
@@ -1007,10 +1185,10 @@ const SampleBanca = () => {
                     src="/img/banca-corporate/logo-1.png"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
               <div className="col-lg-2 col-6">
-                <a
+                <Link
                   href="#"
                   className="single-brand wow fadeInRight"
                   data-wow-delay="0.3s"
@@ -1022,10 +1200,10 @@ const SampleBanca = () => {
                     src="/img/banca-corporate/logo-2.png"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
               <div className="col-lg-2 col-6">
-                <a
+                <Link
                   href="#"
                   className="single-brand wow fadeInRight"
                   data-wow-delay="0.5s"
@@ -1037,10 +1215,10 @@ const SampleBanca = () => {
                     src="/img/banca-corporate/logo-3.png"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
               <div className="col-lg-2 col-6">
-                <a
+                <Link
                   href="#"
                   className="single-brand wow fadeInRight"
                   data-wow-delay="0.7s"
@@ -1052,10 +1230,10 @@ const SampleBanca = () => {
                     src="/img/banca-corporate/logo-4.png"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
               <div className="col-lg-2 col-6 d-none d-lg-block">
-                <a
+                <Link
                   href="#"
                   className="single-brand wow fadeInRight"
                   data-wow-delay="0.9s"
@@ -1067,12 +1245,12 @@ const SampleBanca = () => {
                     src="/img/banca-corporate/logo-5.png"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="row justify-content-between gy-sm-0 gy-4 mt-20 text-center text-lg-start">
               <div className="col-lg-2 col-6">
-                <a
+                <Link
                   href="#"
                   className="single-brand wow fadeInRight"
                   data-wow-delay="0.1s"
@@ -1084,10 +1262,10 @@ const SampleBanca = () => {
                     src="/img/banca-corporate/logo-1.png"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
               <div className="col-lg-2 col-6">
-                <a
+                <Link
                   href="#"
                   className="single-brand wow fadeInRight"
                   data-wow-delay="0.3s"
@@ -1099,10 +1277,10 @@ const SampleBanca = () => {
                     src="/img/banca-corporate/logo-2.png"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
               <div className="col-lg-2 col-6">
-                <a
+                <Link
                   href="#"
                   className="single-brand wow fadeInRight"
                   data-wow-delay="0.5s"
@@ -1114,10 +1292,10 @@ const SampleBanca = () => {
                     src="/img/banca-corporate/logo-3.png"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
               <div className="col-lg-2 col-6">
-                <a
+                <Link
                   href="#"
                   className="single-brand wow fadeInRight"
                   data-wow-delay="0.7s"
@@ -1129,10 +1307,10 @@ const SampleBanca = () => {
                     src="/img/banca-corporate/logo-4.png"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
               <div className="col-lg-2 col-6 d-none d-lg-block">
-                <a
+                <Link
                   href="#"
                   className="single-brand wow fadeInRight"
                   data-wow-delay="0.9s"
@@ -1144,7 +1322,7 @@ const SampleBanca = () => {
                     src="/img/banca-corporate/logo-5.png"
                     alt="logo"
                   />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -1156,9 +1334,9 @@ const SampleBanca = () => {
               <h2 className="mb-3 mb-sm-0 wow fadeInRight">
                 More About Finance & Loans
               </h2>
-              <a className="wow fadeInLeft" href="blog.html">
+              <Link className="wow fadeInLeft" href="/blog-listing">
                 See All Articles <i className="arrow_right"></i>
-              </a>
+              </Link>
             </div>
             <div className="row mt-60 gy-4 gy-lg-0">
               <div className="col-lg-3 col-md-6">
@@ -1175,9 +1353,9 @@ const SampleBanca = () => {
                   />
                   <div className="blog-content pr-10 pl-10">
                     <h6>
-                      <a href="blog-details.html">
+                      <Link href="/blog-details">
                         Credit rating as a private customer
-                      </a>
+                      </Link>
                     </h6>
                     <div className="blog-date">
                       <i className="icon_calendar"></i>
@@ -1200,9 +1378,9 @@ const SampleBanca = () => {
                   />
                   <div className="blog-content pr-10 pl-10">
                     <h6>
-                      <a href="blog-details.html">
+                      <Link href="/blog-details">
                         Get hold of your private loans with a promissory
-                      </a>
+                      </Link>
                     </h6>
                     <div className="blog-date">
                       <i className="icon_calendar"></i>
@@ -1225,9 +1403,9 @@ const SampleBanca = () => {
                   />
                   <div className="blog-content pr-10 pl-10">
                     <h6>
-                      <a href="blog-details.html">
+                      <Link href="/blog-details">
                         What is APR and what can you actually use it?
-                      </a>
+                      </Link>
                     </h6>
                     <div className="blog-date">
                       <i className="icon_calendar"></i>
@@ -1250,9 +1428,9 @@ const SampleBanca = () => {
                   />
                   <div className="blog-content pr-10 pl-10">
                     <h6>
-                      <a href="blog-details.html">
+                      <Link href="/blog-details">
                         Superfast loans for your dream home
-                      </a>
+                      </Link>
                     </h6>
                     <div className="blog-date">
                       <i className="icon_calendar"></i>
@@ -1265,7 +1443,7 @@ const SampleBanca = () => {
           </div>
         </section>
 
-        <section className="testimonial-area pt-135 pb-140 bg_white">
+        {/* <section className="testimonial-area pt-135 pb-140 bg_white">
           <div className="container">
             <div className="section-title d-md-none mb-4">
               <h2>What Our Customers Are Saying</h2>
@@ -1281,13 +1459,13 @@ const SampleBanca = () => {
                         src="/img/testimonial/client-4.png"
                         alt="client"
                       />
-                      <a
+                      <Link
                         className="play-btn"
                         data-fancybox
                         href="https://www.youtube.com/watch?v=xcJtL7QggTI"
                       >
                         <i className="fas fa-play"></i>
-                      </a>
+                      </Link>
                       <p className="caption">
                         Best service and smooth process. Keep going on Banca
                         team. Thank you for immediate response on each stage of
@@ -1307,13 +1485,13 @@ const SampleBanca = () => {
                         src="/img/testimonial/client-1.png"
                         alt="client"
                       />
-                      <a
+                      <Link
                         className="play-btn"
                         data-fancybox
                         href="https://www.youtube.com/watch?v=xcJtL7QggTI"
                       >
                         <i className="fas fa-play"></i>
-                      </a>
+                      </Link>
                       <p className="caption">
                         Best service and smooth process. Keep going on Banca
                         team. Thank you for immediate response on each stage of
@@ -1333,13 +1511,13 @@ const SampleBanca = () => {
                         src="/img/testimonial/client-2.png"
                         alt="client"
                       />
-                      <a
+                      <Link
                         className="play-btn"
                         data-fancybox
                         href="https://www.youtube.com/watch?v=xcJtL7QggTI"
                       >
                         <i className="fas fa-play"></i>
-                      </a>
+                      </Link>
                       <p className="caption">
                         Best service and smooth process. Keep going on Banca
                         team. Thank you for immediate response on each stage of
@@ -1359,13 +1537,13 @@ const SampleBanca = () => {
                         src="/img/testimonial/client-3.png"
                         alt="client"
                       />
-                      <a
+                      <Link
                         className="play-btn"
                         data-fancybox
                         href="https://www.youtube.com/watch?v=xcJtL7QggTI"
                       >
                         <i className="fas fa-play"></i>
-                      </a>
+                      </Link>
                       <p className="caption">
                         Best service and smooth process. Keep going on Banca
                         team. Thank you for immediate response on each stage of
@@ -1452,7 +1630,9 @@ const SampleBanca = () => {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
+
+        <SimplebancaSlider/>
 
         <section
           className="advisor-area pt-130  pb-140 overflow-hidden"
@@ -1503,20 +1683,20 @@ const SampleBanca = () => {
                   data-wow-delay="0.4s"
                 >
                   <div className="col-md-6">
-                    <a
+                    <Link
                       href="tel:01234567890"
                       className="theme-btn theme-btn-primary_alt theme-btn-rounded d-flex align-items-center justify-content-center"
                     >
                       <i className="icon_phone"></i> 01234-567890
-                    </a>
+                    </Link>
                   </div>
                   <div className="col-md-6">
-                    <a
+                    <Link
                       href="mailto:bancainfo@email.com"
                       className="theme-btn theme-btn-primary_alt theme-btn-rounded d-flex align-items-center justify-content-center"
                     >
                       <i className="icon_mail_alt "></i> info@banca.com
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -1860,18 +2040,18 @@ const SampleBanca = () => {
                   you
                 </p>
                 <div className="mt-40">
-                  <a
-                    href="loan.html"
+                  <Link
+                    href="/loan"
                     className="theme-btn theme-btn-rounded me-sm-4 mt-3 mt-sm-0"
                   >
                     New Loan
-                  </a>
-                  <a
-                    href="loan-details.html"
+                  </Link>
+                  <Link
+                    href="/loan-details"
                     className="theme-btn theme-btn-rounded theme-btn-alt mt-3 mt-sm-0"
                   >
                     Collective Loan
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -1918,16 +2098,16 @@ const SampleBanca = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <a href="#">About Us</a>
+                        <Link href="#">About Us</Link>
                       </li>
                       <li>
-                        <a href="#">Recognition</a>
+                        <Link href="#">Recognition</Link>
                       </li>
                       <li>
-                        <a href="#">Executive Team</a>
+                        <Link href="#">Executive Team</Link>
                       </li>
                       <li>
-                        <a href="#">Careers</a>
+                        <Link href="#">Careers</Link>
                       </li>
                     </ul>
                   </div>
@@ -1945,16 +2125,16 @@ const SampleBanca = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <a href="#"> Business Loans | Main</a>
+                        <Link href="#"> Business Loans | Main</Link>
                       </li>
                       <li>
-                        <a href="#"> Loan Calculator</a>
+                        <Link href="#"> Loan Calculator</Link>
                       </li>
                       <li>
-                        <a href="#"> Refer a Friend</a>
+                        <Link href="#"> Refer a Friend</Link>
                       </li>
                       <li>
-                        <a href="#"> Partner Program</a>
+                        <Link href="#"> Partner Program</Link>
                       </li>
                     </ul>
                   </div>
@@ -1972,16 +2152,16 @@ const SampleBanca = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <a href="#">Customer Care</a>
+                        <Link href="#">Customer Care</Link>
                       </li>
                       <li>
-                        <a href="#"> Contact Us</a>
+                        <Link href="#"> Contact Us</Link>
                       </li>
                       <li>
-                        <a href="#">Security Center</a>
+                        <Link href="#">Security Center</Link>
                       </li>
                       <li>
-                        <a href="#">Blog</a>
+                        <Link href="#">Blog</Link>
                       </li>
                     </ul>
                   </div>
@@ -1996,32 +2176,32 @@ const SampleBanca = () => {
               <div className="col-xl-8 offset-xl-4">
                 <div className="row align-items-center gy-lg-0 gy-3 gx-0">
                   <div className="col-md-2  text-md-start text-center">
-                    <a href="index.html">
+                    <Link href="/">
                       <Image
                         width={90}
                         height={35}
                         src="/img/logo/Logo.png"
                         alt="logo"
                       />
-                    </a>
+                    </Link>
                   </div>
                   <div className="col-md-6">
                     <div className="line"></div>
                   </div>
                   <div className="col-md-4">
                     <div className="social-button text-center">
-                      <a className="ms-0" href="#">
+                      <Link className="ms-0" href="#">
                         <i className="fab fa-facebook-f"></i>
-                      </a>
-                      <a href="#">
+                      </Link>
+                      <Link href="#">
                         <i className="fab fa-twitter"></i>
-                      </a>
-                      <a href="#">
+                      </Link>
+                      <Link href="#">
                         <i className="fab fa-pinterest-p"></i>
-                      </a>
-                      <a className="me-0" href="#">
+                      </Link>
+                      <Link className="me-0" href="#">
                         <i className="fab fa-linkedin-in"></i>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -2030,13 +2210,13 @@ const SampleBanca = () => {
                     <p>
                       Copyright &copy; Banca 2025.
                       <br className="d-sm-none" />{' '}
-                      <a className="ms-3" href="#">
+                      <Link className="ms-3" href="#">
                         Privacy
-                      </a>{' '}
+                      </Link>{' '}
                       |{' '}
-                      <a className="ms-0" href="#">
+                      <Link className="ms-0" href="#">
                         Term of Use
-                      </a>{' '}
+                      </Link>{' '}
                     </p>
                   </div>
                 </div>
