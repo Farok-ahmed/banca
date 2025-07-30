@@ -57,13 +57,13 @@ const BankCalculator = () => {
           format: {
             to: (value) => `$${(value / 1000).toFixed(0)}k`,
           },
-        },
+        } as CustomPips,
         format: {
           to: (value) => Math.round(value),
           from: (value) => Number(value),
         },
       });
-      amountSlider.noUiSlider.on('update', (values : string) => {
+      amountSlider.noUiSlider.on('update', (values: string) => {
         setAmount(parseInt(values[0].toString()));
       });
     }
@@ -73,8 +73,15 @@ const BankCalculator = () => {
     };
   }, [amount]);
 
-  type FixedPipsMode = 'range' | 'steps' | 'positions' | 'count' | 'values';
-
+  type CustomPips = {
+    mode: 'range' | 'steps' | 'count' | 'positions' | 'values';
+    values?: number[];
+    stepped?: boolean;
+    density?: number;
+    format?: {
+      to: (value: number) => string;
+    };
+  };
 
   // Duration Slider
   useEffect(() => {
@@ -98,7 +105,7 @@ const BankCalculator = () => {
           values: pipValues,
           density: 10,
           stepped: true,
-        },
+        } as CustomPips,
         format: {
           to: (value) => Math.round(value),
           from: (value) => Number(value),
@@ -140,7 +147,7 @@ const BankCalculator = () => {
                       type="text"
                       value={`$${amount.toLocaleString()}`}
                       readOnly
-                      className="form-control w-25 text-end"
+                      className="form-control w-25 text-center"
                     />
                   </div>
                   <div ref={amountRef} id="RangeSlider"></div>
@@ -149,10 +156,10 @@ const BankCalculator = () => {
                 <div className="single-range mt-85 mb-95">
                   <div className="range-header d-flex flex-wrap justify-content-between align-items-center mb-25">
                     <h6>Loan Duration</h6>
-                    <ul className="nav nav-tabs border-0 gap-2">
+                    <ul className="nav nav-tabs border-0 gap-2 text-center">
                       <li className="nav-item">
                         <button
-                          className={`nav-link rounded-pill px-3 py-1 fw-medium ${
+                          className={`nav-link rounded-pill px-3 fw-medium ${
                             type === 'month'
                               ? 'bg-primary text-white'
                               : 'bg-light text-dark'
@@ -164,7 +171,7 @@ const BankCalculator = () => {
                       </li>
                       <li className="nav-item">
                         <button
-                          className={`nav-link rounded-pill px-3 py-1 fw-medium ${
+                          className={`nav-link rounded-pill px-3 fw-medium ${
                             type === 'year'
                               ? 'bg-primary text-white'
                               : 'bg-light text-dark'
@@ -181,7 +188,7 @@ const BankCalculator = () => {
                         type === 'year' ? 'year' : 'month'
                       }`}
                       readOnly
-                      className="form-control w-25 text-end"
+                      className="form-control w-25 text-center"
                     />
                   </div>
                   <div ref={durationRef}></div>

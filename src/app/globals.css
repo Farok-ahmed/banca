@@ -11390,13 +11390,6 @@ body.body_dark
   );
 }
 
-/* .testimonial-slide {
-  padding: 0 15px;
-}
-.slick-slide {
-  transition: all 0.3s ease;
-} */
-
 /* for dark mode switch */
 
 .ball {
@@ -11456,3 +11449,5 @@ body.body_dark
     transition: all 0.3s ease-in-out;
   }
 }
+
+

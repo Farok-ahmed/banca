@@ -90,7 +90,7 @@ const SampleBanca = () => {
       amountSliderRef.current?.noUiSlider?.destroy();
       periodSliderRef.current?.noUiSlider?.destroy();
     };
-  }, []);
+  }, [amount, period]);
 
   return (
     <div>
@@ -258,7 +258,7 @@ const SampleBanca = () => {
                 </div>
               </div> */}
 
-<div
+              <div
                 className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
                 id="navbarSupportedContent"
               >
@@ -350,15 +350,16 @@ const SampleBanca = () => {
                           openDropdown === item.label ? 'show' : ''
                         }`}
                       >
-                        {item.submenu.map((sub, subIdx) => {
+                        {item.submenu.map((sub: any, subIdx: number) => {
                           if (Array.isArray(sub[2])) {
+                            const childItems = sub[2] as [string, string][];
                             return (
                               <li
                                 className="nav-item dropdown submenu"
                                 key={subIdx}
                               >
                                 <Link
-                                  href={sub[0]}
+                                  href={sub[0] as string}
                                   className="nav-link dropdown-toggle"
                                   onClick={(e) => {
                                     if (isMobile) {
@@ -369,25 +370,26 @@ const SampleBanca = () => {
                                   {sub[1]}
                                 </Link>
                                 <ul className="dropdown-menu">
-                                  {sub[2].map(
-                                    (child: [string, string], i: number) => (
-                                      <li className="nav-item" key={i}>
-                                        <Link
-                                          href={child[0]}
-                                          className="nav-link"
-                                        >
-                                          {child[1]}
-                                        </Link>
-                                      </li>
-                                    )
-                                  )}
+                                  {childItems.map((child, i) => (
+                                    <li className="nav-item" key={i}>
+                                      <Link
+                                        href={child[0]}
+                                        className="nav-link"
+                                      >
+                                        {child[1]}
+                                      </Link>
+                                    </li>
+                                  ))}
                                 </ul>
                               </li>
                             );
                           } else {
                             return (
                               <li className="nav-item" key={subIdx}>
-                                <Link href={sub[0]} className="nav-link">
+                                <Link
+                                  href={sub[0] as string}
+                                  className="nav-link"
+                                >
                                   {sub[1]}
                                 </Link>
                               </li>
@@ -416,10 +418,10 @@ const SampleBanca = () => {
                     <IoSunnyOutline />
                   </label>
                   <label
-                    className={`ball `}
+                    className={`ball`}
                     htmlFor="something"
                     style={{
-                      left: theme === 'body_dark' ? 3 : 26
+                      left: theme === 'body_dark' ? 3 : 26,
                     }}
                   ></label>
                   <input
@@ -953,7 +955,7 @@ const SampleBanca = () => {
                 </div>
               </div>
             </div> */}
-            <FeatureSlider/>
+            <FeatureSlider />
 
             <div className="calculator mt-60">
               <div className="steps d-flex flex-wrap justify-content-between mt-50 mr-30 ml-30">
@@ -1632,7 +1634,7 @@ const SampleBanca = () => {
           </div>
         </section> */}
 
-        <SimplebancaSlider/>
+        <SimplebancaSlider />
 
         <section
           className="advisor-area pt-130  pb-140 overflow-hidden"
