@@ -4,7 +4,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as noUiSlider from 'nouislider';
 import Link from 'next/link';
 import 'nouislider/dist/nouislider.css';
-import { PipsMode, PipsType } from 'nouislider';
 
 type HTMLDivElementWithSlider = HTMLDivElement & {
   noUiSlider: noUiSlider.API;
@@ -40,89 +39,102 @@ const BankCalculator = () => {
     };
   };
 
-  interface Pips {
-    mode: 'range' | 'steps' | 'positions' | 'values';
-    values?: number[];
-    range?: number[];
-    density?: number;
-    stepped?: boolean;
-    filter?: (value: number, type: number) => number;
-    format?: {
-      to: (value: number) => string;
-      from?: (value: string) => number;
-    };
-  }
-
   // Loan Amount Slider
   useEffect(() => {
     const amountSlider = amountRef.current;
-    if (amountSlider && !amountSlider.noUiSlider) {
+    
+    // Cleanup existing slider first
+    if (amountSlider?.noUiSlider) {
+      amountSlider.noUiSlider.destroy();
+    }
+    
+    if (amountSlider) {
       noUiSlider.create(amountSlider, {
         start: amount,
         connect: [true, false],
         step: 1000,
         range: { min: 5000, max: 150000 },
         pips: {
-          mode: PipsMode.Count,
+          mode: noUiSlider.PipsMode.Values,
           values: [5000, 25000, 50000, 75000, 100000, 125000, 150000],
           density: 5,
           stepped: true,
-          type: PipsType.LargeValue,
           format: {
-            to: (value:number) => `$${(value / 1000).toFixed(0)}k`,
+            to: (value: number) => `$${(value / 1000).toFixed(0)}k`,
           },
-        } as unknown as PipsType,
+        },
         format: {
           to: (value) => Math.round(value),
           from: (value) => Number(value),
         },
       });
-      amountSlider.noUiSlider.on('update', (values: string) => {
+
+      // Fix: values is an array of strings, not a single string
+      amountSlider.noUiSlider.on('update', (values: (string|number)[]) => {
         setAmount(parseInt(values[0].toString()));
       });
     }
 
     return () => {
-      amountSlider?.noUiSlider?.destroy();
+      if (amountSlider?.noUiSlider) {
+        amountSlider.noUiSlider.destroy();
+      }
     };
-  }, [amount]);
+  }, [amount]); 
 
   // Duration Slider
   useEffect(() => {
     const durationSlider = durationRef.current;
+    
+    // Cleanup existing slider first
     if (durationSlider?.noUiSlider) {
       durationSlider.noUiSlider.destroy();
     }
+    
     if (durationSlider) {
       const pipValues =
         type === 'year' ? [2, 3, 4, 5, 6, 7, 8] : [12, 18, 24, 30, 36, 42, 48];
       const rangeMin = type === 'year' ? 2 : 12;
       const rangeMax = type === 'year' ? 8 : 48;
+      
+      // Reset duration to valid range when switching types
+      const validDuration = type === 'year' 
+        ? Math.max(2, Math.min(8, duration))
+        : Math.max(12, Math.min(48, duration));
+      
+      if (validDuration !== duration) {
+        setDuration(validDuration);
+      }
 
       noUiSlider.create(durationSlider, {
-        start: duration,
+        start: validDuration,
         connect: [true, false],
         step: 1,
         range: { min: rangeMin, max: rangeMax },
         pips: {
-          mode: PipsMode.Values,
+          mode: noUiSlider.PipsMode.Values,
           values: pipValues,
           density: 10,
           stepped: true,
-        } as unknown as PipsType,
+        },
         format: {
           to: (value) => Math.round(value),
           from: (value) => Number(value),
         },
       });
-      durationSlider.noUiSlider.on('update', (values) => {
+      
+      // Fix: values is an array of strings
+      durationSlider.noUiSlider.on('update', (values: (string|number)[]) => {
         setDuration(parseInt(values[0].toString()));
       });
     }
+    
     return () => {
-      durationSlider?.noUiSlider?.destroy();
+      if (durationSlider?.noUiSlider) {
+        durationSlider.noUiSlider.destroy();
+      }
     };
-  }, [type, duration]);
+  }, [type, duration]); // Remove 'duration' from dependency array
 
   const { emi, total, interest } = calculateEMI();
 
@@ -131,7 +143,7 @@ const BankCalculator = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 mx-auto text-center">
-            <h2 className='fw-bold'>Calculator</h2>
+            <h2 className="fw-bold">Calculator</h2>
             <p>
               Get an approximate figure for the total monthly instalment
               payments along with a complete break-up of the home loan.
@@ -201,7 +213,7 @@ const BankCalculator = () => {
                 <div className="bg_disable px-4 py-2 mb-5 interestBox rounded">
                   <p className="mb-1">Rate of Interest</p>
                   <span className="fw-bold text-primary fs-5">
-                    {interestRate.toFixed(2)}
+                    {interestRate.toFixed(2)}%
                   </span>
                 </div>
               </div>
