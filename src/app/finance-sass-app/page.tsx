@@ -287,7 +287,7 @@ const FinanceSassApp = () => {
                                 key={subIdx}
                               >
                                 <Link
-                                  href={sub[0]}
+                                  href={sub[0] as string}
                                   className="nav-link dropdown-toggle"
                                   onClick={(e) => {
                                     if (isMobile) {
@@ -299,7 +299,7 @@ const FinanceSassApp = () => {
                                 </Link>
                                 <ul className="dropdown-menu">
                                   {sub[2].map(
-                                    (child: [string, string], i: number) => (
+                                    (child: string[], i: number) => (
                                       <li className="nav-item" key={i}>
                                         <Link
                                           href={child[0]}
@@ -316,7 +316,7 @@ const FinanceSassApp = () => {
                           } else {
                             return (
                               <li className="nav-item" key={subIdx}>
-                                <Link href={sub[0]} className="nav-link">
+                                <Link href={sub[0] as string} className="nav-link">
                                   {sub[1]}
                                 </Link>
                               </li>

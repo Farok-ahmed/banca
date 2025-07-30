@@ -84,7 +84,7 @@ const Loanpage = () => {
         <div className="header-menu header-menu-3" id="sticky">
           <nav className="navbar navbar-expand-lg">
             <div className="container">
-              <Link className="navbar-brand sticky_logo" href="index.html">
+              <Link className="navbar-brand sticky_logo" href="/">
                 <Image
                   width={90}
                   height={30}

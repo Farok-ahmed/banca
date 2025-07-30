@@ -4,8 +4,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as noUiSlider from 'nouislider';
 import Link from 'next/link';
 import 'nouislider/dist/nouislider.css';
+import { PipsMode, PipsType } from 'nouislider';
 
-// Define extended HTML type for slider references
 type HTMLDivElementWithSlider = HTMLDivElement & {
   noUiSlider: noUiSlider.API;
 };
@@ -40,6 +40,19 @@ const BankCalculator = () => {
     };
   };
 
+  interface Pips {
+    mode: 'range' | 'steps' | 'positions' | 'values';
+    values?: number[];
+    range?: number[];
+    density?: number;
+    stepped?: boolean;
+    filter?: (value: number, type: number) => number;
+    format?: {
+      to: (value: number) => string;
+      from?: (value: string) => number;
+    };
+  }
+
   // Loan Amount Slider
   useEffect(() => {
     const amountSlider = amountRef.current;
@@ -50,14 +63,15 @@ const BankCalculator = () => {
         step: 1000,
         range: { min: 5000, max: 150000 },
         pips: {
-          mode: 'values',
+          mode: PipsMode.Count,
           values: [5000, 25000, 50000, 75000, 100000, 125000, 150000],
           density: 5,
           stepped: true,
+          type: PipsType.LargeValue,
           format: {
-            to: (value) => `$${(value / 1000).toFixed(0)}k`,
+            to: (value:number) => `$${(value / 1000).toFixed(0)}k`,
           },
-        } as CustomPips,
+        } as unknown as PipsType,
         format: {
           to: (value) => Math.round(value),
           from: (value) => Number(value),
@@ -72,16 +86,6 @@ const BankCalculator = () => {
       amountSlider?.noUiSlider?.destroy();
     };
   }, [amount]);
-
-  type CustomPips = {
-    mode: 'range' | 'steps' | 'count' | 'positions' | 'values';
-    values?: number[];
-    stepped?: boolean;
-    density?: number;
-    format?: {
-      to: (value: number) => string;
-    };
-  };
 
   // Duration Slider
   useEffect(() => {
@@ -101,11 +105,11 @@ const BankCalculator = () => {
         step: 1,
         range: { min: rangeMin, max: rangeMax },
         pips: {
-          mode: 'values',
+          mode: PipsMode.Values,
           values: pipValues,
           density: 10,
           stepped: true,
-        } as CustomPips,
+        } as unknown as PipsType,
         format: {
           to: (value) => Math.round(value),
           from: (value) => Number(value),
@@ -127,7 +131,7 @@ const BankCalculator = () => {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 mx-auto text-center">
-            <h2>Calculator</h2>
+            <h2 className='fw-bold'>Calculator</h2>
             <p>
               Get an approximate figure for the total monthly instalment
               payments along with a complete break-up of the home loan.

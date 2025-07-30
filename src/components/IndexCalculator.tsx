@@ -1,33 +1,43 @@
 'use client';
 
 import { useEffect, useRef, useState, useMemo } from 'react';
-import noUiSlider from 'nouislider';
+import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 import Flatpickr from 'react-flatpickr';
 import 'flatpickr/dist/themes/material_blue.css';
 import Link from 'next/link';
 
+type HTMLDivElementWithSlider = HTMLDivElement & {
+  noUiSlider: noUiSlider.API;
+};
+
+type TermType = 'yearly' | 'monthly' | 'weekly';
+
 const IndexCalculator = () => {
   const [termType, setTermType] = useState<'yearly' | 'monthly' | 'weekly'>(
     'yearly'
   );
+
   const [amount, setAmount] = useState(5000);
   const [rate, setRate] = useState(5);
   const [duration, setDuration] = useState(1);
   const [startDate, setStartDate] = useState<Date[] | null>(null);
   const [endDate, setEndDate] = useState<Date[] | null>(null);
 
-  const amountSliderRef = useRef<HTMLDivElement>(null);
-  const rateSliderRef = useRef<HTMLDivElement>(null);
-  const yearSliderRef = useRef<HTMLDivElement>(null);
-  const monthSliderRef = useRef<HTMLDivElement>(null);
-  const weekSliderRef = useRef<HTMLDivElement>(null);
+  const amountSliderRef = useRef<HTMLDivElementWithSlider>(null);
+  const rateSliderRef = useRef<HTMLDivElementWithSlider>(null);
+  const yearSliderRef = useRef<HTMLDivElementWithSlider>(null);
+  const monthSliderRef = useRef<HTMLDivElementWithSlider>(null);
+  const weekSliderRef = useRef<HTMLDivElementWithSlider>(null);
 
-  const durationOptions = {
-    yearly: { min: 1, max: 5 },
-    monthly: { min: 6, max: 60 },
-    weekly: { min: 4, max: 260 },
-  };
+  const durationOptions = useMemo(
+    () => ({
+      yearly: { min: 1, max: 5 },
+      monthly: { min: 6, max: 60 },
+      weekly: { min: 4, max: 260 },
+    }),
+    []
+  );
 
   const result = useMemo(() => {
     const r =
@@ -55,33 +65,38 @@ const IndexCalculator = () => {
   }, [amount, rate, duration, termType]);
 
   useEffect(() => {
-    if (amountSliderRef.current && !amountSliderRef.current.noUiSlider) {
-      noUiSlider.create(amountSliderRef.current, {
+    const amountSlider = amountSliderRef.current;
+    const rateSlider = rateSliderRef.current;
+
+    if (amountSlider && !amountSlider.noUiSlider) {
+      noUiSlider.create(amountSlider, {
         start: amount,
         range: { min: 1000, max: 100000 },
         step: 100,
         connect: 'lower',
       });
-      amountSliderRef.current.noUiSlider?.on('update', (values) => {
-        setAmount(parseFloat(values[0]));
+      amountSlider.noUiSlider.on('update', (values: (string | number)[]) => {
+        setAmount(parseFloat(values[0].toString()));
       });
     }
-    if (rateSliderRef.current && !rateSliderRef.current.noUiSlider) {
-      noUiSlider.create(rateSliderRef.current, {
+
+    if (rateSlider && !rateSlider.noUiSlider) {
+      noUiSlider.create(rateSlider, {
         start: rate,
         range: { min: 1, max: 20 },
         step: 0.1,
         connect: 'lower',
       });
-      rateSliderRef.current.noUiSlider?.on('update', (values) => {
-        setRate(parseFloat(values[0]));
+      rateSlider.noUiSlider.on('update', (values: (string | number)[]) => {
+        setRate(parseFloat(values[0].toString()));
       });
     }
+
     return () => {
-      amountSliderRef.current?.noUiSlider?.destroy();
-      rateSliderRef.current?.noUiSlider?.destroy();
+      amountSlider?.noUiSlider?.destroy();
+      rateSlider?.noUiSlider?.destroy();
     };
-  }, []);
+  }, [amount, rate]);
 
   useEffect(() => {
     const refMap = {
@@ -102,15 +117,16 @@ const IndexCalculator = () => {
         step: 1,
         connect: 'lower',
       });
+
       sliderRef.current.noUiSlider?.on('update', (values) => {
-        setDuration(parseInt(values[0]));
+        setDuration(parseInt(values[0].toString()));
       });
     }
 
     return () => {
       sliderRef.current?.noUiSlider?.destroy();
     };
-  }, [termType]);
+  }, [termType, duration, durationOptions]);
 
   return (
     <div className="container">
@@ -131,7 +147,7 @@ const IndexCalculator = () => {
                       className={`nav-link ${
                         termType === type ? 'active' : ''
                       }`}
-                      onClick={() => setTermType(type as any)}
+                      onClick={() => setTermType(type as TermType)}
                       type="button"
                     >
                       {type.charAt(0).toUpperCase() + type.slice(1)}

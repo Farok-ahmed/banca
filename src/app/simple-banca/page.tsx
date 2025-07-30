@@ -36,14 +36,14 @@ const SampleBanca = () => {
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
 
   useEffect(() => {
-    if (amountSliderRef.current && !amountSliderRef.current.noUiSlider) {
-      noUiSlider.create(amountSliderRef.current, {
+    const amountSlider = amountSliderRef.current as HTMLDivElementWithSlider;
+    const periodSlider = periodSliderRef.current as HTMLDivElementWithSlider;
+
+    if (amountSlider && !amountSlider.noUiSlider) {
+      noUiSlider.create(amountSlider, {
         start: [amount],
         connect: [true, false],
-        range: {
-          min: 5000,
-          max: 250000,
-        },
+        range: { min: 5000, max: 250000 },
         step: 1000,
         tooltips: false,
         format: {
@@ -52,7 +52,7 @@ const SampleBanca = () => {
         },
       });
 
-      amountSliderRef.current.noUiSlider?.on(
+      (amountSlider.noUiSlider as unknown as noUiSlider.API).on(
         'update',
         (values: (string | number)[], handle: number) => {
           const val = Number(values[handle].toString().replace(/\$/g, ''));
@@ -61,14 +61,11 @@ const SampleBanca = () => {
       );
     }
 
-    if (periodSliderRef.current && !periodSliderRef.current.noUiSlider) {
-      noUiSlider.create(periodSliderRef.current, {
+    if (periodSlider && !periodSlider.noUiSlider) {
+      noUiSlider.create(periodSlider, {
         start: [period],
         connect: [true, false],
-        range: {
-          min: 1,
-          max: 5,
-        },
+        range: { min: 1, max: 5 },
         step: 1,
         tooltips: false,
         format: {
@@ -77,7 +74,7 @@ const SampleBanca = () => {
         },
       });
 
-      periodSliderRef.current.noUiSlider?.on(
+      (periodSlider.noUiSlider as unknown as noUiSlider.API).on(
         'update',
         (values: (string | number)[], handle: number) => {
           const val = Number(values[handle].toString().replace(/y/g, ''));
@@ -87,10 +84,12 @@ const SampleBanca = () => {
     }
 
     return () => {
-      amountSliderRef.current?.noUiSlider?.destroy();
-      periodSliderRef.current?.noUiSlider?.destroy();
+      amountSlider?.noUiSlider?.destroy();
+      periodSlider?.noUiSlider?.destroy();
     };
   }, [amount, period]);
+
+  type SubmenuItem = [string, string] | [string, string, [string, string][]];
 
   return (
     <div>
@@ -350,7 +349,7 @@ const SampleBanca = () => {
                           openDropdown === item.label ? 'show' : ''
                         }`}
                       >
-                        {item.submenu.map((sub: any, subIdx: number) => {
+                        {(item.submenu as SubmenuItem[]).map((sub, subIdx) => {
                           if (Array.isArray(sub[2])) {
                             const childItems = sub[2] as [string, string][];
                             return (

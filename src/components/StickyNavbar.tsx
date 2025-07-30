@@ -40,11 +40,11 @@ const StickyNavbar = () => {
       submenu: [
         { label: 'Smart Finance', href: '/' },
         { label: 'Loan Company', href: '/index-company' },
-        { label: 'Mobile App', href: '/index-app' },
-        { label: 'Simple Banca', href: '/index-simple' },
-        { label: 'Loan Steps', href: '/index-loan' },
-        { label: 'Finance Sass App', href: '/index-finance' },
-        { label: 'Small Bank', href: '/index-small-bank' },
+        { label: 'Mobile App', href: '/mobile-app' },
+        { label: 'Simple Banca', href: '/simple-banca' },
+        { label: 'Loan Steps', href: '/loan-steps' },
+        { label: 'Finance Sass App', href: '/finance-sass-app' },
+        { label: 'Small Bank', href: '/small-bank' },
       ],
     },
     {
@@ -54,7 +54,7 @@ const StickyNavbar = () => {
         { label: 'Get loan', href: '/loan' },
         {
           label: 'Loan Application',
-          href: '#',
+          href: '/loan-details',
           submenu: [
             { label: 'Step 01', href: '/loan-details' },
             { label: 'Step 02', href: '/personal-details' },
@@ -68,25 +68,25 @@ const StickyNavbar = () => {
       href: '/career',
       submenu: [
         { label: 'Career', href: '/career' },
-        { label: 'Jobs', href: '/job-post' },
+        { label: 'Jobs', href: '/jobs' },
         { label: 'Job Application', href: '/job-application' },
       ],
     },
     {
       label: 'Pages',
-      href: '#',
+      href: 'card',
       submenu: [
         { label: 'Cards', href: '/card' },
-        { label: 'About Us', href: '/about' },
-        { label: 'Contact Us', href: '/contact' },
+        { label: 'About Us', href: '/about-us' },
+        { label: 'Contact Us', href: '/contact-us' },
         { label: '404 Error', href: '/error' },
       ],
     },
     {
       label: 'Blog',
-      href: '/blog',
+      href: '/blog-listing',
       submenu: [
-        { label: 'Blog Listing', href: '/blog' },
+        { label: 'Blog Listing', href: '/blog-listing' },
         { label: 'Blog Details', href: '/blog-details' },
       ],
     },

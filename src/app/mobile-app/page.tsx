@@ -174,7 +174,7 @@ const MobileApp = () => {
                           </li>
                         ) : (
                           <li className="nav-item" key={subIdx}>
-                            <Link href={subItem[0]} className="nav-link">{subItem[1]}</Link>
+                            <Link href={subItem[0] as string} className="nav-link">{subItem[1]}</Link>
                           </li>
                         )
                       )}
