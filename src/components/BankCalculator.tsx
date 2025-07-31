@@ -134,7 +134,7 @@ const BankCalculator = () => {
         durationSlider.noUiSlider.destroy();
       }
     };
-  }, [type, duration]); // Remove 'duration' from dependency array
+  }, [type, duration]);
 
   const { emi, total, interest } = calculateEMI();
 
@@ -213,7 +213,7 @@ const BankCalculator = () => {
                 <div className="bg_disable px-4 py-2 mb-5 interestBox rounded">
                   <p className="mb-1">Rate of Interest</p>
                   <span className="fw-bold text-primary fs-5">
-                    {interestRate.toFixed(2)}%
+                    {interestRate.toFixed(2)}
                   </span>
                 </div>
               </div>

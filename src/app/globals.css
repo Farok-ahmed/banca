@@ -11451,3 +11451,39 @@ body.body_dark
 }
 
 
+/* noui slider */
+
+.noUi-horizontal{
+  height: 5px !important;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 15px !important;
+  height: 15px !important;
+  background-color: #0050b2 !important;
+  top: -6px;
+  right: -10px !important;
+}
+
+.noUi-marker-horizontal.noUi-marker {
+  width: 0px ;
+  height: 0px;
+  margin-left: -1px;
+}
+
+.noUi-marker .noUi-marker-horizontal .noUi-marker-normal{
+  width: 0px !important;
+  height: 0px !important;
+}
+
+/*  sticky navbar */
+
+.dark-theme-navbar {
+  background-color: #111;
+  color: #fff;
+}
+
+.light-theme-navbar {
+  background-color: #fff;
+  color: #000;
+}

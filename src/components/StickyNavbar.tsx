@@ -38,21 +38,21 @@ const StickyNavbar = () => {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg ${
-        scrollY > 50 && scrollY < 300
-          ? 'navbar_fixed show_navbar'
-          : 'hide_navbar'
-      }`}
-      id="sticky"
-      style={{
-        transition: 'top 0.3s ease-in-out',
-        top: scrollY > 40 && scrollY < 200 ? 0 : '-100px',
-        position: 'fixed',
-        width: '100%',
-        zIndex: 1000,
-        backgroundColor: '#fff',
-      }}
-    >
+  className={`navbar navbar-expand-lg ${
+    scrollY > 50 && scrollY < 300
+      ? 'navbar_fixed show_navbar'
+      : 'hide_navbar'
+  } ${theme === 'body_dark' ? 'dark-theme-navbar' : 'light-theme-navbar'}`}
+  id="sticky"
+  style={{
+    transition: 'top 0.3s ease-in-out',
+    top: scrollY > 40 && scrollY < 200 ? 0 : '-100px',
+    position: 'fixed',
+    width: '100%',
+    zIndex: 1000,
+  }}
+>
+
       <div className="container">
         <Link className="navbar-brand sticky_logo" href="/">
           <Image
@@ -164,6 +164,10 @@ const StickyNavbar = () => {
                 <Link
                   href={item.href}
                   className="nav-link"
+                  style={{
+                    color: theme === 'body_dark' ? '#fff' : '#000'
+                  }}
+
                   onClick={(e) => {
                     if (item.submenu && (isMobile || item.submenu.length > 0)) {
                       // Only prevent default on mobile
@@ -209,13 +213,11 @@ const StickyNavbar = () => {
                       zIndex: 1050,
                     }}
                     onMouseEnter={() => {
-                      // Keep dropdown open when hovering over it
                       if (!isMobile) {
                         setOpenDropdown(item.label);
                       }
                     }}
                     onMouseLeave={() => {
-                      // Hide dropdown when mouse leaves submenu
                       if (!isMobile) {
                         setOpenDropdown(null);
                       }
