@@ -11379,15 +11379,11 @@ body.body_dark
 }
 
 .custom-arrow.prev {
-  left: calc(
-    50% - 635px
-  ); 
+  left: calc(50% - 635px);
 }
 
 .custom-arrow.next {
-  right: calc(
-    50% - 635px
-  );
+  right: calc(50% - 635px);
 }
 
 /* for dark mode switch */
@@ -11450,10 +11446,9 @@ body.body_dark
   }
 }
 
-
 /* noui slider */
 
-.noUi-horizontal{
+.noUi-horizontal {
   height: 5px !important;
 }
 
@@ -11466,14 +11461,18 @@ body.body_dark
 }
 
 .noUi-marker-horizontal.noUi-marker {
-  width: 0px ;
+  width: 0px;
   height: 0px;
   margin-left: -1px;
 }
 
-.noUi-marker .noUi-marker-horizontal .noUi-marker-normal{
+.noUi-marker .noUi-marker-horizontal .noUi-marker-normal {
   width: 0px !important;
   height: 0px !important;
+}
+
+.noUi-marker-normal {
+  display: none !important;
 }
 
 /*  sticky navbar */

@@ -1107,8 +1107,8 @@ const Jobspage = () => {
               <div className="col-lg-3 text-center text-lg-start">
                 <Link href="/" className="p-0 m-0">
                   <Image
-                    width={15}
-                    height={15}
+                    width={90}
+                    height={30}
                     src="/img/logo/Logo.png"
                     alt="logo"
                   />
