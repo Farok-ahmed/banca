@@ -46,7 +46,7 @@ const StickyNavbar = () => {
       id="sticky"
       style={{
         transition: 'top 0.3s ease-in-out',
-        top: scrollY > 50 && scrollY < 300 ? 0 : '-100px',
+        top: scrollY > 40 && scrollY < 200 ? 0 : '-100px',
         position: 'fixed',
         width: '100%',
         zIndex: 1000,

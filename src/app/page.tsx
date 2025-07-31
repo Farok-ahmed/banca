@@ -136,6 +136,33 @@ const testimonials: Testimonial[] = [
     quote:
       'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
   },
+  {
+    id: 7,
+    name: 'Gerry Kellmen',
+    role: 'Ui / Ux Designer',
+    image: '/img/home-4/client-rev-1.png',
+    rating: 5,
+    quote:
+      'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
+  },
+  {
+    id: 8,
+    name: 'Gerry Kellmen',
+    role: 'Ui / Ux Designer',
+    image: '/img/home-4/client-rev-2.png',
+    rating: 5,
+    quote:
+      'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
+  },
+  {
+    id: 9,
+    name: 'Gerry Kellmen',
+    role: 'Ui / Ux Designer',
+    image: '/img/home-4/client-rev-3.png',
+    rating: 5,
+    quote:
+      'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
+  },
 ];
 
 const blogPosts: BlogItem[] = [
@@ -217,7 +244,7 @@ export default function Home() {
     autoplay: true,
     autoplaySpeed: 3000,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 3,
     nextArrow: (
       <div>
         <div
@@ -1073,7 +1100,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="client-area-2 pt-60 pb-60">
+      <section className="client-slider-2 pt-60 pb-60">
         <div className="container">
           <div className="section-title text-center mb-5">
             <span className="short-title-2">_Testimonials</span>
