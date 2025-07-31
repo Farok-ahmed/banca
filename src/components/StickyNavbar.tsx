@@ -6,6 +6,9 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
+// Import menu data
+import { menuItems, logoConfig, externalButton } from '@/data/menuItems';
+
 const StickyNavbar = () => {
   const [scrollY, setScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -33,65 +36,6 @@ const StickyNavbar = () => {
     setOpenDropdown((prev) => (prev === label ? null : label));
   };
 
-  const menuItems = [
-    {
-      label: 'Home',
-      href: '/',
-      submenu: [
-        { label: 'Smart Finance', href: '/' },
-        { label: 'Loan Company', href: '/index-company' },
-        { label: 'Mobile App', href: '/mobile-app' },
-        { label: 'Simple Banca', href: '/simple-banca' },
-        { label: 'Loan Steps', href: '/loan-steps' },
-        { label: 'Finance Sass App', href: '/finance-sass-app' },
-        { label: 'Small Bank', href: '/small-bank' },
-      ],
-    },
-    {
-      label: 'Loan',
-      href: '/loan',
-      submenu: [
-        { label: 'Get loan', href: '/loan' },
-        {
-          label: 'Loan Application',
-          href: '/loan-details',
-          submenu: [
-            { label: 'Step 01', href: '/loan-details' },
-            { label: 'Step 02', href: '/personal-details' },
-            { label: 'Step 03', href: '/document-upload' },
-          ],
-        },
-      ],
-    },
-    {
-      label: 'Job Pages',
-      href: '/career',
-      submenu: [
-        { label: 'Career', href: '/career' },
-        { label: 'Jobs', href: '/jobs' },
-        { label: 'Job Application', href: '/job-application' },
-      ],
-    },
-    {
-      label: 'Pages',
-      href: 'card',
-      submenu: [
-        { label: 'Cards', href: '/card' },
-        { label: 'About Us', href: '/about-us' },
-        { label: 'Contact Us', href: '/contact-us' },
-        { label: '404 Error', href: '/error' },
-      ],
-    },
-    {
-      label: 'Blog',
-      href: '/blog-listing',
-      submenu: [
-        { label: 'Blog Listing', href: '/blog-listing' },
-        { label: 'Blog Details', href: '/blog-details' },
-      ],
-    },
-  ];
-
   return (
     <nav
       className={`navbar navbar-expand-lg ${
@@ -112,10 +56,10 @@ const StickyNavbar = () => {
       <div className="container">
         <Link className="navbar-brand sticky_logo" href="/">
           <Image
-            src="/img/logo/Logo-2.png"
-            alt="logo"
-            width={120}
-            height={40}
+            src={logoConfig.sticky}
+            alt={logoConfig.alt}
+            width={logoConfig.width}
+            height={logoConfig.height}
           />
         </Link>
 
@@ -215,38 +159,35 @@ const StickyNavbar = () => {
               <li
                 key={item.label}
                 className="nav-item dropdown submenu position-relative"
+                style={{ marginRight: '20px' }} 
               >
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    position: 'relative',
-                  }}
-                >
-                  <Link
-                    href={item.href}
-                    className="nav-link"
-                    onClick={(e) => {
-                      if (item.submenu && isMobile) {
+                <Link
+                  href={item.href}
+                  className="nav-link"
+                  onClick={(e) => {
+                    if (item.submenu && (isMobile || item.submenu.length > 0)) {
+                      // Only prevent default on mobile
+                      if (isMobile) {
                         e.preventDefault();
                         handleDropdownToggle(item.label);
                       }
-                    }}
-                    style={{ flexGrow: 1 }}
-                  >
-                    {item.label}
-                  </Link>
-
-                  {/* Your requested icon */}
-                  {item.submenu && isMobile && (
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none ms-1"
-                      aria-hidden="true"
-                      style={{ cursor: 'pointer' }}
-                      onClick={() => handleDropdownToggle(item.label)}
-                    />
-                  )}
-                </div>
+                    }
+                  }}
+                  onMouseEnter={() => {
+                    // Show dropdown on hover for desktop
+                    if (!isMobile && item.submenu && item.submenu.length > 0) {
+                      setOpenDropdown(item.label);
+                    }
+                  }}
+                  onMouseLeave={() => {
+                    // Hide dropdown when mouse leaves for desktop
+                    if (!isMobile) {
+                      setTimeout(() => setOpenDropdown(null), 100);
+                    }
+                  }}
+                >
+                  {item.label}
+                </Link>
 
                 {/* Submenu */}
                 {item.submenu && (
@@ -267,14 +208,98 @@ const StickyNavbar = () => {
                       paddingLeft: isMobile ? '1rem' : undefined,
                       zIndex: 1050,
                     }}
+                    onMouseEnter={() => {
+                      // Keep dropdown open when hovering over it
+                      if (!isMobile) {
+                        setOpenDropdown(item.label);
+                      }
+                    }}
+                    onMouseLeave={() => {
+                      // Hide dropdown when mouse leaves submenu
+                      if (!isMobile) {
+                        setOpenDropdown(null);
+                      }
+                    }}
                   >
-                    {item.submenu.map((subItem) => (
-                      <li key={subItem.label} className="nav-item">
-                        <Link href={subItem.href} className="nav-link">
-                          {subItem.label}
-                        </Link>
-                      </li>
-                    ))}
+                    {item.submenu.map((subItem, subIdx) => {
+                      const hasNestedSubmenu =
+                        subItem.submenu && subItem.submenu.length > 0;
+                      const nestedKey = `${item.label}-nested-${subIdx}`;
+
+                      if (hasNestedSubmenu) {
+                        return (
+                          <li
+                            className="nav-item dropdown submenu"
+                            key={subIdx}
+                          >
+                            <Link
+                              href="#"
+                              className="nav-link"
+                              onClick={(e) => {
+                                e.preventDefault();
+                                if (isMobile) {
+                                  handleDropdownToggle(nestedKey);
+                                }
+                              }}
+                              onMouseEnter={() => {
+                                if (!isMobile) {
+                                  setOpenDropdown(nestedKey);
+                                }
+                              }}
+                            >
+                              {subItem.label}
+                            </Link>
+                            <ul
+                              className={`dropdown-menu ${
+                                openDropdown === nestedKey ? 'show' : ''
+                              }`}
+                              style={{
+                                display:
+                                  openDropdown === nestedKey || !isMobile
+                                    ? 'block'
+                                    : 'none',
+                                position: isMobile ? 'static' : 'absolute',
+                                backgroundColor: '#fff',
+                                boxShadow: !isMobile
+                                  ? '0 0.5rem 1rem rgb(0 0 0 / 0.15)'
+                                  : 'none',
+                                paddingLeft: isMobile ? '1rem' : undefined,
+                                zIndex: 1051,
+                              }}
+                              onMouseEnter={() => {
+                                if (!isMobile) {
+                                  setOpenDropdown(nestedKey);
+                                }
+                              }}
+                              onMouseLeave={() => {
+                                if (!isMobile) {
+                                  setOpenDropdown(null);
+                                }
+                              }}
+                            >
+                              {subItem.submenu.map((nestedItem, nestedIdx) => (
+                                <li className="nav-item" key={nestedIdx}>
+                                  <Link
+                                    href={nestedItem.href}
+                                    className="nav-link"
+                                  >
+                                    {nestedItem.label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </li>
+                        );
+                      }
+
+                      return (
+                        <li key={subIdx} className="nav-item">
+                          <Link href={subItem.href} className="nav-link">
+                            {subItem.label}
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 )}
               </li>
@@ -282,13 +307,13 @@ const StickyNavbar = () => {
           </ul>
 
           <Link
-            className="theme-btn theme-btn-rounded-2 theme-btn-alt"
-            style={{ backgroundColor: '#0050b2', color: '#fff' }}
-            href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
-            target="_blank"
-            rel="noopener noreferrer"
+            className={externalButton.className}
+            style={externalButton.style}
+            href={externalButton.href}
+            target={externalButton.target}
+            rel={externalButton.rel}
           >
-            Buy Banca
+            {externalButton.text}
           </Link>
 
           {/* Dark Mode Toggle */}

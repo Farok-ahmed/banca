@@ -11,15 +11,10 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-
-
-interface TabData {
-  id: string;
-  label: string;
-  title: string;
-  description: string;
-  imgSrc: string;
-}
+import { TabData } from '@/types/Tabdata';
+import { FaqItem } from '@/types/Faqitem';
+import { Testimonial } from '@/types/Testimonial';
+import { BlogItem } from '@/types/Blogitem';
 
 const tabContent: TabData[] = [
   {
@@ -56,12 +51,6 @@ const tabContent: TabData[] = [
   },
 ];
 
-interface FaqItem {
-  id: string;
-  question: string;
-  answer: string;
-}
-
 const faqItems: FaqItem[] = [
   {
     id: 'one',
@@ -88,16 +77,6 @@ const faqItems: FaqItem[] = [
       'Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid...',
   },
 ];
-
-interface Testimonial {
-  id: number;
-  name: string;
-  role: string;
-  image: string;
-  rating: number;
-  quote: string;
-  delay?: string;
-}
 
 const testimonials: Testimonial[] = [
   {
@@ -158,19 +137,6 @@ const testimonials: Testimonial[] = [
       'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
   },
 ];
-
-interface BlogItem {
-  id: number;
-  title: string;
-  category: string;
-  categoryClass: string;
-  date: string;
-  author: string;
-  image: string;
-  calendarIcon: string;
-  userIcon: string;
-  delay?: string;
-}
 
 const blogPosts: BlogItem[] = [
   {
@@ -469,7 +435,10 @@ export default function Home() {
                             </li>
                           ) : (
                             <li className="nav-item" key={subIdx}>
-                              <Link href={subItem[0] as string} className="nav-link">
+                              <Link
+                                href={subItem[0] as string}
+                                className="nav-link"
+                              >
                                 {subItem[1]}
                               </Link>
                             </li>
@@ -501,9 +470,8 @@ export default function Home() {
                   <label
                     className={`ball`}
                     style={{
-                      left: theme === 'body_dark' ? 3 : 26
+                      left: theme === 'body_dark' ? 3 : 26,
                     }}
-
                     htmlFor="something"
                   ></label>
                   <input
@@ -1180,7 +1148,7 @@ export default function Home() {
                 data-wow-delay={post.delay}
               >
                 <div className="blog-widget-3 wow fadeInUp">
-                  <a href="#" className="blog-img d-block position-relative">
+                  <Link href="/" className="blog-img d-block position-relative">
                     <Image
                       src={post.image}
                       alt="blog-img"
@@ -1191,7 +1159,7 @@ export default function Home() {
                     <div className={`catagory ${post.categoryClass}`}>
                       {post.category}
                     </div>
-                  </a>
+                  </Link>
                   <div className="blog-content mt-3">
                     <h4>
                       <a href="#">{post.title}</a>

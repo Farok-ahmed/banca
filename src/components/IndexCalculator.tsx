@@ -11,7 +11,6 @@ type HTMLDivElementWithSlider = HTMLDivElement & {
   noUiSlider: noUiSlider.API;
 };
 
-
 const IndexCalculator = () => {
   const [termType, setTermType] = useState<'yearly' | 'monthly' | 'weekly'>(
     'yearly'
@@ -49,7 +48,8 @@ const IndexCalculator = () => {
     } else if (termType === 'monthly') {
       periodicRate = rate / 100 / 12; // Monthly rate
       totalPeriods = duration; // Already in months
-    } else { // weekly
+    } else {
+      // weekly
       periodicRate = rate / 100 / 52; // Weekly rate
       totalPeriods = duration; // Already in weeks
     }
@@ -71,11 +71,12 @@ const IndexCalculator = () => {
       };
     }
 
-    const emi = (amount * periodicRate * Math.pow(1 + periodicRate, totalPeriods)) / 
-                (Math.pow(1 + periodicRate, totalPeriods) - 1);
+    const emi =
+      (amount * periodicRate * Math.pow(1 + periodicRate, totalPeriods)) /
+      (Math.pow(1 + periodicRate, totalPeriods) - 1);
     const total = emi * totalPeriods;
     const interest = total - amount;
-    
+
     return {
       emi: emi.toFixed(2),
       total: total.toFixed(2),
@@ -110,7 +111,7 @@ const IndexCalculator = () => {
         step: 100,
         connect: [true, false],
       });
-      amountSlider.noUiSlider.on('update', (values: (string|number)[]) => {
+      amountSlider.noUiSlider.on('update', (values: (string | number)[]) => {
         setAmount(parseFloat(values[0].toString()));
       });
     }
@@ -122,7 +123,7 @@ const IndexCalculator = () => {
         step: 0.1,
         connect: [true, false],
       });
-      rateSlider.noUiSlider.on('update', (values: (string|number)[]) => {
+      rateSlider.noUiSlider.on('update', (values: (string | number)[]) => {
         setRate(parseFloat(values[0].toString()));
       });
     }
@@ -131,7 +132,7 @@ const IndexCalculator = () => {
       amountSlider?.noUiSlider?.destroy();
       rateSlider?.noUiSlider?.destroy();
     };
-  }, [amount, rate]); 
+  }, [amount, rate]);
 
   // Duration slider - recreate when term type changes
   useEffect(() => {
@@ -140,9 +141,9 @@ const IndexCalculator = () => {
       monthly: monthSliderRef,
       weekly: weekSliderRef,
     };
-    
+
     // Clean up all duration sliders first
-    Object.values(refMap).forEach(ref => {
+    Object.values(refMap).forEach((ref) => {
       if (ref.current?.noUiSlider) {
         ref.current.noUiSlider.destroy();
       }
@@ -165,13 +166,16 @@ const IndexCalculator = () => {
         connect: [true, false],
       });
 
-      sliderRef.current.noUiSlider.on('update', (values: (string|number)[]) => {
-        setDuration(parseInt(values[0].toString()));
-      });
+      sliderRef.current.noUiSlider.on(
+        'update',
+        (values: (string | number)[]) => {
+          setDuration(parseInt(values[0].toString()));
+        }
+      );
     }
 
     return () => {
-      Object.values(refMap).forEach(ref => {
+      Object.values(refMap).forEach((ref) => {
         if (ref.current?.noUiSlider) {
           ref.current.noUiSlider.destroy();
         }
@@ -311,7 +315,9 @@ const IndexCalculator = () => {
               <div className="pie-wrapper mt-25" id="loan_graph_circle">
                 <div className="label">
                   Total Amount
-                  <h2 className="LoanTotalAmount">${parseFloat(result.total).toLocaleString()}</h2>
+                  <h2 className="LoanTotalAmount">
+                    ${parseFloat(result.total).toLocaleString()}
+                  </h2>
                 </div>
                 <div className="pie">
                   <div className="left-side half-circle"></div>
@@ -332,11 +338,15 @@ const IndexCalculator = () => {
                   <span className="label">
                     Total Amount (Principal + Interest)
                   </span>
-                  <span className="amount">${parseFloat(result.total).toLocaleString()}</span>
+                  <span className="amount">
+                    ${parseFloat(result.total).toLocaleString()}
+                  </span>
                 </li>
                 <li>
                   <span className="label">Interest Payable</span>
-                  <span className="amount">${parseFloat(result.interest).toLocaleString()}</span>
+                  <span className="amount">
+                    ${parseFloat(result.interest).toLocaleString()}
+                  </span>
                 </li>
                 <li>
                   <span className="label">Loan Duration</span>
@@ -344,7 +354,9 @@ const IndexCalculator = () => {
                 </li>
                 <li>
                   <span className="label">Your EMI Amount</span>
-                  <span className="amount">${parseFloat(result.emi).toLocaleString()}</span>
+                  <span className="amount">
+                    ${parseFloat(result.emi).toLocaleString()}
+                  </span>
                 </li>
               </ul>
               <Link
