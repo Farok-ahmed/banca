@@ -227,7 +227,7 @@ const BankCalculator = () => {
                     <div className="emi-amount mb-3">
                       <h6 className="mb-0 text-primary">EMI Amount</h6>
                       <small>Principal + Interest</small>
-                      <p className="mt-10 fw-semibold text-dark">
+                      <p className="mt-10 fw-semibold">
                         ${total.toLocaleString()}*
                       </p>
                     </div>

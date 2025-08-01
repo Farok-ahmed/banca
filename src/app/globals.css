@@ -5316,7 +5316,7 @@ ul.slick-dots li button {
   /*----------------------------------------*/
 .calculator-widget .single-calculator-widget {
   padding: 42px 50px;
-  border: 1px solid var(--black_50);
+  border: 1px solid var(--black_50) !important;
   border-radius: 10px;
 }
 .calculator-widget .single-calculator-widget .single-range .range-header h6 {
@@ -5328,8 +5328,8 @@ ul.slick-dots li button {
 .calculator-widget .single-calculator-widget .single-range .range-header input {
   height: 37px;
   border-radius: 4px;
-  border: 1px solid var(--black_50);
-  background-color: var(--bs-white);
+  border: 1px solid var(--black_50) !important;
+  background-color: var(--bs-white) !important;
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
@@ -5410,7 +5410,7 @@ ul.slick-dots li button {
 .calculator-widget .interestBox {
   border-radius: 5px;
   display: inline-block;
-  border: 1px solid var(--black_50);
+  border: 1px solid var(--black_50) !important;
 }
 .calculator-widget .interestBox p {
   font-family: 'Poppins', sans-serif;
@@ -5428,7 +5428,7 @@ ul.slick-dots li button {
 }
 .calculator-widget .calculator-result-widget {
   padding: 50px 45px;
-  border: 1px solid var(--black_50);
+  border: 1px solid var(--black_50) !important;
   border-radius: 10px;
 }
 .calculator-widget .calculator-result-widget h6 {
@@ -5516,7 +5516,7 @@ ul.slick-dots li button {
 }
 
 .calculator-widget-2 {
-  background-color: var(--bs-white);
+  background-color: var(--bs-white) !important;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -5529,7 +5529,7 @@ ul.slick-dots li button {
   font-weight: 600;
   line-height: 42px;
   letter-spacing: -0.02em;
-  color: var(--secondary_color);
+  color: var(--secondary_color) !important;
 }
 .calculator-widget-2 .single-calculator-widget .single-range {
   display: flex;
@@ -5767,7 +5767,7 @@ ul.slick-dots li button {
   font-size: 34px;
   font-weight: 700;
   line-height: 24px;
-  color: var(--black_800);
+  color: var(--black_800) !important;
   margin-bottom: 0;
   margin-top: 14px;
 }
@@ -5841,7 +5841,7 @@ ul.slick-dots li button {
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
-  color: var(--black_850);
+  color: var(--black_850) !important;
   display: inline-block;
   text-transform: capitalize;
 }
@@ -11486,3 +11486,57 @@ body.body_dark
   background-color: #fff;
   color: #000;
 }
+
+.light-theme-navbar .nav-link {
+  color: #212529; /* Default text-dark */
+}
+
+.light-theme-navbar .nav-link.active {
+  color: #0d6efd !important; /* Bootstrap primary */
+  font-weight: 600;
+}
+
+
+/* loan center slider code */
+
+.custom-slider-wrapper {
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.testimonial-slide {
+  transition: transform 0.3s ease;
+  opacity: 0.5;
+}
+
+.slick-center .testimonial-slide {
+  transform: scale(1.03);
+  opacity: 1;
+}
+
+.testimonial-widget {
+  transition: box-shadow 0.3s ease;
+}
+
+.custom-arrow {
+  z-index: 10;
+  background: #fff;
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.custom-arrow.prev {
+  left: -50px;
+}
+
+.custom-arrow.next {
+  right: -50px;
+}
+
