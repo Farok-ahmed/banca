@@ -2506,7 +2506,7 @@ header .header-top .header-info-right ul li i {
 }
 .banner-area-5 .basic-loan-calculator .label {
   font-size: 16px;
-  color: var(--black_900);
+  color: var(--black_900) !important;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   display: block;
@@ -3472,7 +3472,7 @@ header .header-top .header-info-right ul li i {
 .feature-card-widget-9 {
   text-align: center;
   background-color: var(--bs-white);
-  border: 1px solid var(--black_50);
+  border: 1px solid var(--black_50) !important;
   transition: all 0.3s ease;
   border-radius: 8px;
   padding: 40px 33px;
@@ -3480,7 +3480,7 @@ header .header-top .header-info-right ul li i {
 }
 .feature-card-widget-9.widget-link {
   background-color: var(--brand_color);
-  border-color: #fff;
+  border-color: #fff !important;
   box-shadow: none !important;
   display: flex;
   flex-direction: column;
@@ -3517,7 +3517,7 @@ header .header-top .header-info-right ul li i {
   font-weight: 600;
   line-height: 34px;
   letter-spacing: -0.01em;
-  color: var(--black_850);
+  color: var(--black_850) !important;
   margin-top: 30px;
   margin-bottom: 10px;
 }
@@ -3525,7 +3525,7 @@ header .header-top .header-info-right ul li i {
   font-size: 16px;
   font-weight: 400;
   line-height: 26px;
-  color: var(--p_color);
+  color: var(--p_color) !important;
   font-family: 'Roboto', sans-serif;
   margin-bottom: 8px;
 }
@@ -3746,7 +3746,7 @@ ul.slick-dots li button {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   margin-bottom: 0;
-  color: var(--black_700);
+  color: var(--black_700) !important;
   line-height: 32px;
 }
 .feature-calculator .calculator .calculator-slider label.label-2 {
@@ -3809,11 +3809,11 @@ ul.slick-dots li button {
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  color: var(--black_700);
+  color: var(--black_700) !important;
 }
 .feature-calculator .expected-payment p {
   font-size: 14px;
-  color: var(--black_500);
+  color: var(--black_500) !important;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
@@ -3821,7 +3821,7 @@ ul.slick-dots li button {
   font-size: 24px;
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  color: var(--black_700);
+  color: var(--black_700) !important;
 }
 
 /*----------------------------------------*/
@@ -5252,7 +5252,7 @@ ul.slick-dots li button {
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
-  color: var(--secondary_color);
+  color: var(--secondary_color) !important;
   position: relative;
   display: block;
 }
@@ -10154,7 +10154,7 @@ blockquote .author span {
 }
 .pricing_inner .price_item .price_header h6 {
   font-size: 22px;
-  color: var(--secondary_color);
+  color: var(--secondary_color) !important;
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -10164,7 +10164,7 @@ blockquote .author span {
   font-family: 'Roboto', sans-serif;
 }
 .pricing_inner .price_item .price {
-  color: var(--secondary_color);
+  color: var(--secondary_color) !important;
   font-size: 60px;
   line-height: 1;
   font-weight: 500;

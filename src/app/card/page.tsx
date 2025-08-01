@@ -1496,6 +1496,7 @@ const CardPage = () => {
                     <Link
                       href="#"
                       className="input-append theme-btn theme-btn-lg"
+                      style={{backgroundColor: '#171d24', color:'#fff'}}
                     >
                       Subscribe
                     </Link>

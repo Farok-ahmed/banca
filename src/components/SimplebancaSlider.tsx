@@ -113,7 +113,7 @@ const SimplebancaSlider = () => {
                   </div>
                   <div className="client-info mt-2">
                     <h6 className="mb-0">{item.name}</h6>
-                    <small className="text-muted">{item.role}</small>
+                    <small>{item.role}</small>
                   </div>
                 </div>
               ))}

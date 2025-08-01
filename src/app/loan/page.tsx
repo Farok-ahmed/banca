@@ -548,7 +548,7 @@ const Loanpage = () => {
                 </div>
               </div>
             </div>
-            <form action="personal-details.html">
+            <form action="personal-details">
               <div className="row">
                 <div className="col-md-10 mx-auto">
                   <div className="row pt-35  gy-lg-0 gy-3">
@@ -606,7 +606,7 @@ const Loanpage = () => {
                         <div className="apply-content">
                           {/* Label */}
                           <span
-                            className="title d-block text-muted"
+                            className="title d-block"
                             style={{ fontSize: '14px' }}
                           >
                             Type of Loan
@@ -622,8 +622,6 @@ const Loanpage = () => {
                                 appearance: 'none',
                                 backgroundColor: 'transparent',
                                 boxShadow: 'none',
-                                color: '#000',
-                                // fontSize: '16px',
                                 cursor: 'pointer',
                                 fontWeight: 'normal',
                               }}

@@ -1127,7 +1127,7 @@ export default function Home() {
                       <i className="bi bi-star-fill me-1" key={i}></i>
                     ))}
                   </div>
-                  <p className="quote mb-4 text-muted">{testimonial.quote}</p>
+                  <p className="quote mb-4">{testimonial.quote}</p>
                   <div className="client-info d-flex align-items-center gap-3">
                     <Image
                       src={testimonial.image}
@@ -1138,7 +1138,7 @@ export default function Home() {
                     />
                     <div>
                       <p className="fw-semibold mb-0">{testimonial.name}</p>
-                      <span className="text-muted small">
+                      <span className="small">
                         {testimonial.role}
                       </span>
                     </div>

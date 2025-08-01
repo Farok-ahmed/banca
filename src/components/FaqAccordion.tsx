@@ -76,7 +76,7 @@ const faqData: FAQItem[] = [
 ];
 
 export default function FAQAccordion() {
-  const [openId, setOpenId] = useState<number | null>(2); // default open second item
+  const [openId, setOpenId] = useState<number | null>(2);
 
   const toggleFAQ = (id: number) => {
     setOpenId((prev) => (prev === id ? null : id));
