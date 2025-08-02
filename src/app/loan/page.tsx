@@ -90,7 +90,6 @@ const Loanpage = () => {
                   height={30}
                   className="main"
                   src="/img/logo/Logo.png"
-                  // srcset="img/logo/Logo@2x.png 2x"
                   alt="logo"
                 />
                 <Image
@@ -98,7 +97,6 @@ const Loanpage = () => {
                   height={30}
                   className="sticky"
                   src="/img/logo/Logo-2.png"
-                  // srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
               </Link>

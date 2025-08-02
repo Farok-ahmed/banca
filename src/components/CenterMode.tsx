@@ -3,7 +3,7 @@
 import Slider from 'react-slick';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaArrowLeft, FaArrowRight, FaPlay } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight} from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { CustomArrowProps } from 'react-slick';

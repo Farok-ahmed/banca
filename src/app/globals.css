@@ -11540,3 +11540,8 @@ body.body_dark
   right: -50px;
 }
 
+
+.nav-item.active > .nav-link {
+  color: #007bff;
+  font-weight: 600;
+}
