@@ -5,11 +5,13 @@ import Link from 'next/link';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 import { useTheme } from '@/contextAPi/ThemeContext';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const Careerpage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -20,6 +22,37 @@ const Careerpage = () => {
   };
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+
+  // Check if current route is active
+  const isActive = (link: string) => {
+    // Exact match for home page
+    if (link === '/' && pathname === '/') {
+      return true;
+    }
+    // For other pages, check if pathname matches exactly
+    if (link !== '/' && pathname === link) {
+      return true;
+    }
+    return false;
+  };
+
+  interface SubMenuItem {
+    text: string;
+    link: string;
+    submenu?: SubMenuItem[];
+  }
+
+  // Check if any submenu item is active (for parent menu highlighting)
+  const isParentActive = (submenu: SubMenuItem[]) => {
+    return submenu.some((item) => {
+      if (isActive(item.link)) return true;
+      if (item.submenu) {
+        return item.submenu.some((subItem) => isActive(subItem.link));
+      }
+      return false;
+    });
+  };
+
   return (
     <div>
       <header className="header">
@@ -86,7 +119,6 @@ const Careerpage = () => {
                   height={30}
                   className="main"
                   src="/img/logo/Logo.png"
-                  // srcset="img/logo/Logo@2x.png 2x"
                   alt="logo"
                 />
                 <Image
@@ -94,7 +126,6 @@ const Careerpage = () => {
                   height={30}
                   className="sticky"
                   src="/img/logo/Logo-2.png"
-                  // srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
               </Link>
@@ -185,10 +216,19 @@ const Careerpage = () => {
                       ],
                     },
                   ].map((item, idx) => (
-                    <li key={idx} className="nav-item dropdown submenu">
+                    <li
+                      key={idx}
+                      className={`nav-item dropdown submenu ${
+                        isParentActive(item.submenu) ? 'active' : ''
+                      }`}
+                    >
                       <Link
                         href={item.href}
-                        className="nav-link dropdown-toggle"
+                        className={`nav-link dropdown-toggle ${
+                          isActive(item.href) || isParentActive(item.submenu)
+                            ? 'active'
+                            : ''
+                        }`}
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-haspopup="true"
@@ -219,11 +259,13 @@ const Careerpage = () => {
                             key={i}
                             className={`nav-item ${
                               sub.submenu ? 'dropdown submenu' : ''
-                            }`}
+                            } ${isActive(sub.link) ? 'active' : ''}`}
                           >
                             <Link
                               href={sub.link}
-                              className="nav-link"
+                              className={`nav-link ${
+                                isActive(sub.link) ? 'active' : ''
+                              }`}
                               onClick={(e) => {
                                 if (isMobile && sub.submenu) {
                                   e.preventDefault();
@@ -255,10 +297,17 @@ const Careerpage = () => {
                                   }`}
                                 >
                                   {sub.submenu.map((deep, j) => (
-                                    <li key={j} className="nav-item">
+                                    <li
+                                      key={j}
+                                      className={`nav-item ${
+                                        isActive(deep.link) ? 'active' : ''
+                                      }`}
+                                    >
                                       <Link
                                         href={deep.link}
-                                        className="nav-link"
+                                        className={`nav-link ${
+                                          isActive(deep.link) ? 'active' : ''
+                                        }`}
                                       >
                                         {deep.text}
                                       </Link>
@@ -293,7 +342,7 @@ const Careerpage = () => {
                   <label
                     className={`ball`}
                     style={{
-                      left: theme === 'body_dark' ? 3 : 26
+                      left: theme === 'body_dark' ? 3 : 26,
                     }}
                     htmlFor="something"
                   ></label>

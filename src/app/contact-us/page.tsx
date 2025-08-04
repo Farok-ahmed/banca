@@ -1,9 +1,13 @@
-'use client'
+'use client';
 /* eslint-disable react/no-unescaped-entities */
 import AboutAccordion from '@/components/AboutAccordion';
 import { useTheme } from '@/contextAPi/ThemeContext';
+import { NavigationItem } from '@/types/NavigationItem';
+import { NestedSubmenuItem } from '@/types/NestedSubmenuItem';
+import { SubmenuItem } from '@/types/SubmenuItem';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
@@ -11,6 +15,7 @@ const ContactUs = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -21,6 +26,100 @@ const ContactUs = () => {
   };
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+
+  // Function to check if a route is active
+  const isActiveRoute = (href: string, submenu?: SubmenuItem[]): boolean => {
+    // Exact match for main route
+    if (pathname === href) {
+      return true;
+    }
+
+    // Check if any submenu item matches current path
+    if (submenu) {
+      return submenu.some((item: SubmenuItem) => {
+        if (item.submenu) {
+          // Check nested submenu items
+          return item.submenu.some(
+            (subItem: NestedSubmenuItem) => pathname === subItem.link
+          );
+        }
+        return pathname === item.link;
+      });
+    }
+
+    return false;
+  };
+
+  // Function to check if a submenu item is active
+  const isActiveSubmenuItem = (link: string): boolean => {
+    return pathname === link;
+  };
+
+  // Function to check if parent submenu has active child
+  const hasActiveChild = (submenu?: NestedSubmenuItem[]): boolean => {
+    if (!submenu) return false;
+    return submenu.some((item: NestedSubmenuItem) => pathname === item.link);
+  };
+
+  const navigationItems: NavigationItem[] = [
+    {
+      label: 'Home',
+      href: '/',
+      submenu: [
+        { text: 'Smart Finance', link: '/' },
+        { text: 'Loan Company', link: '/index-company' },
+        { text: 'Mobile App', link: '/mobile-app' },
+        { text: 'Simple Banca', link: '/simple-banca' },
+        { text: 'Loan Steps', link: '/loan-steps' },
+        { text: 'Finance Sass App', link: '/finance-sass-app' },
+        { text: 'Small Bank', link: '/small-bank' },
+      ],
+    },
+    {
+      label: 'Loan',
+      href: '/loan',
+      submenu: [
+        { text: 'Get loan', link: '/loan' },
+        {
+          text: 'Loan Application',
+          link: '/loan-details',
+          submenu: [
+            { text: 'Step 01', link: '/loan-details' },
+            { text: 'Step 02', link: '/personal-details' },
+            { text: 'Step 03', link: '/document-upload' },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'Job Pages',
+      href: '/career',
+      submenu: [
+        { text: 'Career', link: '/career' },
+        { text: 'Jobs', link: '/jobs' },
+        { text: 'Job Application', link: '/job-application' },
+      ],
+    },
+    {
+      label: 'Pages',
+      href: '/card',
+      submenu: [
+        { text: 'Cards', link: '/card' },
+        { text: 'About Us', link: '/about-us' },
+        { text: 'Contact Us', link: '/contact-us' },
+        { text: '404 Error', link: '/error' },
+      ],
+    },
+    {
+      label: 'Blog',
+      href: '/blog-listing',
+      submenu: [
+        { text: 'Blog Listing', link: '/blog-listing' },
+        { text: 'Blog Details', link: '/blog-details' },
+      ],
+    },
+  ];
+
   return (
     <div>
       <header className="header">
@@ -29,13 +128,14 @@ const ContactUs = () => {
             <div className="row align-items-center">
               <div className="col-md-5">
                 <div className="header-info-left">
-                <div className="language-list position-relative w-auto">
+                  <div className="language-list position-relative w-auto">
                     <select
                       className="form-select border-0 shadow-none cursor-pointer"
                       aria-label="Language select"
                       style={{ cursor: 'pointer' }}
+                      defaultValue="English"
                     >
-                      <option selected>English</option>
+                      <option value="English">English</option>
                       <option value="Bangla">Bangla</option>
                       <option value="French">French</option>
                       <option value="Hindi">Hindi</option>
@@ -80,27 +180,26 @@ const ContactUs = () => {
         </div>
 
         <div className="header-menu header-menu-3" id="sticky">
-          <nav className="navbar navbar-expand-lg ">
+          <nav className="navbar navbar-expand-lg">
             <div className="container">
-              <Link className="navbar-brand sticky_logo" href="index.html">
+              <Link className="navbar-brand sticky_logo" href="/">
                 <Image
                   width={110}
                   height={35}
                   className="main"
                   src="/img/logo/Logo.png"
-                  // srcset="img/logo/Logo@2x.png 2x"
                   alt="logo"
+                  priority
                 />
                 <Image
                   width={110}
                   height={35}
                   className="sticky"
                   src="/img/logo/Logo-2.png"
-                  // srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
+                  priority
                 />
               </Link>
-
 
               {/* Hamburger Toggle */}
               <button
@@ -125,324 +224,23 @@ const ContactUs = () => {
                 </span>
               </button>
 
-              {/* <div
-                className="collapse navbar-collapse"
-                id="navbarSupportedContent"
-              >
-                <ul className="navbar-nav menu ms-auto">
-                  <li className="nav-item dropdown submenu ">
-                    <Link
-                      href="/"
-                      className="nav-link dropdown-toggle"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Home
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="true"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item ">
-                        <Link href="/" className="nav-link">
-                          Smart Finance
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/index-company" className="nav-link">
-                          Loan Company
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/mobile-app" className="nav-link">
-                          Mobile App
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/simple-banca" className="nav-link">
-                          Simple Banca
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/loan-steps" className="nav-link">
-                          Loan Steps
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/finance-sass-app" className="nav-link">
-                          Finance Sass App
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link href="/small-bank" className="nav-link">
-                          Small Bank
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="/loan"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Loan
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="/loan">
-                          Get loan
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link
-                          className="nav-link"
-                          href="/loan-details"
-                          role="button"
-                          data-bs-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                        >
-                          Loan Application
-                        </Link>
-                        <i
-                          className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                          aria-hidden="false"
-                          data-bs-toggle="dropdown"
-                        ></i>
-
-                        <ul className="dropdown-menu">
-                          <li className="nav-item">
-                            <Link className="nav-link" href="/loan-details">
-                              Step 01
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link className="nav-link" href="/personal-details">
-                              Step 02
-                            </Link>
-                          </li>
-                          <li className="nav-item">
-                            <Link className="nav-link" href="/document-upload">
-                              Step 03
-                            </Link>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="/career"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Job Pages
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="/career">
-                          Career
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="/jobs">
-                          Jobs
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="/job-application">
-                          Job Application
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle active"
-                      href="/card"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Pages
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu ">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="/card">
-                          Cards
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="/about-us">
-                          About Us
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link active" href="/contact-us">
-                          Contact Us
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="/error">
-                          404 Error
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="nav-item dropdown submenu">
-                    <Link
-                      className="nav-link dropdown-toggle"
-                      href="/blog-listing"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      Blog
-                    </Link>
-                    <i
-                      className="arrow_carrot-down_alt2 mobile_dropdown_icon"
-                      aria-hidden="false"
-                      data-bs-toggle="dropdown"
-                    ></i>
-                    <ul className="dropdown-menu ">
-                      <li className="nav-item">
-                        <Link className="nav-link" href="/blog-listing">
-                          Blog Listing
-                        </Link>
-                      </li>
-                      <li className="nav-item">
-                        <Link className="nav-link" href="/blog-details">
-                          Blog Details
-                        </Link>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-                <Link
-                  className="theme-btn theme-btn-outlined_alt"
-                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
-                  target="_blank"
-                >
-                  Buy Banca
-                </Link>
-                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
-                  <label htmlFor="something" className="tab-btn tab-btns">
-                    <IoMoonOutline name="moon" />
-                  </label>
-                  <label htmlFor="something" className="tab-btn">
-                    <IoSunnyOutline name="sunny" />
-                  </label>
-                  <label className=" ball" htmlFor="something"></label>
-                  <input
-                    type="checkbox"
-                    name="something"
-                    id="something"
-                    className="dark_mode_switcher"
-                  />
-                </div>
-              </div> */}
-
               <div
                 className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
-                  {[
-                    {
-                      label: 'Home',
-                      href: '/',
-                      submenu: [
-                        { text: 'Smart Finance', link: '/' },
-                        { text: 'Loan Company', link: '/index-company' },
-                        { text: 'Mobile App', link: '/mobile-app' },
-                        { text: 'Simple Banca', link: '/simple-banca' },
-                        { text: 'Loan Steps', link: '/loan-steps' },
-                        { text: 'Finance Sass App', link: '/finance-sass-app' },
-                        { text: 'Small Bank', link: '/small-bank' },
-                      ],
-                    },
-                    {
-                      label: 'Loan',
-                      href: '/loan',
-                      submenu: [
-                        { text: 'Get loan', link: '/loan' },
-                        {
-                          text: 'Loan Application',
-                          link: '/loan-details',
-                          submenu: [
-                            { text: 'Step 01', link: '/loan-details' },
-                            { text: 'Step 02', link: '/personal-details' },
-                            { text: 'Step 03', link: '/document-upload' },
-                          ],
-                        },
-                      ],
-                    },
-                    {
-                      label: 'Job Pages',
-                      href: '/career',
-                      submenu: [
-                        { text: 'Career', link: '/career' },
-                        { text: 'Jobs', link: '/jobs' },
-                        { text: 'Job Application', link: '/job-application' },
-                      ],
-                    },
-                    {
-                      label: 'Pages',
-                      href: '/card',
-                      submenu: [
-                        { text: 'Cards', link: '/card' },
-                        { text: 'About Us', link: '/about-us' },
-                        { text: 'Contact Us', link: '/contact-us' },
-                        { text: '404 Error', link: '/error' },
-                      ],
-                    },
-                    {
-                      label: 'Blog',
-                      href: '/blog-listing',
-                      submenu: [
-                        { text: 'Blog Listing', link: '/blog-listing' },
-                        { text: 'Blog Details', link: '/blog-details' },
-                      ],
-                    },
-                  ].map((item, idx) => (
+                  {navigationItems.map((item: NavigationItem, idx: number) => (
                     <li key={idx} className="nav-item dropdown submenu">
                       <Link
                         href={item.href}
-                        className="nav-link dropdown-toggle"
+                        className={`nav-link dropdown-toggle ${
+                          isActiveRoute(item.href, item.submenu) ? 'active' : ''
+                        }`}
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded={openDropdown === item.label}
-                        onClick={(e) => {
+                        onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                           if (isMobile) {
                             e.preventDefault();
                             handleDropdownToggle(item.label);
@@ -456,6 +254,13 @@ const ContactUs = () => {
                         aria-hidden="true"
                         onClick={() => handleDropdownToggle(item.label)}
                         style={{ cursor: 'pointer' }}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e: React.KeyboardEvent) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            handleDropdownToggle(item.label);
+                          }
+                        }}
                       ></i>
 
                       <ul
@@ -463,7 +268,7 @@ const ContactUs = () => {
                           openDropdown === item.label ? 'show' : ''
                         }`}
                       >
-                        {item.submenu?.map((sub, i) => (
+                        {item.submenu?.map((sub: SubmenuItem, i: number) => (
                           <li
                             key={i}
                             className={`nav-item ${
@@ -472,8 +277,15 @@ const ContactUs = () => {
                           >
                             <Link
                               href={sub.link}
-                              className="nav-link"
-                              onClick={(e) => {
+                              className={`nav-link ${
+                                isActiveSubmenuItem(sub.link) ||
+                                hasActiveChild(sub.submenu)
+                                  ? 'active'
+                                  : ''
+                              }`}
+                              onClick={(
+                                e: React.MouseEvent<HTMLAnchorElement>
+                              ) => {
                                 if (isMobile && sub.submenu) {
                                   e.preventDefault();
                                   handleDropdownToggle(
@@ -495,6 +307,15 @@ const ContactUs = () => {
                                     )
                                   }
                                   style={{ cursor: 'pointer' }}
+                                  role="button"
+                                  tabIndex={0}
+                                  onKeyDown={(e: React.KeyboardEvent) => {
+                                    if (e.key === 'Enter' || e.key === ' ') {
+                                      handleDropdownToggle(
+                                        `${item.label}-${sub.text}`
+                                      );
+                                    }
+                                  }}
                                 ></i>
                                 <ul
                                   className={`dropdown-menu ${
@@ -503,16 +324,22 @@ const ContactUs = () => {
                                       : ''
                                   }`}
                                 >
-                                  {sub.submenu.map((deep, j) => (
-                                    <li key={j} className="nav-item">
-                                      <Link
-                                        href={deep.link}
-                                        className="nav-link"
-                                      >
-                                        {deep.text}
-                                      </Link>
-                                    </li>
-                                  ))}
+                                  {sub.submenu.map(
+                                    (deep: NestedSubmenuItem, j: number) => (
+                                      <li key={j} className="nav-item">
+                                        <Link
+                                          href={deep.link}
+                                          className={`nav-link ${
+                                            isActiveSubmenuItem(deep.link)
+                                              ? 'active'
+                                              : ''
+                                          }`}
+                                        >
+                                          {deep.text}
+                                        </Link>
+                                      </li>
+                                    )
+                                  )}
                                 </ul>
                               </>
                             )}
@@ -527,29 +354,33 @@ const ContactUs = () => {
                   className="theme-btn theme-btn-outlined_alt"
                   href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Buy Banca
                 </Link>
 
                 {/* Dark Mode Toggle */}
                 <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
-                  <label htmlFor="something" className="tab-btn tab-btns">
+                  <label
+                    htmlFor="darkModeToggleV3"
+                    className="tab-btn tab-btns"
+                  >
                     <IoMoonOutline />
                   </label>
-                  <label htmlFor="something" className="tab-btn">
+                  <label htmlFor="darkModeToggleV3" className="tab-btn">
                     <IoSunnyOutline />
                   </label>
                   <label
-                    className={`ball`}
+                    className="ball"
                     style={{
-                      left: theme === 'body_dark' ? 3 : 26
+                      left: theme === 'body_dark' ? 3 : 26,
                     }}
-                    htmlFor="something"
+                    htmlFor="darkModeToggleV3"
                   ></label>
                   <input
                     type="checkbox"
-                    name="something"
-                    id="something"
+                    name="darkModeToggleV3"
+                    id="darkModeToggleV3"
                     className="dark_mode_switcher"
                     checked={theme === 'body_dark'}
                     onChange={toggleTheme}

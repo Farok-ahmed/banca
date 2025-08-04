@@ -5,12 +5,14 @@ import Link from 'next/link';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 import { useState } from 'react';
 import { useTheme } from '@/contextAPi/ThemeContext';
+import { usePathname } from 'next/navigation';
 
 const Jobspage = () => {
   const [sortOption, setSortOption] = useState('SortBy Newest');
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -25,6 +27,105 @@ const Jobspage = () => {
   const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSortOption(e.target.value);
   };
+
+  // Check if current route is active
+  const isActive = (link: string): boolean => {
+    // Exact match for home page
+    if (link === '/' && pathname === '/') {
+      return true;
+    }
+    // For other pages, check if pathname matches exactly
+    if (link !== '/' && pathname === link) {
+      return true;
+    }
+    return false;
+  };
+
+  // Define types for menu structure
+  interface SubMenuItem {
+    text: string;
+    link: string;
+    submenu?: SubMenuItem[];
+  }
+
+  // Check if any submenu item is active (for parent menu highlighting)
+  const isParentActive = (submenu: SubMenuItem[]): boolean => {
+    return submenu.some((item: SubMenuItem) => {
+      if (isActive(item.link)) return true;
+      if (item.submenu) {
+        return item.submenu.some((subItem: SubMenuItem) =>
+          isActive(subItem.link)
+        );
+      }
+      return false;
+    });
+  };
+
+  // Define menu items with proper typing
+  interface MenuItem {
+    label: string;
+    href: string;
+    submenu: SubMenuItem[];
+  }
+
+  const menuItems: MenuItem[] = [
+    {
+      label: 'Home',
+      href: '/',
+      submenu: [
+        { text: 'Smart Finance', link: '/' },
+        { text: 'Loan Company', link: '/index-company' },
+        { text: 'Mobile App', link: '/mobile-app' },
+        { text: 'Simple Banca', link: '/simple-banca' },
+        { text: 'Loan Steps', link: '/loan-steps' },
+        { text: 'Finance Sass App', link: '/finance-sass-app' },
+        { text: 'Small Bank', link: '/small-bank' },
+      ],
+    },
+    {
+      label: 'Loan',
+      href: '/loan',
+      submenu: [
+        { text: 'Get loan', link: '/loan' },
+        {
+          text: 'Loan Application',
+          link: '/loan-details',
+          submenu: [
+            { text: 'Step 01', link: '/loan-details' },
+            { text: 'Step 02', link: '/personal-details' },
+            { text: 'Step 03', link: '/document-upload' },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'Job Pages',
+      href: '/career',
+      submenu: [
+        { text: 'Career', link: '/career' },
+        { text: 'Jobs', link: '/jobs' },
+        { text: 'Job Application', link: '/job-application' },
+      ],
+    },
+    {
+      label: 'Pages',
+      href: '/card',
+      submenu: [
+        { text: 'Cards', link: '/card' },
+        { text: 'About Us', link: '/about-us' },
+        { text: 'Contact Us', link: '/contact-us' },
+        { text: '404 Error', link: '/error' },
+      ],
+    },
+    {
+      label: 'Blog',
+      href: '/blog-listing',
+      submenu: [
+        { text: 'Blog Listing', link: '/blog-listing' },
+        { text: 'Blog Details', link: '/blog-details' },
+      ],
+    },
+  ];
 
   return (
     <div>
@@ -98,7 +199,6 @@ const Jobspage = () => {
                   width={90}
                   height={30}
                   src="/img/logo/Logo-2.png"
-                  // srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
               </Link>
@@ -126,205 +226,30 @@ const Jobspage = () => {
                 </span>
               </button>
 
-              {/* <div
-                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
-                id="navbarSupportedContent"
-              >
-                <ul className="navbar-nav menu ms-auto">
-                  
-                  {[
-                    {
-                      label: 'Home',
-                      href: '/',
-                      submenu: [
-                        'Smart Finance',
-                        'Loan Company',
-                        'Mobile App',
-                        'Simple Banca',
-                        'Loan Steps',
-                        'Finance Sass App',
-                        'Small Bank',
-                      ],
-                      subhref: [
-                        '/',
-                        '/index-company',
-                        '/mobile-app',
-                        '/simple-banca',
-                        '/loan-steps',
-                        '/finance-sass-app',
-                        '/small-bank',
-                      ],
-                    },
-                    {
-                      label: 'Loan',
-                      href: '/loan',
-                      submenu: ['Get loan', 'Loan Application'],
-                      subhref: ['/loan', '/loan-details'],
-                    },
-                    {
-                      label: 'Job Pages',
-                      href: '/career',
-                      submenu: ['Career', 'Jobs', 'Job Application'],
-                      subhref: ['/career', '/jobs', '/job-application'],
-                    },
-                    {
-                      label: 'Pages',
-                      href: '/card',
-                      submenu: ['Cards', 'About Us', 'Contact Us', '404 Error'],
-                      subhref: ['/card', '/about-us', '/contact-us', '/error'],
-                    },
-                    {
-                      label: 'Blog',
-                      href: '/blog-listing',
-                      submenu: ['Blog Listing', 'Blog Details'],
-                      subhref: ['/blog-listing', '/blog-details'],
-                    },
-                  ].map((item, idx) => (
-                    <li key={idx} className="nav-item dropdown submenu">
-                      <Link
-                        href={item.href}
-                        className="nav-link dropdown-toggle"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded={openDropdown === item.label}
-                        onClick={(e) => {
-                          if (isMobile) {
-                            e.preventDefault();
-                            handleDropdownToggle(item.label);
-                          }
-                        }}
-                      >
-                        {item.label}
-                      </Link>
-                      <i
-                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
-                        aria-hidden="true"
-                        onClick={() => handleDropdownToggle(item.label)}
-                        style={{ cursor: 'pointer' }}
-                      ></i>
-
-                      <ul
-                        className={`dropdown-menu ${
-                          openDropdown === item.label ? 'show' : ''
-                        }`}
-                      >
-                        {item.submenu.map((text, i) => (
-                          <li className="nav-item" key={i}>
-                            <Link href={item.subhref[i]} className="nav-link">
-                              {text}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  className="theme-btn"
-                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
-                  target="_blank"
-                >
-                  Buy Banca
-                </Link>
-
-                
-                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
-                  <label htmlFor="something" className="tab-btn tab-btns">
-                    <IoMoonOutline />
-                  </label>
-                  <label htmlFor="something" className="tab-btn">
-                    <IoSunnyOutline />
-                  </label>
-                  <label
-                    className={`ball ${
-                      theme === 'dark' ? 'ball-left' : 'ball-right'
-                    }`}
-                    htmlFor="something"
-                  ></label>
-                  <input
-                    type="checkbox"
-                    name="something"
-                    id="something"
-                    className="dark_mode_switcher"
-                    checked={theme === 'dark'}
-                    onChange={toggleTheme}
-                  />
-                </div>
-              </div> */}
               <div
                 className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
-                  {[
-                    {
-                      label: 'Home',
-                      href: '/',
-                      submenu: [
-                        { text: 'Smart Finance', link: '/' },
-                        { text: 'Loan Company', link: '/index-company' },
-                        { text: 'Mobile App', link: '/mobile-app' },
-                        { text: 'Simple Banca', link: '/simple-banca' },
-                        { text: 'Loan Steps', link: '/loan-steps' },
-                        { text: 'Finance Sass App', link: '/finance-sass-app' },
-                        { text: 'Small Bank', link: '/small-bank' },
-                      ],
-                    },
-                    {
-                      label: 'Loan',
-                      href: '/loan',
-                      submenu: [
-                        { text: 'Get loan', link: '/loan' },
-                        {
-                          text: 'Loan Application',
-                          link: '/loan-details',
-                          submenu: [
-                            { text: 'Step 01', link: '/loan-details' },
-                            { text: 'Step 02', link: '/personal-details' },
-                            { text: 'Step 03', link: '/document-upload' },
-                          ],
-                        },
-                      ],
-                    },
-                    {
-                      label: 'Job Pages',
-                      href: '/career',
-                      submenu: [
-                        { text: 'Career', link: '/career' },
-                        { text: 'Jobs', link: '/jobs' },
-                        { text: 'Job Application', link: '/job-application' },
-                      ],
-                    },
-                    {
-                      label: 'Pages',
-                      href: '/card',
-                      submenu: [
-                        { text: 'Cards', link: '/card' },
-                        { text: 'About Us', link: '/about-us' },
-                        { text: 'Contact Us', link: '/contact-us' },
-                        { text: '404 Error', link: '/error' },
-                      ],
-                    },
-                    {
-                      label: 'Blog',
-                      href: '/blog-listing',
-                      submenu: [
-                        { text: 'Blog Listing', link: '/blog-listing' },
-                        { text: 'Blog Details', link: '/blog-details' },
-                      ],
-                    },
-                  ].map((item, idx) => (
-                    <li key={idx} className="nav-item dropdown submenu">
+                  {menuItems.map((item: MenuItem, idx: number) => (
+                    <li
+                      key={idx}
+                      className={`nav-item dropdown submenu ${
+                        isParentActive(item.submenu) ? 'active' : ''
+                      }`}
+                    >
                       <Link
                         href={item.href}
-                        className="nav-link dropdown-toggle"
+                        className={`nav-link dropdown-toggle ${
+                          isActive(item.href) || isParentActive(item.submenu)
+                            ? 'active'
+                            : ''
+                        }`}
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded={openDropdown === item.label}
-                        onClick={(e) => {
+                        onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                           if (isMobile) {
                             e.preventDefault();
                             handleDropdownToggle(item.label);
@@ -345,17 +270,21 @@ const Jobspage = () => {
                           openDropdown === item.label ? 'show' : ''
                         }`}
                       >
-                        {item.submenu?.map((sub, i) => (
+                        {item.submenu?.map((sub: SubMenuItem, i: number) => (
                           <li
                             key={i}
                             className={`nav-item ${
                               sub.submenu ? 'dropdown submenu' : ''
-                            }`}
+                            } ${isActive(sub.link) ? 'active' : ''}`}
                           >
                             <Link
                               href={sub.link}
-                              className="nav-link"
-                              onClick={(e) => {
+                              className={`nav-link ${
+                                isActive(sub.link) ? 'active' : ''
+                              }`}
+                              onClick={(
+                                e: React.MouseEvent<HTMLAnchorElement>
+                              ) => {
                                 if (isMobile && sub.submenu) {
                                   e.preventDefault();
                                   handleDropdownToggle(
@@ -385,16 +314,25 @@ const Jobspage = () => {
                                       : ''
                                   }`}
                                 >
-                                  {sub.submenu.map((deep, j) => (
-                                    <li key={j} className="nav-item">
-                                      <Link
-                                        href={deep.link}
-                                        className="nav-link"
+                                  {sub.submenu.map(
+                                    (deep: SubMenuItem, j: number) => (
+                                      <li
+                                        key={j}
+                                        className={`nav-item ${
+                                          isActive(deep.link) ? 'active' : ''
+                                        }`}
                                       >
-                                        {deep.text}
-                                      </Link>
-                                    </li>
-                                  ))}
+                                        <Link
+                                          href={deep.link}
+                                          className={`nav-link ${
+                                            isActive(deep.link) ? 'active' : ''
+                                          }`}
+                                        >
+                                          {deep.text}
+                                        </Link>
+                                      </li>
+                                    )
+                                  )}
                                 </ul>
                               </>
                             )}
@@ -424,7 +362,7 @@ const Jobspage = () => {
                   <label
                     className={`ball`}
                     style={{
-                      left: theme === 'body_dark' ? 3 : 26
+                      left: theme === 'body_dark' ? 3 : 26,
                     }}
                     htmlFor="something"
                   ></label>
