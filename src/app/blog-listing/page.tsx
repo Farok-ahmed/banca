@@ -186,7 +186,7 @@ const BlogListing = () => {
                     <li key={idx} className="nav-item dropdown submenu">
                       <Link
                         href={item.href}
-                        className="nav-link dropdown-toggle active"
+                        className="nav-link dropdown-toggle"
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-haspopup="true"
@@ -363,9 +363,9 @@ const BlogListing = () => {
 
                     <div className="popular-tags d-flex flex-wrap justify-content-center align-items-center mt-20">
                       <span>Popular Tags:</span>
-                      <a href="#">Business</a>
-                      <a href="#">Financial</a>
-                      <a href="#">Case Study</a>
+                      <Link href="#">Business</Link>
+                      <Link href="#">Financial</Link>
+                      <Link href="#">Case Study</Link>
                     </div>
                   </div>
                 </div>
@@ -396,9 +396,9 @@ const BlogListing = () => {
                         </div>
                         <div className="blog-content">
                           <h4>
-                            <a href="blog-details.html">
+                            <Link href="/blog-details">
                               Five Steps to Buying for Your Home Loan
-                            </a>
+                            </Link>
                           </h4>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
@@ -443,9 +443,9 @@ const BlogListing = () => {
                         </div>
                         <div className="blog-content">
                           <h4>
-                            <a href="blog-details.html">
+                            <Link href="/blog-details">
                               How To Save Enough Money To Buy A Home
-                            </a>
+                            </Link>
                           </h4>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
@@ -490,9 +490,9 @@ const BlogListing = () => {
                         </div>
                         <div className="blog-content">
                           <h4>
-                            <a href="blog-details.html">
+                            <Link href="/blog-details">
                               Create A WordPress Multi Step Form
-                            </a>
+                            </Link>
                           </h4>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
@@ -537,9 +537,9 @@ const BlogListing = () => {
                         </div>
                         <div className="blog-content">
                           <h4>
-                            <a href="blog-details.html">
+                            <Link href="/blog-details">
                               What Happens to Your Debt When You Die?
-                            </a>
+                            </Link>
                           </h4>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
@@ -584,9 +584,9 @@ const BlogListing = () => {
                         </div>
                         <div className="blog-content">
                           <h4>
-                            <a href="blog-details.html">
+                            <Link href="/blog-details">
                               How Do Banca Banks Make Money?
-                            </a>
+                            </Link>
                           </h4>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
@@ -631,9 +631,9 @@ const BlogListing = () => {
                         </div>
                         <div className="blog-content">
                           <h4>
-                            <a href="blog-details.html">
+                            <Link href="/blog-details">
                               Finance Your Property in a Market
-                            </a>
+                            </Link>
                           </h4>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
@@ -678,9 +678,9 @@ const BlogListing = () => {
                         </div>
                         <div className="blog-content">
                           <h4>
-                            <a href="blog-details.html">
+                            <Link href="/blog-details">
                               How our revamped API can help your finances
-                            </a>
+                            </Link>
                           </h4>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
@@ -725,9 +725,9 @@ const BlogListing = () => {
                         </div>
                         <div className="blog-content">
                           <h4>
-                            <a href="blog-details.html">
+                            <Link href="/blog-details">
                               Linking your finances and your business
-                            </a>
+                            </Link>
                           </h4>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
@@ -772,9 +772,9 @@ const BlogListing = () => {
                         </div>
                         <div className="blog-content">
                           <h4>
-                            <a href="blog-details.html">
+                            <Link href="/blog-details">
                               Why Set Impossible Goals for 2021?
-                            </a>
+                            </Link>
                           </h4>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
@@ -819,9 +819,9 @@ const BlogListing = () => {
                         </div>
                         <div className="blog-content">
                           <h4>
-                            <a href="blog-details.html">
+                            <Link href="/blog-details">
                               How Banca elevated the design to code.
-                            </a>
+                            </Link>
                           </h4>
                           <p>
                             Cup of char brilliant horse play bro bread sloshed
@@ -856,21 +856,21 @@ const BlogListing = () => {
                       <div className="pagination-widget">
                         <ul>
                           <li>
-                            <a className="active" href="#">
+                            <Link className="active" href="#">
                               1
-                            </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">2</a>
+                            <Link href="#">2</Link>
                           </li>
                           <li>
-                            <a href="#">3</a>
+                            <Link href="#">3</Link>
                           </li>
                           <li>
-                            <a href="#">
+                            <Link href="#">
                               {' '}
                               <i className="arrow_carrot-right "></i>{' '}
-                            </a>
+                            </Link>
                           </li>
                         </ul>
                       </div>
@@ -901,7 +901,7 @@ const BlogListing = () => {
                   <div className="widget-social mt-40">
                     <div className="row text-center gx-3 gy-3 gy-md-0">
                       <div className="col-md-4">
-                        <a href="#">
+                        <Link href="#">
                           <Image
                             width={30}
                             height={30}
@@ -910,10 +910,10 @@ const BlogListing = () => {
                           />
                           <h6>815.5K</h6>
                           <span>Fans</span>
-                        </a>
+                        </Link>
                       </div>
                       <div className="col-md-4">
-                        <a href="#">
+                        <Link href="#">
                           <Image
                             width={30}
                             height={30}
@@ -922,10 +922,10 @@ const BlogListing = () => {
                           />
                           <h6>107.2K</h6>
                           <span>Followers</span>
-                        </a>
+                        </Link>
                       </div>
                       <div className="col-md-4">
-                        <a href="#">
+                        <Link href="#">
                           <Image
                             width={30}
                             height={30}
@@ -934,7 +934,7 @@ const BlogListing = () => {
                           />
                           <h6>90.6K</h6>
                           <span>Subscribers</span>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
@@ -994,9 +994,9 @@ const BlogListing = () => {
                         />
                         <div className="news-content">
                           <h6>
-                            <a href="#">
+                            <Link href="#">
                               Is It Worth Buying A Premium Form Builder.
-                            </a>
+                            </Link>
                           </h6>
                           <div className="post-date">
                             <Image
@@ -1018,7 +1018,7 @@ const BlogListing = () => {
                         />
                         <div className="news-content">
                           <h6>
-                            <a href="#">10 classNameic Summer Vacations</a>
+                            <Link href="#">10 classNameic Summer Vacations</Link>
                           </h6>
                           <div className="post-date">
                             <Image
@@ -1040,9 +1040,9 @@ const BlogListing = () => {
                         />
                         <div className="news-content">
                           <h6>
-                            <a href="#">
+                            <Link href="#">
                               How To Easily Add weForms Widget Using Elementor
-                            </a>
+                            </Link>
                           </h6>
                           <div className="post-date">
                             <Image
@@ -1064,9 +1064,9 @@ const BlogListing = () => {
                         />
                         <div className="news-content">
                           <h6>
-                            <a href="#">
+                            <Link href="#">
                               How to Create GDPR Consent Form In WordPress
-                            </a>
+                            </Link>
                           </h6>
                           <div className="post-date">
                             <Image
