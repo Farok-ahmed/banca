@@ -10,6 +10,7 @@ import 'nouislider/dist/nouislider.css';
 import FeatureSlider from '@/components/SimpleAccordion';
 import SimplebancaSlider from '@/components/SimplebancaSlider';
 import { useTheme } from '@/contextAPi/ThemeContext';
+import { usePathname } from 'next/navigation';
 
 interface HTMLDivElementWithSlider extends HTMLDivElement {
   noUiSlider?: noUiSlider.API;
@@ -21,6 +22,7 @@ const SampleBanca = () => {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const pathname = usePathname()
 
   const [amount, setAmount] = useState(5000);
   const [period, setPeriod] = useState(3);
@@ -91,239 +93,141 @@ const SampleBanca = () => {
 
   type SubmenuItem = [string, string] | [string, string, [string, string][]];
 
+  // Helper functions for active route detection
+  const isActiveRoute = (href: string): boolean => {
+    if (href === '/') {
+      return pathname === '/';
+    }
+    return pathname === href || pathname.startsWith(href);
+  };
+
+  const isSubmenuActive = (submenu: SubmenuItem[]): boolean => {
+    return submenu.some((sub) => {
+      if (Array.isArray(sub[2])) {
+        const childItems = sub[2] as [string, string][];
+        return childItems.some((child) => isActiveRoute(child[0]));
+      }
+      return isActiveRoute(sub[0]);
+    });
+  };
+
+  // Menu items configuration
+  const menuItems = [
+    {
+      label: 'Home',
+      href: '/',
+      submenu: [
+        ['/', 'Smart Finance'],
+        ['/index-company', 'Loan Company'],
+        ['/mobile-app', 'Mobile App'],
+        ['/simple-banca', 'Simple Banca'],
+        ['/loan-steps', 'Loan Steps'],
+        ['/finance-sass-app', 'Finance Sass App'],
+        ['/small-bank', 'Small Bank'],
+      ] as SubmenuItem[],
+    },
+    {
+      label: 'Loan',
+      href: '/loan',
+      submenu: [
+        ['/loan', 'Get loan'],
+        [
+          '/loan-details',
+          'Loan Application',
+          [
+            ['/loan-details', 'Step 01'],
+            ['/personal-details', 'Step 02'],
+            ['/document-upload', 'Step 03'],
+          ],
+        ],
+      ] as SubmenuItem[],
+    },
+    {
+      label: 'Job Pages',
+      href: '/career',
+      submenu: [
+        ['/career', 'Career'],
+        ['/jobs', 'Jobs'],
+        ['/job-application', 'Job Application'],
+      ] as SubmenuItem[],
+    },
+    {
+      label: 'Pages',
+      href: '/card',
+      submenu: [
+        ['/card', 'Cards'],
+        ['/about-us', 'About Us'],
+        ['/contact-us', 'Contact Us'],
+        ['/error', '404 Error'],
+      ] as SubmenuItem[],
+    },
+    {
+      label: 'Blog',
+      href: '/blog-listing',
+      submenu: [
+        ['/blog-listing', 'Blog Listing'],
+        ['/blog-details', 'Blog Details'],
+      ] as SubmenuItem[],
+    },
+  ];
+  
+
   return (
     <div>
       <header className="header">
-        <div className="header-menu header-menu-2" id="sticky">
-          <nav className="navbar navbar-expand-lg">
-            <div className="container">
-              <Link className="navbar-brand" href="/">
-                <Image
-                  width={110}
-                  height={35}
-                  src="/img/logo/Logo-2.png"
-                  alt="logo"
-                />
-              </Link>
+      <div className="header-menu header-menu-2" id="sticky">
+        <nav className="navbar navbar-expand-lg">
+          <div className="container">
+            {/* Logo */}
+            <Link className="navbar-brand" href="/">
+              <Image
+                width={110}
+                height={35}
+                src="/img/logo/Logo-2.png"
+                alt="logo"
+                priority
+              />
+            </Link>
 
-              {/* Hamburger Toggle */}
-              <button
-                className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
-                type="button"
-                onClick={handleMenuToggle}
-                aria-expanded={menuOpen}
-                aria-label="Toggle navigation"
-              >
-                <span className="menu_toggle">
-                  <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </span>
-                  <span
-                    className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}
-                  >
-                    <span></span>
-                    <span></span>
-                  </span>
+            {/* Hamburger Toggle */}
+            <button
+              className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
+              type="button"
+              onClick={handleMenuToggle}
+              aria-expanded={menuOpen}
+              aria-label="Toggle navigation"
+            >
+              <span className="menu_toggle">
+                <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
+                  <span></span>
+                  <span></span>
+                  <span></span>
                 </span>
-              </button>
-
-              {/* <div
-                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
-                id="navbarSupportedContent"
-              >
-                <ul className="navbar-nav menu ms-auto">
-                  
-                  {[
-                    {
-                      label: 'Home',
-                      href: '/',
-                      submenu: [
-                        'Smart Finance',
-                        'Loan Company',
-                        'Mobile App',
-                        'Simple Banca',
-                        'Loan Steps',
-                        'Finance Sass App',
-                        'Small Bank',
-                      ],
-                      subhref: [
-                        '/',
-                        '/index-company',
-                        '/mobile-app',
-                        '/simple-banca',
-                        '/loan-steps',
-                        '/finance-sass-app',
-                        '/small-bank',
-                      ],
-                    },
-                    {
-                      label: 'Loan',
-                      href: '/loan',
-                      submenu: ['Get loan', 'Loan Application'],
-                      subhref: ['/loan', '/loan-details'],
-                    },
-                    {
-                      label: 'Job Pages',
-                      href: '/career',
-                      submenu: ['Career', 'Jobs', 'Job Application'],
-                      subhref: ['/career', '/jobs', '/job-application'],
-                    },
-                    {
-                      label: 'Pages',
-                      href: '/card',
-                      submenu: ['Cards', 'About Us', 'Contact Us', '404 Error'],
-                      subhref: ['/card', '/about-us', '/contact-us', '/error'],
-                    },
-                    {
-                      label: 'Blog',
-                      href: '/blog-listing',
-                      submenu: ['Blog Listing', 'Blog Details'],
-                      subhref: ['/blog-listing', '/blog-details'],
-                    },
-                  ].map((item, idx) => (
-                    <li key={idx} className="nav-item dropdown submenu">
-                      <Link
-                        href={item.href}
-                        className="nav-link dropdown-toggle"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded={openDropdown === item.label}
-                        onClick={(e) => {
-                          if (isMobile) {
-                            e.preventDefault();
-                            handleDropdownToggle(item.label);
-                          }
-                        }}
-                      >
-                        {item.label}
-                      </Link>
-                      <i
-                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
-                        aria-hidden="true"
-                        onClick={() => handleDropdownToggle(item.label)}
-                        style={{ cursor: 'pointer' }}
-                      ></i>
-
-                      <ul
-                        className={`dropdown-menu ${
-                          openDropdown === item.label ? 'show' : ''
-                        }`}
-                      >
-                        {item.submenu.map((text, i) => (
-                          <li className="nav-item" key={i}>
-                            <Link href={item.subhref[i]} className="nav-link">
-                              {text}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  className="theme-btn"
-                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
-                  target="_blank"
+                <span
+                  className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}
                 >
-                  Buy Banca
-                </Link>
+                  <span></span>
+                  <span></span>
+                </span>
+              </span>
+            </button>
 
-                
-                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
-                  <label htmlFor="something" className="tab-btn tab-btns">
-                    <IoMoonOutline />
-                  </label>
-                  <label htmlFor="something" className="tab-btn">
-                    <IoSunnyOutline />
-                  </label>
-                  <label
-                    className={`ball ${
-                      theme === 'dark' ? 'ball-left' : 'ball-right'
-                    }`}
-                    htmlFor="something"
-                  ></label>
-                  <input
-                    type="checkbox"
-                    name="something"
-                    id="something"
-                    className="dark_mode_switcher"
-                    checked={theme === 'dark'}
-                    onChange={toggleTheme}
-                  />
-                </div>
-              </div> */}
+            {/* Navigation Menu */}
+            <div
+              className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav menu ms-auto">
+                {menuItems.map((item, idx) => {
+                  const isMainActive = isActiveRoute(item.href);
+                  const isAnySubmenuActive = isSubmenuActive(item.submenu);
+                  const shouldShowActive = isMainActive || isAnySubmenuActive;
 
-              <div
-                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
-                id="navbarSupportedContent"
-              >
-                <ul className="navbar-nav menu ms-auto">
-                  {[
-                    {
-                      label: 'Home',
-                      href: '/',
-                      submenu: [
-                        ['/', 'Smart Finance'],
-                        ['/index-company', 'Loan Company'],
-                        ['/mobile-app', 'Mobile App'],
-                        ['/simple-banca', 'Simple Banca'],
-                        ['/loan-steps', 'Loan Steps'],
-                        ['/finance-sass-app', 'Finance Sass App'],
-                        ['/small-bank', 'Small Bank'],
-                      ],
-                    },
-                    {
-                      label: 'Loan',
-                      href: '/loan',
-                      submenu: [
-                        ['/loan', 'Get loan'],
-                        [
-                          '/loan-details',
-                          'Loan Application',
-                          [
-                            ['/loan-details', 'Step 01'],
-                            ['/personal-details', 'Step 02'],
-                            ['/document-upload', 'Step 03'],
-                          ],
-                        ],
-                      ],
-                    },
-                    {
-                      label: 'Job Pages',
-                      href: '/career',
-                      submenu: [
-                        ['/career', 'Career'],
-                        ['/jobs', 'Jobs'],
-                        ['/job-application', 'Job Application'],
-                      ],
-                    },
-                    {
-                      label: 'Pages',
-                      href: '/card',
-                      submenu: [
-                        ['/card', 'Cards'],
-                        ['/about-us', 'About Us'],
-                        ['/contact-us', 'Contact Us'],
-                        ['/error', '404 Error'],
-                      ],
-                    },
-                    {
-                      label: 'Blog',
-                      href: '/blog-listing',
-                      submenu: [
-                        ['/blog-listing', 'Blog Listing'],
-                        ['/blog-details', 'Blog Details'],
-                      ],
-                    },
-                  ].map((item, idx) => (
+                  return (
                     <li key={idx} className="nav-item dropdown submenu">
                       <Link
                         href={item.href}
-                        className="nav-link dropdown-toggle"
+                        className={`nav-link dropdown-toggle ${shouldShowActive ? 'active' : ''}`}
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-haspopup="true"
@@ -337,29 +241,38 @@ const SampleBanca = () => {
                       >
                         {item.label}
                       </Link>
+                      
                       <i
                         className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
                         aria-hidden="true"
                         onClick={() => handleDropdownToggle(item.label)}
                         style={{ cursor: 'pointer' }}
-                      ></i>
+                      />
 
                       <ul
                         className={`dropdown-menu ${
                           openDropdown === item.label ? 'show' : ''
                         }`}
                       >
-                        {(item.submenu as SubmenuItem[]).map((sub, subIdx) => {
+                        {item.submenu.map((sub, subIdx) => {
                           if (Array.isArray(sub[2])) {
+                            // Handle nested submenu
                             const childItems = sub[2] as [string, string][];
+                            const isParentActive = isActiveRoute(sub[0]);
+                            const isAnyChildActive = childItems.some((child) =>
+                              isActiveRoute(child[0])
+                            );
+
                             return (
                               <li
                                 className="nav-item dropdown submenu"
                                 key={subIdx}
                               >
                                 <Link
-                                  href={sub[0] as string}
-                                  className="nav-link dropdown-toggle"
+                                  href={sub[0]}
+                                  className={`nav-link dropdown-toggle ${
+                                    isParentActive || isAnyChildActive ? 'active' : ''
+                                  }`}
                                   onClick={(e) => {
                                     if (isMobile) {
                                       e.preventDefault();
@@ -373,7 +286,9 @@ const SampleBanca = () => {
                                     <li className="nav-item" key={i}>
                                       <Link
                                         href={child[0]}
-                                        className="nav-link"
+                                        className={`nav-link ${
+                                          isActiveRoute(child[0]) ? 'active' : ''
+                                        }`}
                                       >
                                         {child[1]}
                                       </Link>
@@ -383,11 +298,14 @@ const SampleBanca = () => {
                               </li>
                             );
                           } else {
+                            // Handle regular submenu item
                             return (
                               <li className="nav-item" key={subIdx}>
                                 <Link
-                                  href={sub[0] as string}
-                                  className="nav-link"
+                                  href={sub[0]}
+                                  className={`nav-link ${
+                                    isActiveRoute(sub[0]) ? 'active' : ''
+                                  }`}
                                 >
                                   {sub[1]}
                                 </Link>
@@ -397,46 +315,49 @@ const SampleBanca = () => {
                         })}
                       </ul>
                     </li>
-                  ))}
-                </ul>
+                  );
+                })}
+              </ul>
 
-                <Link
-                  className="theme-btn"
-                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
-                  target="_blank"
-                >
-                  Buy Banca
-                </Link>
+              {/* Buy Button */}
+              <Link
+                className="theme-btn"
+                href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Buy Banca
+              </Link>
 
-                {/* Dark Mode Toggle */}
-                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
-                  <label htmlFor="something" className="tab-btn tab-btns">
-                    <IoMoonOutline />
-                  </label>
-                  <label htmlFor="something" className="tab-btn">
-                    <IoSunnyOutline />
-                  </label>
-                  <label
-                    className={`ball`}
-                    htmlFor="something"
-                    style={{
-                      left: theme === 'body_dark' ? 3 : 26,
-                    }}
-                  ></label>
-                  <input
-                    type="checkbox"
-                    name="something"
-                    id="something"
-                    className="dark_mode_switcher"
-                    checked={theme === 'body_dark'}
-                    onChange={toggleTheme}
-                  />
-                </div>
+              {/* Dark Mode Toggle */}
+              <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
+                <label htmlFor="darkModeToggle" className="tab-btn tab-btns">
+                  <IoMoonOutline />
+                </label>
+                <label htmlFor="darkModeToggle" className="tab-btn">
+                  <IoSunnyOutline />
+                </label>
+                <label
+                  className="ball"
+                  htmlFor="darkModeToggle"
+                  style={{
+                    left: theme === 'body_dark' ? 3 : 26,
+                  }}
+                />
+                <input
+                  type="checkbox"
+                  name="darkModeToggle"
+                  id="darkModeToggle"
+                  className="dark_mode_switcher"
+                  checked={theme === 'body_dark'}
+                  onChange={toggleTheme}
+                />
               </div>
             </div>
-          </nav>
-        </div>
-      </header>
+          </div>
+        </nav>
+      </div>
+    </header>
 
       <main>
         <section className="banner-area-3 pt-90" id="banner_animation2">

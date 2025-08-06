@@ -2575,7 +2575,7 @@ header .header-top .header-info-right ul li i {
   font-size: 70px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  color: var(--black_900);
+  color: var(--black_900) !important;
   margin-bottom: 35px;
 }
 .banner-area-6 .banner-content p {
@@ -6327,8 +6327,8 @@ ul.slick-dots li button {
 /*----------------------------------------*/
 .testimonial-slider .slick-arrow {
   position: absolute;
-  top: 50%;
-  transform: translate(-80%, -50%);
+  top: 24% !important;
+  transform: translate(-80%, -50%) !important;
   height: 40px;
   width: 40px;
   background-color: rgba(255, 255, 255, 0.75) !important;
@@ -6438,7 +6438,7 @@ ul.slick-dots li button {
 .testimonial-widget {
   position: relative;
   border-radius: 10px;
-  background-color: var(--bs-white);
+  background-color: var(--bs-white) !important;
   overflow: hidden;
 }
 .testimonial-widget::after {
@@ -11347,7 +11347,7 @@ body.body_dark
 }
 
 .noUi-touch-area {
-  background-color: #fff !important;
+  background-color: #0050b2 !important;
   border-radius: 50%;
 }
 

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import NewsSlider from '@/components/BancaNews';
 import ClientSlider from '@/components/MobileTestimonial';
 import Image from 'next/image';
@@ -7,18 +7,20 @@ import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { useTheme } from '@/contextAPi/ThemeContext';
+import { usePathname } from 'next/navigation';
 
 const MobileApp = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname()
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
 
   const toggleDropdown = (label: string) => {
-    setOpenDropdown(prev => (prev === label ? null : label));
+    setOpenDropdown((prev) => (prev === label ? null : label));
   };
 
   // helper to render caret icon on mobile
@@ -33,13 +35,72 @@ const MobileApp = () => {
       style={{ cursor: 'pointer' }}
     ></i>
   );
+
+  const menuItems = [
+    {
+      label: 'Home',
+      href: '/',
+      sub: [
+        ['/', 'Smart Finance'],
+        ['/index-company', 'Loan Company'],
+        ['/mobile-app', 'Mobile App'],
+        ['/simple-banca', 'Simple Banca'],
+        ['/loan-steps', 'Loan Steps'],
+        ['/finance-sass-app', 'Finance Sass App'],
+        ['/small-bank', 'Small Bank'],
+      ],
+    },
+    {
+      label: 'Loan',
+      href: '/loan',
+      sub: [
+        ['/loan', 'Get Loan'],
+        [
+          '/loan-details',
+          'Loan Application',
+          [
+            ['/loan-details', 'Step 01'],
+            ['/personal-details', 'Step 02'],
+            ['/document-upload', 'Step 03'],
+          ],
+        ],
+      ],
+    },
+    {
+      label: 'Job Pages',
+      href: '/career',
+      sub: [
+        ['/career', 'Career'],
+        ['/jobs', 'Jobs'],
+        ['/job-application', 'Job Application'],
+      ],
+    },
+    {
+      label: 'Pages',
+      href: '/card',
+      sub: [
+        ['/card', 'Cards'],
+        ['/about-us', 'About Us'],
+        ['/contact-us', 'Contact Us'],
+        ['/error', '404 Error'],
+      ],
+    },
+    {
+      label: 'Blog',
+      href: '/blog-listing',
+      sub: [
+        ['/blog-listing', 'Blog Listing'],
+        ['/blog-details', 'Blog Details'],
+      ],
+    },
+  ];
+
   return (
     <div>
       <header className="header">
       <div className="header-menu header-menu-4" id="sticky">
         <nav className="navbar navbar-expand-lg">
           <div className="container">
-            {/* Logo */}
             <Link className="navbar-brand sticky_logo" href="/">
               <Image
                 className="main"
@@ -57,7 +118,6 @@ const MobileApp = () => {
               />
             </Link>
 
-            {/* Hamburger Toggle */}
             <button
               className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
               type="button"
@@ -78,7 +138,6 @@ const MobileApp = () => {
               </span>
             </button>
 
-            {/* Menu */}
             <div
               className={classNames('collapse navbar-collapse right-nav', {
                 show: menuOpen,
@@ -86,104 +145,91 @@ const MobileApp = () => {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav menu ms-auto">
+                {menuItems.map((item, idx) => {
+                  const isActive =
+                    pathname === item.href ||
+                    item.sub.some((subItem) =>
+                      Array.isArray(subItem[2])
+                        ? subItem[2].some(([href]) => pathname === href)
+                        : pathname === subItem[0]
+                    );
 
-                {/* Helper: Dropdown Menu Item */}
-                {[
-                  {
-                    label: 'Home',
-                    href: '/',
-                    sub: [
-                      ['/', 'Smart Finance'],
-                      ['/index-company', 'Loan Company'],
-                      ['/mobile-app', 'Mobile App'],
-                      ['/simple-banca', 'Simple Banca'],
-                      ['/loan-steps', 'Loan Steps'],
-                      ['/finance-sass-app', 'Finance Sass App'],
-                      ['/small-bank', 'Small Bank']
-                    ]
-                  },
-                  {
-                    label: 'Loan',
-                    href: '/loan',
-                    sub: [
-                      ['/loan', 'Get Loan'],
-                      ['/loan-details', 'Loan Application', [
-                        ['/loan-details', 'Step 01'],
-                        ['/personal-details', 'Step 02'],
-                        ['/document-upload', 'Step 03']
-                      ]]
-                    ]
-                  },
-                  {
-                    label: 'Job Pages',
-                    href: '/career',
-                    sub: [
-                      ['/career', 'Career'],
-                      ['/jobs', 'Jobs'],
-                      ['/job-application', 'Job Application']
-                    ]
-                  },
-                  {
-                    label: 'Pages',
-                    href: '/card',
-                    sub: [
-                      ['/card', 'Cards'],
-                      ['/about-us', 'About Us'],
-                      ['/contact-us', 'Contact Us'],
-                      ['/error', '404 Error']
-                    ]
-                  },
-                  {
-                    label: 'Blog',
-                    href: '/blog-listing',
-                    sub: [
-                      ['/blog-listing', 'Blog Listing'],
-                      ['/blog-details', 'Blog Details']
-                    ]
-                  }
-                ].map((item, idx) => (
-                  <li className="nav-item dropdown submenu" key={idx}>
-                    <Link href={item.href} className="nav-link dropdown-toggle">
-                      {item.label}
-                      {renderMobileDropdownIcon(item.label)}
-                    </Link>
+                  return (
+                    <li className="nav-item dropdown submenu" key={idx}>
+                      <Link
+                        href={item.href}
+                        className={classNames('nav-link dropdown-toggle', {
+                          active: isActive,
+                        })}
+                      >
+                        {item.label}
+                        {renderMobileDropdownIcon(item.label)}
+                      </Link>
 
-                    <ul
-                      className={classNames('dropdown-menu', {
-                        show: openDropdown === item.label
-                      })}
-                    >
-                      {item.sub.map((subItem, subIdx) =>
-                        Array.isArray(subItem[2]) ? (
-                          <li className="nav-item dropdown submenu" key={subIdx}>
-                            <Link href="#" className="nav-link dropdown-toggle">
-                              {subItem[1]}
-                              {renderMobileDropdownIcon(`${item.label}-nested-${subIdx}`)}
-                            </Link>
-                            <ul
-                              className={classNames('dropdown-menu', {
-                                show: openDropdown === `${item.label}-nested-${subIdx}`
-                              })}
+                      <ul
+                        className={classNames('dropdown-menu', {
+                          show: openDropdown === item.label,
+                        })}
+                      >
+                        {item.sub.map((subItem, subIdx) =>
+                          Array.isArray(subItem[2]) ? (
+                            <li
+                              className="nav-item dropdown submenu"
+                              key={subIdx}
                             >
-                              {subItem[2].map(([href, label], innerIdx) => (
-                                <li className="nav-item" key={innerIdx}>
-                                  <Link href={href} className="nav-link">{label}</Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </li>
-                        ) : (
-                          <li className="nav-item" key={subIdx}>
-                            <Link href={subItem[0] as string} className="nav-link">{subItem[1]}</Link>
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </li>
-                ))}
+                              <Link
+                                href="#"
+                                className={classNames('nav-link dropdown-toggle', {
+                                  active: subItem[2].some(
+                                    ([href]) => pathname === href
+                                  ),
+                                })}
+                              >
+                                {subItem[1]}
+                                {renderMobileDropdownIcon(
+                                  `${item.label}-nested-${subIdx}`
+                                )}
+                              </Link>
+                              <ul
+                                className={classNames('dropdown-menu', {
+                                  show:
+                                    openDropdown ===
+                                    `${item.label}-nested-${subIdx}`,
+                                })}
+                              >
+                                {subItem[2].map(([href, label], innerIdx) => (
+                                  <li className="nav-item" key={innerIdx}>
+                                    <Link
+                                      href={href}
+                                      className={classNames('nav-link', {
+                                        active: pathname === href,
+                                      })}
+                                    >
+                                      {label}
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
+                            </li>
+                          ) : (
+                            <li className="nav-item" key={subIdx}>
+                              <Link
+                                href={subItem[0] as string}
+                                className={classNames('nav-link', {
+                                  active: pathname === subItem[0],
+                                })}
+                              >
+                                {subItem[1]}
+                              </Link>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </li>
+                  );
+                })}
               </ul>
 
-              {/* CTA Button */}
               <Link
                 className="theme-btn theme-btn-rounded-2 theme-btn-alt"
                 href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
@@ -193,30 +239,29 @@ const MobileApp = () => {
                 Download
               </Link>
 
-              {/* Dark Mode Toggle */}
               <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
-                  <label htmlFor="something" className="tab-btn tab-btns">
-                    <IoMoonOutline />
-                  </label>
-                  <label htmlFor="something" className="tab-btn">
-                    <IoSunnyOutline />
-                  </label>
-                  <label
-                    className={`ball `}
-                    style={{
-                      left: theme === 'body_dark' ? 3 : 26
-                    }}
-                    htmlFor="something"
-                  ></label>
-                  <input
-                    type="checkbox"
-                    name="something"
-                    id="something"
-                    className="dark_mode_switcher"
-                    checked={theme === 'body_dark'}
-                    onChange={toggleTheme}
-                  />
-                </div>
+                <label htmlFor="something" className="tab-btn tab-btns">
+                  <IoMoonOutline />
+                </label>
+                <label htmlFor="something" className="tab-btn">
+                  <IoSunnyOutline />
+                </label>
+                <label
+                  className="ball"
+                  style={{
+                    left: theme === 'body_dark' ? 3 : 26,
+                  }}
+                  htmlFor="something"
+                ></label>
+                <input
+                  type="checkbox"
+                  name="something"
+                  id="something"
+                  className="dark_mode_switcher"
+                  checked={theme === 'body_dark'}
+                  onChange={toggleTheme}
+                />
+              </div>
             </div>
           </div>
         </nav>
@@ -1150,8 +1195,6 @@ const MobileApp = () => {
             </div>
           </div>
         </section>
-
-        
 
         {/* news slider */}
         <NewsSlider />

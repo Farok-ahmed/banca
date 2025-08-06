@@ -3,13 +3,23 @@ import LoanAccordion from '@/components/LoanAccordion';
 import { useTheme } from '@/contextAPi/ThemeContext';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
+
+type SubmenuItem = [string, string] | [string, string, [string, string][]];
+
+type MenuItem = {
+  label: string;
+  href: string;
+  submenu: SubmenuItem[];
+};
 
 const LoanSteps = () => {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -20,6 +30,79 @@ const LoanSteps = () => {
   };
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+
+  const menuItems: MenuItem[] = [
+    {
+      label: 'Home',
+      href: '/',
+      submenu: [
+        ['/', 'Smart Finance'],
+        ['/index-company', 'Loan Company'],
+        ['/mobile-app', 'Mobile App'],
+        ['/simple-banca', 'Simple Banca'],
+        ['/loan-steps', 'Loan Steps'],
+        ['/finance-sass-app', 'Finance Sass App'],
+        ['/small-bank', 'Small Bank'],
+      ],
+    },
+    {
+      label: 'Loan',
+      href: '/loan',
+      submenu: [
+        ['/loan', 'Get loan'],
+        [
+          '/loan-details',
+          'Loan Application',
+          [
+            ['/loan-details', 'Step 01'],
+            ['/personal-details', 'Step 02'],
+            ['/document-upload', 'Step 03'],
+          ],
+        ],
+      ],
+    },
+    {
+      label: 'Job Pages',
+      href: '/career',
+      submenu: [
+        ['/career', 'Career'],
+        ['/jobs', 'Jobs'],
+        ['/job-application', 'Job Application'],
+      ],
+    },
+    {
+      label: 'Pages',
+      href: '/card',
+      submenu: [
+        ['/card', 'Cards'],
+        ['/about-us', 'About Us'],
+        ['/contact-us', 'Contact Us'],
+        ['/error', '404 Error'],
+      ],
+    },
+    {
+      label: 'Blog',
+      href: '/blog-listing',
+      submenu: [
+        ['/blog-listing', 'Blog Listing'],
+        ['/blog-details', 'Blog Details'],
+      ],
+    },
+  ];
+
+  const isRouteActive = (href: string, submenu: SubmenuItem[]) => {
+    if (pathname === href) return true;
+
+    return submenu.some((sub) => {
+      if (sub.length === 3 && Array.isArray(sub[2])) {
+        return (
+          sub[0] === pathname || sub[2].some((child) => child[0] === pathname)
+        );
+      }
+      return sub[0] === pathname;
+    });
+  };
+
   return (
     <div>
       <header className="header">
@@ -27,18 +110,22 @@ const LoanSteps = () => {
           <div className="container">
             <div className="row align-items-center">
               <div className="col-md-6">
-                <div className="header-info-left">
+                <div className="header-info-left d-flex align-items-center">
+                  {/* Language Dropdown */}
                   <div className="language-list position-relative w-auto">
                     <select
-                      className="form-select border-0 shadow-none text-white pe-5 ps-1"
-                      aria-label="Language select"
+                      id="select-lang"
+                      className="form-select border-0 shadow-none text-white pe-5 ps-2"
                       style={{
                         appearance: 'none',
                         backgroundColor: '#171d24',
                         color: '#ffffff',
+                        paddingRight: '2.5rem',
+                        paddingLeft: '0.75rem',
+                        border: '1px solid #ffffff22',
+                        borderRadius: '6px',
+                        height: '38px',
                         cursor: 'pointer',
-                        border: 'none',
-                        boxShadow: 'none',
                       }}
                     >
                       <option value="English">English</option>
@@ -47,13 +134,17 @@ const LoanSteps = () => {
                       <option value="Hindi">Hindi</option>
                     </select>
 
-                    <span className="position-absolute top-50 end-0 translate-middle-y me-2 text-white">
-                      <i className="bi bi-chevron-down ms-2 text-white pointer-events-none"></i>
+                    {/* Dropdown Arrow */}
+                    <span
+                      className="position-absolute top-50 end-0 translate-middle-y me-2 text-white pointer-events-none"
+                      style={{ pointerEvents: 'none' }}
+                    >
+                      <i className="bi bi-chevron-down ms-2"></i>
                     </span>
                   </div>
 
-                  <div className="timestamp ms-4">
-                    {' '}
+                  {/* Timestamp */}
+                  <div className="timestamp ms-4 text-white d-flex align-items-center gap-2">
                     <i className="icon_clock_alt"></i> Mon - Fri 10:00-18:00
                   </div>
                 </div>
@@ -63,20 +154,20 @@ const LoanSteps = () => {
                   <ul>
                     <li>
                       <Image
-                        width={20}
-                        height={20}
+                        width={15}
+                        height={15}
                         className="img-fluid"
                         src="/img/phone-outline-white.png"
                         alt="phone"
                       />
-                      <Link href="tel:01234567890">+01234-567890</Link>
+                      <a href="tel:01234567890">+01234-567890</a>
                     </li>
 
                     <li>
                       <i className="icon_mail_alt"></i>
-                      <Link href="mailto:bancainfo@email.com">
+                      <a href="mailto:bancainfo@email.com">
                         bancainfo@email.com
-                      </Link>
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -84,6 +175,7 @@ const LoanSteps = () => {
             </div>
           </div>
         </div>
+
         <div className="header-menu header-menu-2" id="sticky">
           <nav className="navbar navbar-expand-lg">
             <div className="container">
@@ -124,100 +216,112 @@ const LoanSteps = () => {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
-                  {/* Repeat for all dropdowns */}
-                  {[
-                    {
-                      label: 'Home',
-                      href: '/',
-                      submenu: [
-                        'Smart Finance',
-                        'Loan Company',
-                        'Mobile App',
-                        'Simple Banca',
-                        'Loan Steps',
-                        'Finance Sass App',
-                        'Small Bank',
-                      ],
-                      subhref: [
-                        '/',
-                        '/index-company',
-                        '/mobile-app',
-                        '/simple-banca',
-                        '/loan-steps',
-                        '/finance-sass-app',
-                        '/small-bank',
-                      ],
-                    },
-                    {
-                      label: 'Loan',
-                      href: '/loan',
-                      submenu: ['Get loan', 'Loan Application'],
-                      subhref: ['/loan', '/loan-details'],
-                    },
-                    {
-                      label: 'Job Pages',
-                      href: '/career',
-                      submenu: ['Career', 'Jobs', 'Job Application'],
-                      subhref: ['/career', '/jobs', '/job-application'],
-                    },
-                    {
-                      label: 'Pages',
-                      href: '/card',
-                      submenu: ['Cards', 'About Us', 'Contact Us', '404 Error'],
-                      subhref: ['/card', '/about-us', '/contact-us', '/error'],
-                    },
-                    {
-                      label: 'Blog',
-                      href: '/blog-listing',
-                      submenu: ['Blog Listing', 'Blog Details'],
-                      subhref: ['/blog-listing', '/blog-details'],
-                    },
-                  ].map((item, idx) => (
-                    <li key={idx} className="nav-item dropdown submenu">
-                      <Link
-                        href={item.href}
-                        className="nav-link dropdown-toggle"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded={openDropdown === item.label}
-                        onClick={(e) => {
-                          if (isMobile) {
-                            e.preventDefault();
-                            handleDropdownToggle(item.label);
-                          }
-                        }}
-                      >
-                        {item.label}
-                      </Link>
-                      <i
-                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
-                        aria-hidden="true"
-                        onClick={() => handleDropdownToggle(item.label)}
-                        style={{ cursor: 'pointer' }}
-                      ></i>
+                  {menuItems.map((item, idx) => {
+                    const active = isRouteActive(item.href, item.submenu);
 
-                      <ul
-                        className={`dropdown-menu ${
-                          openDropdown === item.label ? 'show' : ''
+                    return (
+                      <li
+                        key={idx}
+                        className={`nav-item dropdown submenu ${
+                          active ? 'active' : ''
                         }`}
                       >
-                        {item.submenu.map((text, i) => (
-                          <li className="nav-item" key={i}>
-                            <Link href={item.subhref[i]} className="nav-link">
-                              {text}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  ))}
+                        <Link
+                          href={item.href}
+                          className={`nav-link dropdown-toggle ${
+                            active ? 'active' : ''
+                          }`}
+                          role="button"
+                          aria-haspopup="true"
+                          aria-expanded={openDropdown === item.label}
+                          onClick={(e) => {
+                            if (isMobile) {
+                              e.preventDefault();
+                              handleDropdownToggle(item.label);
+                            }
+                          }}
+                        >
+                          {item.label}
+                        </Link>
+
+                        <i
+                          className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                          aria-hidden="true"
+                          onClick={() => handleDropdownToggle(item.label)}
+                          style={{ cursor: 'pointer' }}
+                        ></i>
+
+                        <ul
+                          className={`dropdown-menu ${
+                            openDropdown === item.label ? 'show' : ''
+                          }`}
+                        >
+                          {item.submenu.map((sub, subIdx) => {
+                            if (sub.length === 3 && Array.isArray(sub[2])) {
+                              const childItems = sub[2];
+                              const isSubActive = childItems.some(
+                                (child) => child[0] === pathname
+                              );
+                              return (
+                                <li
+                                  className={`nav-item dropdown submenu ${
+                                    sub[0] === pathname || isSubActive
+                                      ? 'active'
+                                      : ''
+                                  }`}
+                                  key={subIdx}
+                                >
+                                  <Link
+                                    href={sub[0]}
+                                    className="nav-link dropdown-toggle"
+                                    onClick={(e) => {
+                                      if (isMobile) e.preventDefault();
+                                    }}
+                                  >
+                                    {sub[1]}
+                                  </Link>
+                                  <ul className="dropdown-menu">
+                                    {childItems.map(([href, label], i) => (
+                                      <li
+                                        key={i}
+                                        className={`nav-item ${
+                                          href === pathname ? 'active' : ''
+                                        }`}
+                                      >
+                                        <Link href={href} className="nav-link">
+                                          {label}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </li>
+                              );
+                            } else {
+                              return (
+                                <li
+                                  key={subIdx}
+                                  className={`nav-item ${
+                                    sub[0] === pathname ? 'active' : ''
+                                  }`}
+                                >
+                                  <Link href={sub[0]} className="nav-link">
+                                    {sub[1]}
+                                  </Link>
+                                </li>
+                              );
+                            }
+                          })}
+                        </ul>
+                      </li>
+                    );
+                  })}
                 </ul>
 
                 <Link
                   className="theme-btn"
                   href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Buy Banca
                 </Link>
@@ -231,11 +335,9 @@ const LoanSteps = () => {
                     <IoSunnyOutline />
                   </label>
                   <label
-                    className={`ball`}
+                    className="ball"
                     htmlFor="something"
-                    style={{
-                      left: theme === 'body_dark' ? 3 : 26
-                    }}
+                    style={{ left: theme === 'body_dark' ? 3 : 26 }}
                   ></label>
                   <input
                     type="checkbox"

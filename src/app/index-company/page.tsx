@@ -7,11 +7,13 @@ import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 import IndexCalculator from '@/components/IndexCalculator';
 import { useTheme } from '@/contextAPi/ThemeContext';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 const IndexCompany = () => {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -22,7 +24,111 @@ const IndexCompany = () => {
   };
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
-  
+
+  // Fixed active route detection
+  const isActive = (href: string): boolean => {
+    if (href === '/') {
+      return pathname === '/';
+    }
+
+    if (pathname === href) {
+      return true;
+    }
+
+    // Check if pathname starts with href followed by a slash or query parameter
+    const normalizedHref = href.endsWith('/') ? href : href + '/';
+    const normalizedPathname = pathname.endsWith('/')
+      ? pathname
+      : pathname + '/';
+
+    return (
+      normalizedPathname.startsWith(normalizedHref) ||
+      pathname.startsWith(href + '/')
+    );
+  };
+
+  type SubmenuChild = [string, string];
+
+  type SubmenuItem = [string, string] | [string, string, SubmenuChild[]];
+  type MenuItem = {
+    label: string;
+    href: string;
+    submenu: SubmenuItem[];
+  };
+
+  // Check if any submenu item is active
+  const isSubmenuActive = (submenu: SubmenuItem[]): boolean => {
+    return submenu.some((sub) => {
+      if (Array.isArray(sub[2])) {
+        // Check nested submenu
+        return (
+          sub[2].some((child: string[]) => isActive(child[0])) ||
+          isActive(sub[0])
+        );
+      }
+      return isActive(sub[0]);
+    });
+  };
+
+  const menuItems: MenuItem[] = [
+    {
+      label: 'Home',
+      href: '/',
+      submenu: [
+        ['/', 'Smart Finance'],
+        ['/index-company', 'Loan Company'],
+        ['/mobile-app', 'Mobile App'],
+        ['/simple-banca', 'Simple Banca'],
+        ['/loan-steps', 'Loan Steps'],
+        ['/finance-sass-app', 'Finance Sass App'],
+        ['/small-bank', 'Small Bank'],
+      ],
+    },
+    {
+      label: 'Loan',
+      href: '/loan',
+      submenu: [
+        ['/loan', 'Get loan'],
+        [
+          '/loan-details',
+          'Loan Application',
+          [
+            ['/loan-details', 'Step 01'],
+            ['/personal-details', 'Step 02'],
+            ['/document-upload', 'Step 03'],
+          ],
+        ],
+      ],
+    },
+    {
+      label: 'Job Pages',
+      href: '/career',
+      submenu: [
+        ['/career', 'Career'],
+        ['/jobs', 'Jobs'],
+        ['/job-application', 'Job Application'],
+      ],
+    },
+    {
+      label: 'Pages',
+      href: '/card',
+      submenu: [
+        ['/card', 'Cards'],
+        ['/about-us', 'About Us'],
+        ['/contact-us', 'Contact Us'],
+        ['/error', '404 Error'],
+      ],
+    },
+    {
+      label: 'Blog',
+      href: '/blog-listing',
+      submenu: [
+        ['/blog-listing', 'Blog Listing'],
+        ['/blog-details', 'Blog Details'],
+      ],
+    },
+  ];
+
   return (
     <>
       <header className="header">
@@ -66,70 +172,23 @@ const IndexCompany = () => {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
-                  {[
-                    {
-                      label: 'Home',
-                      href: '/',
-                      submenu: [
-                        ['/', 'Smart Finance'],
-                        ['/index-company', 'Loan Company'],
-                        ['/mobile-app', 'Mobile App'],
-                        ['/simple-banca', 'Simple Banca'],
-                        ['/loan-steps', 'Loan Steps'],
-                        ['/finance-sass-app', 'Finance Sass App'],
-                        ['/small-bank', 'Small Bank'],
-                      ],
-                    },
-                    {
-                      label: 'Loan',
-                      href: '/loan',
-                      submenu: [
-                        ['/loan', 'Get loan'],
-                        [
-                          '/loan-details',
-                          'Loan Application',
-                          [
-                            ['/loan-details', 'Step 01'],
-                            ['/personal-details', 'Step 02'],
-                            ['/document-upload', 'Step 03'],
-                          ],
-                        ],
-                      ],
-                    },
-                    {
-                      label: 'Job Pages',
-                      href: '/career',
-                      submenu: [
-                        ['/career', 'Career'],
-                        ['/jobs', 'Jobs'],
-                        ['/job-application', 'Job Application'],
-                      ],
-                    },
-                    {
-                      label: 'Pages',
-                      href: '/card',
-                      submenu: [
-                        ['/card', 'Cards'],
-                        ['/about-us', 'About Us'],
-                        ['/contact-us', 'Contact Us'],
-                        ['/error', '404 Error'],
-                      ],
-                    },
-                    {
-                      label: 'Blog',
-                      href: '/blog-listing',
-                      submenu: [
-                        ['/blog-listing', 'Blog Listing'],
-                        ['/blog-details', 'Blog Details'],
-                      ],
-                    },
-                  ].map((item, idx) => (
-                    <li key={idx} className="nav-item dropdown submenu">
+                  {menuItems.map((item, idx) => (
+                    <li
+                      key={idx}
+                      className={`nav-item dropdown submenu ${
+                        isActive(item.href) || isSubmenuActive(item.submenu)
+                          ? 'active'
+                          : ''
+                      }`}
+                    >
                       <Link
                         href={item.href}
-                        className="nav-link dropdown-toggle"
+                        className={`nav-link dropdown-toggle ${
+                          isActive(item.href) || isSubmenuActive(item.submenu)
+                            ? 'active'
+                            : ''
+                        }`}
                         role="button"
-                        data-bs-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded={openDropdown === item.label}
                         onClick={(e) => {
@@ -155,42 +214,86 @@ const IndexCompany = () => {
                       >
                         {item.submenu.map((sub, subIdx) => {
                           if (Array.isArray(sub[2])) {
+                            const hasActiveChild = sub[2].some(
+                              (child: string[]) => isActive(child[0])
+                            );
                             return (
                               <li
-                                className="nav-item dropdown submenu"
+                                className={`nav-item dropdown submenu ${
+                                  isActive(sub[0] as string) || hasActiveChild
+                                    ? 'active'
+                                    : ''
+                                }`}
                                 key={subIdx}
                               >
                                 <Link
                                   href={sub[0] as string}
-                                  className="nav-link dropdown-toggle"
+                                  className={`nav-link dropdown-toggle ${
+                                    isActive(sub[0] as string) || hasActiveChild
+                                      ? 'active'
+                                      : ''
+                                  }`}
                                   onClick={(e) => {
                                     if (isMobile) {
                                       e.preventDefault();
+                                      handleDropdownToggle(
+                                        `${item.label}-${sub[1]}`
+                                      );
                                     }
                                   }}
                                 >
                                   {sub[1]}
                                 </Link>
-                                <ul className="dropdown-menu">
-                                  {sub[2].map(
-                                    (child: string[], i: number) => (
-                                      <li className="nav-item" key={i}>
-                                        <Link
-                                          href={child[0]}
-                                          className="nav-link"
-                                        >
-                                          {child[1]}
-                                        </Link>
-                                      </li>
+                                <i
+                                  className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                                  onClick={() =>
+                                    handleDropdownToggle(
+                                      `${item.label}-${sub[1]}`
                                     )
-                                  )}
+                                  }
+                                  style={{ cursor: 'pointer' }}
+                                ></i>
+                                <ul
+                                  className={`dropdown-menu ${
+                                    openDropdown === `${item.label}-${sub[1]}`
+                                      ? 'show'
+                                      : ''
+                                  }`}
+                                >
+                                  {sub[2].map((child: string[], i: number) => (
+                                    <li
+                                      className={`nav-item ${
+                                        isActive(child[0]) ? 'active' : ''
+                                      }`}
+                                      key={i}
+                                    >
+                                      <Link
+                                        href={child[0]}
+                                        className={`nav-link ${
+                                          isActive(child[0]) ? 'active' : ''
+                                        }`}
+                                      >
+                                        {child[1]}
+                                      </Link>
+                                    </li>
+                                  ))}
                                 </ul>
                               </li>
                             );
                           } else {
                             return (
-                              <li className="nav-item" key={subIdx}>
-                                <Link href={sub[0] as string} className="nav-link">
+                              <li
+                                className={`nav-item ${
+                                  isActive(sub[0] as string) ? 'active' : ''
+                                }`}
+                                key={subIdx}
+                              >
+                                <Link
+                                  href={sub[0] as string}
+                                  className={`nav-link ${
+                                    isActive(sub[0] as string) ? 'active' : ''
+                                  }`}
+                                >
                                   {sub[1]}
                                 </Link>
                               </li>
@@ -221,7 +324,7 @@ const IndexCompany = () => {
                   <label
                     className={`ball`}
                     style={{
-                      left: theme === 'body_dark' ? 3 : 26
+                      left: theme === 'body_dark' ? 3 : 26,
                     }}
                     htmlFor="something"
                   ></label>
@@ -249,7 +352,7 @@ const IndexCompany = () => {
                   className="banner-content wow fadeInRight"
                   data-wow-delay="0.2s"
                 >
-                  <h1 style={{color:'#fff'}}>Simplify all your banking and loan methods.</h1>
+                  <h1>Simplify all your banking and loan methods.</h1>
                   <p>
                     Our team of experts uses a methodology to identify the
                     credit cards most.

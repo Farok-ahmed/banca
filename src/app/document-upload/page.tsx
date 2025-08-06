@@ -3,13 +3,28 @@ import { useTheme } from '@/contextAPi/ThemeContext';
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
+
+// Type definitions
+interface SubmenuItem {
+  text: string;
+  link: string;
+  submenu?: SubmenuItem[];
+}
+
+interface NavigationItem {
+  label: string;
+  href: string;
+  submenu?: SubmenuItem[];
+}
 
 const DocumentUpload = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const pathname = usePathname();
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -20,7 +35,90 @@ const DocumentUpload = () => {
   };
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
-  
+
+  const isActiveRoute = (
+    href: string,
+    submenu: SubmenuItem[] | null = null
+  ): boolean => {
+    if (pathname === href) return true;
+
+    // Check if any submenu item is active
+    if (submenu) {
+      return submenu.some((item: SubmenuItem) => {
+        if (pathname === item.link) return true;
+        // Check nested submenu
+        if (item.submenu) {
+          return item.submenu.some(
+            (deepItem: SubmenuItem) => pathname === deepItem.link
+          );
+        }
+        return false;
+      });
+    }
+
+    return false;
+  };
+
+  // Navigation menu items
+  const navigationItems: NavigationItem[] = [
+    {
+      label: 'Home',
+      href: '/',
+      submenu: [
+        { text: 'Smart Finance', link: '/' },
+        { text: 'Loan Company', link: '/index-company' },
+        { text: 'Mobile App', link: '/mobile-app' },
+        { text: 'Simple Banca', link: '/simple-banca' },
+        { text: 'Loan Steps', link: '/loan-steps' },
+        { text: 'Finance Sass App', link: '/finance-sass-app' },
+        { text: 'Small Bank', link: '/small-bank' },
+      ],
+    },
+    {
+      label: 'Loan',
+      href: '/loan',
+      submenu: [
+        { text: 'Get loan', link: '/loan' },
+        {
+          text: 'Loan Application',
+          link: '/loan-details',
+          submenu: [
+            { text: 'Step 01', link: '/loan-details' },
+            { text: 'Step 02', link: '/personal-details' },
+            { text: 'Step 03', link: '/document-upload' },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'Job Pages',
+      href: '/career',
+      submenu: [
+        { text: 'Career', link: '/career' },
+        { text: 'Jobs', link: '/jobs' },
+        { text: 'Job Application', link: '/job-application' },
+      ],
+    },
+    {
+      label: 'Pages',
+      href: '/card',
+      submenu: [
+        { text: 'Cards', link: '/card' },
+        { text: 'About Us', link: '/about-us' },
+        { text: 'Contact Us', link: '/contact-us' },
+        { text: '404 Error', link: '/error' },
+      ],
+    },
+    {
+      label: 'Blog',
+      href: '/blog-listing',
+      submenu: [
+        { text: 'Blog Listing', link: '/blog-listing' },
+        { text: 'Blog Details', link: '/blog-details' },
+      ],
+    },
+  ];
+
   return (
     <div>
       <header className="header">
@@ -80,15 +178,14 @@ const DocumentUpload = () => {
         </div>
 
         <div className="header-menu header-menu-3" id="sticky">
-          <nav className="navbar navbar-expand-lg ">
+          <nav className="navbar navbar-expand-lg">
             <div className="container">
-              <Link className="navbar-brand sticky_logo" href="index.html">
+              <Link className="navbar-brand sticky_logo" href="/">
                 <Image
                   width={90}
                   height={30}
                   className="main"
                   src="/img/logo/Logo.png"
-                  // srcset="img/logo/Logo@2x.png 2x"
                   alt="logo"
                 />
                 <Image
@@ -96,7 +193,6 @@ const DocumentUpload = () => {
                   height={30}
                   className="sticky"
                   src="/img/logo/Logo-2.png"
-                  // srcset="img/logo/Logo-2@2x.png 2x"
                   alt="logo"
                 />
               </Link>
@@ -129,73 +225,18 @@ const DocumentUpload = () => {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
-                  {[
-                    {
-                      label: 'Home',
-                      href: '/',
-                      submenu: [
-                        { text: 'Smart Finance', link: '/' },
-                        { text: 'Loan Company', link: '/index-company' },
-                        { text: 'Mobile App', link: '/mobile-app' },
-                        { text: 'Simple Banca', link: '/simple-banca' },
-                        { text: 'Loan Steps', link: '/loan-steps' },
-                        { text: 'Finance Sass App', link: '/finance-sass-app' },
-                        { text: 'Small Bank', link: '/small-bank' },
-                      ],
-                    },
-                    {
-                      label: 'Loan',
-                      href: '/loan',
-                      submenu: [
-                        { text: 'Get loan', link: '/loan' },
-                        {
-                          text: 'Loan Application',
-                          link: '/loan-details',
-                          submenu: [
-                            { text: 'Step 01', link: '/loan-details' },
-                            { text: 'Step 02', link: '/personal-details' },
-                            { text: 'Step 03', link: '/document-upload' },
-                          ],
-                        },
-                      ],
-                    },
-                    {
-                      label: 'Job Pages',
-                      href: '/career',
-                      submenu: [
-                        { text: 'Career', link: '/career' },
-                        { text: 'Jobs', link: '/jobs' },
-                        { text: 'Job Application', link: '/job-application' },
-                      ],
-                    },
-                    {
-                      label: 'Pages',
-                      href: '/card',
-                      submenu: [
-                        { text: 'Cards', link: '/card' },
-                        { text: 'About Us', link: '/about-us' },
-                        { text: 'Contact Us', link: '/contact-us' },
-                        { text: '404 Error', link: '/error' },
-                      ],
-                    },
-                    {
-                      label: 'Blog',
-                      href: '/blog-listing',
-                      submenu: [
-                        { text: 'Blog Listing', link: '/blog-listing' },
-                        { text: 'Blog Details', link: '/blog-details' },
-                      ],
-                    },
-                  ].map((item, idx) => (
+                  {navigationItems.map((item: NavigationItem, idx: number) => (
                     <li key={idx} className="nav-item dropdown submenu">
                       <Link
                         href={item.href}
-                        className="nav-link dropdown-toggle"
+                        className={`nav-link dropdown-toggle ${
+                          isActiveRoute(item.href, item.submenu) ? 'active' : ''
+                        }`}
                         role="button"
                         data-bs-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded={openDropdown === item.label}
-                        onClick={(e) => {
+                        onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                           if (isMobile) {
                             e.preventDefault();
                             handleDropdownToggle(item.label);
@@ -216,7 +257,7 @@ const DocumentUpload = () => {
                           openDropdown === item.label ? 'show' : ''
                         }`}
                       >
-                        {item.submenu?.map((sub, i) => (
+                        {item.submenu?.map((sub: SubmenuItem, i: number) => (
                           <li
                             key={i}
                             className={`nav-item ${
@@ -225,8 +266,12 @@ const DocumentUpload = () => {
                           >
                             <Link
                               href={sub.link}
-                              className="nav-link"
-                              onClick={(e) => {
+                              className={`nav-link ${
+                                pathname === sub.link ? 'active' : ''
+                              }`}
+                              onClick={(
+                                e: React.MouseEvent<HTMLAnchorElement>
+                              ) => {
                                 if (isMobile && sub.submenu) {
                                   e.preventDefault();
                                   handleDropdownToggle(
@@ -256,16 +301,22 @@ const DocumentUpload = () => {
                                       : ''
                                   }`}
                                 >
-                                  {sub.submenu.map((deep, j) => (
-                                    <li key={j} className="nav-item">
-                                      <Link
-                                        href={deep.link}
-                                        className="nav-link"
-                                      >
-                                        {deep.text}
-                                      </Link>
-                                    </li>
-                                  ))}
+                                  {sub.submenu.map(
+                                    (deep: SubmenuItem, j: number) => (
+                                      <li key={j} className="nav-item">
+                                        <Link
+                                          href={deep.link}
+                                          className={`nav-link ${
+                                            pathname === deep.link
+                                              ? 'active'
+                                              : ''
+                                          }`}
+                                        >
+                                          {deep.text}
+                                        </Link>
+                                      </li>
+                                    )
+                                  )}
                                 </ul>
                               </>
                             )}

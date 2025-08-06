@@ -15,6 +15,7 @@ import { TabData } from '@/types/Tabdata';
 import { FaqItem } from '@/types/Faqitem';
 import { Testimonial } from '@/types/Testimonial';
 import { BlogItem } from '@/types/Blogitem';
+import { usePathname } from 'next/navigation';
 
 const tabContent: TabData[] = [
   {
@@ -210,6 +211,7 @@ export default function Home() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const { theme, toggleTheme } = useTheme();
   const [active, setActive] = useState<string>('one');
+  const pathname = usePathname();
 
   const toggleAccordion = (id: string) => {
     setActive((prev) => (prev === id ? '' : id));
@@ -301,13 +303,84 @@ export default function Home() {
     ],
   };
 
+  type SubSubItem = [string, string];
+  type SubItem = [string, string] | [string, string, SubSubItem[]];
+
+  interface NavItem {
+    label: string;
+    href: string;
+    sub: SubItem[];
+  }
+
+  const isActive = (href: string): boolean => {
+    return pathname === href || pathname.startsWith(href + '/');
+  };
+
+  const navItems: NavItem[] = [
+    {
+      label: 'Home',
+      href: '/',
+      sub: [
+        ['/', 'Smart Finance'],
+        ['/index-company', 'Loan Company'],
+        ['/mobile-app', 'Mobile App'],
+        ['/simple-banca', 'Simple Banca'],
+        ['/loan-steps', 'Loan Steps'],
+        ['/finance-sass-app', 'Finance Sass App'],
+        ['/small-bank', 'Small Bank'],
+      ],
+    },
+    {
+      label: 'Loan',
+      href: '/loan',
+      sub: [
+        ['/loan', 'Get Loan'],
+        [
+          '/loan-details',
+          'Loan Application',
+          [
+            ['/loan-details', 'Step 01'],
+            ['/personal-details', 'Step 02'],
+            ['/document-upload', 'Step 03'],
+          ],
+        ],
+      ],
+    },
+    {
+      label: 'Job Pages',
+      href: '/career',
+      sub: [
+        ['/career', 'Career'],
+        ['/jobs', 'Jobs'],
+        ['/job-application', 'Job Application'],
+      ],
+    },
+    {
+      label: 'Pages',
+      href: '/card',
+      sub: [
+        ['/card', 'Cards'],
+        ['/about-us', 'About Us'],
+        ['/contact-us', 'Contact Us'],
+        ['/error', '404 Error'],
+      ],
+    },
+    {
+      label: 'Blog',
+      href: '/blog-listing',
+      sub: [
+        ['/blog-listing', 'Blog Listing'],
+        ['/blog-details', 'Blog Details'],
+      ],
+    },
+  ];
+
   return (
     <main>
       <header className="header">
         <div className="header-menu header-menu-4" id="sticky">
           <nav className="navbar navbar-expand-lg">
             <div className="container">
-              {/* Logo */}
               <Link className="navbar-brand sticky_logo" href="/">
                 <Image
                   className="main"
@@ -325,7 +398,6 @@ export default function Home() {
                 />
               </Link>
 
-              {/* Hamburger Toggle */}
               <button
                 className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
                 type="button"
@@ -348,7 +420,6 @@ export default function Home() {
                 </span>
               </button>
 
-              {/* Menu */}
               <div
                 className={classNames('collapse navbar-collapse right-nav', {
                   show: menuOpen,
@@ -356,69 +427,13 @@ export default function Home() {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
-                  {/* Helper: Dropdown Menu Item */}
-                  {[
-                    {
-                      label: 'Home',
-                      href: '/',
-                      sub: [
-                        ['/', 'Smart Finance'],
-                        ['/index-company', 'Loan Company'],
-                        ['/mobile-app', 'Mobile App'],
-                        ['/simple-banca', 'Simple Banca'],
-                        ['/loan-steps', 'Loan Steps'],
-                        ['/finance-sass-app', 'Finance Sass App'],
-                        ['/small-bank', 'Small Bank'],
-                      ],
-                    },
-                    {
-                      label: 'Loan',
-                      href: '/loan',
-                      sub: [
-                        ['/loan', 'Get Loan'],
-                        [
-                          '/loan-details',
-                          'Loan Application',
-                          [
-                            ['/loan-details', 'Step 01'],
-                            ['/personal-details', 'Step 02'],
-                            ['/document-upload', 'Step 03'],
-                          ],
-                        ],
-                      ],
-                    },
-                    {
-                      label: 'Job Pages',
-                      href: '/career',
-                      sub: [
-                        ['/career', 'Career'],
-                        ['/jobs', 'Jobs'],
-                        ['/job-application', 'Job Application'],
-                      ],
-                    },
-                    {
-                      label: 'Pages',
-                      href: '/card',
-                      sub: [
-                        ['/card', 'Cards'],
-                        ['/about-us', 'About Us'],
-                        ['/contact-us', 'Contact Us'],
-                        ['/error', '404 Error'],
-                      ],
-                    },
-                    {
-                      label: 'Blog',
-                      href: '/blog-listing',
-                      sub: [
-                        ['/blog-listing', 'Blog Listing'],
-                        ['/blog-details', 'Blog Details'],
-                      ],
-                    },
-                  ].map((item, idx) => (
+                  {navItems.map((item, idx) => (
                     <li className="nav-item dropdown submenu" key={idx}>
                       <Link
                         href={item.href}
-                        className="nav-link dropdown-toggle"
+                        className={classNames('nav-link dropdown-toggle', {
+                          active: isActive(item.href),
+                        })}
                       >
                         {item.label}
                         {renderMobileDropdownIcon(item.label)}
@@ -429,54 +444,65 @@ export default function Home() {
                           show: openDropdown === item.label,
                         })}
                       >
-                        {item.sub.map((subItem, subIdx) =>
-                          Array.isArray(subItem[2]) ? (
-                            <li
-                              className="nav-item dropdown submenu"
-                              key={subIdx}
-                            >
-                              <Link
-                                href="#"
-                                className="nav-link dropdown-toggle"
+                        {item.sub.map((subItem, subIdx) => {
+                          if (Array.isArray(subItem[2])) {
+                            const subSubList = subItem[2] as SubSubItem[];
+                            return (
+                              <li
+                                className="nav-item dropdown submenu"
+                                key={subIdx}
                               >
-                                {subItem[1]}
-                                {renderMobileDropdownIcon(
-                                  `${item.label}-nested-${subIdx}`
-                                )}
-                              </Link>
-                              <ul
-                                className={classNames('dropdown-menu', {
-                                  show:
-                                    openDropdown ===
-                                    `${item.label}-nested-${subIdx}`,
-                                })}
-                              >
-                                {subItem[2].map(([href, label], innerIdx) => (
-                                  <li className="nav-item" key={innerIdx}>
-                                    <Link href={href} className="nav-link">
-                                      {label}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </li>
-                          ) : (
-                            <li className="nav-item" key={subIdx}>
-                              <Link
-                                href={subItem[0] as string}
-                                className="nav-link"
-                              >
-                                {subItem[1]}
-                              </Link>
-                            </li>
-                          )
-                        )}
+                                <Link
+                                  href="#"
+                                  className="nav-link dropdown-toggle"
+                                >
+                                  {subItem[1]}
+                                  {renderMobileDropdownIcon(
+                                    `${item.label}-nested-${subIdx}`
+                                  )}
+                                </Link>
+                                <ul
+                                  className={classNames('dropdown-menu', {
+                                    show:
+                                      openDropdown ===
+                                      `${item.label}-nested-${subIdx}`,
+                                  })}
+                                >
+                                  {subSubList.map(([href, label], innerIdx) => (
+                                    <li className="nav-item" key={innerIdx}>
+                                      <Link
+                                        href={href}
+                                        className={classNames('nav-link', {
+                                          active: isActive(href),
+                                        })}
+                                      >
+                                        {label}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </li>
+                            );
+                          } else {
+                            return (
+                              <li className="nav-item" key={subIdx}>
+                                <Link
+                                  href={subItem[0]}
+                                  className={classNames('nav-link', {
+                                    active: isActive(subItem[0]),
+                                  })}
+                                >
+                                  {subItem[1]}
+                                </Link>
+                              </li>
+                            );
+                          }
+                        })}
                       </ul>
                     </li>
                   ))}
                 </ul>
 
-                {/* CTA Button */}
                 <Link
                   className="theme-btn theme-btn-rounded-2 theme-btn-alt"
                   href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
@@ -486,7 +512,6 @@ export default function Home() {
                   Buy Banca
                 </Link>
 
-                {/* Dark Mode Toggle */}
                 <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
                   <label htmlFor="something" className="tab-btn tab-btns">
                     <IoMoonOutline />
@@ -496,10 +521,8 @@ export default function Home() {
                   </label>
                   <label
                     className={`ball`}
-                    style={{
-                      left: theme === 'body_dark' ? 3 : 26,
-                    }}
                     htmlFor="something"
+                    style={{ left: theme === 'body_dark' ? 3 : 26 }}
                   ></label>
                   <input
                     type="checkbox"
@@ -1138,9 +1161,7 @@ export default function Home() {
                     />
                     <div>
                       <p className="fw-semibold mb-0">{testimonial.name}</p>
-                      <span className="small">
-                        {testimonial.role}
-                      </span>
+                      <span className="small">{testimonial.role}</span>
                     </div>
                   </div>
                 </div>

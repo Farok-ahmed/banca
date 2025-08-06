@@ -6,22 +6,39 @@ import dynamic from 'next/dynamic';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { useTheme } from '@/contextAPi/ThemeContext';
+import { usePathname } from 'next/navigation';
 
 const LoanCalculator = dynamic(() => import('@/components/LoanCalculator'), {
   ssr: false,
 });
 
+interface ChildItem {
+  href: string;
+  label: string;
+}
+
+type SubItem =
+  | { href: string; label: string }
+  | { href: string; label: string; children: ChildItem[] };
+
+interface MenuItem {
+  label: string;
+  href: string;
+  sub: SubItem[];
+}
+
 const SmallBank = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const { theme, toggleTheme } = useTheme();
+  const pathname = usePathname();
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
   };
 
   const toggleDropdown = (label: string) => {
-    setOpenDropdown(prev => (prev === label ? null : label));
+    setOpenDropdown((prev) => (prev === label ? null : label));
   };
 
   // helper to render caret icon on mobile
@@ -36,168 +53,241 @@ const SmallBank = () => {
       style={{ cursor: 'pointer' }}
     ></i>
   );
+
+  const isRouteActive = (href: string, sub: SubItem[]) => {
+    if (pathname === href) return true;
+    return sub.some((s) => {
+      if ('children' in s) {
+        return (
+          s.href === pathname ||
+          s.children.some((child) => child.href === pathname)
+        );
+      }
+      return s.href === pathname;
+    });
+  };
+
+  const menuItems: MenuItem[] = [
+    {
+      label: 'Home',
+      href: '/',
+      sub: [
+        { href: '/', label: 'Smart Finance' },
+        { href: '/index-company', label: 'Loan Company' },
+        { href: '/mobile-app', label: 'Mobile App' },
+        { href: '/simple-banca', label: 'Simple Banca' },
+        { href: '/loan-steps', label: 'Loan Steps' },
+        { href: '/finance-sass-app', label: 'Finance Sass App' },
+        { href: '/small-bank', label: 'Small Bank' },
+      ],
+    },
+    {
+      label: 'Loan',
+      href: '/loan',
+      sub: [
+        { href: '/loan', label: 'Get Loan' },
+        {
+          href: '/loan-details',
+          label: 'Loan Application',
+          children: [
+            { href: '/loan-details', label: 'Step 01' },
+            { href: '/personal-details', label: 'Step 02' },
+            { href: '/document-upload', label: 'Step 03' },
+          ],
+        },
+      ],
+    },
+    {
+      label: 'Job Pages',
+      href: '/career',
+      sub: [
+        { href: '/career', label: 'Career' },
+        { href: '/jobs', label: 'Jobs' },
+        { href: '/job-application', label: 'Job Application' },
+      ],
+    },
+    {
+      label: 'Pages',
+      href: '/card',
+      sub: [
+        { href: '/card', label: 'Cards' },
+        { href: '/about-us', label: 'About Us' },
+        { href: '/contact-us', label: 'Contact Us' },
+        { href: '/error', label: '404 Error' },
+      ],
+    },
+    {
+      label: 'Blog',
+      href: '/blog-listing',
+      sub: [
+        { href: '/blog-listing', label: 'Blog Listing' },
+        { href: '/blog-details', label: 'Blog Details' },
+      ],
+    },
+  ];
+
   return (
     <div>
       <header className="header">
-      <div className="header-menu header-menu-4" id="sticky">
-        <nav className="navbar navbar-expand-lg">
-          <div className="container">
-            {/* Logo */}
-            <Link className="navbar-brand sticky_logo" href="/">
-              <Image
-                className="main"
-                src="/img/logo/Logo.png"
-                alt="logo"
-                width={130}
-                height={40}
-              />
-              <Image
-                className="sticky"
-                src="/img/logo/Logo-2.png"
-                alt="logo sticky"
-                width={130}
-                height={40}
-              />
-            </Link>
-
-            {/* Hamburger Toggle */}
-            <button
-              className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
-              type="button"
-              onClick={handleMenuToggle}
-              aria-expanded={menuOpen}
-              aria-label="Toggle navigation"
-            >
-              <span className="menu_toggle">
-                <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </span>
-                <span className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}>
-                  <span></span>
-                  <span></span>
-                </span>
-              </span>
-            </button>
-
-            {/* Menu */}
-            <div
-              className={classNames('collapse navbar-collapse right-nav', {
-                show: menuOpen,
-              })}
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav menu ms-auto">
-
-                {/* Helper: Dropdown Menu Item */}
-                {[
-                  {
-                    label: 'Home',
-                    href: '/',
-                    sub: [
-                      ['/', 'Smart Finance'],
-                      ['/index-company', 'Loan Company'],
-                      ['/mobile-app', 'Mobile App'],
-                      ['/simple-banca', 'Simple Banca'],
-                      ['/loan-steps', 'Loan Steps'],
-                      ['/finance-sass-app', 'Finance Sass App'],
-                      ['/small-bank', 'Small Bank']
-                    ]
-                  },
-                  {
-                    label: 'Loan',
-                    href: '/loan',
-                    sub: [
-                      ['/loan', 'Get Loan'],
-                      ['/loan-details', 'Loan Application', [
-                        ['/loan-details', 'Step 01'],
-                        ['/personal-details', 'Step 02'],
-                        ['/document-upload', 'Step 03']
-                      ]]
-                    ]
-                  },
-                  {
-                    label: 'Job Pages',
-                    href: '/career',
-                    sub: [
-                      ['/career', 'Career'],
-                      ['/jobs', 'Jobs'],
-                      ['/job-application', 'Job Application']
-                    ]
-                  },
-                  {
-                    label: 'Pages',
-                    href: '/card',
-                    sub: [
-                      ['/card', 'Cards'],
-                      ['/about-us', 'About Us'],
-                      ['/contact-us', 'Contact Us'],
-                      ['/error', '404 Error']
-                    ]
-                  },
-                  {
-                    label: 'Blog',
-                    href: '/blog-listing',
-                    sub: [
-                      ['/blog-listing', 'Blog Listing'],
-                      ['/blog-details', 'Blog Details']
-                    ]
-                  }
-                ].map((item, idx) => (
-                  <li className="nav-item dropdown submenu" key={idx}>
-                    <Link href={item.href} className="nav-link dropdown-toggle">
-                      {item.label}
-                      {renderMobileDropdownIcon(item.label)}
-                    </Link>
-
-                    <ul
-                      className={classNames('dropdown-menu', {
-                        show: openDropdown === item.label
-                      })}
-                    >
-                      {item.sub.map((subItem, subIdx) =>
-                        Array.isArray(subItem[2]) ? (
-                          <li className="nav-item dropdown submenu" key={subIdx}>
-                            <Link href="#" className="nav-link dropdown-toggle">
-                              {subItem[1]}
-                              {renderMobileDropdownIcon(`${item.label}-nested-${subIdx}`)}
-                            </Link>
-                            <ul
-                              className={classNames('dropdown-menu', {
-                                show: openDropdown === `${item.label}-nested-${subIdx}`
-                              })}
-                            >
-                              {subItem[2].map(([href, label], innerIdx) => (
-                                <li className="nav-item" key={innerIdx}>
-                                  <Link href={href} className="nav-link">{label}</Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </li>
-                        ) : (
-                          <li className="nav-item" key={subIdx}>
-                            <Link href={subItem[0] as string} className="nav-link">{subItem[1]}</Link>
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </li>
-                ))}
-              </ul>
-
-              {/* CTA Button */}
-              <Link
-                className="theme-btn theme-btn-rounded-2 theme-btn-alt"
-                href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Buy Banca
+        <div className="header-menu header-menu-4" id="sticky">
+          <nav className="navbar navbar-expand-lg">
+            <div className="container">
+              {/* Logo */}
+              <Link className="navbar-brand sticky_logo" href="/">
+                <Image
+                  className="main"
+                  src="/img/logo/Logo.png"
+                  alt="logo"
+                  width={130}
+                  height={40}
+                />
+                <Image
+                  className="sticky"
+                  src="/img/logo/Logo-2.png"
+                  alt="logo sticky"
+                  width={130}
+                  height={40}
+                />
               </Link>
 
-              {/* Dark Mode Toggle */}
-              <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
+              {/* Hamburger */}
+              <button
+                className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
+                type="button"
+                onClick={handleMenuToggle}
+                aria-expanded={menuOpen}
+                aria-label="Toggle navigation"
+              >
+                <span className="menu_toggle">
+                  <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                  <span
+                    className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}
+                  >
+                    <span></span>
+                    <span></span>
+                  </span>
+                </span>
+              </button>
+
+              {/* Menu */}
+              <div
+                className={classNames('collapse navbar-collapse right-nav', {
+                  show: menuOpen,
+                })}
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav menu ms-auto">
+                  {menuItems.map((item, idx) => {
+                    const isActive = isRouteActive(item.href, item.sub);
+                    return (
+                      <li
+                        className={`nav-item dropdown submenu ${
+                          isActive ? 'active' : ''
+                        }`}
+                        key={idx}
+                      >
+                        <Link
+                          href={item.href}
+                          className={`nav-link dropdown-toggle ${
+                            isActive ? 'active' : ''
+                          }`}
+                          onClick={(e) => {
+                            if (window.innerWidth < 992) {
+                              e.preventDefault();
+                              renderMobileDropdownIcon(item.label);
+                            }
+                          }}
+                        >
+                          {item.label}
+                          {renderMobileDropdownIcon(item.label)}
+                        </Link>
+
+                        <ul
+                          className={`dropdown-menu ${
+                            openDropdown === item.label ? 'show' : ''
+                          }`}
+                        >
+                          {item.sub.map((subItem, subIdx) =>
+                            'children' in subItem ? (
+                              <li
+                                className={`nav-item dropdown submenu ${
+                                  subItem.children.some(
+                                    (c) => c.href === pathname
+                                  )
+                                    ? 'active'
+                                    : ''
+                                }`}
+                                key={subIdx}
+                              >
+                                <Link
+                                  href="#"
+                                  className="nav-link dropdown-toggle"
+                                >
+                                  {subItem.label}
+                                  {renderMobileDropdownIcon(
+                                    `${item.label}-nested-${subIdx}`
+                                  )}
+                                </Link>
+                                <ul
+                                  className={`dropdown-menu ${
+                                    openDropdown ===
+                                    `${item.label}-nested-${subIdx}`
+                                      ? 'show'
+                                      : ''
+                                  }`}
+                                >
+                                  {subItem.children.map((child, childIdx) => (
+                                    <li
+                                      className={`nav-item ${
+                                        pathname === child.href ? 'active' : ''
+                                      }`}
+                                      key={childIdx}
+                                    >
+                                      <Link
+                                        href={child.href}
+                                        className="nav-link"
+                                      >
+                                        {child.label}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </li>
+                            ) : (
+                              <li
+                                className={`nav-item ${
+                                  pathname === subItem.href ? 'active' : ''
+                                }`}
+                                key={subIdx}
+                              >
+                                <Link href={subItem.href} className="nav-link">
+                                  {subItem.label}
+                                </Link>
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                {/* CTA */}
+                <Link
+                  className="theme-btn theme-btn-rounded-2 theme-btn-alt"
+                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Buy Banca
+                </Link>
+
+                {/* Dark Mode Toggle */}
+                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
                   <label htmlFor="something" className="tab-btn tab-btns">
                     <IoMoonOutline />
                   </label>
@@ -205,12 +295,9 @@ const SmallBank = () => {
                     <IoSunnyOutline />
                   </label>
                   <label
-                    className={`ball`}
-                    style={{
-                      left: theme === 'body_dark' ? 3 : 26
-                    }}
-
+                    className="ball"
                     htmlFor="something"
+                    style={{ left: theme === 'body_dark' ? 3 : 26 }}
                   ></label>
                   <input
                     type="checkbox"
@@ -221,11 +308,11 @@ const SmallBank = () => {
                     onChange={toggleTheme}
                   />
                 </div>
+              </div>
             </div>
-          </div>
-        </nav>
-      </div>
-    </header>
+          </nav>
+        </div>
+      </header>
 
       <main>
         <section className="bank-banner-area">

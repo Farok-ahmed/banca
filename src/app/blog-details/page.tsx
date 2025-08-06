@@ -6,6 +6,18 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
+type SubmenuItem = {
+  text: string;
+  link: string;
+  submenu?: SubmenuItem[];
+};
+
+type MenuItem = {
+  label: string;
+  href: string;
+  submenu?: SubmenuItem[];
+};
+
 const BlogDetails = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
@@ -22,13 +34,13 @@ const BlogDetails = () => {
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
 
-  const isActive = (href: string): boolean => {
-    if (href === '/') return pathname === '/';
-    console.log(pathname);
-    return pathname.startsWith(href);
+  const isActive = (link: string): boolean => {
+    const normalize = (path: string) =>
+      path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
+    return normalize(pathname).startsWith(normalize(link));
   };
 
-  const menuItems = [
+  const menuItems: MenuItem[] = [
     {
       label: 'Home',
       href: '/',

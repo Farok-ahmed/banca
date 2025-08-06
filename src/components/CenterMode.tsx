@@ -3,32 +3,80 @@
 import Slider from 'react-slick';
 import Link from 'next/link';
 import Image from 'next/image';
-import { FaArrowLeft, FaArrowRight} from 'react-icons/fa';
+import { CustomArrowProps } from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { CustomArrowProps } from 'react-slick';
 
 function NextArrow(props: CustomArrowProps) {
-  const { className, onClick, style } = props;
+  const { style, onClick } = props;
   return (
-    <div className={`${className} custom-arrow next`} style={{ ...style }} onClick={onClick}>
-      <FaArrowRight />
-    </div>
+    <button
+      type="button"
+      className="slick-next slick-arrow"
+      style={{ ...style }}
+      onClick={onClick}
+    >
+      <i className="arrow_carrot-right"></i>
+    </button>
   );
 }
 
 function PrevArrow(props: CustomArrowProps) {
-  const { className, onClick, style } = props;
+  const { style, onClick } = props;
   return (
-    <div className={`${className} custom-arrow prev`} style={{ ...style }} onClick={onClick}>
-      <FaArrowLeft />
-    </div>
+    <button
+      type="button"
+      className="slick-prev slick-arrow"
+      style={{ ...style }}
+      onClick={onClick}
+    >
+      <i className="arrow_carrot-left"></i>
+    </button>
   );
 }
 
-export default function CenterMode() {
+const testimonials = [
+  {
+    img: '/img/testimonial/img-2.png',
+    video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
+    heading: 'Making dreams a reality!',
+    content:
+      'We were looking for a home of happiness and peace. Thanks to the Grihashakti team, who helped us to realise this dream of ours. Our home has been very lucky for us – as we shifted to our new home, prosperity followed!',
+    name: 'Maxwell Wood',
+    location: 'New York, US',
+  },
+  {
+    img: '/img/testimonial/img-1.png',
+    video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
+    heading: 'Making dreams a reality!',
+    content:
+      'We were looking for a home of happiness and peace. Thanks to the Grihashakti team, who helped us to realise this dream of ours. Our home has been very lucky for us – as we shifted to our new home, prosperity followed!',
+    name: 'Maxwell Wood',
+    location: 'New York, US',
+  },
+  {
+    img: '/img/testimonial/img-2.png',
+    video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
+    heading: 'Making dreams a reality!',
+    content:
+      'We were looking for a home of happiness and peace. Thanks to the Grihashakti team, who helped us to realise this dream of ours. Our home has been very lucky for us – as we shifted to our new home, prosperity followed!',
+    name: 'Maxwell Wood',
+    location: 'New York, US',
+  },
+  {
+    img: '/img/testimonial/img-1.png',
+    video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
+    heading: 'Making dreams a reality!',
+    content:
+      'We were looking for a home of happiness and peace. Thanks to the Grihashakti team, who helped us to realise this dream of ours. Our home has been very lucky for us – as we shifted to our new home, prosperity followed!',
+    name: 'Maxwell Wood',
+    location: 'New York, US',
+  },
+];
+
+export default function TestimonialSlider() {
   const settings = {
-    dots: true,
+    dots: false,
     arrows: true,
     infinite: true,
     speed: 600,
@@ -37,7 +85,7 @@ export default function CenterMode() {
     autoplay: true,
     autoplaySpeed: 4000,
     centerMode: true,
-    centerPadding: '140px',
+    centerPadding: '300px',
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
@@ -45,8 +93,8 @@ export default function CenterMode() {
         breakpoint: 1400,
         settings: {
           centerMode: true,
-          centerPadding: '60px',
-          slidesToShow: 2,
+          centerPadding: '100px',
+          slidesToShow: 1,
         },
       },
       {
@@ -67,84 +115,47 @@ export default function CenterMode() {
     ],
   };
 
-  const testimonials = [
-    {
-      img: '/img/testimonial/img-2.png',
-      video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
-      heading: 'Making dreams a reality!',
-      content:
-        'We were looking for a home of happiness and peace. Thanks to the Grihashakti team, who helped us to realise this dream of ours. Our home has been very lucky for us – as we shifted to our new home, prosperity followed!',
-      name: 'Maxwell Wood',
-      location: 'New York, US',
-    },
-    {
-      img: '/img/testimonial/img-1.png',
-      video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
-      heading: 'Making dreams a reality!',
-      content:
-        'We were looking for a home of happiness and peace. Thanks to the Grihashakti team, who helped us to realise this dream of ours. Our home has been very lucky for us – as we shifted to our new home, prosperity followed!',
-      name: 'Maxwell Wood',
-      location: 'New York, US',
-    },
-    {
-      img: '/img/testimonial/img-2.png',
-      video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
-      heading: 'Making dreams a reality!',
-      content:
-        'We were looking for a home of happiness and peace. Thanks to the Grihashakti team, who helped us to realise this dream of ours. Our home has been very lucky for us – as we shifted to our new home, prosperity followed!',
-      name: 'Maxwell Wood',
-      location: 'New York, US',
-    },
-    {
-      img: '/img/testimonial/img-1.png',
-      video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
-      heading: 'Making dreams a reality!',
-      content:
-        'We were looking for a home of happiness and peace. Thanks to the Grihashakti team, who helped us to realise this dream of ours. Our home has been very lucky for us – as we shifted to our new home, prosperity followed!',
-      name: 'Maxwell Wood',
-      location: 'New York, US',
-    },
-  ];
-
   return (
-    <section className="pt-140 pb-140 testimonial-area bg_disable">
+    <section className="pt-140 testimonial-area bg_disable">
       <div className="container-fluid px-0">
-        <Slider {...settings}>
-          {testimonials.map((item, index) => (
-            <div key={index} className="single-slider container px-0">
-              <div className="testimonial-widget">
-                <div className="row">
-                  <div className="col-4">
-                    <div className="author-img">
-                      <Image
-                        src={item.img}
-                        alt="testimonial"
-                        width={400}
-                        height={400}
-                        className="img-fluid"
-                      />
-                    </div>
-                  </div>
-                  <div className="col-8 d-flex align-items-center">
-                    <div className="testimonial-content">
-                      <div className="watch-button mb-2">
-                        <Link href={item.video} target="_blank">
-                          <i className="fa fa-play"></i> watch the video
-                        </Link>
+        <div className="testimonial-slider slick-slider">
+          <Slider {...settings}>
+            {testimonials.map((item, index) => (
+              <div key={index} className="single-slider container px-0">
+                <div className="testimonial-widget">
+                  <div className="row">
+                    <div className="col-4">
+                      <div className="author-img">
+                        <Image
+                          src={item.img}
+                          alt="image"
+                          width={400}
+                          height={400}
+                          className="img-fluid"
+                        />
                       </div>
-                      <h2>{item.heading}</h2>
-                      <p className="pr-lg-60">{item.content}</p>
-                      <div className="author-info">
-                        <h4>{item.name}</h4>
-                        <span>{item.location}</span>
+                    </div>
+                    <div className="col-8 d-flex align-items-center">
+                      <div className="testimonial-content">
+                        <div className="watch-button">
+                          <Link href={item.video} target="_blank">
+                            <i className="fa fa-play"></i> watch the video
+                          </Link>
+                        </div>
+                        <h2>{item.heading}</h2>
+                        <p className="pr-lg-60">{item.content}</p>
+                        <div className="author-info">
+                          <h4>{item.name}</h4>
+                          <span>{item.location}</span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        </div>
       </div>
     </section>
   );
