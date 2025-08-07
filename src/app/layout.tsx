@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'react-nice-select/css/nice-select.css';
-
 
 import './globals.css';
 import '../styles/animate.css';

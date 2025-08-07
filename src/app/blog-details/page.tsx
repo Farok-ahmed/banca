@@ -1,9 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 'use client';
 import { useTheme } from '@/contextAPi/ThemeContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
 type SubmenuItem = {
@@ -18,26 +19,80 @@ type MenuItem = {
   submenu?: SubmenuItem[];
 };
 
-const BlogDetails = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+const BlogDetails: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const { theme, toggleTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const pathname = usePathname();
 
-  const handleMenuToggle = () => {
+  useEffect(() => {
+    const handleResize = (): void => {
+      setIsMobile(window.innerWidth < 992);
+    };
+    
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleMenuToggle = (): void => {
     setMenuOpen((prev) => !prev);
   };
 
-  const handleDropdownToggle = (label: string) => {
+  const handleDropdownToggle = (label: string): void => {
     setOpenDropdown((prev) => (prev === label ? null : label));
   };
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+  // Improved route detection function
+  const isActive = (link: string, item?: MenuItem): boolean => {
+    // Handle root path exactly
+    if (link === '/') return pathname === '/';
+    
+    // Check if current path exactly matches
+    if (pathname === link) return true;
+    
+    // Check if current path starts with link (for parent routes with children)
+    if (pathname.startsWith(link) && link !== '/') {
+      // If item has submenu, check if current path matches any submenu item
+      if (item?.submenu) {
+        const hasMatchingSubmenu = item.submenu.some((subItem: SubmenuItem) => {
+          if (subItem.link === pathname) return true;
+          // Check nested submenu items
+          if (subItem.submenu) {
+            return subItem.submenu.some((nestedItem: SubmenuItem) => nestedItem.link === pathname);
+          }
+          return false;
+        });
+        
+        // If current path matches a submenu item exactly, parent should be active
+        if (hasMatchingSubmenu) return true;
+        
+        // If no exact submenu match, only activate parent if path is exactly the parent path
+        return pathname === link;
+      }
+      
+      return true;
+    }
+    
+    return false;
+  };
 
-  const isActive = (link: string): boolean => {
-    const normalize = (path: string) =>
-      path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
-    return normalize(pathname).startsWith(normalize(link));
+  // Function to check if any submenu item is active (for parent menu highlighting)
+  const hasActiveSubmenu = (item: MenuItem): boolean => {
+    if (!item.submenu) return false;
+    
+    return item.submenu.some((subItem: SubmenuItem) => {
+      if (pathname === subItem.link) return true;
+      // Check nested submenu items
+      if (subItem.submenu) {
+        return subItem.submenu.some((nestedItem: SubmenuItem) => pathname === nestedItem.link);
+      }
+      return false;
+    });
   };
 
   const menuItems: MenuItem[] = [
@@ -195,102 +250,120 @@ const BlogDetails = () => {
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
-                  {menuItems.map((item, idx) => (
-                    <li
-                      key={idx}
-                      className={`nav-item dropdown submenu ${
-                        isActive(item.href) ? 'active' : ''
-                      }`}
-                    >
-                      <Link
-                        href={item.href}
-                        className={`nav-link dropdown-toggle ${
-                          isActive(item.href) ? 'active' : ''
-                        }`}
-                        role="button"
-                        onClick={(e) => {
-                          if (isMobile) {
-                            e.preventDefault();
-                            handleDropdownToggle(item.label);
-                          }
-                        }}
-                      >
-                        {item.label}
-                      </Link>
-
-                      <i
-                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
-                        onClick={() => handleDropdownToggle(item.label)}
-                        style={{ cursor: 'pointer' }}
-                      ></i>
-
-                      <ul
-                        className={`dropdown-menu ${
-                          openDropdown === item.label ? 'show' : ''
+                  {menuItems.map((item: MenuItem, idx: number) => {
+                    const isItemActive: boolean = isActive(item.href, item) || hasActiveSubmenu(item);
+                    
+                    return (
+                      <li
+                        key={idx}
+                        className={`nav-item dropdown submenu ${
+                          isItemActive ? 'active' : ''
                         }`}
                       >
-                        {item.submenu?.map((sub, i) => (
-                          <li
-                            key={i}
-                            className={`nav-item ${
-                              sub.submenu ? 'dropdown submenu' : ''
-                            } ${isActive(sub.link) ? 'active' : ''}`}
+                        <Link
+                          href={item.href}
+                          className={`nav-link dropdown-toggle ${
+                            isItemActive ? 'active' : ''
+                          }`}
+                          role="button"
+                          onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                            if (isMobile && item.submenu) {
+                              e.preventDefault();
+                              handleDropdownToggle(item.label);
+                            }
+                          }}
+                          onMouseEnter={(): void => {
+                            if (!isMobile && item.submenu) {
+                              setOpenDropdown(item.label);
+                            }
+                          }}
+                          onMouseLeave={(): void => {
+                            if (!isMobile) setOpenDropdown(null);
+                          }}
+                        >
+                          {item.label}
+                        </Link>
+
+                        <i
+                          className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                          onClick={(): void => handleDropdownToggle(item.label)}
+                          style={{ cursor: 'pointer' }}
+                        ></i>
+
+                        {item.submenu && (
+                          <ul
+                            className={`dropdown-menu ${
+                              openDropdown === item.label ? 'show' : ''
+                            }`}
                           >
-                            <Link
-                              href={sub.link}
-                              className={`nav-link ${
-                                isActive(sub.link) ? 'active' : ''
-                              }`}
-                              onClick={(e) => {
-                                if (isMobile && sub.submenu) {
-                                  e.preventDefault();
-                                  handleDropdownToggle(
-                                    `${item.label}-${sub.text}`
-                                  );
-                                }
-                              }}
-                            >
-                              {sub.text}
-                            </Link>
-
-                            {sub.submenu && (
-                              <>
-                                <i
-                                  className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
-                                  onClick={() =>
-                                    handleDropdownToggle(
-                                      `${item.label}-${sub.text}`
-                                    )
-                                  }
-                                  style={{ cursor: 'pointer' }}
-                                ></i>
-                                <ul
-                                  className={`dropdown-menu ${
-                                    openDropdown === `${item.label}-${sub.text}`
-                                      ? 'show'
-                                      : ''
-                                  }`}
+                            {item.submenu.map((sub: SubmenuItem, i: number) => {
+                              const isSubItemActive: boolean = pathname === sub.link;
+                              
+                              return (
+                                <li
+                                  key={i}
+                                  className={`nav-item ${
+                                    sub.submenu ? 'dropdown submenu' : ''
+                                  } ${isSubItemActive ? 'active' : ''}`}
                                 >
-                                  {sub.submenu.map((deep, j) => (
-                                    <li key={j} className="nav-item">
-                                      <Link
-                                        href={deep.link}
-                                        className={`nav-link ${
-                                          isActive(deep.link) ? 'active' : ''
+                                  <Link
+                                    href={sub.link}
+                                    className={`nav-link ${
+                                      isSubItemActive ? 'active' : ''
+                                    }`}
+                                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                                      if (isMobile && sub.submenu) {
+                                        e.preventDefault();
+                                        handleDropdownToggle(
+                                          `${item.label}-${sub.text}`
+                                        );
+                                      }
+                                    }}
+                                  >
+                                    {sub.text}
+                                  </Link>
+
+                                  {sub.submenu && (
+                                    <>
+                                      <i
+                                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                                        onClick={(): void =>
+                                          handleDropdownToggle(
+                                            `${item.label}-${sub.text}`
+                                          )
+                                        }
+                                        style={{ cursor: 'pointer' }}
+                                      ></i>
+                                      <ul
+                                        className={`dropdown-menu ${
+                                          openDropdown === `${item.label}-${sub.text}`
+                                            ? 'show'
+                                            : ''
                                         }`}
                                       >
-                                        {deep.text}
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </li>
-                  ))}
+                                        {sub.submenu.map((deep: SubmenuItem, j: number) => (
+                                          <li key={j} className="nav-item">
+                                            <Link
+                                              href={deep.link}
+                                              className={`nav-link ${
+                                                pathname === deep.link ? 'active' : ''
+                                              }`}
+                                            >
+                                              {deep.text}
+                                            </Link>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </>
+                                  )}
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
 
                 <Link
@@ -428,7 +501,7 @@ const BlogDetails = () => {
                     the pub amongst brolly hanky panky, cack bonnet arse over
                     tit burke bugger all mate bodge fanny around butty, Richard
                     spiffing a load of old tosh porkies hunky-dory ruddy dropped
-                    a clanger. Plastered it’s all gone to pot I brilliant young
+                    a clanger. Plastered it's all gone to pot I brilliant young
                     delinquent excuse my French
                   </p>
                   <p className="post-text mb-0">
@@ -479,9 +552,9 @@ const BlogDetails = () => {
                     He legged it that blatant brown bread some dodgy chav super
                     a blinding shot my lady lavatory cup of char cor blimey
                     guvnor get stuffed mate you mug cobblers off his nut pukka,
-                    give us a bell ummm I’m telling burke A bit of how’s your
+                    give us a bell ummm I'm telling burke A bit of how's your
                     father starkers daft hanky panky bog-standard golly gosh
-                    William a load of old tosh brolly Queen’s English bits and
+                    William a load of old tosh brolly Queen's English bits and
                     bobs bugger, grub geeza cracking goal cheesed off bog baking
                     cakes James Bond up the duff mufty morish do one wellies
                     zonked I. Oxford smashing is blower bobby so I said, bleeder
@@ -491,11 +564,11 @@ const BlogDetails = () => {
 
                   <h2>Install Sylius via SSH</h2>
                   <p className="post-text mt-20">
-                    Nancy boy vagabond A bit of how’s your father starkers
+                    Nancy boy vagabond A bit of how's your father starkers
                     baking cakes boot dropped a clanger my lady bender blow off
-                    bugger all mate, jolly good brolly posh ummm I’m telling get
+                    bugger all mate, jolly good brolly posh ummm I'm telling get
                     stuffed mate up the duff haggle lost the plot off his nut
-                    wind up loo, I don’t want no agro.
+                    wind up loo, I don't want no agro.
                   </p>
                   <div className="tag-widget mt-35">
                     <h6>Tags :</h6>
@@ -657,11 +730,11 @@ const BlogDetails = () => {
                               </a>
                             </div>
                             <p>
-                              Wouldn’t it be better practice to use
+                              Wouldn't it be better practice to use
                               get_the_title(..) in this case? directly accessing
-                              the post object’s data member would bypass
+                              the post object's data member would bypass
                               applying filters and enforcing protected and
-                              private settings, unless that’s explicitly
+                              private settings, unless that's explicitly
                               desired.
                             </p>
                           </div>
@@ -695,7 +768,7 @@ const BlogDetails = () => {
                               </a>
                             </div>
                             <p>
-                              Thenks Demo User for Wouldn’t it be better
+                              Thenks Demo User for Wouldn't it be better
                               practice to use get_the_title.
                             </p>
                           </div>
@@ -729,11 +802,11 @@ const BlogDetails = () => {
                               </a>
                             </div>
                             <p>
-                              Wouldn’t it be better practice to use
+                              Wouldn't it be better practice to use
                               get_the_title(..) in this case? directly accessing
-                              the post object’s data member would bypass
+                              the post object's data member would bypass
                               applying filters and enforcing protected and
-                              private settings, unless that’s explicitly
+                              private settings, unless that's explicitly
                               desired.
                             </p>
                           </div>
@@ -920,7 +993,7 @@ const BlogDetails = () => {
                   </div>
 
                   <div className="widget-news mt-50">
-                    <h4 className="widget-title">Reacent News</h4>
+                    <h4 className="widget-title">Recent News</h4>
 
                     <ul className="recent-post">
                       <li>
@@ -956,7 +1029,7 @@ const BlogDetails = () => {
                         />
                         <div className="news-content">
                           <h6>
-                            <a href="#">10 classNameic Summer Vacations</a>
+                            <a href="#">10 Classic Summer Vacations</a>
                           </h6>
                           <div className="post-date">
                             <Image
@@ -1032,7 +1105,7 @@ const BlogDetails = () => {
                       <Link href="#">product</Link>
                       <Link href="#">development</Link>
                       <Link href="#">design</Link>
-                      <Link href="#">sequrity</Link>
+                      <Link href="#">security</Link>
                       <Link href="#">agency</Link>
                     </div>
                   </div>

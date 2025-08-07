@@ -8,26 +8,80 @@ import { usePathname } from 'next/navigation';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 import { menuItems, logoConfig, externalButton } from '@/data/menuItems';
 
-const StickyNavbar = () => {
-  const [showNavbar, setShowNavbar] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+// Type definitions
+interface MenuItem {
+  label: string;
+  href: string;
+  submenu?: MenuItem[];
+}
+
+const StickyNavbar: React.FC = () => {
+  const [showNavbar, setShowNavbar] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
 
   const lastScrollY = useRef<number>(0);
 
-  const isActive = (href: string) => {
+  // Improved route detection function
+  const isActive = (href: string, item?: MenuItem): boolean => {
+    // Handle root path
     if (href === '/') return pathname === '/';
-    return pathname.startsWith(href) && href !== '/';
+
+    // Check if current path exactly matches
+    if (pathname === href) return true;
+
+    // Check if current path starts with href (for parent routes)
+    if (pathname.startsWith(href) && href !== '/') {
+      // If item has submenu, check if current path matches any submenu item
+      if (item?.submenu) {
+        const hasMatchingSubmenu = item.submenu.some((subItem: MenuItem) => {
+          if (subItem.href === pathname) return true;
+          // Check nested submenu items
+          if (subItem.submenu) {
+            return subItem.submenu.some(
+              (nestedItem: MenuItem) => nestedItem.href === pathname
+            );
+          }
+          return false;
+        });
+
+        // If current path matches a submenu item exactly, parent should be active
+        if (hasMatchingSubmenu) return true;
+
+        // If no exact submenu match, only activate parent if path is exactly the parent path
+        return pathname === href;
+      }
+
+      return true;
+    }
+
+    return false;
+  };
+
+  // Function to check if any submenu item is active
+  const hasActiveSubmenu = (item: MenuItem): boolean => {
+    if (!item.submenu) return false;
+
+    return item.submenu.some((subItem: MenuItem) => {
+      if (pathname === subItem.href) return true;
+      // Check nested submenu items
+      if (subItem.submenu) {
+        return subItem.submenu.some(
+          (nestedItem: MenuItem) => pathname === nestedItem.href
+        );
+      }
+      return false;
+    });
   };
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 992);
+    const handleResize = (): void => setIsMobile(window.innerWidth < 992);
     handleResize();
 
-    const handleScroll = () => {
+    const handleScroll = (): void => {
       const currentScroll = window.scrollY;
 
       if (currentScroll > 100 && currentScroll < lastScrollY.current) {
@@ -51,11 +105,11 @@ const StickyNavbar = () => {
     };
   }, []);
 
-  const handleDropdownToggle = (label: string) => {
+  const handleDropdownToggle = (label: string): void => {
     setOpenDropdown((prev) => (prev === label ? null : label));
   };
 
-  const textColor = theme === 'body_dark' ? 'text-light' : 'text-dark';
+  const textColor: string = theme === 'body_dark' ? 'text-light' : 'text-dark';
 
   return (
     <nav
@@ -88,107 +142,167 @@ const StickyNavbar = () => {
           onClick={() => setMenuOpen((prev) => !prev)}
         >
           <span className="menu_toggle">
-            <span className="hamburger"><span></span><span></span><span></span></span>
-            <span className="hamburger-cross"><span></span><span></span></span>
+            <span className="hamburger">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            <span className="hamburger-cross">
+              <span></span>
+              <span></span>
+            </span>
           </span>
         </button>
 
-        <div className={`collapse navbar-collapse right-nav ${menuOpen ? 'show' : ''}`}>
+        <div
+          className={`collapse navbar-collapse right-nav ${
+            menuOpen ? 'show' : ''
+          }`}
+        >
           <ul className="navbar-nav menu ms-auto">
-            {menuItems.map((item) => (
-              <li
-                key={item.label}
-                className={`nav-item dropdown submenu ${isActive(item.href) ? 'active' : ''}`}
-              >
-                <Link
-                  href={item.href}
-                  className={`nav-link dropdown-toggle ${isActive(item.href) ? 'active' : ''} ${textColor}`}
-                  onClick={(e) => {
-                    if (item.submenu && isMobile) {
-                      e.preventDefault();
-                      handleDropdownToggle(item.label);
-                    }
-                  }}
-                  onMouseEnter={() => {
-                    if (!isMobile && item.submenu) {
-                      setOpenDropdown(item.label);
-                    }
-                  }}
-                  onMouseLeave={() => {
-                    if (!isMobile) setOpenDropdown(null);
-                  }}
+            {menuItems.map((item: MenuItem) => {
+              const isItemActive: boolean =
+                isActive(item.href, item) || hasActiveSubmenu(item);
+
+              return (
+                <li
+                  key={item.label}
+                  className={`nav-item dropdown submenu ${
+                    isItemActive ? 'active' : ''
+                  }`}
                 >
-                  {item.label}
-                </Link>
-
-                <i
-                  className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
-                  onClick={() => handleDropdownToggle(item.label)}
-                  style={{ cursor: 'pointer' }}
-                ></i>
-
-                {item.submenu && (
-                  <ul
-                    className={`dropdown-menu ${openDropdown === item.label ? 'show' : ''}`}
-                    style={{
-                      display:
-                        openDropdown === item.label || !isMobile ? 'block' : 'none',
+                  <Link
+                    href={item.href}
+                    className={`nav-link dropdown-toggle ${
+                      isItemActive ? 'active' : ''
+                    } ${textColor}`}
+                    onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                      if (item.submenu && isMobile) {
+                        e.preventDefault();
+                        handleDropdownToggle(item.label);
+                      }
+                    }}
+                    onMouseEnter={(): void => {
+                      if (!isMobile && item.submenu) {
+                        setOpenDropdown(item.label);
+                      }
+                    }}
+                    onMouseLeave={(): void => {
+                      if (!isMobile) setOpenDropdown(null);
                     }}
                   >
-                    {item.submenu.map((subItem, subIdx) => {
-                      const hasNested = subItem.submenu && subItem.submenu.length > 0;
-                      const nestedKey = `${item.label}-nested-${subIdx}`;
+                    {item.label}
+                  </Link>
 
-                      if (hasNested) {
+                  <i
+                    className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                    onClick={(): void => handleDropdownToggle(item.label)}
+                    style={{ cursor: 'pointer' }}
+                  ></i>
+
+                  {item.submenu && (
+                    <ul
+                      className={`dropdown-menu ${
+                        openDropdown === item.label ? 'show' : ''
+                      }`}
+                      style={{
+                        display:
+                          openDropdown === item.label || !isMobile
+                            ? 'block'
+                            : 'none',
+                      }}
+                    >
+                      {item.submenu.map((subItem: MenuItem, subIdx: number) => {
+                        const hasNested: boolean = Boolean(
+                          subItem.submenu && subItem.submenu.length > 0
+                        );
+                        const nestedKey: string = `${item.label}-nested-${subIdx}`;
+                        const isSubItemActive: boolean =
+                          pathname === subItem.href;
+
+                        if (hasNested) {
+                          const hasActiveNested: boolean =
+                            subItem.submenu!.some(
+                              (nestedItem: MenuItem) =>
+                                pathname === nestedItem.href
+                            );
+
+                          return (
+                            <li
+                              className={`nav-item dropdown submenu ${
+                                hasActiveNested ? 'active' : ''
+                              }`}
+                              key={subIdx}
+                            >
+                              <Link
+                                href="#"
+                                className={`nav-link ${
+                                  hasActiveNested ? 'active' : ''
+                                } ${textColor}`}
+                                onClick={(
+                                  e: React.MouseEvent<HTMLAnchorElement>
+                                ) => {
+                                  e.preventDefault();
+                                  if (isMobile) handleDropdownToggle(nestedKey);
+                                }}
+                              >
+                                {subItem.label}
+                              </Link>
+                              <ul
+                                className={`dropdown-menu ${
+                                  openDropdown === nestedKey ? 'show' : ''
+                                }`}
+                                style={{
+                                  display:
+                                    openDropdown === nestedKey || !isMobile
+                                      ? 'block'
+                                      : 'none',
+                                }}
+                              >
+                                {subItem.submenu!.map(
+                                  (nestedItem: MenuItem, nestedIdx: number) => (
+                                    <li className="nav-item" key={nestedIdx}>
+                                      <Link
+                                        href={nestedItem.href}
+                                        className={`nav-link ${
+                                          pathname === nestedItem.href
+                                            ? 'active'
+                                            : ''
+                                        } ${textColor}`}
+                                      >
+                                        {nestedItem.label}
+                                      </Link>
+                                    </li>
+                                  )
+                                )}
+                              </ul>
+                            </li>
+                          );
+                        }
+
                         return (
-                          <li className="nav-item dropdown submenu" key={subIdx}>
+                          <li
+                            key={subIdx}
+                            className={`nav-item ${
+                              isSubItemActive ? 'active' : ''
+                            }`}
+                          >
                             <Link
-                              href="#"
-                              className={`nav-link ${textColor}`}
-                              onClick={(e) => {
-                                e.preventDefault();
-                                if (isMobile) handleDropdownToggle(nestedKey);
-                              }}
+                              href={subItem.href}
+                              className={`nav-link ${
+                                isSubItemActive ? 'active' : ''
+                              } ${textColor}`}
                             >
                               {subItem.label}
                             </Link>
-                            <ul
-                              className={`dropdown-menu ${openDropdown === nestedKey ? 'show' : ''}`}
-                              style={{
-                                display:
-                                  openDropdown === nestedKey || !isMobile ? 'block' : 'none',
-                              }}
-                            >
-                              {subItem.submenu.map((nestedItem, nestedIdx) => (
-                                <li className="nav-item" key={nestedIdx}>
-                                  <Link
-                                    href={nestedItem.href}
-                                    className={`nav-link ${isActive(nestedItem.href) ? 'active' : ''} ${textColor}`}
-                                  >
-                                    {nestedItem.label}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
                           </li>
                         );
-                      }
-
-                      return (
-                        <li key={subIdx} className="nav-item">
-                          <Link
-                            href={subItem.href}
-                            className={`nav-link ${isActive(subItem.href) ? 'active' : ''} ${textColor}`}
-                          >
-                            {subItem.label}
-                          </Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-              </li>
-            ))}
+                      })}
+                    </ul>
+                  )}
+                </li>
+              );
+            })}
           </ul>
 
           <Link

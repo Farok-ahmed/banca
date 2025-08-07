@@ -2582,7 +2582,7 @@ header .header-top .header-info-right ul li i {
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
-  color: var(--black_600);
+  color: var(--black_600) !important;
   line-height: 30px;
   max-width: 350px;
 }
@@ -2610,7 +2610,7 @@ header .header-top .header-info-right ul li i {
   font-size: 16px;
   font-weight: 400;
   line-height: 26px;
-  color: var(--black_600);
+  color: var(--black_600) !important;
 }
 .banner-area-6 .banner-img {
   position: relative;
@@ -4552,7 +4552,7 @@ ul.slick-dots li button {
   font-size: 18px;
   font-weight: 600;
   line-height: 27px;
-  /* color: var(--black_900); */
+  color: var(--black_900) !important;
 }
 .services-area .table .feature-item {
   width: 31%;
@@ -5501,7 +5501,7 @@ ul.slick-dots li button {
 .calculator-widget .pie-wrapper .pie .half-circle {
   height: 100%;
   width: 100%;
-  border: 0.1em solid #a924fa;
+  border: 0.1em solid #a924fa !important;
   border-radius: 50%;
   clip: rect(0, 0.5em, 1em, 0);
   left: 0;
@@ -6436,7 +6436,7 @@ ul.slick-dots li button {
 }
 
 .testimonial-widget {
-  position: relative;
+  position: relative !important;
   border-radius: 10px;
   background-color: var(--bs-white) !important;
   overflow: hidden;
@@ -11545,4 +11545,6 @@ body.body_dark
   color: #007bff;
   font-weight: 600;
 }
+
+
 

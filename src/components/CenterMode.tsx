@@ -85,7 +85,7 @@ export default function TestimonialSlider() {
     autoplay: true,
     autoplaySpeed: 4000,
     centerMode: true,
-    centerPadding: '300px',
+    centerPadding: '400px',
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
@@ -116,9 +116,10 @@ export default function TestimonialSlider() {
   };
 
   return (
-    <section className="pt-140 testimonial-area bg_disable">
+    <section className="pt-140 pb-140 testimonial-area bg_disable">
       <div className="container-fluid px-0">
         <div className="testimonial-slider slick-slider">
+          <div>
           <Slider {...settings}>
             {testimonials.map((item, index) => (
               <div key={index} className="single-slider container px-0">
@@ -155,6 +156,7 @@ export default function TestimonialSlider() {
               </div>
             ))}
           </Slider>
+          </div>
         </div>
       </div>
     </section>

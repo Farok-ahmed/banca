@@ -318,7 +318,7 @@ const Loanpage = () => {
       <main>
         <section
           className="banner-area-2 loan-banner pt-145"
-          style={{ backgroundImage: `url(img/banner/loan-banner.png)` }}
+          style={{ backgroundImage: `url(/img/banner/loan-banner.png)` }}
         >
           <div className="container">
             <div className="row align-items-center  pt-165 pb-200">

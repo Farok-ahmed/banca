@@ -333,7 +333,7 @@ const LoanDetailpage = () => {
               <div className="row">
                 <div className="col-md-12">
                   <div className="breadcrumb-content pt-85">
-                    <h1>Loan deatails</h1>
+                    <h1>Loan details</h1>
                     <ul>
                       <li>
                         <Link href="index.html">home</Link>
