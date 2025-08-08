@@ -11546,5 +11546,27 @@ body.body_dark
   font-weight: 600;
 }
 
+.slider-wrapper {
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
 
+.slick-slide > div {
+  max-width: 100%; /* or something like 1140px */
+  margin: 0 auto;
+}
+
+
+/* Light mode */
+input::placeholder {
+  color: #888;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  input::placeholder {
+    color: #ccc;
+  }
+}
 

@@ -1297,7 +1297,7 @@ const IndexCompany = () => {
               {/* Column 1 */}
               <div className="col-lg-3 col-sm-6 text-center text-sm-start">
                 <div className="footer-widget mb-30 wow fadeInLeft">
-                  <h4 className="mb-20">We qre on a mission.</h4>
+                  <h4 className="mb-20">We are on a mission.</h4>
                   <div className="footer-text mb-20">
                     <p>
                       At Banca, we are using cutting-edge technology to

@@ -554,6 +554,13 @@ const Loanpage = () => {
                               name="select-location"
                               id="locationSelect"
                               defaultValue={'Bandarban'}
+                              style={{
+                                appearance: 'none',
+                                backgroundColor: 'transparent',
+                                boxShadow: 'none',
+                                cursor: 'pointer',
+                                fontWeight: 'normal',
+                              }}
                             >
                               <option value="Bagerhat">Bagerhat</option>
                               <option value="Bandarban">Bandarban</option>

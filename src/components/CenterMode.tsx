@@ -116,49 +116,48 @@ export default function TestimonialSlider() {
   };
 
   return (
-    <section className="pt-140 pb-140 testimonial-area bg_disable">
-      <div className="container-fluid px-0">
-        <div className="testimonial-slider slick-slider">
-          <div>
-          <Slider {...settings}>
-            {testimonials.map((item, index) => (
-              <div key={index} className="single-slider container px-0">
-                <div className="testimonial-widget">
-                  <div className="row">
-                    <div className="col-4">
-                      <div className="author-img">
-                        <Image
-                          src={item.img}
-                          alt="image"
-                          width={400}
-                          height={400}
-                          className="img-fluid"
-                        />
-                      </div>
+    <section className="pt-140 pb-140 testimonial-area bg_disable"> 
+  <div className="container-fluid px-0">
+    <div className="testimonial-slider slick-slider">
+      <Slider {...settings}>
+        {testimonials.map((item, index) => (
+          <div key={index} className="single-slider px-0">
+            <div className="testimonial-widget">
+              <div className="row">
+                <div className="col-4">
+                  <div className="author-img">
+                    <Image
+                      src={item.img}
+                      alt="image"
+                      width={400}
+                      height={400}
+                      className="img-fluid"
+                    />
+                  </div>
+                </div>
+                <div className="col-8 d-flex align-items-center">
+                  <div className="testimonial-content">
+                    <div className="watch-button">
+                      <Link href={item.video} target="_blank">
+                        <i className="fa fa-play"></i> watch the video
+                      </Link>
                     </div>
-                    <div className="col-8 d-flex align-items-center">
-                      <div className="testimonial-content">
-                        <div className="watch-button">
-                          <Link href={item.video} target="_blank">
-                            <i className="fa fa-play"></i> watch the video
-                          </Link>
-                        </div>
-                        <h2>{item.heading}</h2>
-                        <p className="pr-lg-60">{item.content}</p>
-                        <div className="author-info">
-                          <h4>{item.name}</h4>
-                          <span>{item.location}</span>
-                        </div>
-                      </div>
+                    <h2>{item.heading}</h2>
+                    <p className="pr-lg-60">{item.content}</p>
+                    <div className="author-info">
+                      <h4>{item.name}</h4>
+                      <span>{item.location}</span>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </Slider>
+            </div>
           </div>
-        </div>
-      </div>
-    </section>
+        ))}
+      </Slider>
+    </div>
+  </div>
+</section>
+
   );
 }
