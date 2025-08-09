@@ -12,7 +12,7 @@ const Loanpage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -82,7 +82,7 @@ const Loanpage = () => {
       ],
     },
   ];
-  
+
   const isActive = (itemHref: string): boolean => {
     if (itemHref === '/') return pathname === '/';
     return pathname.startsWith(itemHref);
@@ -615,160 +615,8 @@ const Loanpage = () => {
           </div>
         </section>
 
-
         <BankCalculator />
 
-        {/* <section className="pt-140 pb-140 testimonial-area bg_disable">
-          <div className="container-fluid px-0">
-            <div className="testimonial-slider">
-              <div className="single-slider container px-0">
-                <div className="testimonial-widget">
-                  <div className="row">
-                    <div className="col-4">
-                      <div className="author-img">
-                        <img src="/img/testimonial/img-2.png" alt="image" />
-                      </div>
-                    </div>
-                    <div className="col-8 d-flex align-items-center">
-                      <div className="testimonial-content">
-                        <div className="watch-button">
-                          <Link
-                            data-fancybox
-                            href="https://www.youtube.com/watch?v=xcJtL7QggTI"
-                          >
-                            <i className="fa fa-play"></i>
-                            watch the video
-                          </Link>
-                        </div>
-                        <h2>Making dreams a reality!</h2>
-                        <p className="pr-lg-60">
-                          We were looking for a home of happiness and peace.
-                          Thanks to the Grihashakti team, who helped us to
-                          realise this dream of ours. Our home has been very
-                          lucky for us – as we shifted to our new home,
-                          prosperity followed!
-                        </p>
-                        <div className="author-info">
-                          <h4>Maxwell Wood</h4>
-                          <span>New York, US</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="single-slider container px-0">
-                <div className="testimonial-widget">
-                  <div className="row">
-                    <div className="col-4">
-                      <div className="author-img">
-                        <img src="/img/testimonial/img-1.png" alt="image" />
-                      </div>
-                    </div>
-                    <div className="col-8 d-flex align-items-center">
-                      <div className="testimonial-content">
-                        <div className="watch-button">
-                          <Link
-                            data-fancybox
-                            href="https://www.youtube.com/watch?v=xcJtL7QggTI"
-                          >
-                            <i className="fa fa-play"></i>
-                            watch the video
-                          </Link>
-                        </div>
-                        <h2>Making dreams a reality!</h2>
-                        <p className="pr-lg-60">
-                          We were looking for a home of happiness and peace.
-                          Thanks to the Grihashakti team, who helped us to
-                          realise this dream of ours. Our home has been very
-                          lucky for us – as we shifted to our new home,
-                          prosperity followed!
-                        </p>
-                        <div className="author-info">
-                          <h4>Maxwell Wood</h4>
-                          <span>New York, US</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="single-slider container px-0">
-                <div className="testimonial-widget">
-                  <div className="row">
-                    <div className="col-4">
-                      <div className="author-img">
-                        <img src="/img/testimonial/img-2.png" alt="image" />
-                      </div>
-                    </div>
-                    <div className="col-8 d-flex align-items-center">
-                      <div className="testimonial-content">
-                        <div className="watch-button">
-                          <Link
-                            data-fancybox
-                            href="https://www.youtube.com/watch?v=xcJtL7QggTI"
-                          >
-                            <i className="fa fa-play"></i>
-                            watch the video
-                          </Link>
-                        </div>
-                        <h2>Making dreams a reality!</h2>
-                        <p className="pr-lg-60">
-                          We were looking for a home of happiness and peace.
-                          Thanks to the Grihashakti team, who helped us to
-                          realise this dream of ours. Our home has been very
-                          lucky for us – as we shifted to our new home,
-                          prosperity followed!
-                        </p>
-                        <div className="author-info">
-                          <h4>Maxwell Wood</h4>
-                          <span>New York, US</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="single-slider container px-0">
-                <div className="testimonial-widget">
-                  <div className="row">
-                    <div className="col-4">
-                      <div className="author-img">
-                        <img src="/img/testimonial/img-1.png" alt="image" />
-                      </div>
-                    </div>
-                    <div className="col-8 d-flex align-items-center">
-                      <div className="testimonial-content">
-                        <div className="watch-button">
-                          <Link
-                            data-fancybox
-                            href="https://www.youtube.com/watch?v=xcJtL7QggTI"
-                          >
-                            <i className="fa fa-play"></i>
-                            watch the video
-                          </Link>
-                        </div>
-                        <h2>Making dreams a reality!</h2>
-                        <p className="pr-lg-60">
-                          We were looking for a home of happiness and peace.
-                          Thanks to the Grihashakti team, who helped us to
-                          realise this dream of ours. Our home has been very
-                          lucky for us – as we shifted to our new home,
-                          prosperity followed!
-                        </p>
-                        <div className="author-info">
-                          <h4>Maxwell Wood</h4>
-                          <span>New York, US</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-        
         <CenterMode />
       </main>
 

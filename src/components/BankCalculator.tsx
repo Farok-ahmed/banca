@@ -29,7 +29,8 @@ const CalculatorSection = () => {
     const principal = amount;
     const months = type === 'year' ? duration * 12 : duration;
     const r = interestRate / 12 / 100;
-    const emi = (principal * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
+    const emi =
+      (principal * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
     const total = emi * months;
     const interest = total - principal;
     return {
@@ -51,8 +52,8 @@ const CalculatorSection = () => {
         step: 1000,
         range: { min: 5000, max: 150000 },
         format: {
-          to: value => Math.round(value),
-          from: value => Number(value),
+          to: (value) => Math.round(value),
+          from: (value) => Number(value),
         },
         pips: {
           mode: noUiSlider.PipsMode.Values,
@@ -65,7 +66,7 @@ const CalculatorSection = () => {
         },
       });
 
-      slider.noUiSlider.on('update', values => {
+      slider.noUiSlider.on('update', (values) => {
         setAmount(parseInt(values[0].toString()));
       });
     }
@@ -79,7 +80,8 @@ const CalculatorSection = () => {
     const ref = type === 'year' ? yearRef.current : monthRef.current;
     if (ref?.noUiSlider) ref.noUiSlider.destroy();
 
-    const values = type === 'year' ? [2, 3, 4, 5, 6, 7, 8] : [12, 18, 24, 30, 36, 42, 48];
+    const values =
+      type === 'year' ? [2, 3, 4, 5, 6, 7, 8] : [12, 18, 24, 30, 36, 42, 48];
     const min = values[0];
     const max = values[values.length - 1];
     const valid = Math.max(min, Math.min(max, duration));
@@ -92,8 +94,8 @@ const CalculatorSection = () => {
         step: 1,
         range: { min, max },
         format: {
-          to: value => Math.round(value),
-          from: value => Number(value),
+          to: (value) => Math.round(value),
+          from: (value) => Number(value),
         },
         pips: {
           mode: noUiSlider.PipsMode.Values,
@@ -102,7 +104,7 @@ const CalculatorSection = () => {
         },
       });
 
-      ref.noUiSlider.on('update', values => {
+      ref.noUiSlider.on('update', (values) => {
         setDuration(parseInt(values[0].toString()));
       });
     }
@@ -114,6 +116,47 @@ const CalculatorSection = () => {
 
   const { emi, total, interest } = calculateEMI();
 
+  // Updated Half Circle Calculation
+  // Rotation scale factor: adjust here for smaller or larger rotation
+  const scaleFactor = 1.0;
+
+  // সঠিক percentage calculation
+  const principalPercent = total > 0 ? (amount / total) * 100 : 0;
+  const interestPercent = 100 - principalPercent;
+
+  // Pie chart top-right থেকে clockwise direction এ calculation
+  // Total 360 degrees, but we're using half circles (180 degrees each)
+  const totalRotation = (interestPercent / 100) * 180; // Interest portion rotation
+
+  // Left half circle (0-90 degrees from top-right)
+  const leftRotation = Math.min(totalRotation, 90) * scaleFactor;
+
+  // Right half circle (90-180 degrees from top-right)  
+  const rightRotation = Math.max(0, totalRotation - 90) * scaleFactor;
+
+  // Styles - top-right থেকে clockwise
+  const leftStyle = { 
+    transform: `rotate(${leftRotation}deg)`,
+    transformOrigin: 'center center'
+  };
+
+  const rightStyle = { 
+    transform: `rotate(${rightRotation}deg)`,
+    transformOrigin: 'center center'
+  };
+
+  // Debug log (you can remove this in production)
+  console.log('Calculator Debug:', {
+    amount,
+    total,
+    interest,
+    principalPercent: principalPercent.toFixed(2) + '%',
+    interestPercent: interestPercent.toFixed(2) + '%',
+    totalRotation: ((interestPercent / 100) * 180).toFixed(2) + '°',
+    leftRotation: leftRotation.toFixed(2) + '°',
+    rightRotation: rightRotation.toFixed(2) + '°'
+  });
+
   return (
     <section className="pt-125 pb-140 bg_white">
       <div className="container">
@@ -122,7 +165,8 @@ const CalculatorSection = () => {
             <div className="section-title">
               <h2 className="wow fadeInUp">Calculator</h2>
               <p className="wow fadeInUp" data-wow-delay="0.3s">
-                Get an approximate figure for the total monthly instalment payments along with a complete break-up of the home loan.
+                Get an approximate figure for the total monthly instalment
+                payments along with a complete break-up of the home loan.
               </p>
             </div>
           </div>
@@ -131,11 +175,19 @@ const CalculatorSection = () => {
         <div className="calculator-widget mt-50">
           <div className="row gy-lg-0 gy-3">
             <div className="col-lg-7">
-              <div className="single-calculator-widget wow fadeInUp" data-wow-delay="0.1s">
+              <div
+                className="single-calculator-widget wow fadeInUp"
+                data-wow-delay="0.1s"
+              >
                 <div className="single-range">
                   <div className="range-header d-flex justify-content-between align-items-center mb-25">
                     <h6>Loan Amount</h6>
-                    <input type="text" id="SetRange" value={`$${amount.toLocaleString()}`} readOnly />
+                    <input
+                      type="text"
+                      id="SetRange"
+                      value={`$${amount.toLocaleString()}`}
+                      readOnly
+                    />
                   </div>
                   <div id="RangeSlider" ref={amountRef}></div>
                 </div>
@@ -145,10 +197,14 @@ const CalculatorSection = () => {
                     <h6>Loan Duration</h6>
 
                     <ul className="nav nav-tabs" id="myTab" role="tablist">
-                      <li><span className="active_bar"></span></li>
+                      <li>
+                        <span className="active_bar"></span>
+                      </li>
                       <li className="nav-item" role="presentation">
                         <button
-                          className={`nav-link month-tab ${type === 'month' ? 'active' : ''}`}
+                          className={`nav-link month-tab ${
+                            type === 'month' ? 'active' : ''
+                          }`}
                           onClick={() => setType('month')}
                         >
                           Month
@@ -156,7 +212,9 @@ const CalculatorSection = () => {
                       </li>
                       <li className="nav-item" role="presentation">
                         <button
-                          className={`nav-link year-tab ${type === 'year' ? 'active' : ''}`}
+                          className={`nav-link year-tab ${
+                            type === 'year' ? 'active' : ''
+                          }`}
                           onClick={() => setType('year')}
                         >
                           Year
@@ -164,14 +222,29 @@ const CalculatorSection = () => {
                       </li>
                     </ul>
 
-                    <input type="text" id="SetMonthRange" value={`${duration} ${type}`} readOnly />
+                    <input
+                      type="text"
+                      id="SetMonthRange"
+                      value={`${duration} ${type}`}
+                      readOnly
+                    />
                   </div>
 
                   <div className="tab-content">
-                    <div className={`tab-pane fade ${type === 'month' ? 'show active' : ''}`} id="monthTab">
+                    <div
+                      className={`tab-pane fade ${
+                        type === 'month' ? 'show active' : ''
+                      }`}
+                      id="monthTab"
+                    >
                       <div id="MonthRangeSlider" ref={monthRef}></div>
                     </div>
-                    <div className={`tab-pane fade ${type === 'year' ? 'show active' : ''}`} id="yearTab">
+                    <div
+                      className={`tab-pane fade ${
+                        type === 'year' ? 'show active' : ''
+                      }`}
+                      id="yearTab"
+                    >
                       <div id="YearRangeSlider" ref={yearRef}></div>
                     </div>
                   </div>
@@ -185,24 +258,38 @@ const CalculatorSection = () => {
             </div>
 
             <div className="col-lg-5">
-              <div className="calculator-result-widget bg_disable wow fadeInUp" data-wow-delay="0.3s">
+              <div
+                className="calculator-result-widget bg_disable wow fadeInUp"
+                data-wow-delay="0.3s"
+              >
                 <div className="row align-items-center">
                   <div className="col-lg-7 col-md-8 col-sm-7">
                     <div className="emi-amount">
                       <h6>EMI Amount</h6>
                       <span>Principal + Interest</span>
-                      <p className="mt-10 LoanTotalAmount">${total.toLocaleString()}</p>
+                      <p className="mt-10 LoanTotalAmount">
+                        ${total.toLocaleString()}
+                      </p>
                     </div>
                     <div className="interest-payable mt-20">
                       <h6>Interest Payable</h6>
-                      <p className="mt-10" id="InterestPayable">${interest.toLocaleString()}</p>
+                      <p className="mt-10" id="InterestPayable">
+                        ${interest.toLocaleString()}
+                      </p>
                     </div>
+                    
                   </div>
                   <div className="col-lg-5 col-md-4 col-sm-5 col-7 mx-auto">
                     <div className="pie-wrapper" id="loan_graph_circle">
                       <div className="pie">
-                        <div className="left-side half-circle"></div>
-                        <div className="right-side half-circle"></div>
+                        <div
+                          className="left-side half-circle"
+                          style={leftStyle}
+                        ></div>
+                        <div
+                          className="right-side half-circle"
+                          style={rightStyle}
+                        ></div>
                       </div>
                       <div className="circle-border"></div>
                     </div>
@@ -212,16 +299,20 @@ const CalculatorSection = () => {
                 <div className="row mt-lg-60 mt-25 text-center">
                   <div className="col-12">
                     <h4 className="mb-1">Your EMI Amount</h4>
-                    <h1 className="m-0" id="emiAmount">${emi.toLocaleString()}*</h1>
+                    <h1 className="m-0" id="emiAmount">
+                      ${emi.toLocaleString()}*
+                    </h1>
 
-                    <Link href="/loan/personal-details" className="theme-btn theme-btn-lg mt-40">
+                    <Link
+                      href="/loan/personal-details"
+                      className="theme-btn theme-btn-lg mt-40"
+                    >
                       Apply Now <i className="arrow_right"></i>
                     </Link>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

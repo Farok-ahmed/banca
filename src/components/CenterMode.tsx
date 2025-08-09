@@ -85,7 +85,7 @@ export default function TestimonialSlider() {
     autoplay: true,
     autoplaySpeed: 4000,
     centerMode: true,
-    centerPadding: '400px',
+    centerPadding: '300px',
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
