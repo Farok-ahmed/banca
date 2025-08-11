@@ -4566,7 +4566,7 @@ ul.slick-dots li button {
 }
 .services-area .table .feature-item .fa-check-circle {
   font-size: 20px;
-  color: var(--brand_color);
+  color: var(--brand_color) !important;
 }
 .services-area .table .feature-item .fa-times-circle {
   font-size: 20px;

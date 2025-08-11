@@ -21,7 +21,7 @@ const CalculatorSection = () => {
   const monthRef = useRef<HTMLDivElementWithSlider | null>(null);
 
   const [amount, setAmount] = useState(50000);
-  const [duration, setDuration] = useState(5); // in year or month based on type
+  const [duration, setDuration] = useState(5);
   const [type, setType] = useState<'year' | 'month'>('year');
   const [interestRate] = useState(6.5);
 
@@ -117,45 +117,31 @@ const CalculatorSection = () => {
   const { emi, total, interest } = calculateEMI();
 
   // Updated Half Circle Calculation
-  // Rotation scale factor: adjust here for smaller or larger rotation
   const scaleFactor = 1.0;
 
-  // সঠিক percentage calculation
+  // percentage calculation
   const principalPercent = total > 0 ? (amount / total) * 100 : 0;
   const interestPercent = 100 - principalPercent;
 
-  // Pie chart top-right থেকে clockwise direction এ calculation
   // Total 360 degrees, but we're using half circles (180 degrees each)
-  const totalRotation = (interestPercent / 100) * 180; // Interest portion rotation
+  const totalRotation = (interestPercent / 100) * 180;
 
   // Left half circle (0-90 degrees from top-right)
   const leftRotation = Math.min(totalRotation, 90) * scaleFactor;
 
-  // Right half circle (90-180 degrees from top-right)  
+  // Right half circle (90-180 degrees from top-right)
   const rightRotation = Math.max(0, totalRotation - 90) * scaleFactor;
 
-  // Styles - top-right থেকে clockwise
-  const leftStyle = { 
+  // Styles - top-right clockwise
+  const leftStyle = {
     transform: `rotate(${leftRotation}deg)`,
-    transformOrigin: 'center center'
+    transformOrigin: 'center center',
   };
 
-  const rightStyle = { 
+  const rightStyle = {
     transform: `rotate(${rightRotation}deg)`,
-    transformOrigin: 'center center'
+    transformOrigin: 'center center',
   };
-
-  // Debug log (you can remove this in production)
-  console.log('Calculator Debug:', {
-    amount,
-    total,
-    interest,
-    principalPercent: principalPercent.toFixed(2) + '%',
-    interestPercent: interestPercent.toFixed(2) + '%',
-    totalRotation: ((interestPercent / 100) * 180).toFixed(2) + '°',
-    leftRotation: leftRotation.toFixed(2) + '°',
-    rightRotation: rightRotation.toFixed(2) + '°'
-  });
 
   return (
     <section className="pt-125 pb-140 bg_white">
@@ -277,7 +263,6 @@ const CalculatorSection = () => {
                         ${interest.toLocaleString()}
                       </p>
                     </div>
-                    
                   </div>
                   <div className="col-lg-5 col-md-4 col-sm-5 col-7 mx-auto">
                     <div className="pie-wrapper" id="loan_graph_circle">

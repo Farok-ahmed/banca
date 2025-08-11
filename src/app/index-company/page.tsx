@@ -6,14 +6,37 @@ import LoanSlider from '@/components/LoanSlider';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 import IndexCalculator from '@/components/IndexCalculator';
 import { useTheme } from '@/contextAPi/ThemeContext';
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { usePathname } from 'next/navigation';
+import { useFormStatus } from 'react-dom';
+
+function SubmitButton({ children }: { children: ReactNode }) {
+  const { pending } = useFormStatus();
+  return (
+    <button type="submit" className="theme-btn mt-10" disabled={pending}>
+      {pending ? 'Submitting...' : children}
+    </button>
+  );
+}
+
+type ContactFormFields = {
+  fullName: string;
+  email: string;
+};
 
 const IndexCompany = () => {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const pathname = usePathname();
+
+  async function handleSubmit(formData: FormData) {
+    const data: ContactFormFields = {
+      fullName: formData.get('fullName') as string,
+      email: formData.get('email') as string,
+    };
+    console.log('Form submitted:', data);
+  }
 
   const handleMenuToggle = () => {
     setMenuOpen((prev) => !prev);
@@ -1256,25 +1279,26 @@ const IndexCompany = () => {
                   </div>
                 </div>
               </div>
+
               <div className="col-md-6">
                 <div className="touch-form">
                   <h3>Get in touch</h3>
-                  <form action="">
+                  <form action={handleSubmit}>
                     <input
                       className="form-control"
                       type="text"
+                      name="fullName"
                       placeholder="Enter full name"
                       required
                     />
                     <input
                       className="form-control"
                       type="email"
+                      name="email"
                       placeholder="Enter email address"
                       required
                     />
-                    <button type="submit" className="theme-btn mt-10">
-                      Subscribe
-                    </button>
+                    <SubmitButton>Subscribe</SubmitButton>
                   </form>
                 </div>
               </div>
