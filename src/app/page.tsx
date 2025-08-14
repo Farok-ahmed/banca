@@ -1,21 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useTheme } from '@/contextAPi/ThemeContext';
+import { BlogItem } from '@/types/Blogitem';
+import { FaqItem } from '@/types/Faqitem';
+import { TabData } from '@/types/Tabdata';
+import { Testimonial } from '@/types/Testimonial';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
-import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
-import classNames from 'classnames';
-import { useTheme } from '@/contextAPi/ThemeContext';
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import { TabData } from '@/types/Tabdata';
-import { FaqItem } from '@/types/Faqitem';
-import { Testimonial } from '@/types/Testimonial';
-import { BlogItem } from '@/types/Blogitem';
 import { usePathname } from 'next/navigation';
+import React, { useState } from 'react';
+import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 
 const tabContent: TabData[] = [
   {
@@ -1144,7 +1143,7 @@ export default function Home() {
                 key={testimonial.id}
                 data-wow-delay={testimonial.delay || '0.1s'}
               >
-                <div className="single-client p-4 rounded shadow-sm h-100 bg-white">
+                <div className="single-client wow fadeInUp slick-slide slick-active">
                   <div className="rating mb-2 text-warning">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <i className="bi bi-star-fill me-1" key={i}></i>

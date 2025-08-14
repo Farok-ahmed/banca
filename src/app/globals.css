@@ -6327,8 +6327,8 @@ ul.slick-dots li button {
 /*----------------------------------------*/
 .testimonial-slider .slick-arrow {
   position: absolute;
-  top: 24% !important;
-  transform: translate(-80%, -50%) !important;
+  top: 24% ;
+  transform: translate(-80%, -50%);
   height: 40px;
   width: 40px;
   background-color: rgba(255, 255, 255, 0.75) !important;
@@ -11343,13 +11343,13 @@ body.body_dark
   background-color: #e5e7eb;
   border-radius: 10px;
   height: 6px;
-  border: none;
+  border: none !important;
 }
 
-.noUi-touch-area {
+/* .noUi-touch-area {
   background-color: #0050b2 !important;
   border-radius: 50%;
-}
+} */
 
 .noUi-handle::after {
   left: 0px;
@@ -11453,11 +11453,11 @@ body.body_dark
 }
 
 .noUi-horizontal .noUi-handle {
-  width: 15px !important;
-  height: 15px !important;
-  background-color: #0050b2 !important;
+  width: 15px ;
+  height: 15px ;
+  background-color: #0050b2;
   top: -6px;
-  right: -10px !important;
+  right: -10px;
 }
 
 .noUi-marker-horizontal.noUi-marker {

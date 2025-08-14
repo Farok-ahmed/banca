@@ -700,10 +700,10 @@ blockquote::before {
   right: auto;
   left: calc((100vw - 1200px) / 2);
 }
-.testimonial-slider .slick-arrow.slick-prev {
+/* .testimonial-slider .slick-arrow.slick-prev {
   right: calc((100vw - 1200px) / 2);
   left: auto;
-}
+} */
 .testimonial-widget .testimonial-content .watch-button i {
   margin-right: 0;
   margin-left: 8px;

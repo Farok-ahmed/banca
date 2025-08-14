@@ -433,22 +433,25 @@
         .noUi-horizontal {
           width: 100%;
         }
+      }.noUi-target{
+        border: none !important;
       }
       .noUi-horizontal {
         width: calc(100% - 180px);
-        height: 9px;
+        height: 9px !important;
         background-color: #edeff3;
         border-radius: 5px;
         .noUi-handle {
-          width: 24px;
-          height: 24px;
+          width: 24px !important;
+          height: 24px !important;
           right: -11px;
           border-radius: 50%;
           background-color: #fff;
-          top: -7px;
+          top: -9px !important;
           box-shadow: 0px 8px 10px 0px #bdc5d6cc;
           cursor: pointer;
         }
+
         .noUi-pips {
           display: none;
         }
@@ -1194,15 +1197,14 @@
   }
 }
 
-
-// calculator-area-three css 
-.calculator-area-three{
+// calculator-area-three css
+.calculator-area-three {
   padding: 140px 0px;
-  .bank-section-title h1 .underline-shape::after{
-    background: #6AD099;
+  .bank-section-title h1 .underline-shape::after {
+    background: #6ad099;
   }
-  .calculator-widget-2 .calculator-result-widget{
+  .calculator-widget-2 .calculator-result-widget {
     background: #fff;
-    border-left: 1px solid #D9DBE5;
+    border-left: 1px solid #d9dbe5;
   }
 }

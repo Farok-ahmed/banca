@@ -783,9 +783,9 @@
     font-size: 16px;
     margin: 10px 0;
   }
-  .testimonial-slider .slick-arrow.slick-prev {
+  /* .testimonial-slider .slick-arrow.slick-prev {
     left: calc((100vw - 540px) / 2);
-  }
+  } */
   .testimonial-slider .slick-arrow.slick-next {
     right: calc((100vw - 540px) / 2);
   }
