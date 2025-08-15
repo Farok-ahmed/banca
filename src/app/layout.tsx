@@ -1,23 +1,23 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "@/styles/sass/style.scss";
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import './globals.css';
-import '../styles/animate.css';
-import '../styles/default.css';
-import '../styles/nice-select.css';
-import '../styles/nouislider.min.css';
-import '../styles/slick-theme.css';
-import '../styles/slick.css';
-import '../styles/elegent-icons.min.css';
-import '../styles/css/all.min.css';
-import '../styles/intlTellInput.css';
-import '../sass/main.scss';
-import '../styles/responsive.css';
-import PreLoader from '@/components/Loader';
+// import './globals.css';
+// import '../styles/animate.css';
+// import '../styles/default.css';
+// import '../styles/nice-select.css';
+// import '../styles/nouislider.min.css';
+// import '../styles/slick-theme.css';
+// import '../styles/slick.css';
+// import '../styles/elegent-icons.min.css';
+// import '../styles/css/all.min.css';
+// import '../styles/intlTellInput.css';
+// import '../sass/main.scss';
+// import '../styles/responsive.css';
 import BackToTop from '@/components/BackToTop';
-import { ThemeProvider } from '@/contextAPi/ThemeContext';
+import PreLoader from '@/components/Loader';
 import StickyNavbar from '@/components/StickyNavbar';
+import { ThemeProvider } from '@/contextAPi/ThemeContext';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
