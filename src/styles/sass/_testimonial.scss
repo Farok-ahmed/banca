@@ -1,6 +1,60 @@
 /*----------------------------------------*/
 /*   Testimonial CSS
 /*----------------------------------------*/
+.testimonial-area{
+    .testimonial-slider-3{
+        .slick-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(-80%, -50%);
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255, 255, 255, 0.75) !important;
+    font-size: 24px !important;
+    color: #9199a1 !important;
+    border-radius: 50%;
+    box-shadow: 0px 3px 6px 0px #1455a647;
+
+    outline: none;
+    z-index: 999;
+    transition: all 0.3s ease-out;
+    &:hover {
+      box-shadow: 0px 5px 12px 0px #334d7240;
+
+      i {
+        color: #1456a6;
+      }
+    }
+    &::before {
+      display: none;
+    }
+    i {
+      display: inline-block;
+      line-height: 4px;
+      vertical-align: middle;
+      transition: all 0.3s ease-out;
+    }
+
+    &.slick-prev {
+          left: calc(47.5vw - 600px);
+    //   @media only screen and (max-width: 1280px) and (min-width: 1200px) {
+    //     left: 0;
+    //     transform: translate(0);
+    //   }
+    }
+    &.slick-next {
+         right: calc(53vw - 600px);
+      transform: translate(80%, -50%);
+    //   @media only screen and (max-width: 1280px) and (min-width: 1200px) {
+    //     right: 0;
+    //     transform: translate(0);
+    //   }
+    }
+  }
+    }
+}
+
+// Testimonial Slider
 .testimonial-slider {
   .slick-arrow {
     position: absolute;
@@ -186,15 +240,15 @@
     }
     .author-info {
       h4 {
-        font-size: 24px;
+        font-size: 18px;
         color: $theme-title-color;
         font-family: $Poppins-font;
-        font-weight: 600;
+        font-weight: 500;
         margin-bottom: 0;
-        line-height: 39px;
+        line-height: 32px;
       }
       span {
-        font-size: 16px;
+        font-size: 14px;
         color: var(--p_color);
         font-family: $Roboto-font;
         font-weight: 400;

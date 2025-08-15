@@ -1,19 +1,27 @@
-'use client';
-import NewsSlider from '@/components/BancaNews';
-import ClientSlider from '@/components/MobileTestimonial';
-import Image from 'next/image';
-import Link from 'next/link';
-import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
-import classNames from 'classnames';
-import { useState } from 'react';
-import { useTheme } from '@/contextAPi/ThemeContext';
-import { usePathname } from 'next/navigation';
+"use client";
+import NewsSlider from "@/components/BancaNews";
+import ClientSlider from "@/components/MobileTestimonial";
+import Image from "next/image";
+import Link from "next/link";
+import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
+import classNames from "classnames";
+import { useState } from "react";
+import { useTheme } from "@/contextAPi/ThemeContext";
+import { usePathname } from "next/navigation";
+import "@/styles/css/elegant-icons.min.css";
+import "@/styles/css/all.min.css";
+import "@/styles/css/animate.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "@/styles/css/nice-select.css";
+import "@/styles/css/default.css";
+import "@/styles/css/responsive.css";
 
-const MobileApp = () => {
+const MobileAppPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const { theme, toggleTheme } = useTheme();
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   const handleMenuToggle = () => {
     setMenuOpen(!menuOpen);
@@ -32,65 +40,65 @@ const MobileApp = () => {
         e.preventDefault();
         toggleDropdown(label);
       }}
-      style={{ cursor: 'pointer' }}
+      style={{ cursor: "pointer" }}
     ></i>
   );
 
   const menuItems = [
     {
-      label: 'Home',
-      href: '/',
+      label: "Home",
+      href: "/",
       sub: [
-        ['/', 'Smart Finance'],
-        ['/index-company', 'Loan Company'],
-        ['/mobile-app', 'Mobile App'],
-        ['/simple-banca', 'Simple Banca'],
-        ['/loan-steps', 'Loan Steps'],
-        ['/finance-sass-app', 'Finance Sass App'],
-        ['/small-bank', 'Small Bank'],
+        ["/", "Smart Finance"],
+        ["/index-company", "Loan Company"],
+        ["/mobile-app", "Mobile App"],
+        ["/simple-banca", "Simple Banca"],
+        ["/loan-steps", "Loan Steps"],
+        ["/finance-sass-app", "Finance Sass App"],
+        ["/small-bank", "Small Bank"],
       ],
     },
     {
-      label: 'Loan',
-      href: '/loan',
+      label: "Loan",
+      href: "/loan",
       sub: [
-        ['/loan', 'Get Loan'],
+        ["/loan", "Get Loan"],
         [
-          '/loan-details',
-          'Loan Application',
+          "/loan-details",
+          "Loan Application",
           [
-            ['/loan-details', 'Step 01'],
-            ['/personal-details', 'Step 02'],
-            ['/document-upload', 'Step 03'],
+            ["/loan-details", "Step 01"],
+            ["/personal-details", "Step 02"],
+            ["/document-upload", "Step 03"],
           ],
         ],
       ],
     },
     {
-      label: 'Job Pages',
-      href: '/career',
+      label: "Job Pages",
+      href: "/career",
       sub: [
-        ['/career', 'Career'],
-        ['/jobs', 'Jobs'],
-        ['/job-application', 'Job Application'],
+        ["/career", "Career"],
+        ["/jobs", "Jobs"],
+        ["/job-application", "Job Application"],
       ],
     },
     {
-      label: 'Pages',
-      href: '/card',
+      label: "Pages",
+      href: "/card",
       sub: [
-        ['/card', 'Cards'],
-        ['/about-us', 'About Us'],
-        ['/contact-us', 'Contact Us'],
-        ['/error', '404 Error'],
+        ["/card", "Cards"],
+        ["/about-us", "About Us"],
+        ["/contact-us", "Contact Us"],
+        ["/error", "404 Error"],
       ],
     },
     {
-      label: 'Blog',
-      href: '/blog-listing',
+      label: "Blog",
+      href: "/blog-listing",
       sub: [
-        ['/blog-listing', 'Blog Listing'],
-        ['/blog-details', 'Blog Details'],
+        ["/blog-listing", "Blog Listing"],
+        ["/blog-details", "Blog Details"],
       ],
     },
   ];
@@ -98,175 +106,180 @@ const MobileApp = () => {
   return (
     <div>
       <header className="header">
-      <div className="header-menu header-menu-4" id="sticky">
-        <nav className="navbar navbar-expand-lg">
-          <div className="container">
-            <Link className="navbar-brand sticky_logo" href="/">
-              <Image
-                className="main"
-                src="/img/logo/Logo.png"
-                alt="logo"
-                width={130}
-                height={40}
-              />
-              <Image
-                className="sticky"
-                src="/img/logo/Logo-2.png"
-                alt="logo sticky"
-                width={130}
-                height={40}
-              />
-            </Link>
-
-            <button
-              className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
-              type="button"
-              onClick={handleMenuToggle}
-              aria-expanded={menuOpen}
-              aria-label="Toggle navigation"
-            >
-              <span className="menu_toggle">
-                <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </span>
-                <span className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}>
-                  <span></span>
-                  <span></span>
-                </span>
-              </span>
-            </button>
-
-            <div
-              className={classNames('collapse navbar-collapse right-nav', {
-                show: menuOpen,
-              })}
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav menu ms-auto">
-                {menuItems.map((item, idx) => {
-                  const isActive =
-                    pathname === item.href ||
-                    item.sub.some((subItem) =>
-                      Array.isArray(subItem[2])
-                        ? subItem[2].some(([href]) => pathname === href)
-                        : pathname === subItem[0]
-                    );
-
-                  return (
-                    <li className="nav-item dropdown submenu" key={idx}>
-                      <Link
-                        href={item.href}
-                        className={classNames('nav-link dropdown-toggle', {
-                          active: isActive,
-                        })}
-                      >
-                        {item.label}
-                        {renderMobileDropdownIcon(item.label)}
-                      </Link>
-
-                      <ul
-                        className={classNames('dropdown-menu', {
-                          show: openDropdown === item.label,
-                        })}
-                      >
-                        {item.sub.map((subItem, subIdx) =>
-                          Array.isArray(subItem[2]) ? (
-                            <li
-                              className="nav-item dropdown submenu"
-                              key={subIdx}
-                            >
-                              <Link
-                                href="#"
-                                className={classNames('nav-link dropdown-toggle', {
-                                  active: subItem[2].some(
-                                    ([href]) => pathname === href
-                                  ),
-                                })}
-                              >
-                                {subItem[1]}
-                                {renderMobileDropdownIcon(
-                                  `${item.label}-nested-${subIdx}`
-                                )}
-                              </Link>
-                              <ul
-                                className={classNames('dropdown-menu', {
-                                  show:
-                                    openDropdown ===
-                                    `${item.label}-nested-${subIdx}`,
-                                })}
-                              >
-                                {subItem[2].map(([href, label], innerIdx) => (
-                                  <li className="nav-item" key={innerIdx}>
-                                    <Link
-                                      href={href}
-                                      className={classNames('nav-link', {
-                                        active: pathname === href,
-                                      })}
-                                    >
-                                      {label}
-                                    </Link>
-                                  </li>
-                                ))}
-                              </ul>
-                            </li>
-                          ) : (
-                            <li className="nav-item" key={subIdx}>
-                              <Link
-                                href={subItem[0] as string}
-                                className={classNames('nav-link', {
-                                  active: pathname === subItem[0],
-                                })}
-                              >
-                                {subItem[1]}
-                              </Link>
-                            </li>
-                          )
-                        )}
-                      </ul>
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <Link
-                className="theme-btn theme-btn-rounded-2 theme-btn-alt"
-                href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download
+        <div className="header-menu header-menu-4" id="sticky">
+          <nav className="navbar navbar-expand-lg">
+            <div className="container">
+              <Link className="navbar-brand sticky_logo" href="/">
+                <Image
+                  className="main"
+                  src="/img/logo/Logo.png"
+                  alt="logo"
+                  width={130}
+                  height={40}
+                />
+                <Image
+                  className="sticky"
+                  src="/img/logo/Logo-2.png"
+                  alt="logo sticky"
+                  width={130}
+                  height={40}
+                />
               </Link>
 
-              <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
-                <label htmlFor="something" className="tab-btn tab-btns">
-                  <IoMoonOutline />
-                </label>
-                <label htmlFor="something" className="tab-btn">
-                  <IoSunnyOutline />
-                </label>
-                <label
-                  className="ball"
-                  style={{
-                    left: theme === 'body_dark' ? 3 : 26,
-                  }}
-                  htmlFor="something"
-                ></label>
-                <input
-                  type="checkbox"
-                  name="something"
-                  id="something"
-                  className="dark_mode_switcher"
-                  checked={theme === 'body_dark'}
-                  onChange={toggleTheme}
-                />
+              <button
+                className={`navbar-toggler ${menuOpen ? "" : "collapsed"}`}
+                type="button"
+                onClick={handleMenuToggle}
+                aria-expanded={menuOpen}
+                aria-label="Toggle navigation"
+              >
+                <span className="menu_toggle">
+                  <span className={`hamburger ${menuOpen ? "d_none" : ""}`}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                  <span
+                    className={`hamburger-cross ${menuOpen ? "" : "d_none"}`}
+                  >
+                    <span></span>
+                    <span></span>
+                  </span>
+                </span>
+              </button>
+
+              <div
+                className={classNames("collapse navbar-collapse right-nav", {
+                  show: menuOpen,
+                })}
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav menu ms-auto">
+                  {menuItems.map((item, idx) => {
+                    const isActive =
+                      pathname === item.href ||
+                      item.sub.some((subItem) =>
+                        Array.isArray(subItem[2])
+                          ? subItem[2].some(([href]) => pathname === href)
+                          : pathname === subItem[0]
+                      );
+
+                    return (
+                      <li className="nav-item dropdown submenu" key={idx}>
+                        <Link
+                          href={item.href}
+                          className={classNames("nav-link dropdown-toggle", {
+                            active: isActive,
+                          })}
+                        >
+                          {item.label}
+                          {renderMobileDropdownIcon(item.label)}
+                        </Link>
+
+                        <ul
+                          className={classNames("dropdown-menu", {
+                            show: openDropdown === item.label,
+                          })}
+                        >
+                          {item.sub.map((subItem, subIdx) =>
+                            Array.isArray(subItem[2]) ? (
+                              <li
+                                className="nav-item dropdown submenu"
+                                key={subIdx}
+                              >
+                                <Link
+                                  href="#"
+                                  className={classNames(
+                                    "nav-link dropdown-toggle",
+                                    {
+                                      active: subItem[2].some(
+                                        ([href]) => pathname === href
+                                      ),
+                                    }
+                                  )}
+                                >
+                                  {subItem[1]}
+                                  {renderMobileDropdownIcon(
+                                    `${item.label}-nested-${subIdx}`
+                                  )}
+                                </Link>
+                                <ul
+                                  className={classNames("dropdown-menu", {
+                                    show:
+                                      openDropdown ===
+                                      `${item.label}-nested-${subIdx}`,
+                                  })}
+                                >
+                                  {subItem[2].map(([href, label], innerIdx) => (
+                                    <li className="nav-item" key={innerIdx}>
+                                      <Link
+                                        href={href}
+                                        className={classNames("nav-link", {
+                                          active: pathname === href,
+                                        })}
+                                      >
+                                        {label}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </li>
+                            ) : (
+                              <li className="nav-item" key={subIdx}>
+                                <Link
+                                  href={subItem[0] as string}
+                                  className={classNames("nav-link", {
+                                    active: pathname === subItem[0],
+                                  })}
+                                >
+                                  {subItem[1]}
+                                </Link>
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                <Link
+                  className="theme-btn theme-btn-rounded-2 theme-btn-alt"
+                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Download
+                </Link>
+
+                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
+                  <label htmlFor="something" className="tab-btn tab-btns">
+                    <IoMoonOutline />
+                  </label>
+                  <label htmlFor="something" className="tab-btn">
+                    <IoSunnyOutline />
+                  </label>
+                  <label
+                    className="ball"
+                    style={{
+                      left: theme === "body_dark" ? 3 : 26,
+                    }}
+                    htmlFor="something"
+                  ></label>
+                  <input
+                    type="checkbox"
+                    name="something"
+                    id="something"
+                    className="dark_mode_switcher"
+                    checked={theme === "body_dark"}
+                    onChange={toggleTheme}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </nav>
-      </div>
-    </header>
+          </nav>
+        </div>
+      </header>
 
       <main>
         <section className="banner-area" id="banner_animation">
@@ -569,7 +582,7 @@ const MobileApp = () => {
                   <p>
                     Set challenges Set small challenges to motivate yourself to
                     save. Setting smaller goals within your larger goals can be
-                    more engaging in tracking{' '}
+                    more engaging in tracking{" "}
                   </p>
 
                   <div>
@@ -1143,8 +1156,8 @@ const MobileApp = () => {
                   className="cta cta-2"
                   style={{
                     backgroundImage: `url('/img/client/cta-bg.png')`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
                   }}
                 >
                   <div className="bubbles">
@@ -1551,20 +1564,20 @@ const MobileApp = () => {
               <div className="col-lg-3">
                 <div
                   className="language-list position-relative"
-                  style={{ width: '130px' }}
+                  style={{ width: "130px" }}
                 >
                   <select
                     className="form-select border-0 shadow-none pe-4"
                     aria-label="Language select"
                     style={{
-                      appearance: 'none',
-                      backgroundColor: '#171d24',
-                      color: '#ffffff',
-                      cursor: 'pointer',
-                      border: 'none',
-                      boxShadow: 'none',
-                      width: '100%',
-                      padding: '6px 12px',
+                      appearance: "none",
+                      backgroundColor: "#171d24",
+                      color: "#ffffff",
+                      cursor: "pointer",
+                      border: "none",
+                      boxShadow: "none",
+                      width: "100%",
+                      padding: "6px 12px",
                     }}
                   >
                     <option value="English">English</option>
@@ -1596,4 +1609,4 @@ const MobileApp = () => {
   );
 };
 
-export default MobileApp;
+export default MobileAppPage;

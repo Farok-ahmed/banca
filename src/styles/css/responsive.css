@@ -123,6 +123,12 @@
   .testimonial-slider .slick-arrow.slick-next {
     right: calc((100vw - 960px) / 2);
   }
+  .testimonial-slider-3 .slick-arrow.slick-prev {
+    left: calc((100vw - 960px) / 2) !important;
+  }
+  .testimonial-slider-3 .slick-arrow.slick-next {
+    right: calc((100vw - 960px) / 2) !important;
+  }
   .loan-slider .slick-next {
     right: -35px;
   }
@@ -391,6 +397,12 @@
   .testimonial-slider .slick-arrow.slick-next {
     right: 40px;
   }
+  .testimonial-slider-3 .slick-arrow.slick-prev {
+    left: 40px !important;
+  }
+  .testimonial-slider-3 .slick-arrow.slick-next {
+    right: 40px !important;
+  }
   .testimonial-widget .testimonial-content h2 {
     font-size: 30px;
   }
@@ -419,6 +431,12 @@
   }
   .testimonial-slider .slick-arrow.slick-next {
     right: calc((100vw - 720px) / 2);
+  }
+  .testimonial-slider-3 .slick-arrow.slick-prev {
+    left: calc((100vw - 720px) / 2) !important;
+  }
+  .testimonial-slider-3 .slick-arrow.slick-next {
+    right: calc((100vw - 720px) / 2) !important;
   }
   /* ------------- */
   .cta-3 .img-shapes .shape:nth-child(3) {
@@ -766,6 +784,12 @@
   .testimonial-slider .slick-arrow.slick-next {
     right: 00px;
   }
+  .testimonial-slider-3 .slick-arrow.slick-prev {
+    left: 0px !important;
+  }
+  .testimonial-slider-3 .slick-arrow.slick-next {
+    right: 0px !important;
+  }
   .testimonial-widget .testimonial-content h2 {
     font-size: 25px;
   }
@@ -788,6 +812,12 @@
   }
   .testimonial-slider .slick-arrow.slick-next {
     right: calc((100vw - 540px) / 2);
+  }
+  .testimonial-slider-3 .slick-arrow.slick-prev {
+    left: calc((100vw - 540px) / 2) !important;
+  }
+  .testimonial-slider-3 .slick-arrow.slick-next {
+    right: calc((100vw - 540px) / 2) !important;
   }
   /* ------------- */
 
@@ -1307,6 +1337,12 @@
   }
   .testimonial-slider .slick-arrow.slick-next {
     right: 32px;
+  }
+  .testimonial-slider-3 .slick-arrow.slick-prev {
+    left: 32px !important;
+  }
+  .testimonial-slider-3 .slick-arrow.slick-next {
+    right: 32px !important;
   }
   /* ------------- */
   .feature-calculator .calculator .calculator-slider .range-input {

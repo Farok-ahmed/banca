@@ -224,6 +224,7 @@
           font-weight: 500;
           color: $theme-title-color;
         }
+        
         input {
           height: 37px;
           border-radius: 4px;
@@ -240,6 +241,37 @@
           }
         }
       }
+          .noUi-horizontal {
+              height: 3px;
+              border: none;
+              .noUi-handle {
+                  width: 10px;
+                  height: 10px;
+                  right: -5px;
+                  border-radius: 50%;
+                  background-color: var(--brand_color);
+                  top: -4px;
+                  box-shadow:none;
+              }
+               .noUi-connect {
+                 background-color: var(--brand_color);
+              }
+             .noUi-handle::before,
+.noUi-handle::after {
+  display: none;
+}
+
+              .noUi-marker-large{
+                height: 19px;
+                top: -11px;
+              }
+              .noUi-marker-normal{
+                display: none;
+              }
+
+    
+          }
+
 
       .nav-tabs {
         background-color: rgba(#0050b2, 10%);
@@ -437,6 +469,7 @@
         width: calc(100% - 180px);
         height: 9px;
         background-color: #edeff3;
+        border: none !important;
         border-radius: 5px;
         .noUi-handle {
           width: 24px;
@@ -453,6 +486,9 @@
         }
         .noUi-connects {
           border-radius: 5px;
+          .noUi-connect {
+            background-color: var(--brand_color);
+          }
         }
       }
       h6 {
@@ -1136,6 +1172,9 @@
         border: none;
         position: relative;
         z-index: 1;
+        &::before{
+            display: none;
+        }
         &::after {
           content: "";
           position: absolute;
