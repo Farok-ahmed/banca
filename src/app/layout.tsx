@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import BackToTop from '@/components/BackToTop';
 import PreLoader from '@/components/Loader';
-import StickyNavbar from '@/components/StickyNavbar';
+// import StickyNavbar from '@/components/StickyNavbar';
 import { ThemeProvider } from '@/contextAPi/ThemeContext';
 
 const geistSans = Geist({
@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ThemeProvider>
-          <StickyNavbar />
+          {/* <StickyNavbar /> */}
           <BackToTop />
           <PreLoader />
           {children}
