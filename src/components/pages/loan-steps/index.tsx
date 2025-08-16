@@ -1,11 +1,18 @@
-'use client';
-import LoanAccordion from '@/components/LoanAccordion';
-import { useTheme } from '@/contextAPi/ThemeContext';
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
+"use client";
+import "@/styles/css/elegant-icons.min.css";
+import "@/styles/css/all.min.css";
+import "@/styles/css/animate.css";
+import "@/styles/css/nice-select.css";
+import "@/styles/css/default.css";
+import "@/styles/css/responsive.css";
+
+import LoanAccordion from "@/components/LoanAccordion";
+import { useTheme } from "@/contextAPi/ThemeContext";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
 
 type SubmenuItem = [string, string] | [string, string, [string, string][]];
 
@@ -15,7 +22,7 @@ type MenuItem = {
   submenu: SubmenuItem[];
 };
 
-const LoanSteps = () => {
+const LoanStepsPage = () => {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -29,63 +36,63 @@ const LoanSteps = () => {
     setOpenDropdown((prev) => (prev === label ? null : label));
   };
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 992;
 
   const menuItems: MenuItem[] = [
     {
-      label: 'Home',
-      href: '/',
+      label: "Home",
+      href: "/",
       submenu: [
-        ['/', 'Smart Finance'],
-        ['/index-company', 'Loan Company'],
-        ['/mobile-app', 'Mobile App'],
-        ['/simple-banca', 'Simple Banca'],
-        ['/loan-steps', 'Loan Steps'],
-        ['/finance-sass-app', 'Finance Sass App'],
-        ['/small-bank', 'Small Bank'],
+        ["/", "Smart Finance"],
+        ["/index-company", "Loan Company"],
+        ["/mobile-app", "Mobile App"],
+        ["/simple-banca", "Simple Banca"],
+        ["/loan-steps", "Loan Steps"],
+        ["/finance-sass-app", "Finance Sass App"],
+        ["/small-bank", "Small Bank"],
       ],
     },
     {
-      label: 'Loan',
-      href: '/loan',
+      label: "Loan",
+      href: "/loan",
       submenu: [
-        ['/loan', 'Get loan'],
+        ["/loan", "Get loan"],
         [
-          '/loan-details',
-          'Loan Application',
+          "/loan-details",
+          "Loan Application",
           [
-            ['/loan-details', 'Step 01'],
-            ['/personal-details', 'Step 02'],
-            ['/document-upload', 'Step 03'],
+            ["/loan-details", "Step 01"],
+            ["/personal-details", "Step 02"],
+            ["/document-upload", "Step 03"],
           ],
         ],
       ],
     },
     {
-      label: 'Job Pages',
-      href: '/career',
+      label: "Job Pages",
+      href: "/career",
       submenu: [
-        ['/career', 'Career'],
-        ['/jobs', 'Jobs'],
-        ['/job-application', 'Job Application'],
+        ["/career", "Career"],
+        ["/jobs", "Jobs"],
+        ["/job-application", "Job Application"],
       ],
     },
     {
-      label: 'Pages',
-      href: '/card',
+      label: "Pages",
+      href: "/card",
       submenu: [
-        ['/card', 'Cards'],
-        ['/about-us', 'About Us'],
-        ['/contact-us', 'Contact Us'],
-        ['/error', '404 Error'],
+        ["/card", "Cards"],
+        ["/about-us", "About Us"],
+        ["/contact-us", "Contact Us"],
+        ["/error", "404 Error"],
       ],
     },
     {
-      label: 'Blog',
-      href: '/blog-listing',
+      label: "Blog",
+      href: "/blog-listing",
       submenu: [
-        ['/blog-listing', 'Blog Listing'],
-        ['/blog-details', 'Blog Details'],
+        ["/blog-listing", "Blog Listing"],
+        ["/blog-details", "Blog Details"],
       ],
     },
   ];
@@ -117,15 +124,15 @@ const LoanSteps = () => {
                       id="select-lang"
                       className="form-select border-0 shadow-none text-white pe-5 ps-2"
                       style={{
-                        appearance: 'none',
-                        backgroundColor: '#171d24',
-                        color: '#ffffff',
-                        paddingRight: '2.5rem',
-                        paddingLeft: '0.75rem',
-                        border: '1px solid #ffffff22',
-                        borderRadius: '6px',
-                        height: '38px',
-                        cursor: 'pointer',
+                        appearance: "none",
+                        backgroundColor: "#171d24",
+                        color: "#ffffff",
+                        paddingRight: "2.5rem",
+                        paddingLeft: "0.75rem",
+                        border: "1px solid #ffffff22",
+                        borderRadius: "6px",
+                        height: "38px",
+                        cursor: "pointer",
                       }}
                     >
                       <option value="English">English</option>
@@ -137,7 +144,7 @@ const LoanSteps = () => {
                     {/* Dropdown Arrow */}
                     <span
                       className="position-absolute top-50 end-0 translate-middle-y me-2 text-white pointer-events-none"
-                      style={{ pointerEvents: 'none' }}
+                      style={{ pointerEvents: "none" }}
                     >
                       <i className="bi bi-chevron-down ms-2"></i>
                     </span>
@@ -190,20 +197,20 @@ const LoanSteps = () => {
 
               {/* Hamburger Toggle */}
               <button
-                className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
+                className={`navbar-toggler ${menuOpen ? "" : "collapsed"}`}
                 type="button"
                 onClick={handleMenuToggle}
                 aria-expanded={menuOpen}
                 aria-label="Toggle navigation"
               >
                 <span className="menu_toggle">
-                  <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
+                  <span className={`hamburger ${menuOpen ? "d_none" : ""}`}>
                     <span></span>
                     <span></span>
                     <span></span>
                   </span>
                   <span
-                    className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}
+                    className={`hamburger-cross ${menuOpen ? "" : "d_none"}`}
                   >
                     <span></span>
                     <span></span>
@@ -212,7 +219,7 @@ const LoanSteps = () => {
               </button>
 
               <div
-                className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
+                className={`collapse navbar-collapse ${menuOpen ? "show" : ""}`}
                 id="navbarSupportedContent"
               >
                 <ul className="navbar-nav menu ms-auto">
@@ -223,13 +230,13 @@ const LoanSteps = () => {
                       <li
                         key={idx}
                         className={`nav-item dropdown submenu ${
-                          active ? 'active' : ''
+                          active ? "active" : ""
                         }`}
                       >
                         <Link
                           href={item.href}
                           className={`nav-link dropdown-toggle ${
-                            active ? 'active' : ''
+                            active ? "active" : ""
                           }`}
                           role="button"
                           aria-haspopup="true"
@@ -248,12 +255,12 @@ const LoanSteps = () => {
                           className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
                           aria-hidden="true"
                           onClick={() => handleDropdownToggle(item.label)}
-                          style={{ cursor: 'pointer' }}
+                          style={{ cursor: "pointer" }}
                         ></i>
 
                         <ul
                           className={`dropdown-menu ${
-                            openDropdown === item.label ? 'show' : ''
+                            openDropdown === item.label ? "show" : ""
                           }`}
                         >
                           {item.submenu.map((sub, subIdx) => {
@@ -266,8 +273,8 @@ const LoanSteps = () => {
                                 <li
                                   className={`nav-item dropdown submenu ${
                                     sub[0] === pathname || isSubActive
-                                      ? 'active'
-                                      : ''
+                                      ? "active"
+                                      : ""
                                   }`}
                                   key={subIdx}
                                 >
@@ -285,7 +292,7 @@ const LoanSteps = () => {
                                       <li
                                         key={i}
                                         className={`nav-item ${
-                                          href === pathname ? 'active' : ''
+                                          href === pathname ? "active" : ""
                                         }`}
                                       >
                                         <Link href={href} className="nav-link">
@@ -301,7 +308,7 @@ const LoanSteps = () => {
                                 <li
                                   key={subIdx}
                                   className={`nav-item ${
-                                    sub[0] === pathname ? 'active' : ''
+                                    sub[0] === pathname ? "active" : ""
                                   }`}
                                 >
                                   <Link href={sub[0]} className="nav-link">
@@ -337,14 +344,14 @@ const LoanSteps = () => {
                   <label
                     className="ball"
                     htmlFor="something"
-                    style={{ left: theme === 'body_dark' ? 3 : 26 }}
+                    style={{ left: theme === "body_dark" ? 3 : 26 }}
                   ></label>
                   <input
                     type="checkbox"
                     name="something"
                     id="something"
                     className="dark_mode_switcher"
-                    checked={theme === 'body_dark'}
+                    checked={theme === "body_dark"}
                     onChange={toggleTheme}
                   />
                 </div>
@@ -840,32 +847,32 @@ const LoanSteps = () => {
 
                   <ul className="widget-content">
                     <li className="active">
-                      {' '}
-                      <span className="number">1</span>{' '}
+                      {" "}
+                      <span className="number">1</span>{" "}
                       <span className="text">Apply Online</span>
                     </li>
                     <li>
-                      {' '}
-                      <span className="number">2</span>{' '}
+                      {" "}
+                      <span className="number">2</span>{" "}
                       <span className="text">
                         Enter Your Informantion - 10 min
-                      </span>{' '}
+                      </span>{" "}
                     </li>
                     <li>
-                      {' '}
-                      <span className="number">3</span>{' '}
+                      {" "}
+                      <span className="number">3</span>{" "}
                       <span className="text">
                         Pre-qualify / Pre-Approve - 5 min
-                      </span>{' '}
+                      </span>{" "}
                     </li>
                     <li>
-                      {' '}
-                      <span className="number">4</span>{' '}
-                      <span className="text">Help you prepare</span>{' '}
+                      {" "}
+                      <span className="number">4</span>{" "}
+                      <span className="text">Help you prepare</span>{" "}
                     </li>
                     <li>
-                      {' '}
-                      <span className="number">5</span>{' '}
+                      {" "}
+                      <span className="number">5</span>{" "}
                       <span className="text">
                         We help your qualify - 15 days
                       </span>
@@ -899,29 +906,29 @@ const LoanSteps = () => {
 
                   <ul className="widget-content">
                     <li className="active">
-                      {' '}
+                      {" "}
                       <span className="number">1</span>
                       <span className="text">Schedule a Free Consulation</span>
                     </li>
                     <li>
-                      {' '}
-                      <span className="number">2</span>{' '}
+                      {" "}
+                      <span className="number">2</span>{" "}
                       <span className="text">Discuss your Situation</span>
                     </li>
                     <li>
-                      {' '}
-                      <span className="number">3</span>{' '}
+                      {" "}
+                      <span className="number">3</span>{" "}
                       <span className="text">We Review your condition </span>
                     </li>
                     <li>
-                      {' '}
-                      <span className="number">4</span>{' '}
-                      <span className="text">Help you prepare</span>{' '}
+                      {" "}
+                      <span className="number">4</span>{" "}
+                      <span className="text">Help you prepare</span>{" "}
                     </li>
                     <li>
-                      {' '}
-                      <span className="number">5</span>{' '}
-                      <span className="text">We help your qualify</span>{' '}
+                      {" "}
+                      <span className="number">5</span>{" "}
+                      <span className="text">We help your qualify</span>{" "}
                     </li>
                   </ul>
                 </div>
@@ -1002,7 +1009,7 @@ const LoanSteps = () => {
                   <h2 className="mt-4 mb-3">Your security. Our priority.</h2>
                   <p>
                     We always have your security in mind. Rest easy knowing your
-                    data is protected with 128-bit encryption.{' '}
+                    data is protected with 128-bit encryption.{" "}
                     <Link href="#">Learn more.</Link>
                   </p>
                 </div>
@@ -1309,10 +1316,10 @@ const LoanSteps = () => {
 
                   <div className="footer-bold">
                     <span className="counter">
-                      $<span>35.105</span>{' '}
+                      $<span>35.105</span>{" "}
                     </span>
                     <span className="counter">
-                      -<span>0.46</span>%{' '}
+                      -<span>0.46</span>%{" "}
                     </span>
                   </div>
                   <p className="time">2021-01-05 14:00 (INTERNATIONAL TIME)</p>
@@ -1416,7 +1423,7 @@ const LoanSteps = () => {
                 <div className="copyright-text">
                   <p>
                     Copyright &copy; Banca 2025.
-                    <br className="d-sm-none" />{' '}
+                    <br className="d-sm-none" />{" "}
                     <Link className="ms-2" href="#">
                       Privacy
                     </Link>
@@ -1451,4 +1458,4 @@ const LoanSteps = () => {
   );
 };
 
-export default LoanSteps;
+export default LoanStepsPage;

@@ -1,5 +1,16 @@
 'use client';
 /* eslint-disable react/no-unescaped-entities */
+
+import "@/styles/css/elegant-icons.min.css";
+import "@/styles/css/all.min.css";
+import "@/styles/css/animate.css";
+import "@/styles/css/nice-select.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "@/styles/css/default.css";
+import "@/styles/css/responsive.css";
+
+
 import { useTheme } from '@/contextAPi/ThemeContext';
 import { NavigationItem } from '@/types/NavigationItem';
 import { NestedSubmenuItem } from '@/types/NestedSubmenuItem';

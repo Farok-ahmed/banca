@@ -1,4 +1,14 @@
 'use client';
+
+import "@/styles/css/elegant-icons.min.css";
+import "@/styles/css/all.min.css";
+import "@/styles/css/animate.css";
+import "@/styles/css/nice-select.css";
+import "@/styles/css/jquery-editable-select.css";
+
+import "@/styles/css/default.css";
+import "@/styles/css/responsive.css"; 
+
 import JobApplicationSection from '@/components/JobForm';
 import { useTheme } from '@/contextAPi/ThemeContext';
 import Image from 'next/image';
@@ -7,7 +17,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 
-const JobApplication = () => {
+const JobApplicationPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -868,4 +878,4 @@ const JobApplication = () => {
   );
 };
 
-export default JobApplication;
+export default JobApplicationPage;

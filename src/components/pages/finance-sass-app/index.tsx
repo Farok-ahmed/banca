@@ -1,4 +1,15 @@
 'use client';
+import "@/styles/css/elegant-icons.min.css";
+import "@/styles/css/all.min.css";
+import "@/styles/css/animate.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "@/styles/css/nice-select.css";
+import "nouislider/dist/nouislider.css";
+import "@/styles/css/jquery.fancybox.min.css";
+import "flatpickr/dist/flatpickr.min.css";
+import "@/styles/css/default.css";
+import "@/styles/css/responsive.css";
 
 import FinanceAccordion from '@/components/FinanceAccordion';
 import PricingPlan from '@/components/PricingPlan';
@@ -17,7 +28,7 @@ type MenuItem = {
   submenu: SubmenuItem[];
 };
 
-const FinanceSassApp = () => {
+const FinanceSassAppPage = () => {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -1427,4 +1438,4 @@ const FinanceSassApp = () => {
   );
 };
 
-export default FinanceSassApp;
+export default FinanceSassAppPage;

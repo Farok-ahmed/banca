@@ -320,7 +320,7 @@ const IndexCalculator = () => {
                   </h2>
                 </div>
                 <div className="pie">
-                  <div className="left-side half-circle"></div>
+                  <div className="left-side half-circle" style={{ transform: `rotate(${rate * 4 }deg)` }} ></div>
                   <div className="right-side half-circle"></div>
                 </div>
                 <div className="circle-border"></div>

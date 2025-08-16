@@ -1,5 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client';
+
+import "@/styles/css/elegant-icons.min.css";
+import "@/styles/css/all.min.css";
+import "@/styles/css/animate.css";
+import "@/styles/css/nice-select.css";
+import "@/styles/css/jquery-editable-select.css";
+import "@/styles/css/default.css";
+import "@/styles/css/responsive.css";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
@@ -7,7 +16,7 @@ import { useState } from 'react';
 import { useTheme } from '@/contextAPi/ThemeContext';
 import { usePathname } from 'next/navigation';
 
-const Jobspage = () => {
+const JobsPage = () => {
   const [sortOption, setSortOption] = useState('SortBy Newest');
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
@@ -1091,4 +1100,4 @@ const Jobspage = () => {
   );
 };
 
-export default Jobspage;
+export default JobsPage;

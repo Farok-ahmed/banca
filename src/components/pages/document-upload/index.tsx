@@ -1,4 +1,12 @@
 'use client';
+import "@/styles/css/elegant-icons.min.css";
+import "@/styles/css/all.min.css";
+import "@/styles/css/animate.css";
+import "@/styles/css/nice-select.css";
+import "@/styles/css/default.css";
+import "@/styles/css/responsive.css";
+
+
 import { useTheme } from '@/contextAPi/ThemeContext';
 /* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
@@ -20,7 +28,7 @@ interface NavigationItem {
   submenu?: SubmenuItem[];
 }
 
-const DocumentUpload = () => {
+const DocumentUploadPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -675,4 +683,4 @@ const DocumentUpload = () => {
   );
 };
 
-export default DocumentUpload;
+export default DocumentUploadPage;

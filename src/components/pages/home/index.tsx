@@ -12,7 +12,7 @@ import { BlogItem } from "@/types/Blogitem";
 import { FaqItem } from "@/types/Faqitem";
 import { TabData } from "@/types/Tabdata";
 import { Testimonial } from "@/types/Testimonial";
-import "bootstrap-icons/font/bootstrap-icons.css";
+// import "bootstrap-icons/font/bootstrap-icons.css";
 import classNames from "classnames";
 import Image from "next/image";
 import Link from "next/link";

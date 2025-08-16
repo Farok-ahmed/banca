@@ -1,5 +1,13 @@
-'use client';
 /* eslint-disable react/no-unescaped-entities */
+'use client';
+
+import "@/styles/css/elegant-icons.min.css";
+import "@/styles/css/all.min.css";
+import "@/styles/css/animate.css";
+import "@/styles/css/nice-select.css";
+import "@/styles/css/default.css";
+import "@/styles/css/responsive.css";
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
@@ -7,7 +15,7 @@ import { useTheme } from '@/contextAPi/ThemeContext';
 import { useState } from 'react';
 import { usePathname } from 'next/navigation';
 
-const Careerpage = () => {
+const CareerPage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -1014,4 +1022,4 @@ const Careerpage = () => {
   );
 };
 
-export default Careerpage;
+export default CareerPage;

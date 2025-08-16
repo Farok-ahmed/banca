@@ -1,10 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client';
-
+import "@/styles/css/intlTelInput.css";
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import intlTelInput from 'intl-tel-input';
-import 'intl-tel-input/build/css/intlTelInput.css';
 
 const JobApplicationSection = () => {
   const [showModal, setShowModal] = useState(false);

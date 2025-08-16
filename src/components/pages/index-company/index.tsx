@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+// Style import here
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -13,9 +14,6 @@ import "@/styles/css/flatpickr.min.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 // import 'flatpickr/dist/themes/light.css';
-
-
-
 
 import LoanSlider from '@/components/LoanSlider';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';

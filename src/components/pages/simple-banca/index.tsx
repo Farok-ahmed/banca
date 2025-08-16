@@ -1,28 +1,39 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import * as noUiSlider from 'nouislider';
-import FAQAccordion from '@/components/FaqAccordion';
-import Image from 'next/image';
-import Link from 'next/link';
-import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
-import 'nouislider/dist/nouislider.css';
-import FeatureSlider from '@/components/SimpleAccordion';
-import SimplebancaSlider from '@/components/SimplebancaSlider';
-import { useTheme } from '@/contextAPi/ThemeContext';
-import { usePathname } from 'next/navigation';
+import "@/styles/css/elegant-icons.min.css";
+import "@/styles/css/all.min.css";
+import "@/styles/css/animate.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "@/styles/css/nice-select.css";
+import "nouislider/dist/nouislider.css";
+import "@/styles/css/jquery.fancybox.min.css";
+import "@/styles/css/default.css";
+import "@/styles/css/responsive.css";
+
+import { useEffect, useRef, useState } from "react";
+import * as noUiSlider from "nouislider";
+import FAQAccordion from "@/components/FaqAccordion";
+import Image from "next/image";
+import Link from "next/link";
+import { IoMoonOutline, IoSunnyOutline } from "react-icons/io5";
+import "nouislider/dist/nouislider.css";
+import FeatureSlider from "@/components/SimpleAccordion";
+import SimplebancaSlider from "@/components/SimplebancaSlider";
+import { useTheme } from "@/contextAPi/ThemeContext";
+import { usePathname } from "next/navigation";
 
 interface HTMLDivElementWithSlider extends HTMLDivElement {
   noUiSlider?: noUiSlider.API;
 }
 
-const SampleBanca = () => {
+const SampleBancaPage = () => {
   const amountSliderRef = useRef<HTMLDivElementWithSlider>(null);
   const periodSliderRef = useRef<HTMLDivElementWithSlider>(null);
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   const [amount, setAmount] = useState(5000);
   const [period, setPeriod] = useState(3);
@@ -35,7 +46,7 @@ const SampleBanca = () => {
     setOpenDropdown((prev) => (prev === label ? null : label));
   };
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 992;
 
   useEffect(() => {
     const amountSlider = amountSliderRef.current as HTMLDivElementWithSlider;
@@ -50,14 +61,14 @@ const SampleBanca = () => {
         tooltips: false,
         format: {
           to: (value: number) => `$${Math.round(value)}`,
-          from: (value: string) => Number(value.replace(/\$/g, '')),
+          from: (value: string) => Number(value.replace(/\$/g, "")),
         },
       });
 
       (amountSlider.noUiSlider as unknown as noUiSlider.API).on(
-        'update',
+        "update",
         (values: (string | number)[], handle: number) => {
-          const val = Number(values[handle].toString().replace(/\$/g, ''));
+          const val = Number(values[handle].toString().replace(/\$/g, ""));
           setAmount(val);
         }
       );
@@ -72,14 +83,14 @@ const SampleBanca = () => {
         tooltips: false,
         format: {
           to: (value: number) => `${Math.round(value)}y`,
-          from: (value: string) => Number(value.replace(/y/g, '')),
+          from: (value: string) => Number(value.replace(/y/g, "")),
         },
       });
 
       (periodSlider.noUiSlider as unknown as noUiSlider.API).on(
-        'update',
+        "update",
         (values: (string | number)[], handle: number) => {
-          const val = Number(values[handle].toString().replace(/y/g, ''));
+          const val = Number(values[handle].toString().replace(/y/g, ""));
           setPeriod(val);
         }
       );
@@ -95,8 +106,8 @@ const SampleBanca = () => {
 
   // Helper functions for active route detection
   const isActiveRoute = (href: string): boolean => {
-    if (href === '/') {
-      return pathname === '/';
+    if (href === "/") {
+      return pathname === "/";
     }
     return pathname === href || pathname.startsWith(href);
   };
@@ -114,250 +125,255 @@ const SampleBanca = () => {
   // Menu items configuration
   const menuItems = [
     {
-      label: 'Home',
-      href: '/',
+      label: "Home",
+      href: "/",
       submenu: [
-        ['/', 'Smart Finance'],
-        ['/index-company', 'Loan Company'],
-        ['/mobile-app', 'Mobile App'],
-        ['/simple-banca', 'Simple Banca'],
-        ['/loan-steps', 'Loan Steps'],
-        ['/finance-sass-app', 'Finance Sass App'],
-        ['/small-bank', 'Small Bank'],
+        ["/", "Smart Finance"],
+        ["/index-company", "Loan Company"],
+        ["/mobile-app", "Mobile App"],
+        ["/simple-banca", "Simple Banca"],
+        ["/loan-steps", "Loan Steps"],
+        ["/finance-sass-app", "Finance Sass App"],
+        ["/small-bank", "Small Bank"],
       ] as SubmenuItem[],
     },
     {
-      label: 'Loan',
-      href: '/loan',
+      label: "Loan",
+      href: "/loan",
       submenu: [
-        ['/loan', 'Get loan'],
+        ["/loan", "Get loan"],
         [
-          '/loan-details',
-          'Loan Application',
+          "/loan-details",
+          "Loan Application",
           [
-            ['/loan-details', 'Step 01'],
-            ['/personal-details', 'Step 02'],
-            ['/document-upload', 'Step 03'],
+            ["/loan-details", "Step 01"],
+            ["/personal-details", "Step 02"],
+            ["/document-upload", "Step 03"],
           ],
         ],
       ] as SubmenuItem[],
     },
     {
-      label: 'Job Pages',
-      href: '/career',
+      label: "Job Pages",
+      href: "/career",
       submenu: [
-        ['/career', 'Career'],
-        ['/jobs', 'Jobs'],
-        ['/job-application', 'Job Application'],
+        ["/career", "Career"],
+        ["/jobs", "Jobs"],
+        ["/job-application", "Job Application"],
       ] as SubmenuItem[],
     },
     {
-      label: 'Pages',
-      href: '/card',
+      label: "Pages",
+      href: "/card",
       submenu: [
-        ['/card', 'Cards'],
-        ['/about-us', 'About Us'],
-        ['/contact-us', 'Contact Us'],
-        ['/error', '404 Error'],
+        ["/card", "Cards"],
+        ["/about-us", "About Us"],
+        ["/contact-us", "Contact Us"],
+        ["/error", "404 Error"],
       ] as SubmenuItem[],
     },
     {
-      label: 'Blog',
-      href: '/blog-listing',
+      label: "Blog",
+      href: "/blog-listing",
       submenu: [
-        ['/blog-listing', 'Blog Listing'],
-        ['/blog-details', 'Blog Details'],
+        ["/blog-listing", "Blog Listing"],
+        ["/blog-details", "Blog Details"],
       ] as SubmenuItem[],
     },
   ];
-  
 
   return (
     <div>
       <header className="header">
-      <div className="header-menu header-menu-2" id="sticky">
-        <nav className="navbar navbar-expand-lg">
-          <div className="container">
-            {/* Logo */}
-            <Link className="navbar-brand" href="/">
-              <Image
-                width={110}
-                height={35}
-                src="/img/logo/Logo-2.png"
-                alt="logo"
-                priority
-              />
-            </Link>
-
-            {/* Hamburger Toggle */}
-            <button
-              className={`navbar-toggler ${menuOpen ? '' : 'collapsed'}`}
-              type="button"
-              onClick={handleMenuToggle}
-              aria-expanded={menuOpen}
-              aria-label="Toggle navigation"
-            >
-              <span className="menu_toggle">
-                <span className={`hamburger ${menuOpen ? 'd_none' : ''}`}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </span>
-                <span
-                  className={`hamburger-cross ${menuOpen ? '' : 'd_none'}`}
-                >
-                  <span></span>
-                  <span></span>
-                </span>
-              </span>
-            </button>
-
-            {/* Navigation Menu */}
-            <div
-              className={`collapse navbar-collapse ${menuOpen ? 'show' : ''}`}
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav menu ms-auto">
-                {menuItems.map((item, idx) => {
-                  const isMainActive = isActiveRoute(item.href);
-                  const isAnySubmenuActive = isSubmenuActive(item.submenu);
-                  const shouldShowActive = isMainActive || isAnySubmenuActive;
-
-                  return (
-                    <li key={idx} className="nav-item dropdown submenu">
-                      <Link
-                        href={item.href}
-                        className={`nav-link dropdown-toggle ${shouldShowActive ? 'active' : ''}`}
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded={openDropdown === item.label}
-                        onClick={(e) => {
-                          if (isMobile) {
-                            e.preventDefault();
-                            handleDropdownToggle(item.label);
-                          }
-                        }}
-                      >
-                        {item.label}
-                      </Link>
-                      
-                      <i
-                        className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
-                        aria-hidden="true"
-                        onClick={() => handleDropdownToggle(item.label)}
-                        style={{ cursor: 'pointer' }}
-                      />
-
-                      <ul
-                        className={`dropdown-menu ${
-                          openDropdown === item.label ? 'show' : ''
-                        }`}
-                      >
-                        {item.submenu.map((sub, subIdx) => {
-                          if (Array.isArray(sub[2])) {
-                            // Handle nested submenu
-                            const childItems = sub[2] as [string, string][];
-                            const isParentActive = isActiveRoute(sub[0]);
-                            const isAnyChildActive = childItems.some((child) =>
-                              isActiveRoute(child[0])
-                            );
-
-                            return (
-                              <li
-                                className="nav-item dropdown submenu"
-                                key={subIdx}
-                              >
-                                <Link
-                                  href={sub[0]}
-                                  className={`nav-link dropdown-toggle ${
-                                    isParentActive || isAnyChildActive ? 'active' : ''
-                                  }`}
-                                  onClick={(e) => {
-                                    if (isMobile) {
-                                      e.preventDefault();
-                                    }
-                                  }}
-                                >
-                                  {sub[1]}
-                                </Link>
-                                <ul className="dropdown-menu">
-                                  {childItems.map((child, i) => (
-                                    <li className="nav-item" key={i}>
-                                      <Link
-                                        href={child[0]}
-                                        className={`nav-link ${
-                                          isActiveRoute(child[0]) ? 'active' : ''
-                                        }`}
-                                      >
-                                        {child[1]}
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </li>
-                            );
-                          } else {
-                            // Handle regular submenu item
-                            return (
-                              <li className="nav-item" key={subIdx}>
-                                <Link
-                                  href={sub[0]}
-                                  className={`nav-link ${
-                                    isActiveRoute(sub[0]) ? 'active' : ''
-                                  }`}
-                                >
-                                  {sub[1]}
-                                </Link>
-                              </li>
-                            );
-                          }
-                        })}
-                      </ul>
-                    </li>
-                  );
-                })}
-              </ul>
-
-              {/* Buy Button */}
-              <Link
-                className="theme-btn"
-                href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Buy Banca
+        <div className="header-menu header-menu-2" id="sticky">
+          <nav className="navbar navbar-expand-lg">
+            <div className="container">
+              {/* Logo */}
+              <Link className="navbar-brand" href="/">
+                <Image
+                  width={110}
+                  height={35}
+                  src="/img/logo/Logo-2.png"
+                  alt="logo"
+                  priority
+                />
               </Link>
 
-              {/* Dark Mode Toggle */}
-              <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
-                <label htmlFor="darkModeToggle" className="tab-btn tab-btns">
-                  <IoMoonOutline />
-                </label>
-                <label htmlFor="darkModeToggle" className="tab-btn">
-                  <IoSunnyOutline />
-                </label>
-                <label
-                  className="ball"
-                  htmlFor="darkModeToggle"
-                  style={{
-                    left: theme === 'body_dark' ? 3 : 26,
-                  }}
-                />
-                <input
-                  type="checkbox"
-                  name="darkModeToggle"
-                  id="darkModeToggle"
-                  className="dark_mode_switcher"
-                  checked={theme === 'body_dark'}
-                  onChange={toggleTheme}
-                />
+              {/* Hamburger Toggle */}
+              <button
+                className={`navbar-toggler ${menuOpen ? "" : "collapsed"}`}
+                type="button"
+                onClick={handleMenuToggle}
+                aria-expanded={menuOpen}
+                aria-label="Toggle navigation"
+              >
+                <span className="menu_toggle">
+                  <span className={`hamburger ${menuOpen ? "d_none" : ""}`}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </span>
+                  <span
+                    className={`hamburger-cross ${menuOpen ? "" : "d_none"}`}
+                  >
+                    <span></span>
+                    <span></span>
+                  </span>
+                </span>
+              </button>
+
+              {/* Navigation Menu */}
+              <div
+                className={`collapse navbar-collapse ${menuOpen ? "show" : ""}`}
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav menu ms-auto">
+                  {menuItems.map((item, idx) => {
+                    const isMainActive = isActiveRoute(item.href);
+                    const isAnySubmenuActive = isSubmenuActive(item.submenu);
+                    const shouldShowActive = isMainActive || isAnySubmenuActive;
+
+                    return (
+                      <li key={idx} className="nav-item dropdown submenu">
+                        <Link
+                          href={item.href}
+                          className={`nav-link dropdown-toggle ${
+                            shouldShowActive ? "active" : ""
+                          }`}
+                          role="button"
+                          data-bs-toggle="dropdown"
+                          aria-haspopup="true"
+                          aria-expanded={openDropdown === item.label}
+                          onClick={(e) => {
+                            if (isMobile) {
+                              e.preventDefault();
+                              handleDropdownToggle(item.label);
+                            }
+                          }}
+                        >
+                          {item.label}
+                        </Link>
+
+                        <i
+                          className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                          aria-hidden="true"
+                          onClick={() => handleDropdownToggle(item.label)}
+                          style={{ cursor: "pointer" }}
+                        />
+
+                        <ul
+                          className={`dropdown-menu ${
+                            openDropdown === item.label ? "show" : ""
+                          }`}
+                        >
+                          {item.submenu.map((sub, subIdx) => {
+                            if (Array.isArray(sub[2])) {
+                              // Handle nested submenu
+                              const childItems = sub[2] as [string, string][];
+                              const isParentActive = isActiveRoute(sub[0]);
+                              const isAnyChildActive = childItems.some(
+                                (child) => isActiveRoute(child[0])
+                              );
+
+                              return (
+                                <li
+                                  className="nav-item dropdown submenu"
+                                  key={subIdx}
+                                >
+                                  <Link
+                                    href={sub[0]}
+                                    className={`nav-link dropdown-toggle ${
+                                      isParentActive || isAnyChildActive
+                                        ? "active"
+                                        : ""
+                                    }`}
+                                    onClick={(e) => {
+                                      if (isMobile) {
+                                        e.preventDefault();
+                                      }
+                                    }}
+                                  >
+                                    {sub[1]}
+                                  </Link>
+                                  <ul className="dropdown-menu">
+                                    {childItems.map((child, i) => (
+                                      <li className="nav-item" key={i}>
+                                        <Link
+                                          href={child[0]}
+                                          className={`nav-link ${
+                                            isActiveRoute(child[0])
+                                              ? "active"
+                                              : ""
+                                          }`}
+                                        >
+                                          {child[1]}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </li>
+                              );
+                            } else {
+                              // Handle regular submenu item
+                              return (
+                                <li className="nav-item" key={subIdx}>
+                                  <Link
+                                    href={sub[0]}
+                                    className={`nav-link ${
+                                      isActiveRoute(sub[0]) ? "active" : ""
+                                    }`}
+                                  >
+                                    {sub[1]}
+                                  </Link>
+                                </li>
+                              );
+                            }
+                          })}
+                        </ul>
+                      </li>
+                    );
+                  })}
+                </ul>
+
+                {/* Buy Button */}
+                <Link
+                  className="theme-btn"
+                  href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Buy Banca
+                </Link>
+
+                {/* Dark Mode Toggle */}
+                <div className="px-2 js-darkmode-btn" title="Toggle dark mode">
+                  <label htmlFor="darkModeToggle" className="tab-btn tab-btns">
+                    <IoMoonOutline />
+                  </label>
+                  <label htmlFor="darkModeToggle" className="tab-btn">
+                    <IoSunnyOutline />
+                  </label>
+                  <label
+                    className="ball"
+                    htmlFor="darkModeToggle"
+                    style={{
+                      left: theme === "body_dark" ? 3 : 26,
+                    }}
+                  />
+                  <input
+                    type="checkbox"
+                    name="darkModeToggle"
+                    id="darkModeToggle"
+                    className="dark_mode_switcher"
+                    checked={theme === "body_dark"}
+                    onChange={toggleTheme}
+                  />
+                </div>
               </div>
             </div>
-          </div>
-        </nav>
-      </div>
-    </header>
+          </nav>
+        </div>
+      </header>
 
       <main>
         <section className="banner-area-3 pt-90" id="banner_animation2">
@@ -955,7 +971,7 @@ const SampleBanca = () => {
                       <input
                         className="range-input form-control w-auto"
                         type="text"
-                        value={`${period} year${period > 1 ? 's' : ''}`}
+                        value={`${period} year${period > 1 ? "s" : ""}`}
                         readOnly
                       />
                     </div>
@@ -984,8 +1000,8 @@ const SampleBanca = () => {
                     href="/loan-details"
                     className="theme-btn theme-btn-rounded"
                   >
-                    {' '}
-                    Next <i className="arrow_right"></i>{' '}
+                    {" "}
+                    Next <i className="arrow_right"></i>{" "}
                   </Link>
                 </div>
               </div>
@@ -1015,36 +1031,36 @@ const SampleBanca = () => {
                     <div className="offers">
                       <ul>
                         <li>
-                          {' '}
+                          {" "}
                           <span>
                             <i className="icon_check"></i>
-                          </span>{' '}
+                          </span>{" "}
                           Offers from several banks
                         </li>
                         <li>
-                          {' '}
+                          {" "}
                           <span>
                             <i className="icon_check"></i>
-                          </span>{' '}
-                          Free & no obligation{' '}
+                          </span>{" "}
+                          Free & no obligation{" "}
                         </li>
                         <li>
-                          {' '}
+                          {" "}
                           <span>
                             <i className="icon_check"></i>
-                          </span>{' '}
+                          </span>{" "}
                           Compare safely and securely
                         </li>
                         <li>
-                          {' '}
+                          {" "}
                           <span>
                             <i className="icon_check"></i>
-                          </span>{' '}
+                          </span>{" "}
                           Offer within a few hours
                         </li>
                       </ul>
                       <div className="shape">
-                        {' '}
+                        {" "}
                         <Image
                           width={100}
                           height={100}
@@ -1066,7 +1082,7 @@ const SampleBanca = () => {
                       quote.
                     </p>
                     <p>
-                      {' '}
+                      {" "}
                       We save you not only time, but in many cases also many
                       thousands of kroner.
                     </p>
@@ -1086,7 +1102,7 @@ const SampleBanca = () => {
                     Banca Cooperates With These Banks
                   </h2>
                   <p className="wow fadeInUp" data-wow-delay="0.3s">
-                    {' '}
+                    {" "}
                     <span>3000+ Companies</span> Trust Sturtaplanding to build
                     landing page for their <span> dream product</span>
                   </p>
@@ -2131,14 +2147,14 @@ const SampleBanca = () => {
                   <div className="copyright-text text-md-start text-center">
                     <p>
                       Copyright &copy; Banca 2025.
-                      <br className="d-sm-none" />{' '}
+                      <br className="d-sm-none" />{" "}
                       <Link className="ms-3" href="#">
                         Privacy
-                      </Link>{' '}
-                      |{' '}
+                      </Link>{" "}
+                      |{" "}
                       <Link className="ms-0" href="#">
                         Term of Use
-                      </Link>{' '}
+                      </Link>{" "}
                     </p>
                   </div>
                 </div>
@@ -2151,4 +2167,4 @@ const SampleBanca = () => {
   );
 };
 
-export default SampleBanca;
+export default SampleBancaPage;

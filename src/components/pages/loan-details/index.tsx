@@ -1,14 +1,22 @@
 'use client';
-import BankCalculator from '@/components/BankCalculator';
-import CenterMode from '@/components/CenterMode';
-import { useTheme } from '@/contextAPi/ThemeContext';
+
+import "@/styles/css/elegant-icons.min.css";
+import "@/styles/css/all.min.css";
+import "@/styles/css/animate.css";
+import "@/styles/css/nice-select.css";
+import "@/styles/css/default.css";
+import "@/styles/css/responsive.css";
+
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
+import { useTheme } from '@/contextAPi/ThemeContext';
+import { usePathname } from 'next/navigation';
 
-const Loanpage = () => {
+const LoanDetailPage = () => {
+  const [financingType, setFinancingType] = useState('Debt-Financing');
+  const [bankService, setBankService] = useState('Individual-Banking');
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -23,6 +31,14 @@ const Loanpage = () => {
   };
 
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 992;
+
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setFinancingType(e.target.value);
+  };
+
+  const handleChanges = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setBankService(e.target.value);
+  };
 
   const menuItems = [
     {
@@ -316,308 +332,314 @@ const Loanpage = () => {
       </header>
 
       <main>
-        <section
-          className="banner-area-2 loan-banner pt-145"
-          style={{ backgroundImage: `url(/img/banner/loan-banner.png)` }}
-        >
-          <div className="container">
-            <div className="row align-items-center  pt-165 pb-200">
-              <div className="col-lg-7 mx-auto">
-                <div className="banner-content text-center">
-                  <div className="section-title">
-                    <h1 className="wow fadeInUp">
-                      Get your loan approved in 3 steps
-                    </h1>
-                  </div>
-                  <Link
-                    className="theme-btn theme-btn-lg theme-btn-alt mt-50 wow fadeInUp"
-                    data-wow-delay="0.2s"
-                    href="/loan-details"
-                  >
-                    Get started <i className="arrow_right"></i>
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="row position-relative pt-70 d-lg-block d-none">
-              <div className="col-md-12">
-                <div className="floated-widget">
-                  <div className="row gy-4 gy-lg-0 gx-5">
-                    <div className="col-lg-4 border-end">
-                      <div
-                        className="steps-widget pr-30 pl-30 wow fadeInUp"
-                        data-wow-delay="0.1s"
-                      >
-                        <Image
-                          width={50}
-                          height={50}
-                          src="/img/steps/icon-1.png"
-                          alt="icon"
-                        />
-                        <h4>
-                          <Link href="#">Check Eligibility</Link>
-                        </h4>
-                        <p>
-                          Select your loan amount, answer a few questions and
-                          get instant loan amount
-                        </p>
-                      </div>
-                    </div>
-                    <div className="col-lg-4  border-end">
-                      <div
-                        className="steps-widget pr-30 pl-30 wow fadeInUp"
-                        data-wow-delay="0.3s"
-                      >
-                        <Image
-                          width={50}
-                          height={50}
-                          src="/img/steps/icon-2.png"
-                          alt="icon"
-                        />
-                        <h4>
-                          <a href="#">Submit Documents</a>
-                        </h4>
-                        <p>
-                          Share required documents with our representative
-                          hassle-free
-                        </p>
-                      </div>
-                    </div>
-                    <div className="col-lg-4">
-                      <div
-                        className="steps-widget pr-30 pl-30 wow fadeInUp"
-                        data-wow-delay="0.5s"
-                      >
-                        <Image
-                          width={50}
-                          height={50}
-                          src="/img/steps/icon-3.png"
-                          alt="icon"
-                        />
-                        <h4>
-                          <a href="#">Approval in Principle</a>
-                        </h4>
-                        <p>
-                          Choose the final sanctioned loan offer with the terms
-                          that work best for you
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="apply-loan-area pt-200 pb-140 bg_disable">
-          <div className="container">
-            <div className="row pt-3">
-              <div className="col-xl-6 mx-auto">
-                <div className="section-title">
-                  <h2 className="wow fadeInUp">
-                    One step closer to finding your perfect Home!
-                  </h2>
-                </div>
-              </div>
-            </div>
-            <form action="personal-details">
+        <section className="breadcrumb-area">
+          <div
+            className="breadcrumb-widget  pt-200 pb-110"
+            style={{ backgroundImage: `url(img/breadcrumb/bg-1.png)` }}
+          >
+            <div className="container">
               <div className="row">
-                <div className="col-md-10 mx-auto">
-                  <div className="row pt-35  gy-lg-0 gy-3">
-                    <div className="col-lg-4">
-                      <div
-                        className="loan-apply-widget wow fadeInRight"
-                        data-wow-delay="0.1s"
-                      >
-                        <div className="icon">
-                          <Image
-                            width={30}
-                            height={35}
-                            src="/img/apply-loan/icon-1.1.png"
-                            alt="icon-1"
-                          />
-                          <Image
-                            width={30}
-                            height={35}
-                            src="/img/apply-loan/icon-1.2.png"
-                            alt="icon-1.2"
-                          />
-                        </div>
-                        <div className="apply-content">
-                          <span className="title">How much do you need?</span>
-                          <p className="d-flex">
-                            $
-                            <input
-                              className="w-100"
-                              type="text"
-                              defaultValue="5,000"
-                            />{' '}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-4">
-                      <div
-                        className="loan-apply-widget wow fadeInRight"
-                        data-wow-delay="0.3s"
-                      >
-                        <div className="icon">
-                          <Image
-                            width={35}
-                            height={35}
-                            src="/img/apply-loan/icon-2.1.png"
-                            alt="icon-2"
-                          />
-                          <Image
-                            width={35}
-                            height={35}
-                            src="/img/apply-loan/icon-2.2.png"
-                            alt="icon-2.2"
-                          />
-                        </div>
-                        <div className="apply-content">
-                          {/* Label */}
-                          <span
-                            className="title d-block"
-                            style={{ fontSize: '14px' }}
-                          >
-                            Type of Loan
-                          </span>
-
-                          {/* Dropdown */}
-                          <div className="position-relative">
-                            <select
-                              name="select-loan-type"
-                              id="select-loan-type"
-                              className="form-select border-0 ps-0 pe-4 fw-semibold"
-                              style={{
-                                appearance: 'none',
-                                backgroundColor: 'transparent',
-                                boxShadow: 'none',
-                                cursor: 'pointer',
-                                fontWeight: 'normal',
-                              }}
-                            >
-                              <option>Select your Loan</option>
-                              <option value="Home Loan">Home Loan</option>
-                              <option value="Loan Against Property">
-                                Loan Against Property
-                              </option>
-                              <option value="Loan Renovation">
-                                Loan Renovation
-                              </option>
-                              <option value="Commercial Property">
-                                Commercial Property
-                              </option>
-                            </select>
-
-                            {/* Chevron icon */}
-                            <span className="position-absolute top-50 end-0 translate-middle-y me-2 text-dark">
-                              <i className="bi bi-chevron-down"></i>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="col-lg-4">
-                      <div
-                        className="loan-apply-widget wow fadeInRight"
-                        data-wow-delay="0.5s"
-                      >
-                        <div className="icon">
-                          <Image
-                            width={30}
-                            height={35}
-                            src="/img/apply-loan/icon-3.1.png"
-                            alt="icon-3"
-                          />
-                          <Image
-                            width={30}
-                            height={35}
-                            src="/img/apply-loan/icon-3.2.png"
-                            alt="icon-3.2"
-                          />
-                        </div>
-
-                        <div className="apply-content">
-                          <span className="title">
-                            Where do you currently live?
-                          </span>
-                          <div
-                            className="select-location d-flex align-items-center position-relative w-100"
-                            id="locationSlectParent"
-                          >
-                            <select
-                              className="w-100 custom-select-no-arrow"
-                              name="select-location"
-                              id="locationSelect"
-                              defaultValue={'Bandarban'}
-                              style={{
-                                appearance: 'none',
-                                backgroundColor: 'transparent',
-                                boxShadow: 'none',
-                                cursor: 'pointer',
-                                fontWeight: 'normal',
-                              }}
-                            >
-                              <option value="Bagerhat">Bagerhat</option>
-                              <option value="Bandarban">Bandarban</option>
-                              <option value="Barguna">Barguna</option>
-                              <option value="Barisal">Barisal</option>
-                              <option value="Bhola">Bhola</option>
-                              <option value="Barishal Metro">
-                                Barishal Metro
-                              </option>
-                              <option value="Bogra">Bogra</option>
-                              <option value="Brahmmanbaria">
-                                Brahmmanbaria
-                              </option>
-                            </select>
-
-                            <span className="close" id="readOnlyClose">
-                              <i className="icon_close"></i>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="col-12 mt-15 d-flex wow fadeInLeft">
-                      <div className="icon">
-                        <Image
-                          width={15}
-                          height={15}
-                          className="img=fluid"
-                          src="/img/steps/sheild.png"
-                          alt="sheild"
-                        />
-                      </div>
-                      <p className="security-info d-inline-block ms-2">
-                        Your information is 100% secure. We do not share your
-                        info with other parties.
-                      </p>
-                    </div>
-
-                    <div className="col-12 text-center mt-35">
-                      <button
-                        className="theme-btn theme-btn-lg wow fadeInUp"
-                        type="submit"
-                      >
-                        apply now <i className="arrow_right"></i>
-                      </button>
-                    </div>
+                <div className="col-md-12">
+                  <div className="breadcrumb-content pt-85">
+                    <h1>Loan details</h1>
+                    <ul>
+                      <li>
+                        <Link href="index.html">home</Link>
+                      </li>
+                      <li>
+                        <Link href="index.html">pages</Link>
+                      </li>
+                      <li>loan</li>
+                    </ul>
                   </div>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </section>
 
-        <BankCalculator />
+        <section className="loan-deatils-area bg_disable pt-130 pb-120">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-3">
+                <div className="stepper-widget mt-sm-5 px-3 px-sm-0">
+                  <ul>
+                    <li className="active mt-0">
+                      <Link href="/loan-details">
+                        <div className="number">
+                          <i className="icon_check"></i> <span>1</span>
+                        </div>{' '}
+                        Loan Details
+                      </Link>
+                    </li>
+                    <li className="">
+                      <Link href="/personal-details">
+                        <div className="number">
+                          <i className="icon_check"></i> <span>2</span>
+                        </div>
+                        Personal Details
+                      </Link>
+                    </li>
+                    <li>
+                      <Link href="/document-upload">
+                        <div className="number">
+                          <i className="icon_check"></i> <span>3</span>
+                        </div>
+                        Documants Upload
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
 
-        <CenterMode />
+              <div className="col-lg-9">
+                <div className="loan-details-widget">
+                  <form action="/personal-details">
+                    <div className="row mb-35 gy-4">
+                      <div className="col-lg-3 col-md-6">
+                        <input
+                          className="select-loan-type-radio"
+                          name="select-loan-type"
+                          type="radio"
+                          id="Personal_loan"
+                        />
+                        <label htmlFor="Personal_loan" className="loan-type">
+                          <Image
+                            width={40}
+                            height={50}
+                            src="/img/apply-loan/icon-4.1.png"
+                            alt="icon"
+                          />
+                          <Image
+                            width={40}
+                            height={50}
+                            src="/img/apply-loan/icon-4.2.png"
+                            alt="icon"
+                          />
+                          <span>Personal Loan</span>
+                        </label>
+                      </div>
+                      <div className="col-lg-3 col-md-6">
+                        <input
+                          className="select-loan-type-radio"
+                          name="select-loan-type"
+                          type="radio"
+                          id="Home_loan"
+                        />
+                        <label htmlFor="Home_loan" className="loan-type">
+                          <Image
+                            width={40}
+                            height={50}
+                            src="/img/apply-loan/icon-5.1.png"
+                            alt="icon"
+                          />
+                          <Image
+                            width={40}
+                            height={50}
+                            src="/img/apply-loan/icon-5.2.png"
+                            alt="icon"
+                          />
+                          <span>home Loan</span>
+                        </label>
+                      </div>
+                      <div className="col-lg-3 col-md-6">
+                        <input
+                          className="select-loan-type-radio"
+                          name="select-loan-type"
+                          type="radio"
+                          id="Buisness_loan"
+                        />
+                        <label htmlFor="Buisness_loan" className="loan-type">
+                          <Image
+                            width={40}
+                            height={50}
+                            src="/img/apply-loan/icon-6.1.png"
+                            alt="icon"
+                          />
+                          <Image
+                            width={40}
+                            height={50}
+                            src="/img/apply-loan/icon-6.2.png"
+                            alt="icon"
+                          />
+                          <span>Buisness Loan</span>
+                        </label>
+                      </div>
+                      <div className="col-lg-3 col-md-6">
+                        <input
+                          className="select-loan-type-radio"
+                          name="select-loan-type"
+                          type="radio"
+                          id="Car_loan"
+                        />
+                        <label htmlFor="Car_loan" className="loan-type">
+                          <Image
+                            width={40}
+                            height={50}
+                            src="/img/apply-loan/icon-7.1.png"
+                            alt="icon"
+                          />
+                          <Image
+                            width={40}
+                            height={50}
+                            src="/img/apply-loan/icon-7.2.png"
+                            alt="icon"
+                          />
+                          <span>car Loan</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div className="row gy-4">
+                      <div className="col-md-6">
+                        <label className="label" htmlFor="loandetails01">
+                          Choose your financing type
+                        </label>
+                        <select
+                          className="form-select w-100"
+                          id="loandetails01"
+                          value={financingType}
+                          onChange={handleChange}
+                        >
+                          <option value="Debt-Financing">Debt Financing</option>
+                          <option value="Equity-Finance">Equity Finance</option>
+                        </select>
+                      </div>
+                      <div className="col-md-6">
+                        <label className="label" htmlFor="loandetails02">
+                          Choose your preferred bank service
+                        </label>
+                        <select
+                          className="form-select w-100"
+                          id="loandetails02"
+                          value={bankService}
+                          onChange={handleChanges}
+                        >
+                          <option value="Individual-Banking">
+                            Individual Banking
+                          </option>
+                          <option value="Business-Banking">
+                            Business Banking
+                          </option>
+                          <option value="Digital-Banking">
+                            Digital Banking
+                          </option>
+                          <option value="Loans">Loans</option>
+                        </select>
+                      </div>
+                      <div className="col-md-6">
+                        <label className="label" htmlFor="loan-amount">
+                          Yout loan amount
+                        </label>
+                        <div className="input-field">
+                          <span>$</span>
+                          <input
+                            type="number"
+                            id="loan-amount"
+                            className="form-control"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="col-md-12">
+                        <label className="label mb-4">Laon duration</label>
+
+                        <div className="form-check form-check-inline mr-30">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio1"
+                            value="option1"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="inlineRadio1"
+                          >
+                            12 months
+                          </label>
+                        </div>
+                        <div className="form-check form-check-inline mr-30">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio2"
+                            value="option2"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="inlineRadio2"
+                          >
+                            18 months
+                          </label>
+                        </div>
+
+                        <div className="form-check form-check-inline mr-30">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio3"
+                            value="option3"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="inlineRadio3"
+                          >
+                            24 months
+                          </label>
+                        </div>
+
+                        <div className="form-check form-check-inline mr-30">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio4"
+                            value="option4"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="inlineRadio4"
+                          >
+                            36 months
+                          </label>
+                        </div>
+                        <div className="form-check form-check-inline mr-30">
+                          <input
+                            className="form-check-input"
+                            type="radio"
+                            name="inlineRadioOptions"
+                            id="inlineRadio5"
+                            value="option5"
+                          />
+                          <label
+                            className="form-check-label"
+                            htmlFor="inlineRadio5"
+                          >
+                            48 months
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="row  mt-60">
+                      <div className="col-md-12">
+                        <div className="nav-btn d-flex justify-content-end">
+                          <button
+                            className=" theme-btn-primary_alt theme-btn next-btn"
+                            type="submit"
+                          >
+                            next<i className="arrow_right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer className="footer footer-3">
@@ -781,4 +803,4 @@ const Loanpage = () => {
   );
 };
 
-export default Loanpage;
+export default LoanDetailPage;
