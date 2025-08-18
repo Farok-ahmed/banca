@@ -75,18 +75,51 @@ const NavBar = () => {
   const isIndexCompany = pathname === "/index-company";
   const mobileApp = pathname === "/mobile-app";
   const loanSteps = pathname === "/loan-steps";
+  const financeSass = pathname === "/finance-sass-app";
+  const loan = pathname === "/loan";
+  const loanDetails = pathname === "/loan-details";
+  const personalDetails = pathname === "/personal-details";
+  const documentUpload = pathname === "/document-upload";
+  const career = pathname === "/career";
+  const jobs = pathname === "/jobs";
+  const jobApplication = pathname === "/job-application";
+  const card = pathname === "/card";
+  const aboutUs = pathname === "/about-us";
+  const contactUs = pathname === "/contact-us";
+  const error = pathname === "/error";
+  const blogListing = pathname === "/blog-listing";
+  const blogDetails = pathname === "/blog-details";
 
+  const headerMenu3 =
+    loan ||
+    loanDetails ||
+    personalDetails ||
+    documentUpload ||
+    career ||
+    card ||
+    contactUs ||
+    blogListing ||
+    blogDetails;
   return (
     <header className="header">
-      {loanSteps && <TopHeader />}
+      <TopHeader />
       <div
         className={`header-menu ${
-          isIndexCompany || loanSteps ? "header-menu-2" : "header-menu-4"
-        } ${mobileApp ? "header-menu-1" : "header-menu-4"}
-       
-        ${
-          isScrolled ? "navbar_fixed" : ""
-        }`}
+          isIndexCompany ||
+          loanSteps ||
+          financeSass ||
+          jobs ||
+          jobApplication ||
+          aboutUs ||
+          error
+            ? "header-menu-2"
+            : "header-menu-4"
+        } 
+        ${(jobs || jobApplication || aboutUs) && "bg_white"}
+        ${mobileApp && "header-menu-1"}
+        ${headerMenu3 && "header-menu-3"}
+
+        ${isScrolled ? "navbar_fixed" : ""}`}
         id="sticky"
         style={{
           top: isScrollDown && lastScrollTop > 100 ? "-100px" : "0",
@@ -97,7 +130,7 @@ const NavBar = () => {
             <Link className="navbar-brand sticky_logo" href="/">
               <Image
                 className="main"
-                src={isIndexCompany || loanSteps ? Logo2 : Logo}
+                src={isIndexCompany || loanSteps || error ? Logo2 : Logo}
                 alt="logo"
               />
               <Image
@@ -133,7 +166,11 @@ const NavBar = () => {
               })}
               id="navbarSupportedContent"
             >
-              <ul className="navbar-nav menu ms-auto">
+              <ul
+                className={`navbar-nav menu ${
+                  financeSass ? "ms-5 me-auto" : "ms-auto"
+                }`}
+              >
                 {NavItems.map((item, idx) => (
                   <li className="nav-item dropdown submenu" key={idx}>
                     <Link

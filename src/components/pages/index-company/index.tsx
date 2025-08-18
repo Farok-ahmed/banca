@@ -1,7 +1,6 @@
-"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-// Style import here
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -13,36 +12,15 @@ import "@/styles/css/jquery.fancybox.min.css";
 import "@/styles/css/flatpickr.min.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
-// import 'flatpickr/dist/themes/light.css';
 
 import LoanSlider from "@/components/LoanSlider";
 import IndexCalculator from "@/components/IndexCalculator";
-import { ReactNode } from "react";
-import { useFormStatus } from "react-dom";
 import DefaultLayout from "@/components/Layout";
-
-function SubmitButton({ children }: { children: ReactNode }) {
-  const { pending } = useFormStatus();
-  return (
-    <button type="submit" className="theme-btn mt-10" disabled={pending}>
-      {pending ? "Submitting..." : children}
-    </button>
-  );
-}
-
-type ContactFormFields = {
-  fullName: string;
-  email: string;
-};
+import { SubmitButton } from "./FormButton";
+import { handleSubmit } from "./handleSubmit";
 
 const CompanyPage = () => {
-  async function handleSubmit(formData: FormData) {
-    const data: ContactFormFields = {
-      fullName: formData.get("fullName") as string,
-      email: formData.get("email") as string,
-    };
-    console.log("Form submitted:", data);
-  }
+  
 
   return (
     <>

@@ -1,7 +1,40 @@
+"use client"
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const TopHeader = () => {
+  const pathname = usePathname();
+  const loanSteps = pathname === "/loan-steps";
+  const loan = pathname === "/loan";
+  const loanDetails = pathname === "/loan-details";
+  const personalDetails = pathname === "/personal-details";
+  const documentUpload = pathname === "/document-upload";
+  const career = pathname === "/career";
+  const jobs = pathname === "/jobs";
+  const jobApplication = pathname === "/job-application";
+  const card = pathname === "/card";
+  const aboutUs = pathname === "/about-us";
+  const contactUs = pathname === "/contact-us";
+  const blogListing = pathname === "/blog-listing";
+  const blogDetails = pathname === "/blog-details";
+
+  if (
+    !loanSteps &&
+    !loan &&
+    !loanDetails &&
+    !personalDetails &&
+    !documentUpload &&
+    !career &&
+    !jobs &&
+    !jobApplication &&
+    !card &&
+    !aboutUs &&
+    !contactUs &&
+    !blogListing &&
+    !blogDetails
+  )
+    return null;
   return (
     <>
       <div className="header-top py-2">

@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/assets/img/logo/Logo.png";
+import { usePathname } from "next/navigation";
 const Footer = () => {
+    const pathName = usePathname();
+    const error = pathName === "/error";
+    if (error) return null;
   return (
     <>
       <footer className="footer footer-3">

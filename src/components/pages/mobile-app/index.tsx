@@ -1,4 +1,3 @@
-"use client";
 import NewsSlider from "@/components/BancaNews";
 import ClientSlider from "@/components/MobileTestimonial";
 import Image from "next/image";
