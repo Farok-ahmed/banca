@@ -116,7 +116,7 @@ header {
     &.header-menu-3,
     &.header-menu-4 {
       .theme-btn {
-        background-color: $theme-color;
+        background-color: $theme-color !important;
         color: #fff;
       }
       .navbar {
@@ -162,7 +162,7 @@ header {
       background-color: var(--bs-white);
 
       .theme-btn {
-        background-color: var(--brand_color);
+        background-color: var(--brand_color) !important;
         color: #fff;
         border-color: transparent;
         &:hover {
@@ -190,7 +190,7 @@ header {
     }
     &.header-menu-4 {
       .theme-btn {
-        background-color: var(--brand_color);
+        background-color: var(--brand_color) !important;
         &:hover {
           background-color: $theme-title-color;
         }

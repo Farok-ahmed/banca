@@ -7,8 +7,10 @@ import React, { useMemo, useState, useEffect } from "react";
 import { IoMoon, IoSunnyOutline } from "react-icons/io5";
 import Logo from "@/assets/img/logo/Logo.png";
 import Logo2 from "@/assets/img/logo/Logo-2.png";
+import Logo3 from "@/assets/img/logo/Logo-3.png";
 import classNames from "classnames";
 import { SubSubItem, NavItems } from "./NavItem";
+import TopHeader from "./TopHeader";
 
 const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -71,11 +73,18 @@ const NavBar = () => {
   };
   // index company page select
   const isIndexCompany = pathname === "/index-company";
+  const mobileApp = pathname === "/mobile-app";
+  const loanSteps = pathname === "/loan-steps";
 
   return (
     <header className="header">
+      {loanSteps && <TopHeader />}
       <div
-        className={`header-menu ${isIndexCompany ? "header-menu-2" : "header-menu-4"} ${
+        className={`header-menu ${
+          isIndexCompany || loanSteps ? "header-menu-2" : "header-menu-4"
+        } ${mobileApp ? "header-menu-1" : "header-menu-4"}
+       
+        ${
           isScrolled ? "navbar_fixed" : ""
         }`}
         id="sticky"
@@ -86,8 +95,16 @@ const NavBar = () => {
         <nav className="navbar navbar-expand-lg">
           <div className="container">
             <Link className="navbar-brand sticky_logo" href="/">
-              <Image className="main" src={Logo} alt="logo" />
-              <Image className="sticky" src={Logo2} alt="logo sticky" />
+              <Image
+                className="main"
+                src={isIndexCompany || loanSteps ? Logo2 : Logo}
+                alt="logo"
+              />
+              <Image
+                className="sticky"
+                src={mobileApp ? Logo3 : Logo2}
+                alt="logo sticky"
+              />
             </Link>
 
             <button
@@ -194,7 +211,9 @@ const NavBar = () => {
               </ul>
 
               <Link
-                className={`theme-btn ${isIndexCompany ? "" : "theme-btn-rounded-2 theme-btn-alt"}`}
+                className={`theme-btn ${
+                  isIndexCompany ? "" : "theme-btn-rounded-2 theme-btn-alt"
+                }`}
                 href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
                 target="_blank"
                 rel="noopener noreferrer"

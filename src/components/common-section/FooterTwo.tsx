@@ -1,16 +1,21 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import Logo from '@/assets/img/logo/Logo.png'
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import Logo from "@/assets/img/logo/Logo.png";
+import { usePathname } from "next/navigation";
 const FooterTwo = () => {
+  const pathName = usePathname();
+  const indexCompany = pathName === "/index-company";
+  const simpleBanca = pathName === "/simple-banca";
+  if (!indexCompany && !simpleBanca) return null;
   return (
     <>
-     <footer
+      <footer
         className="footer footer-2 pt-lg-130 pt-110 pb-100 pb-lg-125"
         style={{
           backgroundImage: "url('/img/footer/footer-bg-2.png')",
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
         }}
       >
         <div className="footer-top">
@@ -133,10 +138,7 @@ const FooterTwo = () => {
                 <div className="row align-items-center gy-lg-0 gy-3 gx-0">
                   <div className="col-md-2 text-md-start text-center">
                     <Link href="/">
-                      <Image
-                        src={Logo}
-                        alt="logo"
-                      />
+                      <Image src={Logo} alt="logo" />
                     </Link>
                   </div>
                   <div className="col-md-6">
@@ -167,8 +169,8 @@ const FooterTwo = () => {
                       <br className="d-sm-none" />
                       <Link className="ms-3" href="#">
                         Privacy
-                      </Link>{' '}
-                      |{' '}
+                      </Link>{" "}
+                      |{" "}
                       <Link className="ms-0" href="#">
                         Terms of Use
                       </Link>
@@ -181,7 +183,7 @@ const FooterTwo = () => {
         </div>
       </footer>
     </>
-  )
-}
+  );
+};
 
-export default FooterTwo
+export default FooterTwo;
