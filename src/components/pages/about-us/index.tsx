@@ -1,7 +1,7 @@
-/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 
 import Link from "next/link";
+import Image from "next/image";
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -14,17 +14,19 @@ import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 import DefaultLayout from "@/components/Layout";
 import AboutSlider from "@/components/AboutSlider";
-
+import recognitionIcon from "@/assets/img/recognition/icon.svg";
+import aboutBg from "@/assets/img/banner/about-bg.png";
+import leader1 from "@/assets/img/leadership/img-1.png";
+import leader2 from "@/assets/img/leadership/img-2.png";
+import leader3 from "@/assets/img/leadership/img-3.png";
 const AboutPage = () => {
-  
-
   return (
     <>
       <DefaultLayout>
         <main>
           <section
             className="banner-area-2 pt-145"
-            style={{ backgroundImage: `url(img/banner/about-bg.png)` }}
+            style={{ backgroundImage: `url(${aboutBg.src})` }}
           >
             <div className="container">
               <div className="row align-items-center pt-130 pb-140">
@@ -88,7 +90,7 @@ const AboutPage = () => {
             </div>
           </section>
 
-          <AboutSlider/>
+          <AboutSlider />
 
           <section className="recognition-area bg_white pt-135 pb-140">
             <div className="container">
@@ -330,7 +332,7 @@ const AboutPage = () => {
                     >
                       <div className="accolades-header d-flex justify-content-between align-items-end">
                         <h2>Awards</h2>
-                        <img src="/img/recognition/icon.svg" alt="icon" />
+                        <Image src={recognitionIcon} alt="Awards icon" />
                       </div>
                       <div className="accolades-content">
                         <ul>
@@ -400,7 +402,7 @@ const AboutPage = () => {
                     data-wow-delay="0.1s"
                   >
                     <Link href="#">
-                      <img src="/img/leadership/img-1.png" alt="leader-1" />
+                      <Image src={leader1} alt="leader-1" />
                       <div className="leader-info">
                         <h5>Eldridge Robles</h5>
                         <p>Co-Founder, Conis</p>
@@ -415,7 +417,7 @@ const AboutPage = () => {
                     data-wow-delay="0.3s"
                   >
                     <Link href="#">
-                      <img src="/img/leadership/img-2.png" alt="leader-2" />
+                      <Image src={leader2} alt="leader-2" />
                       <div className="leader-info">
                         <h5>Eldridge Robles</h5>
                         <p>Co-Founder, Conis</p>
@@ -429,7 +431,7 @@ const AboutPage = () => {
                     data-wow-delay="0.5s"
                   >
                     <Link href="#">
-                      <img src="/img/leadership/img-3.png" alt="leader-3" />
+                      <Image src={leader3} alt="leader-3" />
                       <div className="leader-info">
                         <h5>Eldridge Robles</h5>
                         <p>Co-Founder, Conis</p>

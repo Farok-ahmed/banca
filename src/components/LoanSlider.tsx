@@ -5,6 +5,9 @@ import Slider from 'react-slick';
 import Image from 'next/image';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import loanType1 from '@/assets/img/home-5/loan-type-1.png';
+import loanType2 from '@/assets/img/home-5/loan-type-2.png';
+import loanType3 from '@/assets/img/home-5/loan-type-3.png';
 
 const LoanSlider = () => {
   const settings = {
@@ -78,55 +81,55 @@ const LoanSlider = () => {
   const slides = [
     {
       title: 'Personal Loans',
-      image: '/img/home-5/loan-type-1.png',
+  image: loanType1,
       description:
         'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
     },
     {
       title: 'Installment Loans',
-      image: '/img/home-5/loan-type-2.png',
+  image: loanType2,
       description:
         'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
     },
     {
       title: 'Payday Loans',
-      image: '/img/home-5/loan-type-3.png',
+  image: loanType3,
       description:
         'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
     },
     {
       title: 'Personal Loans',
-      image: '/img/home-5/loan-type-1.png',
+  image: loanType1,
       description:
         'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
     },
     {
       title: 'Installment Loans',
-      image: '/img/home-5/loan-type-2.png',
+  image: loanType2,
       description:
         'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
     },
     {
       title: 'Payday Loans',
-      image: '/img/home-5/loan-type-3.png',
+  image: loanType3,
       description:
         'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
     },
     {
       title: 'Installment Loans',
-      image: '/img/home-5/loan-type-2.png',
+  image: loanType2,
       description:
         'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
     },
     {
       title: 'Payday Loans',
-      image: '/img/home-5/loan-type-3.png',
+  image: loanType3,
       description:
         'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
     },
     {
       title: 'Personal Loans',
-      image: '/img/home-5/loan-type-1.png',
+  image: loanType1,
       description:
         'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
     },
@@ -146,12 +149,7 @@ const LoanSlider = () => {
               <div key={index}>
                 <div className="single-slide">
                   <div className="icon">
-                    <Image
-                      src={slide.image}
-                      width={50}
-                      height={50}
-                      alt={slide.title}
-                    />
+                    <Image src={slide.image} alt={slide.title} />
                   </div>
                   <h4>{slide.title}</h4>
                   <p>{slide.description}</p>

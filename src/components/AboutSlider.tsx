@@ -2,7 +2,11 @@
 import Image from "next/image";
 import React from "react";
 import Slider from "react-slick";
-import statisticsImg from "@/assets/img/statistics/img-6.png"
+import statisticsImg from "@/assets/img/statistics/img-6.png";
+import stat1 from "@/assets/img/statistics/img-1.png";
+import stat2 from "@/assets/img/statistics/img-2.png";
+import stat3 from "@/assets/img/statistics/img-3.png";
+import stat4 from "@/assets/img/statistics/img-4.png";
 
 const AboutSlider = () => {
   const settings = {
@@ -39,11 +43,10 @@ const AboutSlider = () => {
                   </div>
                   <div className="col-5">
                     <Image
-                      width={200}
-                      height={200}
+                     
                       style={{ height: 200 }}
                       className="img-fluid"
-                      src="/img/statistics/img-1.png"
+                      src={stat1}
                       alt="img"
                     />
                   </div>
@@ -112,7 +115,7 @@ const AboutSlider = () => {
                 <div
                   className="widget-content widget-6"
                   style={{
-                    backgroundImage: `url(img/statistics/img-2.png)`,
+                    backgroundImage: `url(${stat2.src})`,
                   }}
                 >
                   <h2>Best Consumer Digital Bank</h2>
@@ -130,7 +133,7 @@ const AboutSlider = () => {
                 <div
                   className="widget-content widget-7"
                   style={{
-                    backgroundImage: `url(img/statistics/img-3.png)`,
+                    backgroundImage: `url(${stat3.src})`,
                   }}
                 >
                   <h1 className="stat-counter">35</h1>
@@ -155,7 +158,7 @@ const AboutSlider = () => {
                     <div
                       className="widget-content widget-8"
                       style={{
-                        backgroundImage: `url(img/statistics/img-4.png)`,
+                        backgroundImage: `url(${stat4.src})`,
                       }}
                     >
                       <h1 className="stat-counter">2</h1>

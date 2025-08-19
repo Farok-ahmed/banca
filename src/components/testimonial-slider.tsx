@@ -3,10 +3,13 @@
 import Slider, { CustomArrowProps } from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Image from 'next/image';
+import testiImg1 from '@/assets/img/testimonial/img-1.png';
+import testiImg2 from '@/assets/img/testimonial/img-2.png';
 
 const testimonials = [
   {
-    img: "/img/testimonial/img-2.png",
+    img: testiImg2,
     video: "https://www.youtube.com/watch?v=xcJtL7QggTI",
     title: "Making dreams a reality!",
     text: "We were looking for a home of happiness and peace. Thanks to the Grihashakti team, who helped us to realise this dream of ours. Our home has been very lucky for us – as we shifted to our new home, prosperity followed!",
@@ -14,7 +17,7 @@ const testimonials = [
     location: "New York, US",
   },
   {
-    img: "/img/testimonial/img-1.png",
+    img: testiImg1,
     video: "https://www.youtube.com/watch?v=xcJtL7QggTI",
     title: "Making dreams a reality!",
     text: "We were looking for a home of happiness and peace. Thanks to the Grihashakti team, who helped us to realise this dream of ours. Our home has been very lucky for us – as we shifted to our new home, prosperity followed!",
@@ -102,7 +105,7 @@ export default function TestimonialSlider() {
                 <div className="row">
                   <div className="col-4">
                     <div className="author-img">
-                      <img src={item.img} alt="image" />
+                      <Image src={item.img} alt="image" />
                     </div>
                   </div>
                   <div className="col-8 d-flex align-items-center">

@@ -14,6 +14,29 @@ import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
 import FaqTabs from "./FaqTabs";
 import HomeTestimonials from "./HomeTestimonials";
+// Assets
+import shape2 from "@/assets/img/home-4/shape-2.png";
+import shape3 from "@/assets/img/home-4/shape-3.png";
+import shape4 from "@/assets/img/home-4/shape-4.png";
+import shape5 from "@/assets/img/home-4/shape-5.png";
+import cooperator1 from "@/assets/img/home-4/cooperator-1.png";
+import cooperator2 from "@/assets/img/home-4/cooperator-2.png";
+import cooperator3 from "@/assets/img/home-4/cooperator-3.png";
+import shape1 from "@/assets/img/home-4/shape-1.png";
+import stepIcon01 from "@/assets/img/home-4/step-icon-01.svg";
+import stepIcon02 from "@/assets/img/home-4/step-icon-02.svg";
+import stepIcon03 from "@/assets/img/home-4/step-icon-03.svg";
+import manageCashImg from "@/assets/img/home-4/manage-cash-img.png";
+import basicInfo2 from "@/assets/img/home-4/basic-info-2.png";
+import basicInfo3 from "@/assets/img/home-4/basic-info-3.png";
+import logo2 from "@/assets/img/logo/Logo-2.png";
+import ctaImg from "@/assets/img/home-4/cta-Img.png";
+import ctaShape from "@/assets/img/home-4/cta-shape.png";
+import article1 from "@/assets/img/home-4/article-1.png";
+import article2 from "@/assets/img/home-4/article-2.png";
+import article3 from "@/assets/img/home-4/article-3.png";
+import calenderOutline from "@/assets/img/home-4/calender-outline.svg";
+import userProfile from "@/assets/img/home-4/user-profile.svg";
 
 const blogPosts: BlogItem[] = [
   {
@@ -23,9 +46,9 @@ const blogPosts: BlogItem[] = [
     categoryClass: "yellow-bg",
     date: "November 08, 2022",
     author: "Spiderthemes",
-    image: "/img/home-4/article-1.png",
-    calendarIcon: "/img/home-4/calender-outline.svg",
-    userIcon: "/img/home-4/user-profile.svg",
+  image: article1,
+  calendarIcon: calenderOutline,
+  userIcon: userProfile,
     delay: "0.1s",
   },
   {
@@ -35,9 +58,9 @@ const blogPosts: BlogItem[] = [
     categoryClass: "orange-bg",
     date: "November 08, 2022",
     author: "Spiderthemes",
-    image: "/img/home-4/article-2.png",
-    calendarIcon: "/img/home-4/calender-outline.svg",
-    userIcon: "/img/home-4/user-profile.svg",
+  image: article2,
+  calendarIcon: calenderOutline,
+  userIcon: userProfile,
     delay: "0.3s",
   },
   {
@@ -47,9 +70,9 @@ const blogPosts: BlogItem[] = [
     categoryClass: "tulip-bg",
     date: "November 08, 2022",
     author: "Spiderthemes",
-    image: "/img/home-4/article-3.png",
-    calendarIcon: "/img/home-4/calender-outline.svg",
-    userIcon: "/img/home-4/user-profile.svg",
+  image: article3,
+  calendarIcon: calenderOutline,
+  userIcon: userProfile,
     delay: "0.5s",
   },
 ];
@@ -67,47 +90,19 @@ export default function Home() {
                 className="shape"
                 data-parallax='{"x": -30,"y": 90,"rotateZ":50}'
               >
-                <Image
-                  className="layer"
-                  data-depth="-0.06"
-                  src="/img/home-4/shape-2.png"
-                  alt="Shape 2"
-                  width={100}
-                  height={100}
-                />
+                <Image className="layer" data-depth="-0.06" src={shape2} alt="Shape 2" />
               </div>
               <div className="shape" data-parallax='{"y": -250}'>
-                <Image
-                  className="layer"
-                  data-depth="-0.15"
-                  src="/img/home-4/shape-3.png"
-                  alt="Shape 3"
-                  width={60}
-                  height={40}
-                />
+                <Image className="layer" data-depth="-0.15" src={shape3} alt="Shape 3" />
               </div>
               <div className="shape" data-parallax='{"x": -40, "y": -150}'>
-                <Image
-                  className="layer"
-                  data-depth="-0.3"
-                  src="/img/home-4/shape-4.png"
-                  alt="Shape 4"
-                  width={30}
-                  height={30}
-                />
+                <Image className="layer" data-depth="-0.3" src={shape4} alt="Shape 4" />
               </div>
               <div
                 className="shape"
                 data-parallax='{"x": 300, "y": 370, "rotateZ":200}'
               >
-                <Image
-                  className="layer"
-                  data-depth="0.5"
-                  src="/img/home-4/shape-5.png"
-                  alt="Shape 5"
-                  width={10}
-                  height={10}
-                />
+                <Image className="layer" data-depth="0.5" src={shape5} alt="Shape 5" />
               </div>
 
               <div className="shape"></div>
@@ -144,28 +139,13 @@ export default function Home() {
                       <p className="mb-4">We are cooperating with:</p>
                       <div className="d-flex flex-wrap">
                         <a href="#">
-                          <Image
-                            src="/img/home-4/cooperator-1.png"
-                            alt="cooperator 1"
-                            width={100}
-                            height={30}
-                          />
+                          <Image src={cooperator1} alt="cooperator 1" />
                         </a>
                         <a href="#">
-                          <Image
-                            src="/img/home-4/cooperator-2.png"
-                            alt="cooperator 2"
-                            width={100}
-                            height={30}
-                          />
+                          <Image src={cooperator2} alt="cooperator 2" />
                         </a>
                         <a href="#">
-                          <Image
-                            src="/img/home-4/cooperator-3.png"
-                            alt="cooperator 3"
-                            width={100}
-                            height={30}
-                          />
+                          <Image src={cooperator3} alt="cooperator 3" />
                         </a>
                       </div>
                     </div>
@@ -177,13 +157,7 @@ export default function Home() {
                     className="basic-loan-calculator wow fadeInLeft"
                     data-wow-delay="0.1s"
                   >
-                    <Image
-                      className="shape"
-                      src="/img/home-4/shape-1.png"
-                      alt="Shape 1"
-                      width={50}
-                      height={30}
-                    />
+                    <Image className="shape" src={shape1} alt="Shape 1" />
                     <h4>Loan calculator</h4>
                     <form action="" className="d-flex flex-column">
                       <div className="mb-3">
@@ -281,12 +255,7 @@ export default function Home() {
                     data-wow-delay="0.1s"
                   >
                     <div className="card-img">
-                      <Image
-                        src="/img/home-4/step-icon-01.svg"
-                        alt="Apply for loan"
-                        width={80}
-                        height={80}
-                      />
+                      <Image src={stepIcon01} alt="Apply for loan" />
                     </div>
                     <h4>Apply for loan</h4>
                     <p>
@@ -303,12 +272,7 @@ export default function Home() {
                     data-wow-delay="0.3s"
                   >
                     <div className="card-img">
-                      <Image
-                        src="/img/home-4/step-icon-02.svg"
-                        alt="Get approved"
-                        width={80}
-                        height={80}
-                      />
+                      <Image src={stepIcon02} alt="Get approved" />
                     </div>
                     <h4>Get approved</h4>
                     <p>
@@ -325,12 +289,7 @@ export default function Home() {
                     data-wow-delay="0.5s"
                   >
                     <div className="card-img">
-                      <Image
-                        src="/img/home-4/step-icon-03.svg"
-                        alt="Get your money"
-                        width={80}
-                        height={80}
-                      />
+                      <Image src={stepIcon03} alt="Get your money" />
                     </div>
                     <h4>Get your money</h4>
                     <p>
@@ -349,29 +308,9 @@ export default function Home() {
                 {/* Left Image Section */}
                 <div className="col-lg-7">
                   <div className="cash-img position-relative">
-                    <Image
-                      className="img-fluid"
-                      src="/img/home-4/manage-cash-img.png"
-                      alt="Manage cash"
-                      width={600}
-                      height={400}
-                    />
-                    <Image
-                      className="msg-1 wow fadeInRight"
-                      data-wow-delay="0.1s"
-                      src="/img/home-4/basic-info-2.png"
-                      alt="Info 2"
-                      width={180}
-                      height={95}
-                    />
-                    <Image
-                      className="msg-2 wow fadeInRight"
-                      data-wow-delay="0.3s"
-                      src="/img/home-4/basic-info-3.png"
-                      alt="Info 3"
-                      width={200}
-                      height={60}
-                    />
+                    <Image className="img-fluid" src={manageCashImg} alt="Manage cash" />
+                    <Image className="msg-1 wow fadeInRight" data-wow-delay="0.1s" src={basicInfo2} alt="Info 2" />
+                    <Image className="msg-2 wow fadeInRight" data-wow-delay="0.3s" src={basicInfo3} alt="Info 3" />
                   </div>
                 </div>
 
@@ -426,12 +365,7 @@ export default function Home() {
                     <tr>
                       <th className="feature-head" scope="col"></th>
                       <th className="text-center" scope="col">
-                        <Image
-                          src="/img/logo/Logo-2.png"
-                          alt="Logo"
-                          width={105}
-                          height={30}
-                        />
+                        <Image src={logo2} alt="Logo" />
                       </th>
                       <th className="text-center" scope="col">
                         Other Companies
@@ -565,13 +499,7 @@ export default function Home() {
                         href="/"
                         className="blog-img d-block position-relative"
                       >
-                        <Image
-                          src={post.image}
-                          alt="blog-img"
-                          width={450}
-                          height={280}
-                          className="w-100 h-auto"
-                        />
+                        <Image src={post.image} alt="blog-img" className="w-100 h-auto" />
                         <div className={`catagory ${post.categoryClass}`}>
                           {post.category}
                         </div>
@@ -582,21 +510,11 @@ export default function Home() {
                         </h4>
                         <div className="post-info d-flex justify-content-between mt-3">
                           <div className="post-date d-flex align-items-center gap-2">
-                            <Image
-                              src={post.calendarIcon}
-                              alt="calendar"
-                              width={18}
-                              height={18}
-                            />
+                            <Image src={post.calendarIcon} alt="calendar" />
                             <span>{post.date}</span>
                           </div>
                           <div className="author d-flex align-items-center gap-2">
-                            <Image
-                              src={post.userIcon}
-                              alt="user profile"
-                              width={18}
-                              height={18}
-                            />
+                            <Image src={post.userIcon} alt="user profile" />
                             <span>{post.author}</span>
                           </div>
                         </div>
@@ -648,20 +566,8 @@ export default function Home() {
                       </div>
 
                       <div className="col-lg-6">
-                        <Image
-                          className="cta-img wow fadeInUp img-fluid"
-                          width={500}
-                          height={800}
-                          src="/img/home-4/cta-Img.png"
-                          alt=""
-                        />
-                        <Image
-                          className="shape img-fluid"
-                          width={500}
-                          height={400}
-                          src="/img/home-4/cta-shape.png"
-                          alt=""
-                        />
+                        <Image className="cta-img wow fadeInUp img-fluid" src={ctaImg} alt="" />
+                        <Image className="shape img-fluid" src={ctaShape} alt="" />
                       </div>
                     </div>
                   </div>

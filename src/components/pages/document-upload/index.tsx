@@ -9,6 +9,8 @@ import "@/styles/css/responsive.css";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
 import DocumentForm from "./DocumentForm";
+// Assets
+import breadcrumbBg1 from "@/assets/img/breadcrumb/bg-1.png";
 
 const DocumentUploadPage = () => {
   return (
@@ -18,7 +20,7 @@ const DocumentUploadPage = () => {
           <section className="breadcrumb-area">
             <div
               className="breadcrumb-widget  pt-200 pb-100"
-              style={{ backgroundImage: `url(img/breadcrumb/bg-1.png)` }}
+              style={{ backgroundImage: `url(${breadcrumbBg1.src})` }}
             >
               <div className="container">
                 <div className="row">

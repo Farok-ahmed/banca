@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import logo2 from '@/assets/img/logo/Logo-2.png';
 
 const getRandomQuote = () => {
   const quotes = [
@@ -32,12 +33,7 @@ export default function PreLoader() {
         <div className="round_spinner">
           <div className="spinner"></div>
           <div className="text">
-            <Image
-              width={140}
-              height={40}
-              src="/img/logo/Logo-2.png"
-              alt="Logo"
-            />
+            <Image src={logo2} alt="Logo" />
           </div>
         </div>
         <h2 className="head">Did You Know?</h2>

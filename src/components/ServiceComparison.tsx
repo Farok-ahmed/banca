@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import logo2 from '@/assets/img/logo/Logo-2.png';
 
 const ServiceComparison = () => {
   return (
@@ -23,12 +24,7 @@ const ServiceComparison = () => {
               <tr>
                 <th className="feature-head" scope="col"></th>
                 <th className="text-center" scope="col">
-                  <Image
-                    src="/img/logo/Logo-2.png"
-                    alt="Logo"
-                    width={105}
-                    height={30}
-                  />
+                  <Image src={logo2} alt="Logo" />
                 </th>
                 <th className="text-center" scope="col">
                   Other Companies

@@ -2,6 +2,7 @@
 'use client';
 import "@/styles/css/intlTelInput.css";
 import Image from 'next/image';
+import uploadIcon from '@/assets/img/icon_upload.svg';
 import { useEffect, useRef, useState } from 'react';
 import intlTelInput from 'intl-tel-input';
 
@@ -154,7 +155,7 @@ const JobApplicationSection = () => {
                       <p className="support mb-2">Files Supported: .doc, .pdf, .txt (Max size 10MB)</p>
                       <div className="dropzone" id="dropzone">
                         <div className="dz-message">
-                          <Image width={50} height={50} src="/img/icon_upload.svg" alt="upload" />
+                          <Image src={uploadIcon} alt="upload" />
                           <h4 className="dz-button">Drag and Drop files here</h4>
                           <p className="dz-custom-upload-text">or browse to</p>
                           <div className="theme-btn theme-btn-primary_alt mt-3">Choose File</div>

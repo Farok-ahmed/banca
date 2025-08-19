@@ -5,68 +5,71 @@ import Image from 'next/image';
 import Link from 'next/link';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import client1 from '@/assets/img/client/client-1.png';
+import client2 from '@/assets/img/client/client-2.png';
+import client3 from '@/assets/img/client/client-3.png';
 
 const testimonials = [
   {
     name: 'Moshrarf Hossan',
     role: 'Ui / Ux Designer',
-    image: '/img/client/client-1.png',
+  image: client1,
     quote:
       'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
   },
   {
     name: 'Eh Jewel',
     role: 'Spider Themes,CEO',
-    image: '/img/client/client-2.png',
+  image: client2,
     quote:
       'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
   },
   {
     name: 'Arif Rahman',
     role: 'Junior web developer',
-    image: '/img/client/client-3.png',
+  image: client3,
     quote:
       'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
   },
   {
     name: 'Moshrarf Hossan',
     role: 'Ui / Ux Designer',
-    image: '/img/client/client-1.png',
+  image: client1,
     quote:
       'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
   },
   {
     name: 'Eh Jewel',
     role: 'Spider Themes,CEO',
-    image: '/img/client/client-2.png',
+  image: client2,
     quote:
       'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
   },
   {
     name: 'Arif Rahman',
     role: 'Junior web developer',
-    image: '/img/client/client-3.png',
+  image: client3,
     quote:
       'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
   },
   {
     name: 'Moshrarf Hossan',
     role: 'Ui / Ux Designer',
-    image: '/img/client/client-1.png',
+  image: client1,
     quote:
       'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
   },
   {
     name: 'Eh Jewel',
     role: 'Spider Themes,CEO',
-    image: '/img/client/client-2.png',
+  image: client2,
     quote:
       'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
   },
   {
     name: 'Arif Rahman',
     role: 'Junior web developer',
-    image: '/img/client/client-3.png',
+  image: client3,
     quote:
       'Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything',
   },
@@ -104,8 +107,6 @@ const ClientSlider = () => {
               data-wow-delay={`0.${(index % 9) + 1}s`}
             >
               <Image
-                width={200}
-                height={200}
                 className="img-fluid rounded-circle"
                 src={item.image}
                 alt="client"

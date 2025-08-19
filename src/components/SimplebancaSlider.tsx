@@ -6,12 +6,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import tClient4 from '@/assets/img/testimonial/client-4.png';
+import tClient1 from '@/assets/img/testimonial/client-1.png';
+import tClient2 from '@/assets/img/testimonial/client-2.png';
+import tClient3 from '@/assets/img/testimonial/client-3.png';
 
 const leftSliderData = [
   {
     name: 'Linda Lawrence',
     role: 'UI/UX Designer',
-    image: '/img/testimonial/client-4.png',
+  image: tClient4,
     video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
     quote:
       'Best service and smooth process. Keep going on Banca team. Thank you for immediate response on each stage of process. Kudos the whole team.',
@@ -19,7 +23,7 @@ const leftSliderData = [
   {
     name: 'Timothy Vargas',
     role: 'UI/UX Designer',
-    image: '/img/testimonial/client-1.png',
+  image: tClient1,
     video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
     quote:
       'Best service and smooth process. Keep going on Banca team. Thank you for immediate response on each stage of process. Kudos the whole team.',
@@ -27,7 +31,7 @@ const leftSliderData = [
   {
     name: 'Sandra Hughes',
     role: 'UI/UX Designer',
-    image: '/img/testimonial/client-2.png',
+  image: tClient2,
     video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
     quote:
       'Best service and smooth process. Keep going on Banca team. Thank you for immediate response on each stage of process. Kudos the whole team.',
@@ -35,7 +39,7 @@ const leftSliderData = [
   {
     name: 'Zachary Taylo',
     role: 'UI/UX Designer',
-    image: '/img/testimonial/client-3.png',
+  image: tClient3,
     video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
     quote:
       'Best service and smooth process. Keep going on Banca team. Thank you for immediate response on each stage of process. Kudos the whole team.',
@@ -98,8 +102,6 @@ const SimplebancaSlider = () => {
                     <Image
                       src={item.image}
                       alt="client"
-                      width={300}
-                      height={300}
                       className="img-fluid rounded"
                     />
                     <Link
@@ -138,8 +140,6 @@ const SimplebancaSlider = () => {
                     <Image
                       src={item.image}
                       alt={item.name}
-                      width={200}
-                      height={200}
                       className="rounded img-fluid"
                     />
                     <div className="client-info mt-3">

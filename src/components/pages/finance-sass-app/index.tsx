@@ -15,6 +15,28 @@ import PricingPlan from "@/components/PricingPlan";
 import Image from "next/image";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
+// Assets
+import gridPng from "@/assets/img/saas-app/grid.png";
+import dashboardPng from "@/assets/img/saas-app/dashboard.png";
+import cLogo1 from "@/assets/img/saas-app/c_logo_1.png";
+import cLogo2 from "@/assets/img/saas-app/c_logo_2.png";
+import cLogo3 from "@/assets/img/saas-app/c_logo_3.png";
+import cLogo4 from "@/assets/img/saas-app/c_logo_4.png";
+import cLogo5 from "@/assets/img/saas-app/c_logo_5.png";
+import clapSvg from "@/assets/img/saas-app/clap.svg";
+import handSvg from "@/assets/img/saas-app/hand.svg";
+import houseSvg from "@/assets/img/saas-app/house.svg";
+import featuresImgOne from "@/assets/img/saas-app/features_img_one.png";
+import featuresImgTwo from "@/assets/img/saas-app/features_img_two.png";
+import handPng from "@/assets/img/saas-app/hand.png";
+import travelExplorePng from "@/assets/img/saas-app/travel_explore.png";
+import gridTwoPng from "@/assets/img/saas-app/grid-two.png";
+import appShowcase1 from "@/assets/img/saas-app/app_showcase1.png";
+import appShowcase2 from "@/assets/img/saas-app/app_showcase2.png";
+import dashApp from "@/assets/img/saas-app/dash_app.png";
+import dashAppSmall from "@/assets/img/saas-app/dash_app_small.png";
+import dashAppSmall2 from "@/assets/img/saas-app/dash_app_small2.png";
+import subscribeDashboard from "@/assets/img/saas-app/subscribe-dashboard.png";
 
 const FinanceSassAppPage = () => {
   return (
@@ -22,13 +44,7 @@ const FinanceSassAppPage = () => {
       <DefaultLayout>
         <main>
           <section className="banner-saas-area">
-            <Image
-              className="shape_img"
-              width={180}
-              height={200}
-              src="/img/saas-app/grid.png"
-              alt="grid images"
-            />
+            <Image className="shape_img" src={gridPng} alt="grid images" />
             <div className="container">
               <div className="row justify-content-center">
                 <div className="saas-banner-content text-center">
@@ -64,12 +80,7 @@ const FinanceSassAppPage = () => {
                 </div>
               </div>
               <div className="dahbord_img wow fadeInUp" data-wow-delay="0.5s">
-                <Image
-                  width={1470}
-                  height={600}
-                  src="/img/saas-app/dashboard.png"
-                  alt="saas"
-                />
+                <Image src={dashboardPng} alt="saas" style={{width:'auto',height:"auto"}} />
               </div>
             </div>
           </section>
@@ -86,11 +97,9 @@ const FinanceSassAppPage = () => {
                 <div className="col">
                   <Link href="#">
                     <Image
-                      width={100}
-                      height={120}
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.1s"
-                      src="/img/saas-app/c_logo_1.png"
+                      src={cLogo1}
                       alt="logo"
                     />
                   </Link>
@@ -98,11 +107,9 @@ const FinanceSassAppPage = () => {
                 <div className="col">
                   <Link href="#">
                     <Image
-                      width={100}
-                      height={120}
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.3s"
-                      src="/img/saas-app/c_logo_2.png"
+                      src={cLogo2}
                       alt="logo"
                     />
                   </Link>
@@ -110,11 +117,9 @@ const FinanceSassAppPage = () => {
                 <div className="col">
                   <Link href="#">
                     <Image
-                      width={100}
-                      height={120}
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.5s"
-                      src="/img/saas-app/c_logo_3.png"
+                      src={cLogo3}
                       alt="logo"
                     />
                   </Link>
@@ -122,11 +127,9 @@ const FinanceSassAppPage = () => {
                 <div className="col">
                   <Link href="#">
                     <Image
-                      width={100}
-                      height={100}
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.7s"
-                      src="/img/saas-app/c_logo_4.png"
+                      src={cLogo4}
                       alt="logo"
                     />
                   </Link>
@@ -134,11 +137,9 @@ const FinanceSassAppPage = () => {
                 <div className="col">
                   <Link href="#">
                     <Image
-                      width={100}
-                      height={100}
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.7s"
-                      src="/img/saas-app/c_logo_5.png"
+                      src={cLogo5}
                       alt="logo"
                     />
                   </Link>
@@ -166,12 +167,7 @@ const FinanceSassAppPage = () => {
                     data-wow-delay="0.1s"
                   >
                     <div className="card-img">
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/saas-app/clap.svg"
-                        alt="feature svg"
-                      />
+                      <Image src={clapSvg} alt="feature svg" />
                     </div>
                     <h4>Making genuine loans</h4>
                     <p>
@@ -189,12 +185,7 @@ const FinanceSassAppPage = () => {
                     data-wow-delay="0.3s"
                   >
                     <div className="card-img">
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/saas-app/hand.svg"
-                        alt="feature svg"
-                      />
+                      <Image src={handSvg} alt="feature svg" />
                     </div>
                     <h4>Almost limitless amount</h4>
                     <p>
@@ -212,12 +203,7 @@ const FinanceSassAppPage = () => {
                     data-wow-delay="0.6s"
                   >
                     <div className="card-img">
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/saas-app/house.svg"
-                        alt="feature svg"
-                      />
+                      <Image src={houseSvg} alt="feature svg" />
                     </div>
                     <h4>Safe & secure banking</h4>
                     <p>
@@ -239,11 +225,9 @@ const FinanceSassAppPage = () => {
                 <div className="col-lg-6">
                   <div className="saas-features-img">
                     <Image
-                      width={500}
-                      height={400}
                       className="wow fadeInRight"
                       data-wow-delay="0.3s"
-                      src="/img/saas-app/features_img_one.png"
+                      src={featuresImgOne}
                       alt=""
                     />
                   </div>
@@ -267,12 +251,7 @@ const FinanceSassAppPage = () => {
                         data-wow-delay="0.3s"
                       >
                         <div className="round_icon">
-                          <Image
-                            width={30}
-                            height={30}
-                            src="/img/saas-app/hand.png"
-                            alt=""
-                          />
+                          <Image src={handPng} alt="" />
                         </div>
                         <div className="text">
                           <h4>Single term fees</h4>
@@ -284,12 +263,7 @@ const FinanceSassAppPage = () => {
                         data-wow-delay="0.5s"
                       >
                         <div className="round_icon">
-                          <Image
-                            width={30}
-                            height={30}
-                            src="/img/saas-app/travel_explore.png"
-                            alt=""
-                          />
+                          <Image src={travelExplorePng} alt="" />
                         </div>
                         <div className="text">
                           <h4>150+ Locations</h4>
@@ -304,11 +278,9 @@ const FinanceSassAppPage = () => {
                 <div className="col-lg-6">
                   <div className="saas-features-img">
                     <Image
-                      width={500}
-                      height={420}
                       className="wow fadeInLeft"
                       data-wow-delay="0.2s"
-                      src="/img/saas-app/features_img_two.png"
+                      src={featuresImgTwo}
                       alt=""
                     />
                   </div>
@@ -356,13 +328,7 @@ const FinanceSassAppPage = () => {
           </section>
 
           <section className="app-showcase-area">
-            <Image
-              width={200}
-              height={200}
-              className="shape_img"
-              src="/img/saas-app/grid-two.png"
-              alt=""
-            />
+            <Image className="shape_img" src={gridTwoPng} alt="" />
             <div className="container">
               <div
                 className="saas-section-title text-center mb-60 wow fadeInUp"
@@ -392,11 +358,10 @@ const FinanceSassAppPage = () => {
                       visuals design use this pack illustrations for many.
                     </p>
                     <Image
-                      width={520}
-                      height={320}
                       className="wow fadeInUp"
                       data-wow-delay="0.9s"
-                      src="/img/saas-app/app_showcase1.png"
+                      src={appShowcase1}
+                      style={{width:"auto",height:"auto"}}
                       alt=""
                     />
                   </div>
@@ -415,11 +380,10 @@ const FinanceSassAppPage = () => {
                       visuals design use this pack illustrations for many.
                     </p>
                     <Image
-                      width={520}
-                      height={320}
                       className="wow fadeInUp"
                       data-wow-delay="0.9s"
-                      src="/img/saas-app/app_showcase2.png"
+                      src={appShowcase2}
+                      style={{width:"auto",height:"auto"}}
                       alt=""
                     />
                   </div>
@@ -443,27 +407,18 @@ const FinanceSassAppPage = () => {
                       </a>
                     </div>
                     <div className="img wow fadeInRight" data-wow-delay="0.4ss">
-                      <Image
-                        width={500}
-                        height={420}
-                        src="/img/saas-app/dash_app.png"
-                        alt=""
-                      />
+                      <Image src={dashApp} alt="" />
                       <div className="app_shap_img one">
                         <Image
-                          width={200}
-                          height={100}
                           data-parallax='{"x": 0, "y": -80}'
-                          src="/img/saas-app/dash_app_small.png"
+                          src={dashAppSmall}
                           alt=""
                         />
                       </div>
                       <div className="app_shap_img two">
                         <Image
-                          width={200}
-                          height={120}
                           data-parallax='{"x": 0, "y": 50}'
-                          src="/img/saas-app/dash_app_small2.png"
+                          src={dashAppSmall2}
                           alt=""
                         />
                       </div>
@@ -474,463 +429,7 @@ const FinanceSassAppPage = () => {
             </div>
           </section>
 
-          {/* <section className="saas-pricing-area bg-white">
-          <div className="container">
-            <div
-              className="saas-section-title text-center mb-60 wow fadeInUp"
-              data-wow-delay="0.2s"
-            >
-              <h2>
-                The perfect <span>pricings</span> plans
-              </h2>
-              <p>
-                There are many variations of passages of Lorem Ipsum available
-                but them
-                <br /> majority have suffered alteration form injected.
-              </p>
-            </div>
-            <div className="pricing_tab_btn active text-center">
-              <span>Monthly</span>
-              <span className="toggle"></span>
-              <span>Yearly</span>
-            </div>
-            <div className="pricing_inner">
-              <div className="price_items month">
-                <div className="row justify-content-center">
-                  <div className="col-xl-4 col-md-6">
-                    <div className="price_item wow fadeInUp">
-                      <div className="price_header">
-                        <h6>Basic Plan</h6>
-                        <p>
-                          There are many variations of passages of Lorem Ipsum
-                          available but the word.
-                        </p>
-                      </div>
-                      <div className="price">
-                        $15<sub>/month</sub>
-                      </div>
-                      <ul className="service_list list-unstyled">
-                        <li>
-                          <i className="icon_check_alt"></i>Non ipsum metus
-                          vulputate
-                        </li>
-                        <li>
-                          <i className="icon_check_alt"></i>There are variations
-                          of passages
-                        </li>
-                        <li>
-                          <i className="icon_check_alt"></i>Alteration some form
-                          injected
-                        </li>
-                      </ul>
-                      <a
-                        href="contact.html"
-                        className="price_btn theme-btn theme-btn-alt"
-                      >
-                        Choose Plan
-                      </a>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-md-6">
-                    <div className="price_item wow fadeInUp">
-                      <div className="price_header">
-                        <h6>Premium Plan</h6>
-                        <p>
-                          There are many variations of passages of Lorem Ipsum
-                          available but the word.
-                        </p>
-                      </div>
-                      <div className="price">
-                        $25<sub>/month</sub>
-                      </div>
-                      <ul className="service_list list-unstyled">
-                        <li>
-                          <i className="icon_check_alt"></i>Non ipsum metus
-                          vulputate
-                        </li>
-                        <li>
-                          <i className="icon_check_alt"></i>There are variations
-                          of passages
-                        </li>
-                        <li>
-                          <i className="icon_check_alt"></i>Alteration some form
-                          injected
-                        </li>
-                      </ul>
-                      <Link
-                        href="contact.html"
-                        className="price_btn theme-btn theme-btn-alt"
-                      >
-                        Choose Plan
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-md-6">
-                    <div className="price_item wow fadeInUp">
-                      <div className="price_header">
-                        <h6>Business Plan</h6>
-                        <p>
-                          There are many variations of passages of Lorem Ipsum
-                          available but the word.
-                        </p>
-                      </div>
-                      <div className="price">
-                        $45<sub>/month</sub>
-                      </div>
-                      <ul className="service_list list-unstyled">
-                        <li>
-                          <i className="icon_check_alt"></i>Non ipsum metus
-                          vulputate
-                        </li>
-                        <li>
-                          <i className="icon_check_alt"></i>There are variations
-                          of passages
-                        </li>
-                        <li>
-                          <i className="icon_check_alt"></i>Alteration some form
-                          injected
-                        </li>
-                      </ul>
-                      <Link
-                        href="contact.html"
-                        className="price_btn theme-btn theme-btn-alt"
-                      >
-                        Choose Plan
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="price_items year">
-                <div className="row justify-content-center">
-                  <div className="col-xl-4 col-md-6">
-                    <div className="price_item wow fadeInUp">
-                      <div className="price_header">
-                        <h6>Basic Plan</h6>
-                        <p>
-                          There are many variations of passages of Lorem Ipsum
-                          available but the word.
-                        </p>
-                      </div>
-                      <div className="price">
-                        $25<sub>/ Year</sub>
-                      </div>
-                      <ul className="service_list list-unstyled">
-                        <li>
-                          <i className="icon_check_alt"></i>Non ipsum metus
-                          vulputate
-                        </li>
-                        <li>
-                          <i className="icon_check_alt"></i>There are variations
-                          of passages
-                        </li>
-                        <li>
-                          <i className="icon_check_alt"></i>Alteration some form
-                          injected
-                        </li>
-                      </ul>
-                      <Link
-                        href="contact.html"
-                        className="price_btn theme-btn theme-btn-alt"
-                      >
-                        Choose Plan
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-md-6">
-                    <div className="price_item wow fadeInUp">
-                      <div className="price_header">
-                        <h6>Premium Plan</h6>
-                        <p>
-                          There are many variations of passages of Lorem Ipsum
-                          available but the word.
-                        </p>
-                      </div>
-                      <div className="price">
-                        $35<sub>/ Year</sub>
-                      </div>
-                      <ul className="service_list list-unstyled">
-                        <li>
-                          <i className="icon_check_alt"></i>Non ipsum metus
-                          vulputate
-                        </li>
-                        <li>
-                          <i className="icon_check_alt"></i>There are variations
-                          of passages
-                        </li>
-                        <li>
-                          <i className="icon_check_alt"></i>Alteration some form
-                          injected
-                        </li>
-                      </ul>
-                      <Link
-                        href="contact.html"
-                        className="price_btn theme-btn theme-btn-alt"
-                      >
-                        Choose Plan
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="col-xl-4 col-md-6">
-                    <div className="price_item wow fadeInUp">
-                      <div className="price_header">
-                        <h6>Business Plan</h6>
-                        <p>
-                          There are many variations of passages of Lorem Ipsum
-                          available but the word.
-                        </p>
-                      </div>
-                      <div className="price">
-                        $55<sub>/ Year</sub>
-                      </div>
-                      <ul className="service_list list-unstyled">
-                        <li>
-                          <i className="icon_check_alt"></i>Non ipsum metus
-                          vulputate
-                        </li>
-                        <li>
-                          <i className="icon_check_alt"></i>There are variations
-                          of passages
-                        </li>
-                        <li>
-                          <i className="icon_check_alt"></i>Alteration some form
-                          injected
-                        </li>
-                      </ul>
-                      <Link
-                        href="contact.html"
-                        className="price_btn theme-btn theme-btn-alt"
-                      >
-                        Choose Plan
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
           <PricingPlan />
-
-          {/* <section className="saas-faq-area bg-white">
-          <div className="container">
-            <div
-              className="saas-section-title text-center mb-60 wow fadeInUp"
-              data-wow-delay="0.2s"
-            >
-              <h2>
-                Frequently asked <span>questions</span>
-              </h2>
-              <p>
-                There are many variations of passages of Lorem Ipsum available
-                but them
-                <br /> majority have suffered alteration form injected.
-              </p>
-            </div>
-            <div className="row">
-              <div className="col-lg-6">
-                <div className="accordion" id="accordionExample">
-                  <div className="faq_item wow fadeInUp" data-wow-delay="0.3s">
-                    <div className="faq-header" id="headingOne">
-                      <h6
-                        className="mb-0"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne"
-                        aria-expanded="true"
-                        aria-controls="collapseOne"
-                      >
-                        How do I reset my password?<i className="icon_plus"></i>
-                        <i className="icon_minus-06"></i>
-                      </h6>
-                    </div>
-                    <div
-                      id="collapseOne"
-                      className="collapse show"
-                      aria-labelledby="headingOne"
-                      data-bs-parent="#accordionExample"
-                    >
-                      <div className="faq-body">
-                        <p>
-                          {' '}
-                          To reset your password, go to the login page and click
-                          on the Forgot Password link. You will be prompted to
-                          enter your email address and a reset link will be sent
-                          to you.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="faq_item wow fadeInUp" data-wow-delay="0.5s">
-                    <div className="faq-header" id="headingTwo">
-                      <h6
-                        className="mb-0 collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseTwo"
-                        aria-expanded="true"
-                        aria-controls="collapseTwo"
-                      >
-                        What payment methods do you accept and how do I track my
-                        purchase order?<i className="icon_plus"></i>
-                        <i className="icon_minus-06"></i>
-                      </h6>
-                    </div>
-                    <div
-                      id="collapseTwo"
-                      className="collapse"
-                      aria-labelledby="headingTwo"
-                      data-bs-parent="#accordionExample"
-                    >
-                      <div className="faq-body">
-                        <p>
-                          {' '}
-                          To reset your password, go to the login page and click
-                          on the Forgot Password link. You will be prompted to
-                          enter your email address and a reset link will be sent
-                          to you.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="faq_item wow fadeInUp" data-wow-delay="0.7s">
-                    <div className="faq-header" id="headingThree">
-                      <h6
-                        className="mb-0 collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseThree"
-                        aria-expanded="true"
-                        aria-controls="collapseThree"
-                      >
-                        What is your return policy and how do I contact support
-                        incase of said event ?<i className="icon_plus"></i>
-                        <i className="icon_minus-06"></i>
-                      </h6>
-                    </div>
-                    <div
-                      id="collapseThree"
-                      className="collapse"
-                      aria-labelledby="headingThree"
-                      data-bs-parent="#accordionExample"
-                    >
-                      <div className="faq-body">
-                        <p>
-                          {' '}
-                          To reset your password, go to the login page and click
-                          on the Forgot Password link. You will be prompted to
-                          enter your email address and a reset link will be sent
-                          to you.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6">
-                <div className="accordion" id="accordionExample2">
-                  <div className="faq_item wow fadeInUp" data-wow-delay="0.3s">
-                    <div className="faq-header" id="headingFour">
-                      <h6
-                        className="mb-0"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseFour"
-                        aria-expanded="true"
-                        aria-controls="collapseFour"
-                      >
-                        What is a mutual fund and how does compound interest
-                        builds up ?<i className="icon_plus"></i>
-                        <i className="icon_minus-06"></i>
-                      </h6>
-                    </div>
-                    <div
-                      id="collapseFour"
-                      className="collapse show"
-                      aria-labelledby="headingFour"
-                      data-bs-parent="#accordionExample2"
-                    >
-                      <div className="faq-body">
-                        <p>
-                          {' '}
-                          To reset your password, go to the login page and click
-                          on the Forgot Password link. You will be prompted to
-                          enter your email address and a reset link will be sent
-                          to you.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="faq_item wow fadeInUp" data-wow-delay="0.5s">
-                    <div className="faq-header" id="headingFive">
-                      <h6
-                        className="mb-0 collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseFive"
-                        aria-expanded="true"
-                        aria-controls="collapseFive"
-                      >
-                        What budget is a financial plan that outlines your
-                        expected income and expenses ?
-                        <i className="icon_plus"></i>
-                        <i className="icon_minus-06"></i>
-                      </h6>
-                    </div>
-                    <div
-                      id="collapseFive"
-                      className="collapse"
-                      aria-labelledby="headingFive"
-                      data-bs-parent="#accordionExample2"
-                    >
-                      <div className="faq-body">
-                        <p>
-                          {' '}
-                          To reset your password, go to the login page and click
-                          on the Forgot Password link. You will be prompted to
-                          enter your email address and a reset link will be sent
-                          to you.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="faq_item wow fadeInUp" data-wow-delay="0.7s">
-                    <div className="faq-header" id="headingSix">
-                      <h6
-                        className="mb-0 collapsed"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#collapseSix"
-                        aria-expanded="true"
-                        aria-controls="collapseSix"
-                      >
-                        What is a strategy of spreading your investment across
-                        different asset classNamees ?
-                        <i className="icon_plus"></i>
-                        <i className="icon_minus-06"></i>
-                      </h6>
-                    </div>
-                    <div
-                      id="collapseSix"
-                      className="collapse"
-                      aria-labelledby="headingSix"
-                      data-bs-parent="#accordionExample2"
-                    >
-                      <div className="faq-body">
-                        <p>
-                          {' '}
-                          To reset your password, go to the login page and click
-                          on the Forgot Password link. You will be prompted to
-                          enter your email address and a reset link will be sent
-                          to you.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
 
           <FinanceAccordion />
 
@@ -967,12 +466,10 @@ const FinanceSassAppPage = () => {
               </div>
             </div>
             <Image
-              width={1000}
-              height={750}
               className="saas_dash_img wow fadeInUp"
               data-parallax='{"x": -40, "y": 50}'
               data-wow-delay="0.2s"
-              src="/img/saas-app/subscribe-dashboard.png"
+              src={subscribeDashboard}
               alt=""
             />
           </section>

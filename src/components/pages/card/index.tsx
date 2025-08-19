@@ -10,6 +10,63 @@ import "@/styles/css/responsive.css";
 import Image from "next/image";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
+// Hero images
+import hero2 from "@/assets/img/card/hero-img-2.png";
+import hero3 from "@/assets/img/card/hero-img-3.png";
+import hero4 from "@/assets/img/card/hero-img-4.png";
+import hero5 from "@/assets/img/card/hero-img-5.png";
+import hero6 from "@/assets/img/card/hero-img-6.png";
+import hero7 from "@/assets/img/card/hero-img-7.png";
+import hero8 from "@/assets/img/card/hero-img-8.png";
+import heroCard from "@/assets/img/card/hero-card.png";
+import heroImg from "@/assets/img/card/hero-img.png";
+// Marketplace logos
+import companyLogo1 from "@/assets/img/card/company-logo-1.png";
+import companyLogo2 from "@/assets/img/card/company-logo-2.png";
+import companyLogo3 from "@/assets/img/card/company-logo-3.png";
+import companyLogo4 from "@/assets/img/card/company-logo-4.png";
+// Feature icons (SVG)
+import featureIcon11 from "@/assets/img/feature/icon-11.svg";
+import featureIcon12 from "@/assets/img/feature/icon-12.svg";
+import featureIcon13 from "@/assets/img/feature/icon-13.svg";
+import featureIcon14 from "@/assets/img/feature/icon-14.svg";
+import featureIcon15 from "@/assets/img/feature/icon-15.svg";
+import featureIcon16 from "@/assets/img/feature/icon-16.svg";
+// Safe deposit section
+import visaPng from "@/assets/img/card/visa.png";
+import mastercardPng from "@/assets/img/card/mastercard.png";
+import paymentBg from "@/assets/img/card/payment-bg.png";
+import creditCard from "@/assets/img/card/credit-card.png";
+import onlinePayment from "@/assets/img/card/online-payment.svg";
+import safebox from "@/assets/img/card/safebox.svg";
+// Customize card section
+import moneyTransfer from "@/assets/img/card/money-transfer.png";
+import reminder from "@/assets/img/card/reminder.png";
+import refresh from "@/assets/img/card/refresh.png";
+import cardImgBg from "@/assets/img/card/card-img-bg.png";
+import cardImage1 from "@/assets/img/card/Card-image-1.png";
+import cardImage2 from "@/assets/img/card/Card-image-2.png";
+import cardImage3 from "@/assets/img/card/Card-image-3.png";
+// Why choose section
+import layoutSvg from "@/assets/img/card/layout.svg";
+import lineShape from "@/assets/img/card/line-shape.png";
+import salarySvg from "@/assets/img/card/salary.svg";
+import antivirusSvg from "@/assets/img/card/antivirus.svg";
+// Choose card grid
+import cardImage4 from "@/assets/img/card/Card-image-4.png";
+import cardImage5 from "@/assets/img/card/Card-image-5.png";
+import cardImage6 from "@/assets/img/card/Card-image-6.png";
+import cardImage7 from "@/assets/img/card/Card-image-7.png";
+import icon1 from "@/assets/img/card/icon-1.png";
+import icon2 from "@/assets/img/card/icon-2.png";
+import icon3 from "@/assets/img/card/icon-3.png";
+// CTA shapes
+import rightArrow from "@/assets/img/card/right-arrow.png";
+import mailPng from "@/assets/img/card/mail.png";
+import wings1 from "@/assets/img/card/wings-1.png";
+import wings2 from "@/assets/img/card/wings-2.png";
+import postbox from "@/assets/img/card/postbox.png";
+import cloud from "@/assets/img/card/cloud.png";
 
 const CardPage = () => {
   return (
@@ -45,11 +102,9 @@ const CardPage = () => {
                       data-parallax='{"x": -120, "y": 90, "rotateZ":0}'
                     >
                       <Image
-                        width={180}
-                        height={150}
                         data-depth="-0.06"
                         className="layer "
-                        src="/img/card/hero-img-2.png"
+                        src={hero2}
                         alt="img"
                       />
                     </div>
@@ -57,34 +112,22 @@ const CardPage = () => {
                       className="shape"
                       data-parallax='{"x": -70, "y": 0, "rotateZ":190}'
                     >
-                      <Image
-                        width={70}
-                        height={70}
-                        src="/img/card/hero-img-3.png"
-                        alt="img"
-                      />
+                      <Image src={hero3} alt="img" />
                     </div>
                     <div
                       className="shape"
                       data-parallax='{"x": -70, "y": 0, "rotateX":190}'
                     >
-                      <Image
-                        width={50}
-                        height={50}
-                        src="/img/card/hero-img-4.png"
-                        alt="img"
-                      />
+                      <Image src={hero4} alt="img" />
                     </div>
                     <div
                       className="shape"
                       data-parallax='{"x": -90, "y": 20, "rotateZ":0}'
                     >
                       <Image
-                        width={60}
-                        height={60}
                         data-depth="-0.05"
                         className="layer "
-                        src="/img/card/hero-img-5.png"
+                        src={hero5}
                         alt="img"
                       />
                     </div>
@@ -93,11 +136,9 @@ const CardPage = () => {
                       data-parallax='{"x": -250, "y": 100, "rotateY":360}'
                     >
                       <Image
-                        width={40}
-                        height={40}
                         data-depth="0.05"
                         className="layer "
-                        src="/img/card/hero-img-6.png"
+                        src={hero6}
                         alt="img"
                       />
                     </div>
@@ -106,11 +147,9 @@ const CardPage = () => {
                       data-parallax='{"x": 0, "y": 150, "rotateZ":0}'
                     >
                       <Image
-                        width={100}
-                        height={100}
                         data-depth="-0.09"
                         className="layer "
-                        src="/img/card/hero-img-7.png"
+                        src={hero7}
                         alt="img"
                       />
                     </div>
@@ -118,32 +157,23 @@ const CardPage = () => {
                       className="shape"
                       data-parallax='{"x": 0, "y": -90, "rotateZ":0}'
                     >
-                      <Image
-                        width={100}
-                        height={100}
-                        src="/img/card/hero-img-8.png"
-                        alt="img"
-                      />
+                      <Image src={hero8} alt="img" />
                     </div>
                     <div
                       className="shape"
                       data-parallax='{"x": 75, "y": -20, "rotateZ":0}'
                     >
                       <Image
-                        width={200}
-                        height={160}
                         data-depth="0.04"
                         className="layer "
-                        src="/img/card/hero-card.png"
+                        src={heroCard}
                         alt="img"
                       />
                     </div>
                     <Image
-                      width={300}
-                      height={300}
                       data-parallax='{"x": 50, "y": -50, "rotateZ":0}'
                       className="person-img "
-                      src="/img/card/hero-img.png"
+                      src={heroImg}
                       alt="card"
                     />
                   </div>
@@ -166,11 +196,9 @@ const CardPage = () => {
                     <div className="col-md-3 col-6">
                       <Link href="#">
                         <Image
-                          width={200}
-                          height={100}
                           className="img-fluid wow fadeInRight"
                           data-wow-delay="0.1s"
-                          src="/img/card/company-logo-1.png"
+                          src={companyLogo1}
                           alt="logo"
                         />
                       </Link>
@@ -178,11 +206,9 @@ const CardPage = () => {
                     <div className="col-md-3 col-6">
                       <Link href="#">
                         <Image
-                          width={200}
-                          height={100}
                           className="img-fluid wow fadeInRight"
                           data-wow-delay="0.3s"
-                          src="/img/card/company-logo-2.png"
+                          src={companyLogo2}
                           alt="logo"
                         />
                       </Link>
@@ -190,11 +216,9 @@ const CardPage = () => {
                     <div className="col-md-3 col-6">
                       <Link href="#">
                         <Image
-                          width={200}
-                          height={100}
                           className="img-fluid wow fadeInRight"
                           data-wow-delay="0.5s"
-                          src="/img/card/company-logo-3.png"
+                          src={companyLogo3}
                           alt="logo"
                         />
                       </Link>
@@ -202,11 +226,9 @@ const CardPage = () => {
                     <div className="col-md-3 col-6">
                       <Link href="#">
                         <Image
-                          width={180}
-                          height={80}
                           className="img-fluid wow fadeInRight"
                           data-wow-delay="0.7s"
-                          src="/img/card/company-logo-4.png"
+                          src={companyLogo4}
                           alt="logo"
                         />
                       </Link>
@@ -238,12 +260,7 @@ const CardPage = () => {
                     className="feature-card-widget-5 wow fadeInUp"
                     data-wow-delay="0.1s"
                   >
-                    <Image
-                      width={40}
-                      height={40}
-                      src="/img/feature/icon-11.svg"
-                      alt="icon"
-                    />
+                    <Image src={featureIcon11} alt="icon" />
                     <h4 className="mt-30 mb-15"> Online banking</h4>
                     <p>
                       Online banking, also known as internet banking or web
@@ -256,12 +273,7 @@ const CardPage = () => {
                     className="feature-card-widget-5 wow fadeInUp"
                     data-wow-delay="0.3s"
                   >
-                    <Image
-                      width={40}
-                      height={40}
-                      src="/img/feature/icon-12.svg"
-                      alt="icon"
-                    />
+                    <Image  src={featureIcon12} alt="icon" />
                     <h4 className="mt-30 mb-15">Up to 20.000$ limit</h4>
                     <p>
                       Online banking, also known as internet banking or web
@@ -274,12 +286,7 @@ const CardPage = () => {
                     className="feature-card-widget-5 wow fadeInUp"
                     data-wow-delay="0.5s"
                   >
-                    <Image
-                      width={40}
-                      height={40}
-                      src="/img/feature/icon-13.svg"
-                      alt="icon"
-                    />
+                    <Image  src={featureIcon13} alt="icon" />
                     <h4 className="mt-30 mb-15">Protection & security</h4>
                     <p>
                       Online banking, also known as internet banking or web
@@ -292,12 +299,7 @@ const CardPage = () => {
                     className="feature-card-widget-5 wow fadeInUp"
                     data-wow-delay="0.7s"
                   >
-                    <Image
-                      width={40}
-                      height={40}
-                      src="/img/feature/icon-14.svg"
-                      alt="icon"
-                    />
+                    <Image  src={featureIcon14} alt="icon" />
                     <h4 className="mt-30 mb-15">Mobile application</h4>
                     <p>
                       Online banking, also known as internet banking or web
@@ -310,12 +312,7 @@ const CardPage = () => {
                     className="feature-card-widget-5 wow fadeInUp"
                     data-wow-delay="0.9s"
                   >
-                    <Image
-                      width={40}
-                      height={40}
-                      src="/img/feature/icon-15.svg"
-                      alt="icon"
-                    />
+                    <Image  src={featureIcon15} alt="icon" />
                     <h4 className="mt-30 mb-15">Online Shopping</h4>
                     <p>
                       Online banking, also known as internet banking or web
@@ -328,12 +325,7 @@ const CardPage = () => {
                     className="feature-card-widget-5 wow fadeInUp"
                     data-wow-delay="1.1s"
                   >
-                    <Image
-                      width={40}
-                      height={40}
-                      src="/img/feature/icon-16.svg"
-                      alt="icon"
-                    />
+                    <Image  src={featureIcon16} alt="icon" />
                     <h4 className="mt-30 mb-15">Small payments fees</h4>
                     <p>
                       Online banking, also known as internet banking or web
@@ -351,33 +343,11 @@ const CardPage = () => {
                 <div className="col-lg-6 col-md-9 mx-auto">
                   <div className="card-img">
                     <div className="logo">
-                      <Image
-                        width={140}
-                        height={140}
-                        src="/img/card/visa.png"
-                        alt="logo"
-                      />
-                      <Image
-                        width={140}
-                        height={140}
-                        src="/img/card/mastercard.png"
-                        alt="logo"
-                      />
+                      <Image src={visaPng} alt="logo" />
+                      <Image src={mastercardPng} alt="logo" />
                     </div>
-                    <Image
-                      width={650}
-                      height={650}
-                      className="bg-img"
-                      src="/img/card/payment-bg.png"
-                      alt="bg img"
-                    />
-                    <Image
-                      width={400}
-                      height={500}
-                      className="img-fluid wow fadeInUp"
-                      src="/img/card/credit-card.png"
-                      alt="credit-card"
-                    />
+                    <Image className="bg-img" src={paymentBg} alt="bg img" />
+                    <Image className="img-fluid wow fadeInUp" src={creditCard} alt="credit-card" />
                   </div>
                 </div>
                 <div className="col-lg-6">
@@ -401,12 +371,7 @@ const CardPage = () => {
                         className="payment-system mt-80 wow fadeInRight"
                         data-wow-delay="0.1s"
                       >
-                        <Image
-                          width={50}
-                          height={50}
-                          src="/img/card/online-payment.svg"
-                          alt="icon"
-                        />
+                        <Image  src={onlinePayment} alt="icon" />
                         <h5 className="mt-20 mb-10">Online Payments</h5>
                         <p>
                           We acceept many type payments getway that you love.
@@ -418,12 +383,7 @@ const CardPage = () => {
                         className="payment-system mt-65 wow fadeInRight"
                         data-wow-delay="0.3s"
                       >
-                        <Image
-                          width={50}
-                          height={50}
-                          src="/img/card/safebox.svg"
-                          alt="icon"
-                        />
+                        <Image src={safebox} alt="icon" />
                         <h5 className="mt-20 mb-10">Safe Deposit</h5>
                         <p>You can trust us for your deposit. No hidden fee.</p>
                       </div>
@@ -458,12 +418,7 @@ const CardPage = () => {
                     data-wow-delay="0.1s"
                   >
                     <div className="icon mr-20">
-                      <Image
-                        width={50}
-                        height={50}
-                        src="/img/card/money-transfer.png"
-                        alt="icon"
-                      />
+                      <Image src={moneyTransfer} alt="icon" />
                     </div>
                     <div className="card-content">
                       <h6>Set daily maximum transaction limitation.</h6>
@@ -478,12 +433,7 @@ const CardPage = () => {
                     data-wow-delay="0.3s"
                   >
                     <div className="icon mr-20">
-                      <Image
-                        width={50}
-                        height={50}
-                        src="/img/card/reminder.png"
-                        alt="icon"
-                      />
+                      <Image src={reminder} alt="icon" />
                     </div>
                     <div className="card-content">
                       <h6>Customize your next payment schedule.</h6>
@@ -498,12 +448,7 @@ const CardPage = () => {
                     data-wow-delay="0.5s"
                   >
                     <div className="icon mr-20">
-                      <Image
-                        width={50}
-                        height={50}
-                        src="/img/card/refresh.png"
-                        alt="icon"
-                      />
+                      <Image src={refresh} alt="icon" />
                     </div>
                     <div className="card-content">
                       <h6>Get latest update about your payments.</h6>
@@ -516,42 +461,30 @@ const CardPage = () => {
                 </div>
                 <div className="col-lg-6 order-lg-2 order-1 pl-lg-50">
                   <div className="card-img mb-5 mb-sm-0">
-                    <Image
-                      width={600}
-                      height={720}
-                      className="img-fluid"
-                      src="/img/card/card-img-bg.png"
-                      alt="bg image"
-                    />
+                    <Image className="img-fluid" src={cardImgBg} alt="bg image" />
                     <div className="shape-1">
                       <Image
-                        width={400}
-                        height={400}
                         className="layer wow rotateInUpRight"
                         data-wow-delay="1.2s"
                         data-depth="0.2"
-                        src="/img/card/Card-image-1.png"
+                        src={cardImage1}
                         alt="card"
                       />
                     </div>
                     <div className="shape-2">
                       <Image
-                        width={400}
-                        height={300}
                         className="layer wow rotateInUpRight"
                         data-wow-delay="0.6s"
                         data-depth="0.15"
-                        src="/img/card/Card-image-2.png"
+                        src={cardImage2}
                         alt="card"
                       />
                     </div>
                     <div className="shape-3">
                       <Image
-                        width={400}
-                        height={400}
                         className="layer wow rotateInUpRight"
                         data-depth="0.3"
-                        src="/img/card/Card-image-3.png"
+                        src={cardImage3}
                         alt="card"
                       />
                     </div>
@@ -580,12 +513,7 @@ const CardPage = () => {
                     className="content-box pr-lg-30 pl-lg-30 wow fadeInUp"
                     data-wow-delay="0.1s"
                   >
-                    <Image
-                      width={70}
-                      height={70}
-                      src="/img/card/layout.svg"
-                      alt="icon"
-                    />
+                    <Image  src={layoutSvg} alt="icon" />
                     <h4 className="mt-30 mb-15">Easy to Use</h4>
                     <p>
                       There are many variations of passages of Lorem Ipsum
@@ -600,20 +528,13 @@ const CardPage = () => {
                   >
                     <div className="line-shape">
                       <Image
-                        width={650}
-                        height={50}
                         className="wow zoomIn"
                         data-wow-delay="0.1s"
-                        src="/img/card/line-shape.png"
+                        src={lineShape}
                         alt="shape"
                       />
                     </div>
-                    <Image
-                      width={70}
-                      height={70}
-                      src="/img/card/salary.svg"
-                      alt="icon"
-                    />
+                    <Image  src={salarySvg} alt="icon" />
                     <h4 className="mt-30 mb-15">Faster Payments</h4>
                     <p>
                       There are many variations of passages of Lorem Ipsum
@@ -626,12 +547,7 @@ const CardPage = () => {
                     className="content-box pr-lg-30 pl-lg-30 wow fadeInUp"
                     data-wow-delay="0.5s"
                   >
-                    <Image
-                      width={70}
-                      height={70}
-                      src="/img/card/antivirus.svg"
-                      alt="icon"
-                    />
+                    <Image  src={antivirusSvg} alt="icon" />
                     <h4 className="mt-30 mb-15">100% Secure</h4>
                     <p>
                       There are many variations of passages of Lorem Ipsum
@@ -666,45 +582,24 @@ const CardPage = () => {
                     className="credit-card-box-widget wow fadeInUp"
                     data-wow-delay="0.1s"
                   >
-                    <Image
-                      width={200}
-                      height={160}
-                      className="w-100"
-                      src="/img/card/Card-image-4.png"
-                      alt="card"
-                    />
+                    <Image className="w-100" src={cardImage4} alt="card" style={{width:"auto",height:"auto"}} />
                     <div className="card-content">
                       <h4>Debit Card</h4>
                       <p>
                         <span>
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/card/icon-1.png"
-                            alt="icon"
-                          />
+                          <Image src={icon1} alt="icon" />
                         </span>
                         Max: 60 days
                       </p>
                       <p>
                         <span>
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/card/icon-2.png"
-                            alt="icon"
-                          />
+                          <Image src={icon2} alt="icon" />
                         </span>
                         Payment fee: 1%
                       </p>
                       <p>
                         <span>
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/card/icon-3.png"
-                            alt="icon"
-                          />
+                          <Image src={icon3} alt="icon" />
                         </span>
                         Max credit: $20.000
                       </p>
@@ -719,45 +614,24 @@ const CardPage = () => {
                     className="credit-card-box-widget wow fadeInUp"
                     data-wow-delay="0.3s"
                   >
-                    <Image
-                      width={200}
-                      height={160}
-                      className="w-100"
-                      src="/img/card/Card-image-5.png"
-                      alt="card"
-                    />
+                    <Image className="w-100" src={cardImage5} style={{width:"auto",height:"auto"}} alt="card" />
                     <div className="card-content">
                       <h4>Credit Card</h4>
                       <p>
                         <span>
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/card/icon-1.png"
-                            alt="icon"
-                          />
+                          <Image src={icon1} alt="icon" />
                         </span>
                         Max: 60 days
                       </p>
                       <p>
                         <span>
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/card/icon-2.png"
-                            alt="icon"
-                          />
+                          <Image src={icon2} alt="icon" />
                         </span>
                         Payment fee: 1%
                       </p>
                       <p>
                         <span>
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/card/icon-3.png"
-                            alt="icon"
-                          />
+                          <Image src={icon3} alt="icon" />
                         </span>
                         Max credit: $20.000
                       </p>
@@ -772,45 +646,24 @@ const CardPage = () => {
                     className="credit-card-box-widget wow fadeInUp"
                     data-wow-delay="0.5s"
                   >
-                    <Image
-                      width={200}
-                      height={160}
-                      className="w-100"
-                      src="/img/card/Card-image-6.png"
-                      alt="card"
-                    />
+                    <Image className="w-100" src={cardImage6} style={{width:"auto",height:"auto"}} alt="card" />
                     <div className="card-content">
                       <h4>MasterCard</h4>
                       <p>
                         <span>
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/card/icon-1.png"
-                            alt="icon"
-                          />
+                          <Image src={icon1} alt="icon" />
                         </span>
                         Max: 60 days
                       </p>
                       <p>
                         <span>
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/card/icon-2.png"
-                            alt="icon"
-                          />
+                          <Image src={icon2} alt="icon" />
                         </span>
                         Payment fee: 1%
                       </p>
                       <p>
                         <span>
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/card/icon-3.png"
-                            alt="icon"
-                          />
+                          <Image src={icon3} alt="icon" />
                         </span>
                         Max credit: $20.000
                       </p>
@@ -825,45 +678,24 @@ const CardPage = () => {
                     className="credit-card-box-widget wow fadeInUp"
                     data-wow-delay="0.7s"
                   >
-                    <Image
-                      width={200}
-                      height={160}
-                      className="w-100"
-                      src="/img/card/Card-image-7.png"
-                      alt="card"
-                    />
+                    <Image className="w-100" src={cardImage7} style={{width:"auto",height:"auto"}} alt="card" />
                     <div className="card-content">
                       <h4>Visa Card</h4>
                       <p>
                         <span>
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/card/icon-1.png"
-                            alt="icon"
-                          />
+                          <Image src={icon1} alt="icon" />
                         </span>
                         Max: 60 days
                       </p>
                       <p>
                         <span>
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/card/icon-2.png"
-                            alt="icon"
-                          />
+                          <Image src={icon2} alt="icon" />
                         </span>
                         Payment fee: 1%
                       </p>
                       <p>
                         <span>
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/card/icon-3.png"
-                            alt="icon"
-                          />
+                          <Image src={icon3} alt="icon" />
                         </span>
                         Max credit: $20.000
                       </p>
@@ -883,12 +715,7 @@ const CardPage = () => {
                 className="shape"
                 data-parallax='{"x": 0, "y": 0, "rotateZ":20}'
               >
-                <Image
-                  width={80}
-                  height={60}
-                  src="/img/card/right-arrow.png"
-                  alt="img"
-                />
+                <Image src={rightArrow} alt="img" />
               </div>
 
               <div
@@ -896,48 +723,22 @@ const CardPage = () => {
                 data-parallax='{"x": 200, "y": 90, "rotateZ":0}'
               >
                 <div className="fly-msg">
-                  <Image
-                    width={110}
-                    height={110}
-                    src="/img/card/mail.png"
-                    alt=""
-                  />
-                  <Image
-                    width={110}
-                    height={90}
-                    src="/img/card/wings-1.png"
-                    alt=""
-                  />
-                  <Image
-                    width={110}
-                    height={90}
-                    src="/img/card/wings-2.png"
-                    alt=""
-                  />
+                  <Image src={mailPng} alt="" />
+                  <Image src={wings1} alt="" />
+                  <Image src={wings2} alt="" />
                 </div>
               </div>
               <div
                 className="shape"
                 data-parallax='{"x": 0, "y": 0, "rotateZ":-6}'
               >
-                <Image
-                  width={200}
-                  height={220}
-                  className="wow fadeInRight"
-                  src="/img/card/postbox.png"
-                  alt="img"
-                />
+                <Image className="wow fadeInRight" src={postbox} alt="img" />
               </div>
               <div
                 className="shape"
                 data-parallax='{"x": -200, "y": 0, "rotateZ":0}'
               >
-                <Image
-                  width={60}
-                  height={40}
-                  src="/img/card/cloud.png"
-                  alt="img"
-                />
+                <Image src={cloud} alt="img" />
               </div>
             </div>
             <div className="container">

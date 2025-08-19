@@ -2,31 +2,34 @@
 
 import Image from 'next/image';
 import Slider from 'react-slick';
+import loanType1 from '@/assets/img/home-5/loan-type-1.png';
+import loanType2 from '@/assets/img/home-5/loan-type-2.png';
+import loanType3 from '@/assets/img/home-5/loan-type-3.png';
 
 const loanData = [
   {
     title: 'Personal Loans',
-    img: '/img/home-5/loan-type-1.png',
+  img: loanType1,
     desc: 'Our team of experts uses methodology identify the credit cards most.',
   },
   {
     title: 'Installment Loans',
-    img: '/img/home-5/loan-type-2.png',
+  img: loanType2,
     desc: 'Our team of experts uses methodology identify the credit cards most.',
   },
   {
     title: 'Payday Loans',
-    img: '/img/home-5/loan-type-3.png',
+  img: loanType3,
     desc: 'Our team of experts uses methodology identify the credit cards most.',
   },
   {
     title: 'Personal Loans',
-    img: '/img/home-5/loan-type-1.png',
+  img: loanType1,
     desc: 'Our team of experts uses methodology identify the credit cards most.',
   },
   {
     title: 'Installment Loans',
-    img: '/img/home-5/loan-type-2.png',
+  img: loanType2,
     desc: 'Our team of experts uses methodology identify the credit cards most.',
   },
 ];
@@ -74,12 +77,7 @@ const LoanSliderSection = () => {
             <div key={index} className="px-4">
               <div className="bg-gray-100 rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-all duration-300">
                 <div className="flex justify-center mb-4">
-                  <Image
-                    src={loan.img}
-                    alt={loan.title}
-                    width={50}
-                    height={50}
-                  />
+                  <Image src={loan.img} alt={loan.title} />
                 </div>
                 <h4 className="text-xl font-semibold mb-2">{loan.title}</h4>
                 <p className="text-gray-600 text-sm">{loan.desc}</p>

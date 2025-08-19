@@ -9,6 +9,12 @@ import "@/styles/css/responsive.css";
 import Image from "next/image";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
+// Assets
+import breadcrumbBg from "@/assets/img/breadcrumb/bg-2.png";
+import recruitmentIcon1 from "@/assets/img/recruitment-proccess/icon-1.svg";
+import recruitmentIcon2 from "@/assets/img/recruitment-proccess/icon-2.svg";
+import recruitmentIcon3 from "@/assets/img/recruitment-proccess/icon-3.svg";
+import recruitmentIcon4 from "@/assets/img/recruitment-proccess/icon-4.svg";
 
 const CareerPage = () => {
   return (
@@ -18,7 +24,7 @@ const CareerPage = () => {
           <section className="breadcrumb-area">
             <div
               className="breadcrumb-widget  pt-145 pb-200"
-              style={{ backgroundImage: `url(img/breadcrumb/bg-2.png)` }}
+              style={{ backgroundImage: `url(${breadcrumbBg.src})` }}
             >
               <div className="container">
                 <div className="row pb-100 pb-sm-0">
@@ -403,10 +409,8 @@ const CareerPage = () => {
                     data-wow-delay="0.1s"
                   >
                     <Image
-                      width={50}
-                      height={50}
                       className="img-fluid"
-                      src="/img/recruitment-proccess/icon-1.svg"
+                      src={recruitmentIcon1}
                       alt="icon svg"
                     />
                     <h4>CV Submission</h4>
@@ -422,10 +426,8 @@ const CareerPage = () => {
                     data-wow-delay="0.3s"
                   >
                     <Image
-                      width={50}
-                      height={50}
                       className="img-fluid"
-                      src="/img/recruitment-proccess/icon-2.svg"
+                      src={recruitmentIcon2}
                       alt="icon svg"
                     />
                     <h4>Phone Screening</h4>
@@ -441,10 +443,8 @@ const CareerPage = () => {
                     data-wow-delay="0.5s"
                   >
                     <Image
-                      width={50}
-                      height={50}
                       className="img-fluid"
-                      src="/img/recruitment-proccess/icon-3.svg"
+                      src={recruitmentIcon3}
                       alt="icon svg"
                     />
                     <h4>Skill Assessment</h4>
@@ -460,10 +460,8 @@ const CareerPage = () => {
                     data-wow-delay="0.7s"
                   >
                     <Image
-                      width={50}
-                      height={50}
                       className="img-fluid"
-                      src="/img/recruitment-proccess/icon-4.svg"
+                      src={recruitmentIcon4}
                       alt="icon svg"
                     />
                     <h4>Final Interview</h4>

@@ -7,6 +7,7 @@ import "@/styles/css/responsive.css";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
 import LoanDeatilsArea from "./LoanDeatilsArea";
+import breadcrumbBg1 from "@/assets/img/breadcrumb/bg-1.png";
 
 const LoanDetailPage = () => {
   return (
@@ -16,7 +17,7 @@ const LoanDetailPage = () => {
           <section className="breadcrumb-area">
             <div
               className="breadcrumb-widget  pt-200 pb-110"
-              style={{ backgroundImage: `url(img/breadcrumb/bg-1.png)` }}
+              style={{ backgroundImage: `url(${breadcrumbBg1.src})` }}
             >
               <div className="container">
                 <div className="row">

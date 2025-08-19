@@ -2,6 +2,14 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react'
+import icon41 from '@/assets/img/apply-loan/icon-4.1.png';
+import icon42 from '@/assets/img/apply-loan/icon-4.2.png';
+import icon51 from '@/assets/img/apply-loan/icon-5.1.png';
+import icon52 from '@/assets/img/apply-loan/icon-5.2.png';
+import icon61 from '@/assets/img/apply-loan/icon-6.1.png';
+import icon62 from '@/assets/img/apply-loan/icon-6.2.png';
+import icon71 from '@/assets/img/apply-loan/icon-7.1.png';
+import icon72 from '@/assets/img/apply-loan/icon-7.2.png';
 
 const LoanDeatilsArea = () => {
     const [financingType, setFinancingType] = useState("Debt-Financing");
@@ -62,18 +70,8 @@ const LoanDeatilsArea = () => {
                             id="Personal_loan"
                           />
                           <label htmlFor="Personal_loan" className="loan-type">
-                            <Image
-                              width={40}
-                              height={50}
-                              src="/img/apply-loan/icon-4.1.png"
-                              alt="icon"
-                            />
-                            <Image
-                              width={40}
-                              height={50}
-                              src="/img/apply-loan/icon-4.2.png"
-                              alt="icon"
-                            />
+                            <Image src={icon41} alt="icon" />
+                            <Image src={icon42} alt="icon" />
                             <span>Personal Loan</span>
                           </label>
                         </div>
@@ -85,18 +83,8 @@ const LoanDeatilsArea = () => {
                             id="Home_loan"
                           />
                           <label htmlFor="Home_loan" className="loan-type">
-                            <Image
-                              width={40}
-                              height={50}
-                              src="/img/apply-loan/icon-5.1.png"
-                              alt="icon"
-                            />
-                            <Image
-                              width={40}
-                              height={50}
-                              src="/img/apply-loan/icon-5.2.png"
-                              alt="icon"
-                            />
+                            <Image src={icon51} alt="icon" />
+                            <Image src={icon52} alt="icon" />
                             <span>home Loan</span>
                           </label>
                         </div>
@@ -108,18 +96,8 @@ const LoanDeatilsArea = () => {
                             id="Buisness_loan"
                           />
                           <label htmlFor="Buisness_loan" className="loan-type">
-                            <Image
-                              width={40}
-                              height={50}
-                              src="/img/apply-loan/icon-6.1.png"
-                              alt="icon"
-                            />
-                            <Image
-                              width={40}
-                              height={50}
-                              src="/img/apply-loan/icon-6.2.png"
-                              alt="icon"
-                            />
+                            <Image src={icon61} alt="icon" />
+                            <Image src={icon62} alt="icon" />
                             <span>Buisness Loan</span>
                           </label>
                         </div>
@@ -131,18 +109,8 @@ const LoanDeatilsArea = () => {
                             id="Car_loan"
                           />
                           <label htmlFor="Car_loan" className="loan-type">
-                            <Image
-                              width={40}
-                              height={50}
-                              src="/img/apply-loan/icon-7.1.png"
-                              alt="icon"
-                            />
-                            <Image
-                              width={40}
-                              height={50}
-                              src="/img/apply-loan/icon-7.2.png"
-                              alt="icon"
-                            />
+                            <Image src={icon71} alt="icon" />
+                            <Image src={icon72} alt="icon" />
                             <span>car Loan</span>
                           </label>
                         </div>

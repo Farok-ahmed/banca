@@ -11,6 +11,38 @@ import "@/styles/css/nice-select.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 import DefaultLayout from "@/components/Layout";
+// Assets
+import logo1 from "@/assets/img/banner/Logo-1.png";
+import logo2 from "@/assets/img/banner/Logo-2.png";
+import logo3 from "@/assets/img/banner/Logo-3.png";
+import logo4 from "@/assets/img/banner/Logo-4.png";
+import logo5 from "@/assets/img/banner/Logo-5.png";
+import logo6 from "@/assets/img/banner/Logo-6.png";
+import bannerPerson from "@/assets/img/banner/person.png";
+import bannerIcon1 from "@/assets/img/banner/icon-1.svg";
+import bannerIcon2 from "@/assets/img/banner/icon-2.svg";
+import bannerIcon3 from "@/assets/img/banner/icon-3.svg";
+import bannerIcon4 from "@/assets/img/banner/icon-4.svg";
+import featureIcon1 from "@/assets/img/feature/icon-1.svg";
+import featureIcon2 from "@/assets/img/feature/icon-2.svg";
+import featureIcon3 from "@/assets/img/feature/icon-3.svg";
+import featureIcon4 from "@/assets/img/feature/icon-4.svg";
+import trackBg from "@/assets/img/track-progress/shape-bg.png";
+import track1 from "@/assets/img/track-progress/track-1.png";
+import track2 from "@/assets/img/track-progress/track-2.png";
+import track3 from "@/assets/img/track-progress/track-3.png";
+import cardBg from "@/assets/img/card-payment/shape-bg.png";
+import card1 from "@/assets/img/card-payment/card-1.png";
+import card2 from "@/assets/img/card-payment/card-2.png";
+import ibBg from "@/assets/img/internet-banking/shape-bg.png";
+import ibImg1 from "@/assets/img/internet-banking/img-1.png";
+import ibImg2 from "@/assets/img/internet-banking/img-2.png";
+import ibImg3 from "@/assets/img/internet-banking/img-3.png";
+import ibInfo from "@/assets/img/internet-banking/info.png";
+import secImg1 from "@/assets/img/security-tips/img-1.png";
+import secImg2 from "@/assets/img/security-tips/img-2.png";
+import secImg3 from "@/assets/img/security-tips/img-3.png";
+import ctaBg from "@/assets/img/client/cta-bg.png";
 
 const MobileAppPage = () => {
   // helper to render caret icon on mobile
@@ -47,42 +79,12 @@ const MobileAppPage = () => {
               </div>
             </div>
             <div className="logos">
-              <Image
-                width={110}
-                height={110}
-                src="/img/banner/Logo-1.png"
-                alt="social"
-              />
-              <Image
-                width={110}
-                height={110}
-                src="/img/banner/Logo-2.png"
-                alt="social"
-              />
-              <Image
-                width={110}
-                height={110}
-                src="/img/banner/Logo-3.png"
-                alt="social"
-              />
-              <Image
-                width={110}
-                height={110}
-                src="/img/banner/Logo-4.png"
-                alt="social"
-              />
-              <Image
-                width={110}
-                height={110}
-                src="/img/banner/Logo-5.png"
-                alt="social"
-              />
-              <Image
-                width={110}
-                height={110}
-                src="/img/banner/Logo-6.png"
-                alt="social"
-              />
+              <Image src={logo1} alt="social" />
+              <Image src={logo2} alt="social" />
+              <Image src={logo3} alt="social" />
+              <Image src={logo4} alt="social" />
+              <Image src={logo5} alt="social" />
+              <Image src={logo6} alt="social" />
             </div>
             <div className="container">
               <div className="row">
@@ -93,11 +95,9 @@ const MobileAppPage = () => {
                     </h1>
                     <div className="img-area mt-35">
                       <Image
-                        width={400}
-                        height={180}
                         className="img-fluid"
                         data-depth="0.6"
-                        src="/img/banner/person.png"
+                        src={bannerPerson}
                         alt="person"
                       />
                     </div>
@@ -117,12 +117,7 @@ const MobileAppPage = () => {
                     <div className="row text-center gy-2 gy-lg-0">
                       <div className="col-lg-3 col-6">
                         <div className="statistics-widget-1 text-start pt-10">
-                          <Image
-                            width={50}
-                            height={60}
-                            src="/img/banner/icon-1.svg"
-                            alt="icon"
-                          />
+                          <Image src={bannerIcon1} alt="icon" />
                           <p>Active user</p>
                           <h2 className="counter">
                             <span>15,000</span>
@@ -132,12 +127,7 @@ const MobileAppPage = () => {
 
                       <div className="col-lg-3 col-6">
                         <div className="statistics-widget-1 text-start pt-10">
-                          <Image
-                            width={50}
-                            height={60}
-                            src="/img/banner/icon-2.svg"
-                            alt="icon"
-                          />
+                          <Image src={bannerIcon2} alt="icon" />
                           <p>download</p>
                           <h2 className="counter">
                             <span>49.9</span>k
@@ -146,12 +136,7 @@ const MobileAppPage = () => {
                       </div>
                       <div className="col-lg-3 col-6">
                         <div className="statistics-widget-1 text-start pt-10">
-                          <Image
-                            width={50}
-                            height={60}
-                            src="/img/banner/icon-3.svg"
-                            alt="icon"
-                          />
+                          <Image src={bannerIcon3} alt="icon" />
                           <p>reviews</p>
                           <h2 className="counter">
                             <span>35.7</span>k
@@ -160,12 +145,7 @@ const MobileAppPage = () => {
                       </div>
                       <div className="col-lg-3 col-6">
                         <div className="statistics-widget-1 text-start pt-10">
-                          <Image
-                            width={50}
-                            height={60}
-                            src="/img/banner/icon-4.svg"
-                            alt="icon"
-                          />
+                          <Image src={bannerIcon4} alt="icon" />
                           <p>partners</p>
                           <h2 className="counter">
                             <span>199</span>+
@@ -197,12 +177,7 @@ const MobileAppPage = () => {
                 <div className="col-xl-3 col-md-6">
                   <div className="feature-card-widget wow fadeInUp">
                     <div className="card-img">
-                      <Image
-                        width={60}
-                        height={60}
-                        src="/img/feature/icon-1.svg"
-                        alt="feature svg"
-                      />
+                      <Image src={featureIcon1} alt="feature svg" />
                     </div>
                     <h4>Prepaid Card</h4>
                     <p>
@@ -217,12 +192,7 @@ const MobileAppPage = () => {
                     data-wow-delay="0.3s"
                   >
                     <div className="card-img">
-                      <Image
-                        width={60}
-                        height={60}
-                        src="/img/feature/icon-2.svg"
-                        alt="feature svg"
-                      />
+                      <Image src={featureIcon2} alt="feature svg" />
                     </div>
                     <h4>Easy to use</h4>
                     <p>
@@ -237,12 +207,7 @@ const MobileAppPage = () => {
                     data-wow-delay="0.6s"
                   >
                     <div className="card-img">
-                      <Image
-                        width={60}
-                        height={60}
-                        src="/img/feature/icon-3.svg"
-                        alt="feature svg"
-                      />
+                      <Image src={featureIcon3} alt="feature svg" style={{width:"auto",height:"auto"}} />
                     </div>
                     <h4>save your Card</h4>
                     <p>
@@ -257,12 +222,7 @@ const MobileAppPage = () => {
                     data-wow-delay="0.9s"
                   >
                     <div className="card-img">
-                      <Image
-                        width={60}
-                        height={60}
-                        src="/img/feature/icon-4.svg"
-                        alt="feature svg"
-                      />
+                      <Image src={featureIcon4} alt="feature svg" />
                     </div>
                     <h4>pay bill</h4>
                     <p>
@@ -280,34 +240,22 @@ const MobileAppPage = () => {
               <div className="row gy-lg-0 gy-4 pb-10">
                 <div className="col-md-6 mx-auto">
                   <div className="img-content">
+                    <Image className="bg-img" src={trackBg} alt="shape image" />
                     <Image
-                      width={1010}
-                      height={860}
-                      className="bg-img"
-                      src="/img/track-progress/shape-bg.png"
-                      alt="shape image"
-                    />
-                    <Image
-                      width={400}
-                      height={600}
                       className="track-3 wow fadeInUp"
-                      src="/img/track-progress/track-1.png"
+                      src={track1}
                       alt=""
                     />
                     <Image
-                      width={420}
-                      height={270}
                       className="track-img track-1 wow fadeInRight"
                       data-wow-delay="0.3s"
-                      src="/img/track-progress/track-2.png"
+                      src={track2}
                       alt=""
                     />
                     <Image
-                      width={200}
-                      height={250}
                       className="track-img track-2 wow fadeInRight"
                       data-wow-delay="0.5s"
-                      src="/img/track-progress/track-3.png"
+                      src={track3}
                       alt=""
                     />
                   </div>
@@ -360,26 +308,16 @@ const MobileAppPage = () => {
                 </div>
                 <div className="col-md-6 mx-auto offset-xl-1 order-1 order-lg-2">
                   <div className="img-content">
+                    <Image className="bg-img" src={cardBg} alt="" />
                     <Image
-                      width={960}
-                      height={800}
-                      className="bg-img"
-                      src="/img/card-payment/shape-bg.png"
-                      alt=""
-                    />
-                    <Image
-                      width={400}
-                      height={200}
                       className="card-1 img-fluid wow fadeInLeft"
-                      src="/img/card-payment/card-1.png"
+                      src={card1}
                       alt=""
                     />
                     <Image
-                      width={200}
-                      height={530}
                       className="card-2 wow fadeInLeft"
                       data-wow-delay="0.3s"
-                      src="/img/card-payment/card-2.png"
+                      src={card2}
                       alt=""
                     />
                   </div>
@@ -393,42 +331,28 @@ const MobileAppPage = () => {
               <div className="row gy-lg-0 gy-4">
                 <div className="col-md-6 mx-auto mx-lg-0 text-center">
                   <div className="img-content">
+                    <Image className="bg-img" src={ibBg} alt="" />
                     <Image
-                      width={1090}
-                      height={1030}
-                      className="bg-img"
-                      src="/img/internet-banking/shape-bg.png"
-                      alt=""
-                    />
-                    <Image
-                      width={480}
-                      height={600}
                       className="bank-main img-fluid wow fadeInUp"
-                      src="/img/internet-banking/img-1.png"
+                      src={ibImg1}
                       alt=""
                     />
                     <Image
-                      width={240}
-                      height={200}
                       className="bank-1 img-fluid wow fadeInRight"
                       data-wow-delay="0.3s"
-                      src="/img/internet-banking/img-2.png"
+                      src={ibImg2}
                       alt=""
                     />
                     <Image
-                      width={310}
-                      height={350}
                       className="bank-2 img-fluid wow fadeInLeft"
                       data-wow-delay="0.6s"
-                      src="/img/internet-banking/img-3.png"
+                      src={ibImg3}
                       alt=""
                     />
                     <Image
-                      width={415}
-                      height={430}
                       className="bank-3 img-fluid wow fadeInRight"
                       data-wow-delay="0.8s"
-                      src="/img/internet-banking/info.png"
+                      src={ibInfo}
                       alt=""
                     />
                   </div>
@@ -470,10 +394,8 @@ const MobileAppPage = () => {
                   <div className="single-security-widget wow fadeInUp">
                     <div className="security-img text-center">
                       <Image
-                        width={600}
-                        height={400}
                         className="img-fluid round-15"
-                        src="/img/security-tips/img-1.png"
+                        src={secImg1}
                         alt="security image"
                       />
                     </div>
@@ -496,10 +418,8 @@ const MobileAppPage = () => {
                       <div className="col-4">
                         <div className="security-img h-100">
                           <Image
-                            width={200}
-                            height={200}
                             className="img-fluid round-10 h-100"
-                            src="/img/security-tips/img-2.png"
+                            src={secImg2}
                             alt="security image"
                           />
                         </div>
@@ -536,10 +456,8 @@ const MobileAppPage = () => {
                       <div className="col-5">
                         <div className="security-img h-100">
                           <Image
-                            width={200}
-                            height={200}
                             className="img-fluid round-10 h-100"
-                            src="/img/security-tips/img-3.png"
+                            src={secImg3}
                             alt="security image"
                           />
                         </div>
@@ -559,333 +477,6 @@ const MobileAppPage = () => {
                 <h2 className="wow fadeInUp mb-0">What Our Client Say</h2>
               </div>
 
-              {/* <div className="client-slider pt-45 pb-140">
-              <div className="single-client wow fadeInUp" data-wow-delay="0.1s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="img-fluid rounded-circle"
-                  src="/img/client/client-1.png"
-                  alt="cleint"
-                />
-                <p className="quote">
-                  Assertively procrastinate distributed relationships whereas
-                  equity invested intellectual capital everything
-                </p>
-                <div className="client-info">
-                  <div>
-                    <p>Moshrarf Hossan</p>
-                    <span className="role">Ui / Ux Designer</span>
-                  </div>
-                  <div className="rating">
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="single-client wow fadeInUp" data-wow-delay="0.3s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="img-fluid rounded-circle"
-                  src="/img/client/client-2.png"
-                  alt="cleint"
-                />
-                <p className="quote">
-                  Assertively procrastinate distributed relationships whereas
-                  equity invested intellectual capital everything
-                </p>
-                <div className="client-info">
-                  <div>
-                    <p>Eh Jewel</p>
-                    <span className="role">Spider Themes,CEO</span>
-                  </div>
-                  <div className="rating">
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="single-client wow fadeInUp" data-wow-delay="0.5s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="img-fluid rounded-circle"
-                  src="/img/client/client-3.png"
-                  alt="cleint"
-                />
-                <p className="quote">
-                  Assertively procrastinate distributed relationships whereas
-                  equity invested intellectual capital everything
-                </p>
-                <div className="client-info">
-                  <div>
-                    <p>Arif Rahman</p>
-                    <span className="role">Junior web developer</span>
-                  </div>
-                  <div className="rating">
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="single-client wow fadeInUp" data-wow-delay="0.7s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="img-fluid rounded-circle"
-                  src="/img/client/client-1.png"
-                  alt="cleint"
-                />
-                <p className="quote">
-                  Assertively procrastinate distributed relationships whereas
-                  equity invested intellectual capital everything
-                </p>
-                <div className="client-info">
-                  <div>
-                    <p>Moshrarf Hossan</p>
-                    <span className="role">Ui / Ux Designer</span>
-                  </div>
-                  <div className="rating">
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="single-client wow fadeInUp" data-wow-delay="0.9s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="img-fluid rounded-circle"
-                  src="/img/client/client-2.png"
-                  alt="cleint"
-                />
-                <p className="quote">
-                  Assertively procrastinate distributed relationships whereas
-                  equity invested intellectual capital everything
-                </p>
-                <div className="client-info">
-                  <div>
-                    <p>Eh Jewel</p>
-                    <span className="role">Spider Themes,CEO</span>
-                  </div>
-                  <div className="rating">
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="single-client wow fadeInUp" data-wow-delay="1.1s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="img-fluid rounded-circle"
-                  src="/img/client/client-3.png"
-                  alt="cleint"
-                />
-                <p className="quote">
-                  Assertively procrastinate distributed relationships whereas
-                  equity invested intellectual capital everything
-                </p>
-                <div className="client-info">
-                  <div>
-                    <p>Arif Rahman</p>
-                    <span className="role">Junior web developer</span>
-                  </div>
-                  <div className="rating">
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="single-client wow fadeInUp" data-wow-delay="1.3s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="img-fluid rounded-circle"
-                  src="/img/client/client-1.png"
-                  alt="cleint"
-                />
-                <p className="quote">
-                  Assertively procrastinate distributed relationships whereas
-                  equity invested intellectual capital everything
-                </p>
-                <div className="client-info">
-                  <div>
-                    <p>Moshrarf Hossan</p>
-                    <span className="role">Ui / Ux Designer</span>
-                  </div>
-                  <div className="rating">
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="single-client wow fadeInUp" data-wow-delay="1.5s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="img-fluid rounded-circle"
-                  src="/img/client/client-2.png"
-                  alt="cleint"
-                />
-                <p className="quote">
-                  Assertively procrastinate distributed relationships whereas
-                  equity invested intellectual capital everything
-                </p>
-                <div className="client-info">
-                  <div>
-                    <p>Eh Jewel</p>
-                    <span className="role">Spider Themes,CEO</span>
-                  </div>
-                  <div className="rating">
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-              <div className="single-client wow fadeInUp" data-wow-delay="1.7s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="img-fluid rounded-circle"
-                  src="/img/client/client-3.png"
-                  alt="cleint"
-                />
-                <p className="quote">
-                  Assertively procrastinate distributed relationships whereas
-                  equity invested intellectual capital everything
-                </p>
-                <div className="client-info">
-                  <div>
-                    <p>Arif Rahman</p>
-                    <span className="role">Junior web developer</span>
-                  </div>
-                  <div className="rating">
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                    <Link href="#">
-                      <i className="icon_star"></i>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-
               <ClientSlider />
 
               <div className="row pt-110">
@@ -893,7 +484,7 @@ const MobileAppPage = () => {
                   <div
                     className="cta cta-2"
                     style={{
-                      backgroundImage: `url('/img/client/cta-bg.png')`,
+                      backgroundImage: `url(${ctaBg.src})`,
                       backgroundSize: "cover",
                       backgroundPosition: "center",
                     }}
@@ -949,230 +540,6 @@ const MobileAppPage = () => {
 
           {/* news slider */}
           <NewsSlider />
-
-          {/* <section className="news-area pt-200 pb-110">
-          <div className="container ">
-            <div className="section-title pt-30">
-              <h2 className="wow fadeInUp">Banca Latest News</h2>
-            </div>
-
-            <div className="news-slider  pt-30 ">
-              <div className="blog-widget-1 wow fadeInUp" data-wow-delay="0.1s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="w-sm-auto w-100"
-                  src="/img/blog/news-1.png"
-                  alt="news image"
-                />
-
-                <div className="blog-content pr-20 pl-20">
-                  <h4>
-                    <Link href="#">What credit limit should I request?</Link>
-                  </h4>
-                  <p>
-                    You can apply for a credit card online, over the phone, by
-                    mail or in person. Applying online is the best, most...
-                  </p>
-
-                  <Link className="read-more" href="#">
-                    Read More <i className="arrow_right"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="blog-widget-1 wow fadeInUp" data-wow-delay="0.3s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="w-sm-auto w-100"
-                  src="/img/blog/news-2.png"
-                  alt="news image"
-                />
-
-                <div className="blog-content pr-20 pl-20">
-                  <h4>
-                    <Link href="#">Which bank account should I open</Link>
-                  </h4>
-                  <p>
-                    You can apply for a credit card online, over the phone, by
-                    mail or in person. Applying online is the best, most...
-                  </p>
-
-                  <Link className="read-more" href="#">
-                    Read More <i className="arrow_right"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="blog-widget-1 wow fadeInUp" data-wow-delay="0.5s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="w-sm-auto w-100"
-                  src="/img/blog/news-3.png"
-                  alt="news image"
-                />
-
-                <div className="blog-content pr-20 pl-20">
-                  <h4>
-                    <Link href="#">
-                      Banking Basics: get to know your bank account
-                    </Link>
-                  </h4>
-                  <p>
-                    You can apply for a credit card online, over the phone, by
-                    mail or in person. Applying online is the best, most...
-                  </p>
-
-                  <Link className="read-more" href="#">
-                    Read More <i className="arrow_right"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="blog-widget-1 wow fadeInUp" data-wow-delay="0.7s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="w-sm-auto w-100"
-                  src="/img/blog/news-1.png"
-                  alt="news image"
-                />
-
-                <div className="blog-content pr-20 pl-20">
-                  <h4>
-                    <Link href="#">What credit limit should I request?</Link>
-                  </h4>
-                  <p>
-                    You can apply for a credit card online, over the phone, by
-                    mail or in person. Applying online is the best, most...
-                  </p>
-
-                  <Link className="read-more" href="#">
-                    Read More <i className="arrow_right"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="blog-widget-1 wow fadeInUp" data-wow-delay="0.9s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="w-sm-auto w-100"
-                  src="/img/blog/news-2.png"
-                  alt="news image"
-                />
-
-                <div className="blog-content pr-20 pl-20">
-                  <h4>
-                    <Link href="#">Which bank account should I open</Link>
-                  </h4>
-                  <p>
-                    You can apply for a credit card online, over the phone, by
-                    mail or in person. Applying online is the best, most...
-                  </p>
-
-                  <Link className="read-more" href="#">
-                    Read More <i className="arrow_right"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="blog-widget-1 wow fadeInUp" data-wow-delay="1.1s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="w-sm-auto w-100"
-                  src="/img/blog/news-3.png"
-                  alt="news image"
-                />
-
-                <div className="blog-content pr-20 pl-20">
-                  <h4>
-                    <Link href="#">
-                      Banking Basics: get to know your bank account
-                    </Link>
-                  </h4>
-                  <p>
-                    You can apply for a credit card online, over the phone, by
-                    mail or in person. Applying online is the best, most...
-                  </p>
-
-                  <Link className="read-more" href="#">
-                    Read More <i className="arrow_right"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="blog-widget-1 wow fadeInUp" data-wow-delay="1.3s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="w-sm-auto w-100"
-                  src="/img/blog/news-1.png"
-                  alt="news image"
-                />
-
-                <div className="blog-content pr-20 pl-20">
-                  <h4>
-                    <Link href="#">What credit limit should I request?</Link>
-                  </h4>
-                  <p>
-                    You can apply for a credit card online, over the phone, by
-                    mail or in person. Applying online is the best, most...
-                  </p>
-
-                  <Link className="read-more" href="#">
-                    Read More <i className="arrow_right"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="blog-widget-1 wow fadeInUp" data-wow-delay="1.5s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="w-sm-auto w-100"
-                  src="/img/blog/news-2.png"
-                  alt="news image"
-                />
-
-                <div className="blog-content pr-20 pl-20">
-                  <h4>
-                    <Link href="#">Which bank account should I open</Link>
-                  </h4>
-                  <p>
-                    You can apply for a credit card online, over the phone, by
-                    mail or in person. Applying online is the best, most...
-                  </p>
-
-                  <Link className="read-more" href="#">
-                    Read More <i className="arrow_right"></i>
-                  </Link>
-                </div>
-              </div>
-              <div className="blog-widget-1 wow fadeInUp" data-wow-delay="1.7s">
-                <Image
-                  width={200}
-                  height={200}
-                  className="w-sm-auto w-100"
-                  src="/img/blog/news-3.png"
-                  alt="news image"
-                />
-
-                <div className="blog-content pr-20 pl-20">
-                  <h4>
-                    <Link href="#">
-                      Banking Basics: get to know your bank account
-                    </Link>
-                  </h4>
-                  <p>
-                    You can apply for a credit card online, over the phone, by
-                    mail or in person. Applying online is the best, most...
-                  </p>
-
-                  <Link className="read-more" href="#">
-                    Read More <i className="arrow_right"></i>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section> */}
         </main>
       </DefaultLayout>
     </>

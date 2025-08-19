@@ -9,6 +9,52 @@ import LoanAccordion from "@/components/LoanAccordion";
 import Image from "next/image";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
+// Assets
+import bannerShape3 from "@/assets/img/banner/shape-3.png";
+import bannerImg2 from "@/assets/img/banner/banner-img-2.png";
+import bannerShape1 from "@/assets/img/banner/shape-1.png";
+import bannerShape2 from "@/assets/img/banner/shape-2.png";
+import bannerShape4 from "@/assets/img/banner/shape-4.png";
+import bannerShape5 from "@/assets/img/banner/shape-5.png";
+import bannerShape6 from "@/assets/img/banner/shape-6.png";
+import bannerShape7 from "@/assets/img/banner/shape-7.png";
+import featureShape6 from "@/assets/img/feature/shape-6.png";
+import featureShape10 from "@/assets/img/feature/shape-10.png";
+import featureShape4 from "@/assets/img/feature/shape-4.png";
+import featureShape3 from "@/assets/img/feature/shape-3.png";
+import featureShape12 from "@/assets/img/feature/shape-12.png";
+import featureIcon5 from "@/assets/img/feature/icon-5.png";
+import featureShape13 from "@/assets/img/feature/shape-13.png";
+import featureShape14 from "@/assets/img/feature/shape-14.png";
+import featureShape15 from "@/assets/img/feature/shape-15.png";
+import featureShape11 from "@/assets/img/feature/shape-11.png";
+import featureShape5 from "@/assets/img/feature/shape-5.png";
+import featureIcon6 from "@/assets/img/feature/icon-6.png";
+import featureShape1 from "@/assets/img/feature/shape-1.png";
+import featureShape2 from "@/assets/img/feature/shape-2.png";
+import featureShape9 from "@/assets/img/feature/shape-9.png";
+import featureIcon7 from "@/assets/img/feature/icon-7.png";
+import cfIcon5 from "@/assets/img/corporate-finance/icon-5.svg";
+import cfIcon2 from "@/assets/img/corporate-finance/icon-2.svg";
+import cfIcon3 from "@/assets/img/corporate-finance/icon-3.svg";
+import cfIcon4 from "@/assets/img/corporate-finance/icon-4.svg";
+import howIcon1 from "@/assets/img/how-works/icon-1.png";
+import howIcon2 from "@/assets/img/how-works/icon-2.png";
+import secShape1 from "@/assets/img/security-tips/shape-1.png";
+import secShape2 from "@/assets/img/security-tips/shape-2.png";
+import secShape3 from "@/assets/img/security-tips/shape-3.png";
+import secShape4 from "@/assets/img/security-tips/shape-4.png";
+import secShape5 from "@/assets/img/security-tips/shape-5.png";
+import secShape6 from "@/assets/img/security-tips/shape-6.png";
+import secShape7 from "@/assets/img/security-tips/shape-7.png";
+import secShape8 from "@/assets/img/security-tips/shape-8.png";
+import secPriority from "@/assets/img/security-tips/security-priority.png";
+import ctaIcon1 from "@/assets/img/cta/icon-1.png";
+import ctaIcon2 from "@/assets/img/cta/icon-2.png";
+import ctaIcon3 from "@/assets/img/cta/icon-3.png";
+import ctaIcon4 from "@/assets/img/cta/icon-4.png";
+import ctaIcon5 from "@/assets/img/cta/icon-5.png";
+import ctaIcon6 from "@/assets/img/cta/icon-6.png";
 
 const LoanStepsPage = () => {
   return (
@@ -25,11 +71,9 @@ const LoanStepsPage = () => {
                 <div className="col-md-6">
                   <div className="banner-content">
                     <Image
-                      width={160}
-                      height={180}
                       data-parallax='{"x": 0, "y": 250, "rotateZ":0}'
                       className="shape"
-                      src="/img/banner/shape-3.png"
+                      src={bannerShape3}
                       alt="shape"
                     />
                     <h1 className="wow fadeInUp mb-0">
@@ -51,59 +95,38 @@ const LoanStepsPage = () => {
                 <div className=" col-md-6 col-lg-5 offset-lg-1 pt-40">
                   <div className="banner-img">
                     <Image
-                      width={400}
-                      height={200}
                       className="main-img img-fluid wow fadeInRight"
-                      src="/img/banner/banner-img-2.png"
+                      src={bannerImg2}
+                      priority
                       alt="banner-img"
                     />
                     <div className="shapes">
                       <Image
-                        width={90}
-                        height={150}
                         data-parallax='{"x": 0, "y": 130, "rotateZ":0}'
                         className="shape-1"
-                        src="/img/banner/shape-1.png"
+                        src={bannerShape1}
                         alt="shape"
                       />
                       <Image
-                        width={200}
-                        height={200}
                         data-parallax='{"x": 0, "y": -130, "rotateZ":0}'
                         className="shape-2"
-                        src="/img/banner/shape-2.png"
+                        src={bannerShape2}
                         alt="shape"
                       />
                       <Image
-                        width={100}
-                        height={100}
                         data-parallax='{"x": 250, "y":0, "rotateZ":0}'
                         className="shape-3"
-                        src="/img/banner/shape-4.png"
+                        src={bannerShape4}
                         alt="shape"
                       />
                       <Image
-                        width={20}
-                        height={20}
                         data-parallax='{"x": -200, "y": 250, "rotateZ":0}'
                         className="shape-4"
-                        src="/img/banner/shape-5.png"
+                        src={bannerShape5}
                         alt="shape"
                       />
-                      <Image
-                        width={20}
-                        height={20}
-                        className="shape-5"
-                        src="/img/banner/shape-6.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={20}
-                        height={20}
-                        className="shape-6"
-                        src="/img/banner/shape-7.png"
-                        alt="shape"
-                      />
+                      <Image className="shape-5" src={bannerShape6} alt="shape" />
+                      <Image className="shape-6" src={bannerShape7} alt="shape" />
                     </div>
                   </div>
                 </div>
@@ -121,51 +144,16 @@ const LoanStepsPage = () => {
                       data-wow-delay="0.1s"
                     >
                       <div className="shapes">
-                        <Image
-                          width={120}
-                          height={60}
-                          src="/img/feature/shape-6.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={100}
-                          height={70}
-                          src="/img/feature/shape-10.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={30}
-                          height={30}
-                          src="/img/feature/shape-4.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={30}
-                          height={30}
-                          src="/img/feature/shape-3.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={30}
-                          height={30}
-                          src="/img/feature/shape-12.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={30}
-                          height={30}
-                          src="/img/feature/shape-12.png"
-                          alt="shape"
-                        />
+                        <Image src={featureShape6} alt="shape" />
+                        <Image src={featureShape10} alt="shape" />
+                        <Image src={featureShape4} alt="shape" />
+                        <Image src={featureShape3} alt="shape" />
+                        <Image src={featureShape12} alt="shape" />
+                        <Image src={featureShape12} alt="shape" />
                       </div>
 
                       <div className="feature-img">
-                        <Image
-                          width={90}
-                          height={50}
-                          src="/img/feature/icon-5.png"
-                          alt=""
-                        />
+                        <Image src={featureIcon5} alt="" style={{width:"auto",height:"auto"}} />
                       </div>
                       <div className="feature-content">
                         <p>UP TO $5M</p>
@@ -179,50 +167,15 @@ const LoanStepsPage = () => {
                       data-wow-delay="0.3s"
                     >
                       <div className="shapes">
-                        <Image
-                          width={35}
-                          height={60}
-                          src="/img/feature/shape-13.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={80}
-                          height={50}
-                          src="/img/feature/shape-14.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={100}
-                          height={30}
-                          src="/img/feature/shape-15.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={50}
-                          height={50}
-                          src="/img/feature/shape-11.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={50}
-                          height={50}
-                          src="/img/feature/shape-12.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={10}
-                          height={10}
-                          src="/img/feature/shape-5.png"
-                          alt="shape"
-                        />
+                        <Image src={featureShape13} alt="shape" />
+                        <Image src={featureShape14} alt="shape" />
+                        <Image src={featureShape15} alt="shape" />
+                        <Image src={featureShape11} alt="shape" />
+                        <Image src={featureShape12} alt="shape" />
+                        <Image src={featureShape5} alt="shape" />
                       </div>
                       <div className="feature-img">
-                        <Image
-                          width={90}
-                          height={50}
-                          src="/img/feature/icon-6.png"
-                          alt=""
-                        />
+                        <Image src={featureIcon6} alt="" style={{width:"auto",height:"auto"}} />
                       </div>
                       <div className="feature-content">
                         <p>FROM 7.50%</p>
@@ -236,44 +189,14 @@ const LoanStepsPage = () => {
                       data-wow-delay="0.5s"
                     >
                       <div className="shapes">
-                        <Image
-                          width={160}
-                          height={50}
-                          src="/img/feature/shape-1.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={70}
-                          height={40}
-                          src="/img/feature/shape-2.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={130}
-                          height={60}
-                          src="/img/feature/shape-6.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={40}
-                          height={40}
-                          src="/img/feature/shape-9.png"
-                          alt="shape"
-                        />
-                        <Image
-                          width={50}
-                          height={50}
-                          src="/img/feature/shape-11.png"
-                          alt="shape"
-                        />
+                        <Image src={featureShape1} alt="shape" />
+                        <Image src={featureShape2} alt="shape" />
+                        <Image src={featureShape6} alt="shape" />
+                        <Image src={featureShape9} alt="shape" />
+                        <Image src={featureShape11} alt="shape" />
                       </div>
                       <div className="feature-img">
-                        <Image
-                          width={80}
-                          height={50}
-                          src="/img/feature/icon-7.png"
-                          alt=""
-                        />
+                        <Image src={featureIcon7} alt="" style={{width:"auto",height:"auto"}} />
                       </div>
                       <div className="feature-content">
                         <p>7 DAYS PROCESS</p>
@@ -372,12 +295,7 @@ const LoanStepsPage = () => {
                     data-wow-delay="0.1s"
                   >
                     <div className="icon-bg-1">
-                      <Image
-                        width={30}
-                        height={30}
-                        src="/img/corporate-finance/icon-5.svg"
-                        alt="icon"
-                      />
+                      <Image src={cfIcon5} alt="icon" style={{width:"auto",height:"auto"}} />
                     </div>
                     <h5>Freelancers</h5>
                     <p>
@@ -398,12 +316,7 @@ const LoanStepsPage = () => {
                     data-wow-delay="0.3s"
                   >
                     <div className="icon-bg-2">
-                      <Image
-                        width={30}
-                        height={30}
-                        src="/img/corporate-finance/icon-2.svg"
-                        alt="icon"
-                      />
+                      <Image src={cfIcon2} alt="icon" style={{width:"auto",height:"auto"}} />
                     </div>
                     <h5>SMBs & Startups</h5>
                     <p>
@@ -423,12 +336,7 @@ const LoanStepsPage = () => {
                     data-wow-delay="0.5s"
                   >
                     <div className="icon-bg-3">
-                      <Image
-                        width={30}
-                        height={30}
-                        src="/img/corporate-finance/icon-3.svg"
-                        alt="icon"
-                      />
+                      <Image src={cfIcon3} alt="icon" style={{width:"auto",height:"auto"}} />
                     </div>
                     <h5>Business Founders</h5>
                     <p>
@@ -449,12 +357,7 @@ const LoanStepsPage = () => {
                     data-wow-delay="0.7s"
                   >
                     <div className="icon-bg-4">
-                      <Image
-                        width={30}
-                        height={30}
-                        src="/img/corporate-finance/icon-4.svg"
-                        alt="icon"
-                      />
+                      <Image src={cfIcon4} alt="icon" style={{width:"auto",height:"auto"}}/>
                     </div>
                     <h5>Microbusinesses</h5>
                     <p>
@@ -495,12 +398,7 @@ const LoanStepsPage = () => {
                   >
                     <div className="widget-header">
                       <div className="widget-img">
-                        <Image
-                          width={70}
-                          height={70}
-                          src="/img/how-works/icon-1.png"
-                          alt="icon"
-                        />
+                        <Image src={howIcon1} alt="icon" />
                       </div>
                       <div className="widget-title">
                         <h4>Apply Online</h4>
@@ -554,12 +452,7 @@ const LoanStepsPage = () => {
                   >
                     <div className="widget-header">
                       <div className="widget-img">
-                        <Image
-                          width={70}
-                          height={70}
-                          src="/img/how-works/icon-2.png"
-                          alt="icon"
-                        />
+                        <Image src={howIcon2} alt="icon" />
                       </div>
                       <div className="widget-title">
                         <h4>Consultation</h4>
@@ -608,72 +501,28 @@ const LoanStepsPage = () => {
           <section className="security-area">
             <div className="security-priority pt-90 pb-95 text-center">
               <div className="shapes">
+                <Image src={secShape1} alt="shape" />
+                <Image src={secShape2} alt="shape" />
+                <Image src={secShape3} alt="shape" />
+                <Image src={secShape4} alt="shape" />
+                <Image src={secShape5} alt="shape" />
+                <Image src={secShape6} alt="shape" />
+                <Image src={secShape1} alt="shape" />
                 <Image
-                  width={60}
-                  height={60}
-                  src="/img/security-tips/shape-1.png"
-                  alt="shape"
-                />
-                <Image
-                  width={40}
-                  height={40}
-                  src="/img/security-tips/shape-2.png"
-                  alt="shape"
-                />
-                <Image
-                  width={40}
-                  height={40}
-                  src="/img/security-tips/shape-3.png"
-                  alt="shape"
-                />
-                <Image
-                  width={170}
-                  height={100}
-                  src="/img/security-tips/shape-4.png"
-                  alt="shape"
-                />
-                <Image
-                  width={60}
-                  height={60}
-                  src="/img/security-tips/shape-5.png"
-                  alt="shape"
-                />
-                <Image
-                  width={100}
-                  height={100}
-                  src="/img/security-tips/shape-6.png"
-                  alt="shape"
-                />
-                <Image
-                  width={40}
-                  height={40}
-                  src="/img/security-tips/shape-1.png"
-                  alt="shape"
-                />
-                <Image
-                  width={200}
-                  height={250}
                   data-parallax='{"x": -60, "y": 150, "rotateZ":-15}'
-                  src="/img/security-tips/shape-7.png"
+                  src={secShape7}
                   alt="shape"
                 />
                 <Image
-                  width={100}
-                  height={200}
                   data-parallax='{"x": 0, "y": -150, "rotateZ":0}'
-                  src="/img/security-tips/shape-8.png"
+                  src={secShape8}
                   alt="shape"
                 />
               </div>
               <div className="container">
                 <div className="row">
                   <div className="col-xl-6 mx-auto">
-                    <Image
-                      width={60}
-                      height={70}
-                      src="/img/security-tips/security-priority.png"
-                      alt="icon"
-                    />
+                    <Image src={secPriority} alt="icon" />
                     <h2 className="mt-4 mb-3">Your security. Our priority.</h2>
                     <p>
                       We always have your security in mind. Rest easy knowing
@@ -900,42 +749,18 @@ const LoanStepsPage = () => {
                 <div className="col-md-12 position-relative">
                   <div className="cta cta-bg-primary">
                     <div className="shapes">
+                      <Image src={ctaIcon1} alt="shape" />
                       <Image
-                        width={50}
-                        height={50}
-                        src="/img/cta/icon-1.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={60}
-                        height={30}
                         data-parallax='{"x": 150, "y": 0, "rotateZ":-0}'
-                        src="/img/cta/icon-2.png"
+                        src={ctaIcon2}
                         alt="shape"
                       />
+                      <Image src={ctaIcon3} alt="shape" />
+                      <Image src={ctaIcon4} alt="shape" />
+                      <Image src={ctaIcon5} alt="shape" />
                       <Image
-                        width={140}
-                        height={100}
-                        src="/img/cta/icon-3.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={100}
-                        height={100}
-                        src="/img/cta/icon-4.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={90}
-                        height={100}
-                        src="/img/cta/icon-5.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={60}
-                        height={40}
                         data-parallax='{"x": 400, "y": 0, "rotateZ":0}'
-                        src="/img/cta/icon-6.png"
+                        src={ctaIcon6}
                         alt="shape"
                       />
                     </div>

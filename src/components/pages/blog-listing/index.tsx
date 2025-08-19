@@ -7,6 +7,28 @@ import "@/styles/css/nice-select.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 import DefaultLayout from "@/components/Layout";
+import breadcrumbBg from "@/assets/img/breadcrumb/bg-3.jpg";
+import polygon1 from "@/assets/img/breadcrumb/Polygon-1.png";
+import polygon2 from "@/assets/img/breadcrumb/Polygon-2.png";
+import blog1 from "@/assets/img/blog/blog-1.png";
+import blog2 from "@/assets/img/blog/blog-2.png";
+import blog3 from "@/assets/img/blog/blog-3.png";
+import blog4 from "@/assets/img/blog/blog-4.png";
+import blog5 from "@/assets/img/blog/blog-5.png";
+import blog6 from "@/assets/img/blog/blog-6.png";
+import blog7 from "@/assets/img/blog/blog-7.png";
+import blog8 from "@/assets/img/blog/blog-8.png";
+import blog9 from "@/assets/img/blog/blog-9.png";
+import blog10 from "@/assets/img/blog/blog-10.png";
+import userProfileSvg from "@/assets/img/blog/user-profile.svg";
+import calendarOutlineSvg from "@/assets/img/blog/calendar-outline.svg";
+import facebookLogo from "@/assets/img/social/facebook-logo.svg";
+import twitterLogo from "@/assets/img/social/twitter.svg";
+import youtubeLogo from "@/assets/img/social/youtube.svg";
+import recentPost1 from "@/assets/img/blog/recent-post-1.png";
+import recentPost2 from "@/assets/img/blog/recent-post-2.png";
+import recentPost3 from "@/assets/img/blog/recent-post-3.png";
+import recentPost4 from "@/assets/img/blog/recent-post-4.png";
 
 const BlogListingPage = () => {
   return (
@@ -16,30 +38,20 @@ const BlogListingPage = () => {
           <section className="breadcrumb-area" id="banner_animation2">
             <div
               className="breadcrumb-widget breadcrumb-widget-2  pt-200 pb-145"
-              style={{ backgroundImage: `url(/img/breadcrumb/bg-3.jpg)` }}
+              style={{ backgroundImage: `url(${breadcrumbBg.src})` }}
             >
               <div className="shapes">
                 <div
                   className="one-shape shape-1"
                   data-parallax='{"x": 100, "y": 0, "rotateZ":0}'
                 >
-                  <Image
-                    width={200}
-                    height={200}
-                    src="/img/breadcrumb/Polygon-1.png"
-                    alt="shape"
-                  />
+                  <Image src={polygon1} alt="shape" style={{width:"auto",height:"auto"}} />
                 </div>
                 <div
                   className="one-shape shape-2"
                   data-parallax='{"x": 200, "y": 50, "rotateZ":0}'
                 >
-                  <Image
-                    width={200}
-                    height={200}
-                    src="/img/breadcrumb/Polygon-2.png"
-                    alt="shape"
-                  />
+                  <Image src={polygon2} alt="shape" style={{width:"auto",height:"auto"}} />
                 </div>
               </div>
               <div className="container">
@@ -88,12 +100,7 @@ const BlogListingPage = () => {
                           data-wow-delay="0.1s"
                         >
                           <div className="blog-img">
-                            <Image
-                              width={180}
-                              height={230}
-                              src="/img/blog/blog-1.png"
-                              alt="blog-img"
-                            />
+                            <Image src={blog1} alt="blog-img" style={{width:"auto",height:"auto"}} />
                             <div className="catagory bg_primary">buisiness</div>
                           </div>
                           <div className="blog-content">
@@ -108,21 +115,11 @@ const BlogListingPage = () => {
                             </p>
                             <div className="post-info">
                               <div className="author">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/user-profile.svg"
-                                  alt="user profile"
-                                />
+                                <Image  src={userProfileSvg} alt="user profile" />
                                 <span>Zain Siphron</span>
                               </div>
                               <div className="post-date">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/calendar-outline.svg"
-                                  alt="calendar"
-                                />
+                                <Image  src={calendarOutlineSvg} alt="calendar" />
                                 <span>March 18, 2021</span>
                               </div>
                             </div>
@@ -135,12 +132,7 @@ const BlogListingPage = () => {
                           data-wow-delay="0.3s"
                         >
                           <div className="blog-img">
-                            <Image
-                              width={180}
-                              height={230}
-                              src="/img/blog/blog-2.png"
-                              alt="blog-img"
-                            />
+                            <Image src={blog2} alt="blog-img" style={{width:"auto",height:"auto"}} />
                             <div className="catagory yellow-bg">loan</div>
                           </div>
                           <div className="blog-content">
@@ -155,21 +147,11 @@ const BlogListingPage = () => {
                             </p>
                             <div className="post-info">
                               <div className="author">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/user-profile.svg"
-                                  alt="user profile"
-                                />
+                                <Image  src={userProfileSvg} alt="user profile" />
                                 <span>Zain Siphron</span>
                               </div>
                               <div className="post-date">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/calendar-outline.svg"
-                                  alt="calendar"
-                                />
+                                <Image  src={calendarOutlineSvg} alt="calendar" />
                                 <span>March 18, 2021</span>
                               </div>
                             </div>
@@ -182,12 +164,7 @@ const BlogListingPage = () => {
                           data-wow-delay="0.1s"
                         >
                           <div className="blog-img">
-                            <Image
-                              width={180}
-                              height={230}
-                              src="/img/blog/blog-3.png"
-                              alt="blog-img"
-                            />
+                            <Image src={blog3} alt="blog-img" style={{width:"auto",height:"auto"}} />
                             <div className="catagory green-bg">Securiey</div>
                           </div>
                           <div className="blog-content">
@@ -202,21 +179,11 @@ const BlogListingPage = () => {
                             </p>
                             <div className="post-info">
                               <div className="author">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/user-profile.svg"
-                                  alt="user profile"
-                                />
+                                <Image  src={userProfileSvg} alt="user profile" />
                                 <span>Zain Siphron</span>
                               </div>
                               <div className="post-date">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/calendar-outline.svg"
-                                  alt="calendar"
-                                />
+                                <Image  src={calendarOutlineSvg} alt="calendar" />
                                 <span>March 18, 2021</span>
                               </div>
                             </div>
@@ -229,12 +196,7 @@ const BlogListingPage = () => {
                           data-wow-delay="0.3s"
                         >
                           <div className="blog-img">
-                            <Image
-                              width={180}
-                              height={230}
-                              src="/img/blog/blog-4.png"
-                              alt="blog-img"
-                            />
+                            <Image src={blog4} alt="blog-img" style={{width:"auto",height:"auto"}} />
                             <div className="catagory sky-bg">buisiness</div>
                           </div>
                           <div className="blog-content">
@@ -249,21 +211,11 @@ const BlogListingPage = () => {
                             </p>
                             <div className="post-info">
                               <div className="author">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/user-profile.svg"
-                                  alt="user profile"
-                                />
+                                <Image  src={userProfileSvg} alt="user profile" />
                                 <span>Zain Siphron</span>
                               </div>
                               <div className="post-date">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/calendar-outline.svg"
-                                  alt="calendar"
-                                />
+                                <Image  src={calendarOutlineSvg} alt="calendar" />
                                 <span>March 18, 2021</span>
                               </div>
                             </div>
@@ -276,12 +228,7 @@ const BlogListingPage = () => {
                           data-wow-delay="0.1s"
                         >
                           <div className="blog-img">
-                            <Image
-                              width={180}
-                              height={230}
-                              src="/img/blog/blog-5.png"
-                              alt="blog-img"
-                            />
+                            <Image src={blog5} alt="blog-img" style={{width:"auto",height:"auto"}}/>
                             <div className="catagory deep-green-bg">
                               banking
                             </div>
@@ -298,21 +245,11 @@ const BlogListingPage = () => {
                             </p>
                             <div className="post-info">
                               <div className="author">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/user-profile.svg"
-                                  alt="user profile"
-                                />
+                                <Image src={userProfileSvg} alt="user profile" />
                                 <span>Zain Siphron</span>
                               </div>
                               <div className="post-date">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/calendar-outline.svg"
-                                  alt="calendar"
-                                />
+                                <Image  src={calendarOutlineSvg} alt="calendar" />
                                 <span>March 18, 2021</span>
                               </div>
                             </div>
@@ -325,12 +262,7 @@ const BlogListingPage = () => {
                           data-wow-delay="0.3s"
                         >
                           <div className="blog-img">
-                            <Image
-                              width={180}
-                              height={230}
-                              src="/img/blog/blog-6.png"
-                              alt="blog-img"
-                            />
+                            <Image src={blog6} alt="blog-img" style={{width:"auto",height:"auto"}} />
                             <div className="catagory yellow-bg">loan</div>
                           </div>
                           <div className="blog-content">
@@ -345,21 +277,11 @@ const BlogListingPage = () => {
                             </p>
                             <div className="post-info">
                               <div className="author">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/user-profile.svg"
-                                  alt="user profile"
-                                />
+                                <Image  src={userProfileSvg} alt="user profile" />
                                 <span>Zain Siphron</span>
                               </div>
                               <div className="post-date">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/calendar-outline.svg"
-                                  alt="calendar"
-                                />
+                                <Image  src={calendarOutlineSvg} alt="calendar" />
                                 <span>March 18, 2021</span>
                               </div>
                             </div>
@@ -372,12 +294,7 @@ const BlogListingPage = () => {
                           data-wow-delay="0.1s"
                         >
                           <div className="blog-img">
-                            <Image
-                              width={180}
-                              height={230}
-                              src="/img/blog/blog-7.png"
-                              alt="blog-img"
-                            />
+                            <Image src={blog7} alt="blog-img" style={{width:"auto",height:"auto"}} />
                             <div className="catagory violet-bg">finances</div>
                           </div>
                           <div className="blog-content">
@@ -392,21 +309,11 @@ const BlogListingPage = () => {
                             </p>
                             <div className="post-info">
                               <div className="author">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/user-profile.svg"
-                                  alt="user profile"
-                                />
+                                <Image  src={userProfileSvg} alt="user profile" />
                                 <span>Zain Siphron</span>
                               </div>
                               <div className="post-date">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/calendar-outline.svg"
-                                  alt="calendar"
-                                />
+                                <Image  src={calendarOutlineSvg} alt="calendar" />
                                 <span>March 18, 2021</span>
                               </div>
                             </div>
@@ -419,12 +326,7 @@ const BlogListingPage = () => {
                           data-wow-delay="0.3s"
                         >
                           <div className="blog-img">
-                            <Image
-                              width={180}
-                              height={230}
-                              src="/img/blog/blog-8.png"
-                              alt="blog-img"
-                            />
+                            <Image src={blog8} alt="blog-img" style={{width:"auto",height:"auto"}} />
                             <div className="catagory violet-bg">finances</div>
                           </div>
                           <div className="blog-content">
@@ -439,21 +341,11 @@ const BlogListingPage = () => {
                             </p>
                             <div className="post-info">
                               <div className="author">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/user-profile.svg"
-                                  alt="user profile"
-                                />
+                                <Image src={userProfileSvg} alt="user profile" />
                                 <span>Zain Siphron</span>
                               </div>
                               <div className="post-date">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/calendar-outline.svg"
-                                  alt="calendar"
-                                />
+                                <Image  src={calendarOutlineSvg} alt="calendar" />
                                 <span>March 18, 2021</span>
                               </div>
                             </div>
@@ -466,12 +358,7 @@ const BlogListingPage = () => {
                           data-wow-delay="0.1s"
                         >
                           <div className="blog-img">
-                            <Image
-                              width={180}
-                              height={230}
-                              src="/img/blog/blog-9.png"
-                              alt="blog-img"
-                            />
+                            <Image src={blog9} alt="blog-img" style={{width:"auto",height:"auto"}}/>
                             <div className="catagory bg_primary">buisiness</div>
                           </div>
                           <div className="blog-content">
@@ -486,21 +373,11 @@ const BlogListingPage = () => {
                             </p>
                             <div className="post-info">
                               <div className="author">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/user-profile.svg"
-                                  alt="user profile"
-                                />
+                                <Image  src={userProfileSvg} alt="user profile" />
                                 <span>Zain Siphron</span>
                               </div>
                               <div className="post-date">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/calendar-outline.svg"
-                                  alt="calendar"
-                                />
+                                <Image  src={calendarOutlineSvg} alt="calendar" />
                                 <span>March 18, 2021</span>
                               </div>
                             </div>
@@ -513,12 +390,7 @@ const BlogListingPage = () => {
                           data-wow-delay="0.3s"
                         >
                           <div className="blog-img">
-                            <Image
-                              width={180}
-                              height={230}
-                              src="/img/blog/blog-10.png"
-                              alt="blog-img"
-                            />
+                            <Image src={blog10} alt="blog-img" style={{width:"auto",height:"auto"}}/>
                             <div className="catagory yellow-bg">loan</div>
                           </div>
                           <div className="blog-content">
@@ -533,21 +405,11 @@ const BlogListingPage = () => {
                             </p>
                             <div className="post-info">
                               <div className="author">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/user-profile.svg"
-                                  alt="user profile"
-                                />
+                                <Image src={userProfileSvg} alt="user profile" />
                                 <span>Zain Siphron</span>
                               </div>
                               <div className="post-date">
-                                <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/calendar-outline.svg"
-                                  alt="calendar"
-                                />
+                                <Image src={calendarOutlineSvg} alt="calendar" />
                                 <span>March 18, 2021</span>
                               </div>
                             </div>
@@ -606,36 +468,21 @@ const BlogListingPage = () => {
                       <div className="row text-center gx-3 gy-3 gy-md-0">
                         <div className="col-md-4">
                           <Link href="#">
-                            <Image
-                              width={30}
-                              height={30}
-                              src="/img/social/facebook-logo.svg"
-                              alt="faceebook"
-                            />
+                            <Image  src={facebookLogo} alt="faceebook" />
                             <h6>815.5K</h6>
                             <span>Fans</span>
                           </Link>
                         </div>
                         <div className="col-md-4">
                           <Link href="#">
-                            <Image
-                              width={30}
-                              height={30}
-                              src="/img/social/twitter.svg"
-                              alt="twitter"
-                            />
+                            <Image  src={twitterLogo} alt="twitter" />
                             <h6>107.2K</h6>
                             <span>Followers</span>
                           </Link>
                         </div>
                         <div className="col-md-4">
                           <Link href="#">
-                            <Image
-                              width={30}
-                              height={30}
-                              src="/img/social/youtube.svg"
-                              alt="youtube"
-                            />
+                            <Image  src={youtubeLogo} alt="youtube" />
                             <h6>90.6K</h6>
                             <span>Subscribers</span>
                           </Link>
@@ -690,12 +537,7 @@ const BlogListingPage = () => {
 
                       <ul className="recent-post">
                         <li>
-                          <Image
-                            width={80}
-                            height={80}
-                            src="/img/blog/recent-post-1.png"
-                            alt="recent-post"
-                          />
+                          <Image src={recentPost1} alt="recent-post" />
                           <div className="news-content">
                             <h6>
                               <Link href="#">
@@ -703,23 +545,13 @@ const BlogListingPage = () => {
                               </Link>
                             </h6>
                             <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calender"
-                              />
+                              <Image width={20} height={20} src={calendarOutlineSvg} alt="calender" />
                               <span>March 18, 2021</span>
                             </div>
                           </div>
                         </li>
                         <li>
-                          <Image
-                            width={80}
-                            height={80}
-                            src="/img/blog/recent-post-2.png"
-                            alt="recent-post"
-                          />
+                          <Image src={recentPost2} alt="recent-post" />
                           <div className="news-content">
                             <h6>
                               <Link href="#">
@@ -727,23 +559,13 @@ const BlogListingPage = () => {
                               </Link>
                             </h6>
                             <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calender"
-                              />
+                              <Image width={20} height={20} src={calendarOutlineSvg} alt="calender" />
                               <span>March 18, 2021</span>
                             </div>
                           </div>
                         </li>
                         <li>
-                          <Image
-                            width={80}
-                            height={80}
-                            src="/img/blog/recent-post-3.png"
-                            alt="recent-post"
-                          />
+                          <Image src={recentPost3} alt="recent-post" />
                           <div className="news-content">
                             <h6>
                               <Link href="#">
@@ -751,23 +573,13 @@ const BlogListingPage = () => {
                               </Link>
                             </h6>
                             <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calender"
-                              />
+                              <Image  src={calendarOutlineSvg} alt="calender" />
                               <span>March 18, 2021</span>
                             </div>
                           </div>
                         </li>
                         <li>
-                          <Image
-                            width={80}
-                            height={80}
-                            src="/img/blog/recent-post-4.png"
-                            alt="recent-post"
-                          />
+                          <Image src={recentPost4} alt="recent-post" />
                           <div className="news-content">
                             <h6>
                               <Link href="#">
@@ -775,12 +587,7 @@ const BlogListingPage = () => {
                               </Link>
                             </h6>
                             <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calender"
-                              />
+                              <Image src={calendarOutlineSvg} alt="calender" />
                               <span>March 18, 2021</span>
                             </div>
                           </div>

@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import intlTelInput from "intl-tel-input";
 import "intl-tel-input/build/css/intlTelInput.css";
 import DefaultLayout from "@/components/Layout";
+import breadcrumbBg1 from "@/assets/img/breadcrumb/bg-1.png";
 
 const PersonalDetailsPage = () => {
   const inputRef = useRef(null);
@@ -57,10 +58,10 @@ const PersonalDetailsPage = () => {
     <>
       <DefaultLayout>
         <main>
-        <section className="breadcrumb-area">
+    <section className="breadcrumb-area">
           <div
             className="breadcrumb-widget  pt-200 pb-100"
-            style={{ backgroundImage: `url(img/breadcrumb/bg-1.png)` }}
+      style={{ backgroundImage: `url(${breadcrumbBg1.src})` }}
           >
             <div className="container">
               <div className="row">

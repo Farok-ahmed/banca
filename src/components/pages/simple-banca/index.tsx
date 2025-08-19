@@ -16,6 +16,25 @@ import FeatureSlider from "@/components/SimpleAccordion";
 import SimplebancaSlider from "@/components/SimplebancaSlider";
 import DefaultLayout from "@/components/Layout";
 import SimpleCalculator from "./SimpleCalculator";
+// Images (static imports)
+import slideShape1 from "@/assets/img/banner/slide-shape-1.png";
+import slideShape2 from "@/assets/img/banner/slide-shape-2.png";
+import slideShape3 from "@/assets/img/banner/slide-shape-3.png";
+import bannerPerson2 from "@/assets/img/banner/person-2.png";
+import helpAdImg1 from "@/assets/img/help-ad/img-1.png";
+import helpAdShape from "@/assets/img/help-ad/shape.png";
+import logo1 from "@/assets/img/banca-corporate/logo-1.png";
+import logo2 from "@/assets/img/banca-corporate/logo-2.png";
+import logo3 from "@/assets/img/banca-corporate/logo-3.png";
+import logo4 from "@/assets/img/banca-corporate/logo-4.png";
+import logo5 from "@/assets/img/banca-corporate/logo-5.png";
+import article1 from "@/assets/img/blog/article-1.png";
+import article2 from "@/assets/img/blog/article-2.png";
+import article3 from "@/assets/img/blog/article-3.png";
+import article4 from "@/assets/img/blog/article-4.png";
+import faqShape from "@/assets/img/faq/Shape.png";
+import faqAdvisor from "@/assets/img/faq/advisor.png";
+import helpCtaBg from "@/assets/img/help-ad/bg-shape.png";
 const SampleBancaPage = () => {
   return (
     <>
@@ -28,12 +47,11 @@ const SampleBancaPage = () => {
                 data-parallax='{"x": 220, "y": 0, "rotateZ":0}'
               >
                 <Image
-                  width={600}
-                  height={500}
                   className="wow slideInRight"
                   data-wow-delay="0.2s"
-                  src="/img/banner/slide-shape-1.png"
-                  alt="img"
+                  src={slideShape1}
+                  priority
+                  alt="slide shape"
                 />
               </div>
               <div
@@ -41,12 +59,10 @@ const SampleBancaPage = () => {
                 data-parallax='{"x": 270, "y": 0, "rotateZ":0}'
               >
                 <Image
-                  width={500}
-                  height={500}
                   className="wow slideInRight"
                   data-wow-delay="0.6s"
-                  src="/img/banner/slide-shape-2.png"
-                  alt="img"
+                  src={slideShape2}
+                  alt="slide shape"
                 />
               </div>
               <div
@@ -54,12 +70,10 @@ const SampleBancaPage = () => {
                 data-parallax='{"x": 330, "y": 0, "rotateZ":0}'
               >
                 <Image
-                  width={500}
-                  height={500}
                   className="wow slideInRight"
                   data-wow-delay="1.3s"
-                  src="/img/banner/slide-shape-3.png"
-                  alt="img"
+                  src={slideShape3}
+                  alt="slide shape"
                 />
               </div>
             </div>
@@ -83,11 +97,9 @@ const SampleBancaPage = () => {
                 </div>
                 <div className="col-lg-5 d-none d-lg-block position-relative">
                   <Image
-                    width={670}
-                    height={700}
                     className="person-img "
-                    src="/img/banner/person-2.png"
-                    alt=""
+                    src={bannerPerson2}
+                    alt="banner person"
                   />
                 </div>
               </div>
@@ -112,11 +124,9 @@ const SampleBancaPage = () => {
                   <div className="row">
                     <div className="col-12">
                       <Image
-                        width={960}
-                        height={200}
                         className="main-img img-fluid"
-                        src="/img/help-ad/img-1.png"
-                        alt="img"
+                        src={helpAdImg1}
+                        alt="help ad"
                       />
                     </div>
                     <div className="col-lg-5">
@@ -153,12 +163,7 @@ const SampleBancaPage = () => {
                         </ul>
                         <div className="shape">
                           {" "}
-                          <Image
-                            width={100}
-                            height={100}
-                            src="/img/help-ad/shape.png"
-                            alt="shape"
-                          />
+                          <Image src={helpAdShape} alt="shape" />
                         </div>
                       </div>
                     </div>
@@ -208,13 +213,7 @@ const SampleBancaPage = () => {
                     className="single-brand wow fadeInRight"
                     data-wow-delay="0.1s"
                   >
-                    <Image
-                      width={200}
-                      height={200}
-                      className="img-fluid"
-                      src="/img/banca-corporate/logo-1.png"
-                      alt="logo"
-                    />
+                    <Image className="img-fluid" src={logo1} alt="logo" />
                   </Link>
                 </div>
                 <div className="col-lg-2 col-6">
@@ -223,13 +222,7 @@ const SampleBancaPage = () => {
                     className="single-brand wow fadeInRight"
                     data-wow-delay="0.3s"
                   >
-                    <Image
-                      width={200}
-                      height={200}
-                      className="img-fluid"
-                      src="/img/banca-corporate/logo-2.png"
-                      alt="logo"
-                    />
+                    <Image className="img-fluid" src={logo2} alt="logo" />
                   </Link>
                 </div>
                 <div className="col-lg-2 col-6">
@@ -238,13 +231,7 @@ const SampleBancaPage = () => {
                     className="single-brand wow fadeInRight"
                     data-wow-delay="0.5s"
                   >
-                    <Image
-                      width={200}
-                      height={200}
-                      className="img-fluid"
-                      src="/img/banca-corporate/logo-3.png"
-                      alt="logo"
-                    />
+                    <Image className="img-fluid" src={logo3} alt="logo" />
                   </Link>
                 </div>
                 <div className="col-lg-2 col-6">
@@ -253,13 +240,7 @@ const SampleBancaPage = () => {
                     className="single-brand wow fadeInRight"
                     data-wow-delay="0.7s"
                   >
-                    <Image
-                      width={200}
-                      height={200}
-                      className="img-fluid"
-                      src="/img/banca-corporate/logo-4.png"
-                      alt="logo"
-                    />
+                    <Image className="img-fluid" src={logo4} alt="logo" />
                   </Link>
                 </div>
                 <div className="col-lg-2 col-6 d-none d-lg-block">
@@ -268,13 +249,7 @@ const SampleBancaPage = () => {
                     className="single-brand wow fadeInRight"
                     data-wow-delay="0.9s"
                   >
-                    <Image
-                      width={200}
-                      height={200}
-                      className="img-fluid"
-                      src="/img/banca-corporate/logo-5.png"
-                      alt="logo"
-                    />
+                    <Image className="img-fluid" src={logo5} alt="logo" />
                   </Link>
                 </div>
               </div>
@@ -285,13 +260,7 @@ const SampleBancaPage = () => {
                     className="single-brand wow fadeInRight"
                     data-wow-delay="0.1s"
                   >
-                    <Image
-                      width={200}
-                      height={200}
-                      className="img-fluid"
-                      src="/img/banca-corporate/logo-1.png"
-                      alt="logo"
-                    />
+                    <Image className="img-fluid" src={logo1} alt="logo" />
                   </Link>
                 </div>
                 <div className="col-lg-2 col-6">
@@ -300,13 +269,7 @@ const SampleBancaPage = () => {
                     className="single-brand wow fadeInRight"
                     data-wow-delay="0.3s"
                   >
-                    <Image
-                      width={200}
-                      height={200}
-                      className="img-fluid"
-                      src="/img/banca-corporate/logo-2.png"
-                      alt="logo"
-                    />
+                    <Image className="img-fluid" src={logo2} alt="logo" />
                   </Link>
                 </div>
                 <div className="col-lg-2 col-6">
@@ -315,13 +278,7 @@ const SampleBancaPage = () => {
                     className="single-brand wow fadeInRight"
                     data-wow-delay="0.5s"
                   >
-                    <Image
-                      width={200}
-                      height={200}
-                      className="img-fluid"
-                      src="/img/banca-corporate/logo-3.png"
-                      alt="logo"
-                    />
+                    <Image className="img-fluid" src={logo3} alt="logo" />
                   </Link>
                 </div>
                 <div className="col-lg-2 col-6">
@@ -330,13 +287,7 @@ const SampleBancaPage = () => {
                     className="single-brand wow fadeInRight"
                     data-wow-delay="0.7s"
                   >
-                    <Image
-                      width={200}
-                      height={200}
-                      className="img-fluid"
-                      src="/img/banca-corporate/logo-4.png"
-                      alt="logo"
-                    />
+                    <Image className="img-fluid" src={logo4} alt="logo" />
                   </Link>
                 </div>
                 <div className="col-lg-2 col-6 d-none d-lg-block">
@@ -345,13 +296,7 @@ const SampleBancaPage = () => {
                     className="single-brand wow fadeInRight"
                     data-wow-delay="0.9s"
                   >
-                    <Image
-                      width={200}
-                      height={200}
-                      className="img-fluid"
-                      src="/img/banca-corporate/logo-5.png"
-                      alt="logo"
-                    />
+                    <Image className="img-fluid" src={logo5} alt="logo" />
                   </Link>
                 </div>
               </div>
@@ -375,10 +320,9 @@ const SampleBancaPage = () => {
                     data-wow-delay="0.1s"
                   >
                     <Image
-                      width={200}
-                      height={200}
                       className="w-100"
-                      src="/img/blog/article-1.png"
+                      src={article1}
+                      style={{width:"auto",height:"auto"}}
                       alt="news image"
                     />
                     <div className="blog-content pr-10 pl-10">
@@ -400,10 +344,9 @@ const SampleBancaPage = () => {
                     data-wow-delay="0.3s"
                   >
                     <Image
-                      width={200}
-                      height={200}
                       className="w-100"
-                      src="/img/blog/article-2.png"
+                      src={article2}
+                      style={{width:"auto",height:"auto"}}
                       alt="news image"
                     />
                     <div className="blog-content pr-10 pl-10">
@@ -425,10 +368,9 @@ const SampleBancaPage = () => {
                     data-wow-delay="0.5s"
                   >
                     <Image
-                      width={200}
-                      height={200}
                       className="w-100"
-                      src="/img/blog/article-3.png"
+                      src={article3}
+                      style={{width:"auto",height:"auto"}}
                       alt="news image"
                     />
                     <div className="blog-content pr-10 pl-10">
@@ -450,10 +392,9 @@ const SampleBancaPage = () => {
                     data-wow-delay="0.7s"
                   >
                     <Image
-                      width={200}
-                      height={200}
                       className="w-100"
-                      src="/img/blog/article-4.png"
+                      src={article4}
+                      style={{width:"auto",height:"auto"}}
                       alt="news image"
                     />
                     <div className="blog-content pr-10 pl-10">
@@ -495,21 +436,17 @@ const SampleBancaPage = () => {
                     <div className="shape ">
                       <div className="box">
                         <Image
-                          width={300}
-                          height={300}
                           className="layer layer2"
                           data-depth="0.5"
-                          src="/img/faq/Shape.png"
+                          src={faqShape}
                           alt="shape"
                         />
                       </div>
                       <div className="circle-shape"></div>
                     </div>
                     <Image
-                      width={200}
-                      height={200}
                       className="main-img"
-                      src="/img/faq/advisor.png"
+                      src={faqAdvisor}
                       alt="advisor"
                     />
 
@@ -550,7 +487,7 @@ const SampleBancaPage = () => {
           <section
             className="help-cta pt-75 pb-90"
             style={{
-              backgroundImage: `url('/</div>img/help-ad/bg-shape.png')`,
+              backgroundImage: `url(${helpCtaBg.src})`,
             }}
           >
             <div className="container">

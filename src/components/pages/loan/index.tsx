@@ -15,6 +15,18 @@ import Image from "next/image";
 import Link from "next/link";
 import TestimonialSlider from "@/components/testimonial-slider";
 import DefaultLayout from "@/components/Layout";
+// Assets
+import loanBanner from "@/assets/img/banner/loan-banner.png";
+import stepIcon1 from "@/assets/img/steps/icon-1.png";
+import stepIcon2 from "@/assets/img/steps/icon-2.png";
+import stepIcon3 from "@/assets/img/steps/icon-3.png";
+import applyIcon11 from "@/assets/img/apply-loan/icon-1.1.png";
+import applyIcon12 from "@/assets/img/apply-loan/icon-1.2.png";
+import applyIcon21 from "@/assets/img/apply-loan/icon-2.1.png";
+import applyIcon22 from "@/assets/img/apply-loan/icon-2.2.png";
+import applyIcon31 from "@/assets/img/apply-loan/icon-3.1.png";
+import applyIcon32 from "@/assets/img/apply-loan/icon-3.2.png";
+import stepsShield from "@/assets/img/steps/sheild.png";
 
 const LoanPage = () => {
   return (
@@ -23,7 +35,7 @@ const LoanPage = () => {
         <main>
           <section
             className="banner-area-2 loan-banner pt-145"
-            style={{ backgroundImage: `url(/img/banner/loan-banner.png)` }}
+            style={{ backgroundImage: `url(${loanBanner.src})` }}
           >
             <div className="container">
               <div className="row align-items-center  pt-165 pb-200">
@@ -54,12 +66,7 @@ const LoanPage = () => {
                           className="steps-widget pr-30 pl-30 wow fadeInUp"
                           data-wow-delay="0.1s"
                         >
-                          <Image
-                            width={50}
-                            height={50}
-                            src="/img/steps/icon-1.png"
-                            alt="icon"
-                          />
+                          <Image src={stepIcon1} alt="icon" />
                           <h4>
                             <Link href="#">Check Eligibility</Link>
                           </h4>
@@ -74,12 +81,7 @@ const LoanPage = () => {
                           className="steps-widget pr-30 pl-30 wow fadeInUp"
                           data-wow-delay="0.3s"
                         >
-                          <Image
-                            width={50}
-                            height={50}
-                            src="/img/steps/icon-2.png"
-                            alt="icon"
-                          />
+                          <Image src={stepIcon2} alt="icon" />
                           <h4>
                             <a href="#">Submit Documents</a>
                           </h4>
@@ -94,12 +96,7 @@ const LoanPage = () => {
                           className="steps-widget pr-30 pl-30 wow fadeInUp"
                           data-wow-delay="0.5s"
                         >
-                          <Image
-                            width={50}
-                            height={50}
-                            src="/img/steps/icon-3.png"
-                            alt="icon"
-                          />
+                          <Image src={stepIcon3} alt="icon" />
                           <h4>
                             <a href="#">Approval in Principle</a>
                           </h4>
@@ -137,18 +134,8 @@ const LoanPage = () => {
                           data-wow-delay="0.1s"
                         >
                           <div className="icon">
-                            <Image
-                              width={30}
-                              height={35}
-                              src="/img/apply-loan/icon-1.1.png"
-                              alt="icon-1"
-                            />
-                            <Image
-                              width={30}
-                              height={35}
-                              src="/img/apply-loan/icon-1.2.png"
-                              alt="icon-1.2"
-                            />
+                            <Image src={applyIcon11} alt="icon-1" />
+                            <Image src={applyIcon12} alt="icon-1.2" />
                           </div>
                           <div className="apply-content">
                             <span className="title">How much do you need?</span>
@@ -169,18 +156,8 @@ const LoanPage = () => {
                           data-wow-delay="0.3s"
                         >
                           <div className="icon">
-                            <Image
-                              width={35}
-                              height={35}
-                              src="/img/apply-loan/icon-2.1.png"
-                              alt="icon-2"
-                            />
-                            <Image
-                              width={35}
-                              height={35}
-                              src="/img/apply-loan/icon-2.2.png"
-                              alt="icon-2.2"
-                            />
+                            <Image src={applyIcon21} alt="icon-2" />
+                            <Image src={applyIcon22} alt="icon-2.2" />
                           </div>
                           <div className="apply-content">
                             {/* Label */}
@@ -232,18 +209,8 @@ const LoanPage = () => {
                           data-wow-delay="0.5s"
                         >
                           <div className="icon">
-                            <Image
-                              width={30}
-                              height={35}
-                              src="/img/apply-loan/icon-3.1.png"
-                              alt="icon-3"
-                            />
-                            <Image
-                              width={30}
-                              height={35}
-                              src="/img/apply-loan/icon-3.2.png"
-                              alt="icon-3.2"
-                            />
+                            <Image src={applyIcon31} alt="icon-3" />
+                            <Image src={applyIcon32} alt="icon-3.2" />
                           </div>
 
                           <div className="apply-content">
@@ -292,10 +259,8 @@ const LoanPage = () => {
                       <div className="col-12 mt-15 d-flex wow fadeInLeft">
                         <div className="icon">
                           <Image
-                            width={15}
-                            height={15}
                             className="img=fluid"
-                            src="/img/steps/sheild.png"
+                            src={stepsShield}
                             alt="sheild"
                           />
                         </div>

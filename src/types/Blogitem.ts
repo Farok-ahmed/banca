@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 export interface BlogItem {
   id: number;
   title: string;
@@ -5,8 +7,8 @@ export interface BlogItem {
   categoryClass: string;
   date: string;
   author: string;
-  image: string;
-  calendarIcon: string;
-  userIcon: string;
+  image: string | StaticImageData;
+  calendarIcon: string | StaticImageData;
+  userIcon: string | StaticImageData;
   delay?: string;
 }

@@ -13,6 +13,49 @@ import Image from "next/image";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
 import LoanCalculator from "@/components/LoanCalculator";
+// Images (static imports)
+import wavePng from "@/assets/img/bank/wave.png";
+import activeUser1 from "@/assets/img/bank/active-user1.jpg";
+import activeUser2 from "@/assets/img/bank/active-user2.jpg";
+import activeUser3 from "@/assets/img/bank/active-user3.jpg";
+import card3 from "@/assets/img/bank/card-3.png";
+import card2 from "@/assets/img/bank/card-2.png";
+import card1 from "@/assets/img/bank/card-1.png";
+import linePng from "@/assets/img/bank/line.png";
+import star2 from "@/assets/img/bank/Star-2.png";
+import star3 from "@/assets/img/bank/Star-3.png";
+import star4 from "@/assets/img/bank/Star-4.png";
+import singleIcon from "@/assets/img/bank/single-icon.png";
+import worldIcon from "@/assets/img/bank/world-icon.png";
+import sheldIcon from "@/assets/img/bank/sheld-icon.png";
+import mobilePng from "@/assets/img/bank/mobile.png";
+import fCard1 from "@/assets/img/bank/f-card1.png";
+import fCard2 from "@/assets/img/bank/f-card2.png";
+import fCard3 from "@/assets/img/bank/f_card3.png";
+import fCard4 from "@/assets/img/bank/f_card4.png";
+import fCard5 from "@/assets/img/bank/f_card5.png";
+import fCard6 from "@/assets/img/bank/f_card6.png";
+import slack from "@/assets/img/bank/slack.png";
+import dropbox from "@/assets/img/bank/dropbox.png";
+import googleDrive from "@/assets/img/bank/google_drive.png";
+import jira from "@/assets/img/bank/jira.png";
+import zendesk from "@/assets/img/bank/zendesk.png";
+import mailchimp from "@/assets/img/bank/mailchimp.png";
+import mapPng from "@/assets/img/bank/map.png";
+import flag1 from "@/assets/img/bank/flag-1.png";
+import flag2 from "@/assets/img/bank/flag-2.png";
+import flag3 from "@/assets/img/bank/flag-3.png";
+import flag4 from "@/assets/img/bank/flag-4.png";
+import flag5 from "@/assets/img/bank/flag-5.png";
+import flag6 from "@/assets/img/bank/flag-6.png";
+import flag7 from "@/assets/img/bank/flag-7.png";
+import flag8 from "@/assets/img/bank/flag-8.png";
+import cLogo1 from "@/assets/img/saas-app/c_logo_1.png";
+import cLogo2 from "@/assets/img/saas-app/c_logo_2.png";
+import cLogo3 from "@/assets/img/saas-app/c_logo_3.png";
+import cLogo4 from "@/assets/img/saas-app/c_logo_4.png";
+import cLogo5 from "@/assets/img/saas-app/c_logo_5.png";
+import mobileTwo from "@/assets/img/bank/mobile-two.png";
 
 const SmallBankPage = () => {
   return (
@@ -20,13 +63,7 @@ const SmallBankPage = () => {
       <DefaultLayout>
         <main>
           <section className="bank-banner-area">
-            <Image
-              width={300}
-              height={90}
-              className="wave_img"
-              src="/img/bank/wave.png"
-              alt=""
-            />
+            <Image className="wave_img" src={wavePng} alt="" />
             <div className="container">
               <div className="row">
                 <div className="col-lg-6">
@@ -72,24 +109,9 @@ const SmallBankPage = () => {
                       data-wow-delay="0.8s"
                     >
                       <div className="user-img-inner">
-                        <Image
-                          width={200}
-                          height={200}
-                          src="/img/bank/active-user1.jpg"
-                          alt=""
-                        />
-                        <Image
-                          width={200}
-                          height={200}
-                          src="/img/bank/active-user2.jpg"
-                          alt=""
-                        />
-                        <Image
-                          width={200}
-                          height={200}
-                          src="/img/bank/active-user3.jpg"
-                          alt=""
-                        />
+                        <Image src={activeUser1} alt="" />
+                        <Image src={activeUser2} alt="" />
+                        <Image src={activeUser3} alt="" />
                       </div>
                       5K+ ⭐ Active users
                     </div>
@@ -102,11 +124,10 @@ const SmallBankPage = () => {
                       data-wow-delay="0.8s"
                     >
                       <Image
-                        width={800}
-                        height={550}
                         data-parallax='{"x": 0, "y": 90}'
-                        src="/img/bank/card-3.png"
+                        src={card3}
                         alt=""
+                        style={{width:"auto",height:"auto"}}
                       />
                     </div>
                     <div
@@ -114,53 +135,35 @@ const SmallBankPage = () => {
                       data-wow-delay="0.5s"
                     >
                       <Image
-                        width={800}
-                        height={600}
                         data-parallax='{"x": 0, "y": 50}'
-                        src="/img/bank/card-2.png"
+                        src={card2}
                         alt=""
+                        style={{width:"auto",height:"auto"}}
                       />
                     </div>
                     <div
                       className="bank-card wow fadeInUp"
                       data-wow-delay="0.3s"
                     >
-                      <Image
-                        width={800}
-                        height={560}
-                        src="/img/bank/card-1.png"
-                        alt=""
-                      />
+                      <Image src={card1} alt="" style={{width:"auto",height:"auto"}} />
                     </div>
+                    <Image className="shap one" src={linePng} alt="" />
                     <Image
-                      width={40}
-                      height={50}
-                      className="shap one"
-                      src="/img/bank/line.png"
-                      alt=""
-                    />
-                    <Image
-                      width={30}
-                      height={30}
                       data-parallax='{"x": 0, "y": 50, "rotateZ": 305}'
                       className="shap two"
-                      src="/img/bank/Star-2.png"
+                      src={star2}
                       alt=""
                     />
                     <Image
-                      width={30}
-                      height={30}
                       data-parallax='{"x": 0, "y": 0, "rotateZ": 305}'
                       className="shap three"
-                      src="/img/bank/Star-3.png"
+                      src={star3}
                       alt=""
                     />
                     <Image
-                      width={30}
-                      height={30}
                       data-parallax='{"x":20, "y": 0, "rotateZ": 305}'
                       className="shap four"
-                      src="/img/bank/Star-4.png"
+                      src={star4}
                       alt=""
                     />
                   </div>
@@ -175,12 +178,7 @@ const SmallBankPage = () => {
                 <div className="col-lg-4 col-md-4">
                   <div className="fact-item wow fadeInUp">
                     <div className="icon">
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/bank/single-icon.png"
-                        alt=""
-                      />
+                      <Image src={singleIcon} alt="" />
                     </div>
                     <h3>Single term fees</h3>
                     <p>
@@ -193,12 +191,7 @@ const SmallBankPage = () => {
                 <div className="col-lg-4 col-md-4">
                   <div className="fact-item wow fadeInUp" data-wow-delay="0.2s">
                     <div className="icon">
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/bank/world-icon.png"
-                        alt=""
-                      />
+                      <Image src={worldIcon} alt="" />
                     </div>
                     <h3>Worldwide Locations</h3>
                     <p>
@@ -211,12 +204,7 @@ const SmallBankPage = () => {
                 <div className="col-lg-4 col-md-4">
                   <div className="fact-item wow fadeInUp" data-wow-delay="0.4s">
                     <div className="icon">
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/bank/sheld-icon.png"
-                        alt=""
-                      />
+                      <Image src={sheldIcon} alt="" />
                     </div>
                     <h3>Safe and protected</h3>
                     <p>
@@ -355,11 +343,9 @@ const SmallBankPage = () => {
                 </div>
                 <div className="col-lg-5">
                   <Image
-                    width={500}
-                    height={550}
                     className="wow fadeInUp"
                     data-wow-delay="0.4s"
-                    src="/img/bank/mobile.png"
+                    src={mobilePng}
                     alt=""
                   />
                 </div>
@@ -459,20 +445,8 @@ const SmallBankPage = () => {
                       aria-labelledby="freelancer-tab"
                     >
                       <div className="card-img">
-                        <Image
-                          width={500}
-                          height={300}
-                          className="card_one"
-                          src="/img/bank/f-card1.png"
-                          alt=""
-                        />
-                        <Image
-                          width={500}
-                          height={300}
-                          className="card_two"
-                          src="/img/bank/f-card2.png"
-                          alt=""
-                        />
+                        <Image className="card_one" src={fCard1} alt="" />
+                        <Image className="card_two" src={fCard2} alt="" />
                       </div>
                     </div>
                     <div
@@ -482,20 +456,8 @@ const SmallBankPage = () => {
                       aria-labelledby="startup-tab"
                     >
                       <div className="card-img">
-                        <Image
-                          width={40}
-                          height={40}
-                          className="card_one"
-                          src="/img/bank/f_card3.png"
-                          alt=""
-                        />
-                        <Image
-                          width={40}
-                          height={40}
-                          className="card_two"
-                          src="/img/bank/f_card4.png"
-                          alt=""
-                        />
+                        <Image className="card_one" src={fCard3} alt="" />
+                        <Image className="card_two" src={fCard4} alt="" />
                       </div>
                     </div>
                     <div
@@ -505,20 +467,8 @@ const SmallBankPage = () => {
                       aria-labelledby="business-tab"
                     >
                       <div className="card-img">
-                        <Image
-                          width={40}
-                          height={40}
-                          className="card_one"
-                          src="/img/bank/f_card5.png"
-                          alt=""
-                        />
-                        <Image
-                          width={40}
-                          height={40}
-                          className="card_two"
-                          src="/img/bank/f_card6.png"
-                          alt=""
-                        />
+                        <Image className="card_one" src={fCard5} alt="" />
+                        <Image className="card_two" src={fCard6} alt="" />
                       </div>
                     </div>
                   </div>
@@ -544,12 +494,7 @@ const SmallBankPage = () => {
                     data-wow-delay="0.1s"
                   >
                     <div className="card-img">
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/bank/slack.png"
-                        alt="feature svg"
-                      />
+                      <Image src={slack} alt="feature svg" />
                     </div>
                     <h4>Slack</h4>
                     <p>
@@ -565,12 +510,7 @@ const SmallBankPage = () => {
                     data-wow-delay="0.3s"
                   >
                     <div className="card-img">
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/bank/dropbox.png"
-                        alt="feature svg"
-                      />
+                      <Image src={dropbox} alt="feature svg" />
                     </div>
                     <h4>Dropbox</h4>
                     <p>
@@ -586,12 +526,7 @@ const SmallBankPage = () => {
                     data-wow-delay="0.6s"
                   >
                     <div className="card-img">
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/bank/google_drive.png"
-                        alt="feature svg"
-                      />
+                      <Image src={googleDrive} alt="feature svg" />
                     </div>
                     <h4>Google Drive</h4>
                     <p>
@@ -607,12 +542,7 @@ const SmallBankPage = () => {
                     data-wow-delay="0.1s"
                   >
                     <div className="card-img">
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/bank/jira.png"
-                        alt="feature svg"
-                      />
+                      <Image src={jira} alt="feature svg" />
                     </div>
                     <h4>Jira</h4>
                     <p>
@@ -628,12 +558,7 @@ const SmallBankPage = () => {
                     data-wow-delay="0.3s"
                   >
                     <div className="card-img">
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/bank/zendesk.png"
-                        alt="feature svg"
-                      />
+                      <Image src={zendesk} alt="feature svg" />
                     </div>
                     <h4>Zendesk</h4>
                     <p>
@@ -649,12 +574,7 @@ const SmallBankPage = () => {
                     data-wow-delay="0.6s"
                   >
                     <div className="card-img">
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/bank/mailchimp.png"
-                        alt="feature svg"
-                      />
+                      <Image src={mailchimp} alt="feature svg" />
                     </div>
                     <h4>Mailchimp</h4>
                     <p>
@@ -679,76 +599,31 @@ const SmallBankPage = () => {
                 </h1>
               </div>
               <div className="map_inner">
-                <Image
-                  width={1200}
-                  height={600}
-                  src="/img/bank/map.png"
-                  alt=""
-                />
+                <Image src={mapPng} alt="" />
                 <ul className="list-unstyled map_list">
                   <li className="active wow zoomIn" data-wow-delay="0.2s">
-                    <Image
-                      width={80}
-                      height={70}
-                      src="/img/bank/flag-1.png"
-                      alt=""
-                    />
+                    <Image src={flag1} alt="" style={{width:"auto",height:"auto"}} />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.4s">
-                    <Image
-                      width={80}
-                      height={70}
-                      src="/img/bank/flag-2.png"
-                      alt=""
-                    />
+                    <Image src={flag2} alt="" style={{width:"auto",height:"auto"}} />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.5s">
-                    <Image
-                      width={80}
-                      height={70}
-                      src="/img/bank/flag-3.png"
-                      alt=""
-                    />
+                    <Image src={flag3} alt="" style={{width:"auto",height:"auto"}} />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.6s">
-                    <Image
-                      width={80}
-                      height={70}
-                      src="/img/bank/flag-4.png"
-                      alt=""
-                    />
+                    <Image src={flag4} alt="" style={{width:"auto",height:"auto"}} />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.7s">
-                    <Image
-                      width={80}
-                      height={70}
-                      src="/img/bank/flag-5.png"
-                      alt=""
-                    />
+                    <Image src={flag5} alt="" style={{width:"auto",height:"auto"}} />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.8s">
-                    <Image
-                      width={80}
-                      height={70}
-                      src="/img/bank/flag-6.png"
-                      alt=""
-                    />
+                    <Image src={flag6} alt="" style={{width:"auto",height:"auto"}} />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.9s">
-                    <Image
-                      width={80}
-                      height={70}
-                      src="/img/bank/flag-7.png"
-                      alt=""
-                    />
+                    <Image src={flag7} alt="" style={{width:"auto",height:"auto"}} />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.95s">
-                    <Image
-                      width={80}
-                      height={70}
-                      src="/img/bank/flag-8.png"
-                      alt=""
-                    />
+                    <Image src={flag8} alt="" style={{width:"auto",height:"auto"}} />
                   </li>
                 </ul>
               </div>
@@ -771,11 +646,9 @@ const SmallBankPage = () => {
                 <div className="col">
                   <Link href="#">
                     <Image
-                      width={100}
-                      height={120}
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.1s"
-                      src="/img/saas-app/c_logo_1.png"
+                      src={cLogo1}
                       alt="logo"
                     />
                   </Link>
@@ -783,11 +656,9 @@ const SmallBankPage = () => {
                 <div className="col">
                   <Link href="#">
                     <Image
-                      width={100}
-                      height={120}
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.3s"
-                      src="/img/saas-app/c_logo_2.png"
+                      src={cLogo2}
                       alt="logo"
                     />
                   </Link>
@@ -795,11 +666,9 @@ const SmallBankPage = () => {
                 <div className="col">
                   <Link href="#">
                     <Image
-                      width={100}
-                      height={120}
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.5s"
-                      src="/img/saas-app/c_logo_3.png"
+                      src={cLogo3}
                       alt="logo"
                     />
                   </Link>
@@ -807,11 +676,9 @@ const SmallBankPage = () => {
                 <div className="col">
                   <Link href="#">
                     <Image
-                      width={100}
-                      height={120}
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.7s"
-                      src="/img/saas-app/c_logo_4.png"
+                      src={cLogo4}
                       alt="logo"
                     />
                   </Link>
@@ -819,11 +686,9 @@ const SmallBankPage = () => {
                 <div className="col">
                   <Link href="#">
                     <Image
-                      width={100}
-                      height={120}
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.7s"
-                      src="/img/saas-app/c_logo_5.png"
+                      src={cLogo5}
                       alt="logo"
                     />
                   </Link>
@@ -853,11 +718,9 @@ const SmallBankPage = () => {
                   </div>
                   <div className="col-lg-6 text-end">
                     <Image
-                      width={330}
-                      height={300}
                       className="wow fadeInUp"
                       data-wow-delay="0.2s"
-                      src="/img/bank/mobile-two.png"
+                      src={mobileTwo}
                       alt=""
                     />
                   </div>

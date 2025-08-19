@@ -5,6 +5,8 @@ import Link from 'next/link';
 import Slider, { CustomArrowProps } from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
+import tImg1 from '@/assets/img/testimonial/img-1.png';
+import tImg2 from '@/assets/img/testimonial/img-2.png';
 
 function NextArrow(props: CustomArrowProps) {
   const { style, onClick } = props;
@@ -36,7 +38,7 @@ function PrevArrow(props: CustomArrowProps) {
 
 const testimonials = [
   {
-    img: '/img/testimonial/img-2.png',
+  img: tImg2,
     video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
     heading: 'Making dreams a reality!',
     content:
@@ -45,7 +47,7 @@ const testimonials = [
     location: 'New York, US',
   },
   {
-    img: '/img/testimonial/img-1.png',
+  img: tImg1,
     video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
     heading: 'Making dreams a reality!',
     content:
@@ -54,7 +56,7 @@ const testimonials = [
     location: 'New York, US',
   },
   {
-    img: '/img/testimonial/img-2.png',
+  img: tImg2,
     video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
     heading: 'Making dreams a reality!',
     content:
@@ -63,7 +65,7 @@ const testimonials = [
     location: 'New York, US',
   },
   {
-    img: '/img/testimonial/img-1.png',
+  img: tImg1,
     video: 'https://www.youtube.com/watch?v=xcJtL7QggTI',
     heading: 'Making dreams a reality!',
     content:
@@ -125,13 +127,7 @@ export default function TestimonialSlider() {
               <div className="row">
                 <div className="col-4">
                   <div className="author-img">
-                    <Image
-                      src={item.img}
-                      alt="image"
-                      width={400}
-                      height={400}
-                      className="img-fluid"
-                    />
+                    <Image src={item.img} alt="image" className="img-fluid" />
                   </div>
                 </div>
                 <div className="col-8 d-flex align-items-center">

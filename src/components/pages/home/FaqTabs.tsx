@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import { FaqItem } from "@/types/Faqitem";
 import { TabData } from "@/types/Tabdata";
 import Image from 'next/image';
+import freelanceTab from '@/assets/img/home-4/freelance-tab.png';
+import freelanceTab2 from '@/assets/img/home-4/freelance-tab-2.png';
+import faqImg from '@/assets/img/home-4/faq-Img.png';
 const tabContent: TabData[] = [
   {
     id: "freelancer",
@@ -10,7 +13,7 @@ const tabContent: TabData[] = [
     title: "Access to secure banking",
     description:
       "Lorem Ipsum is simply dummy text of the printing and the typesetting industry. Lorem Ipsum has been industry's",
-    imgSrc: "/img/home-4/freelance-tab.png",
+  imgSrc: freelanceTab,
   },
   {
     id: "startup",
@@ -18,7 +21,7 @@ const tabContent: TabData[] = [
     title: "Manage your cash easily",
     description:
       "Lorem Ipsum is simply dummy text of the printing and the typesetting industry. Lorem Ipsum has been industry's",
-    imgSrc: "/img/home-4/freelance-tab-2.png",
+  imgSrc: freelanceTab2,
   },
   {
     id: "business",
@@ -26,7 +29,7 @@ const tabContent: TabData[] = [
     title: "Access to secure banking",
     description:
       "Lorem Ipsum is simply dummy text of the printing and the typesetting industry. Lorem Ipsum has been industry's",
-    imgSrc: "/img/home-4/freelance-tab.png",
+  imgSrc: freelanceTab,
   },
   {
     id: "micro_business",
@@ -34,7 +37,7 @@ const tabContent: TabData[] = [
     title: "Manage your cash easily",
     description:
       "Lorem Ipsum is simply dummy text of the printing and the typesetting industry. Lorem Ipsum has been industry's",
-    imgSrc: "/img/home-4/freelance-tab-2.png",
+  imgSrc: freelanceTab2,
   },
 ];
 
@@ -118,13 +121,7 @@ const FaqTabs = () => {
                             </div>
                           </div>
                           <div className="col-lg-7">
-                            <Image
-                              className="img-fluid"
-                              src={tab.imgSrc}
-                              alt={tab.label}
-                              width={600}
-                              height={400}
-                            />
+                            <Image className="img-fluid" src={tab.imgSrc} alt={tab.label} />
                           </div>
                         </div>
                       </div>
@@ -137,13 +134,7 @@ const FaqTabs = () => {
                 <div className="container">
                   <div className="row gy-lg-0 gy-4">
                     <div className="col-lg-6">
-                      <Image
-                        src="/img/home-4/faq-Img.png"
-                        alt="FAQ"
-                        width={600}
-                        height={500}
-                        className="faq-img img-fluid"
-                      />
+                      <Image src={faqImg} alt="FAQ" className="faq-img img-fluid" />
                     </div>
                     <div className="col-lg-6 pl-lg-50">
                       <span className="subtitle">_FAQ</span>

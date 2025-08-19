@@ -10,6 +10,29 @@ import "@/styles/css/responsive.css";
 import DefaultLayout from "@/components/Layout";
 import SubscribeForm from "./SubscribeForm";
 import ReplyForm from "./ReplyForm";
+import breadcrumbBg from "@/assets/img/breadcrumb/bg-3.jpg";
+import polygon3 from "@/assets/img/breadcrumb/Polygon-3.png";
+import polygon4 from "@/assets/img/breadcrumb/Polygon-4.png";
+import userProfilePng from "@/assets/img/blog/user-profile.png";
+import calendarOutlinePng from "@/assets/img/blog/calendar-outline.png";
+import blogDetailsImg from "@/assets/img/blog/blog-details-img.jpg";
+import quoteAuthor from "@/assets/img/blog/quote-author.png";
+import blogDetailsImg2 from "@/assets/img/blog/blog-details-img-2.jpg";
+import author1 from "@/assets/img/blog/author-1.png";
+import blog9 from "@/assets/img/blog/blog-9.png";
+import blog7 from "@/assets/img/blog/blog-7.png";
+import userProfileSvg from "@/assets/img/blog/user-profile.svg";
+import calendarOutlineSvg from "@/assets/img/blog/calendar-outline.svg";
+import facebookLogo from "@/assets/img/social/facebook-logo.svg";
+import twitterLogo from "@/assets/img/social/twitter.svg";
+import youtubeLogo from "@/assets/img/social/youtube.svg";
+import recentPost1 from "@/assets/img/blog/recent-post-1.png";
+import recentPost2 from "@/assets/img/blog/recent-post-2.png";
+import recentPost3 from "@/assets/img/blog/recent-post-3.png";
+import recentPost4 from "@/assets/img/blog/recent-post-4.png";
+import comment1 from "@/assets/img/blog/comment-1.png";
+import comment2 from "@/assets/img/blog/comment-2.png";
+import comment3 from "@/assets/img/blog/comment-3.png";
 
 const BlogDetailsPage: React.FC = () => {
   return (
@@ -19,30 +42,20 @@ const BlogDetailsPage: React.FC = () => {
           <section className="breadcrumb-area" id="banner_animation2">
             <div
               className="breadcrumb-widget breadcrumb-widget-2  pt-200 pb-145"
-              style={{ backgroundImage: `url(img/breadcrumb/bg-3.jpg)` }}
+              style={{ backgroundImage: `url(${breadcrumbBg.src})` }}
             >
               <div className="shapes">
                 <div
                   className="one-shape shape-3"
                   data-parallax='{"x": -100, "y": 0, "rotateZ":0}'
                 >
-                  <Image
-                    width={700}
-                    height={400}
-                    src="/img/breadcrumb/Polygon-3.png"
-                    alt="shape"
-                  />
+                  <Image src={polygon3} alt="shape" />
                 </div>
                 <div
                   className="one-shape shape-4"
                   data-parallax='{"x": -200, "y": 0, "rotateZ":0}'
                 >
-                  <Image
-                    width={1000}
-                    height={500}
-                    src="/img/breadcrumb/Polygon-4.png"
-                    alt="shape"
-                  />
+                  <Image src={polygon4} alt="shape" />
                 </div>
               </div>
               <div className="container">
@@ -55,18 +68,13 @@ const BlogDetailsPage: React.FC = () => {
                           <Image
                             width={20}
                             height={20}
-                            src="/img/blog/user-profile.png"
+                            src={userProfilePng}
                             alt="icon"
                           />
                           <span>Zain Siphron</span>
                         </div>
                         <div className="date">
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/blog/calendar-outline.png"
-                            alt="icon"
-                          />
+                          <Image src={calendarOutlinePng} alt="icon" />
                           <span>March 18, 2021</span>
                         </div>
                       </div>
@@ -102,10 +110,9 @@ const BlogDetailsPage: React.FC = () => {
                 <div className="col-lg-7">
                   <div className="post-details-widget pb-70 border-bottom position-relative">
                     <Image
-                      width={200}
-                      height={400}
                       className="post-img w-100"
-                      src="/img/blog/blog-details-img.jpg"
+                      src={blogDetailsImg}
+                      style={{width:"auto",height:"auto"}}
                       alt="post image"
                     />
 
@@ -142,10 +149,8 @@ const BlogDetailsPage: React.FC = () => {
                       </p>
                       <div className="author">
                         <Image
-                          width={50}
-                          height={40}
                           className="img-fluid rounded-circle"
-                          src="/img/blog/quote-author.png"
+                          src={quoteAuthor}
                           alt=""
                         />
                         <div>
@@ -155,10 +160,9 @@ const BlogDetailsPage: React.FC = () => {
                       </div>
                     </blockquote>
                     <Image
-                      width={200}
-                      height={400}
                       className="post-img w-100"
-                      src="/img/blog/blog-details-img-2.jpg"
+                      src={blogDetailsImg2}
+                      style={{width:"auto",height:"auto"}}
                       alt="post img"
                     />
                     <p className="post-text mt-40 pb-2">
@@ -193,10 +197,8 @@ const BlogDetailsPage: React.FC = () => {
                   <div className="author-media-widget mt-90 mb-90">
                     <div className="author-img">
                       <Image
-                        width={50}
-                        height={50}
                         className="rounded-circle"
-                        src="/img/blog/author-1.png"
+                        src={author1}
                         alt="author"
                       />
                     </div>
@@ -219,12 +221,7 @@ const BlogDetailsPage: React.FC = () => {
                           data-wow-delay="0.1s"
                         >
                           <div className="blog-img">
-                            <Image
-                              width={200}
-                              height={200}
-                              src="/img/blog/blog-9.png"
-                              alt="blog-img"
-                            />
+                            <Image src={blog9} alt="blog-img" style={{width:"auto",height:"auto"}} />
                             <div className="catagory bg_primary">buisiness</div>
                           </div>
                           <div className="blog-content">
@@ -240,18 +237,14 @@ const BlogDetailsPage: React.FC = () => {
                             <div className="post-info">
                               <div className="author">
                                 <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/user-profile.svg"
+                                  src={userProfileSvg}
                                   alt="user profile"
                                 />
                                 <span>Zain Siphron</span>
                               </div>
                               <div className="post-date">
                                 <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/calendar-outline.svg"
+                                  src={calendarOutlineSvg}
                                   alt="calendar"
                                 />
                                 <span>March 18, 2021</span>
@@ -266,12 +259,7 @@ const BlogDetailsPage: React.FC = () => {
                           data-wow-delay="0.3s"
                         >
                           <div className="blog-img">
-                            <Image
-                              width={200}
-                              height={200}
-                              src="/img/blog/blog-7.png"
-                              alt="blog-img"
-                            />
+                            <Image src={blog7} alt="blog-img" style={{width:"auto",height:"auto"}} />
                             <div className="catagory bg_primary">buisiness</div>
                           </div>
                           <div className="blog-content">
@@ -287,18 +275,14 @@ const BlogDetailsPage: React.FC = () => {
                             <div className="post-info">
                               <div className="author">
                                 <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/user-profile.svg"
+                                  src={userProfileSvg}
                                   alt="user profile"
                                 />
                                 <span>Zain Siphron</span>
                               </div>
                               <div className="post-date">
                                 <Image
-                                  width={20}
-                                  height={20}
-                                  src="/img/blog/calendar-outline.svg"
+                                  src={calendarOutlineSvg}
                                   alt="calendar"
                                 />
                                 <span>March 18, 2021</span>
@@ -319,10 +303,8 @@ const BlogDetailsPage: React.FC = () => {
                           <div className="comments-box">
                             <div className="comments-avatar">
                               <Image
-                                width={50}
-                                height={50}
                                 className="rounded-circle"
-                                src="/img/blog/comment-1.png"
+                                src={comment1}
                                 alt="img"
                               />
                             </div>
@@ -330,12 +312,7 @@ const BlogDetailsPage: React.FC = () => {
                               <div className="avatar-name">
                                 <h5>Karon Balina</h5>
                                 <div className="post-date">
-                                  <Image
-                                    width={20}
-                                    height={20}
-                                    src="/img/blog/calendar-outline.svg"
-                                    alt=""
-                                  />
+                                  <Image src={calendarOutlineSvg} alt="" />
                                   <span>March 18, 2021</span>
                                 </div>
                                 <a className="reply" href="#">
@@ -357,10 +334,8 @@ const BlogDetailsPage: React.FC = () => {
                           <div className="comments-box">
                             <div className="comments-avatar">
                               <Image
-                                width={50}
-                                height={50}
                                 className="rounded-circle"
-                                src="/img/blog/comment-2.png"
+                                src={comment2}
                                 alt="img"
                               />
                             </div>
@@ -368,12 +343,7 @@ const BlogDetailsPage: React.FC = () => {
                               <div className="avatar-name">
                                 <h5>Julias Roy</h5>
                                 <div className="post-date">
-                                  <Image
-                                    width={20}
-                                    height={20}
-                                    src="/img/blog/calendar-outline.svg"
-                                    alt=""
-                                  />
+                                  <Image src={calendarOutlineSvg} alt="" />
                                   <span>March 18, 2021</span>
                                 </div>
                                 <a className="reply" href="#">
@@ -391,10 +361,8 @@ const BlogDetailsPage: React.FC = () => {
                           <div className="comments-box">
                             <div className="comments-avatar">
                               <Image
-                                width={50}
-                                height={50}
                                 className="rounded-circle"
-                                src="/img/blog/comment-3.png"
+                                src={comment3}
                                 alt="img"
                               />
                             </div>
@@ -402,12 +370,7 @@ const BlogDetailsPage: React.FC = () => {
                               <div className="avatar-name">
                                 <h5>Arista Williamson</h5>
                                 <div className="post-date">
-                                  <Image
-                                    width={20}
-                                    height={20}
-                                    src="/img/blog/calendar-outline.svg"
-                                    alt=""
-                                  />
+                                  <Image src={calendarOutlineSvg} alt="" />
                                   <span>March 18, 2021</span>
                                 </div>
                                 <a className="reply" href="#">
@@ -435,7 +398,7 @@ const BlogDetailsPage: React.FC = () => {
                       Your email address will not be published. Required fields
                       are marked *
                     </p>
-                    <ReplyForm/>
+                    <ReplyForm />
                   </div>
                 </div>
 
@@ -454,36 +417,21 @@ const BlogDetailsPage: React.FC = () => {
                       <div className="row text-center gx-3 gy-3 gy-md-0">
                         <div className="col-md-4">
                           <Link href="#">
-                            <Image
-                              width={30}
-                              height={30}
-                              src="/img/social/facebook-logo.svg"
-                              alt="faceebook"
-                            />
+                            <Image src={facebookLogo} alt="faceebook" />
                             <h6>815.5K</h6>
                             <span>Fans</span>
                           </Link>
                         </div>
                         <div className="col-md-4">
                           <Link href="#">
-                            <Image
-                              width={30}
-                              height={30}
-                              src="/img/social/twitter.svg"
-                              alt="twitter"
-                            />
+                            <Image src={twitterLogo} alt="twitter" />
                             <h6>107.2K</h6>
                             <span>Followers</span>
                           </Link>
                         </div>
                         <div className="col-md-4">
                           <Link href="#">
-                            <Image
-                              width={30}
-                              height={30}
-                              src="/img/social/youtube.svg"
-                              alt="youtube"
-                            />
+                            <Image src={youtubeLogo} alt="youtube" />
                             <h6>90.6K</h6>
                             <span>Subscribers</span>
                           </Link>
@@ -538,12 +486,7 @@ const BlogDetailsPage: React.FC = () => {
 
                       <ul className="recent-post">
                         <li>
-                          <Image
-                            width={80}
-                            height={80}
-                            src="/img/blog/recent-post-1.png"
-                            alt="recent-post"
-                          />
+                          <Image src={recentPost1} alt="recent-post" />
                           <div className="news-content">
                             <h6>
                               <a href="#">
@@ -551,45 +494,25 @@ const BlogDetailsPage: React.FC = () => {
                               </a>
                             </h6>
                             <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calender"
-                              />
+                              <Image src={calendarOutlineSvg} alt="calender" />
                               <span>March 18, 2021</span>
                             </div>
                           </div>
                         </li>
                         <li>
-                          <Image
-                            width={80}
-                            height={80}
-                            src="/img/blog/recent-post-2.png"
-                            alt="recent-post"
-                          />
+                          <Image src={recentPost2} alt="recent-post" />
                           <div className="news-content">
                             <h6>
                               <a href="#">10 Classic Summer Vacations</a>
                             </h6>
                             <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calender"
-                              />
+                              <Image src={calendarOutlineSvg} alt="calender" />
                               <span>March 18, 2021</span>
                             </div>
                           </div>
                         </li>
                         <li>
-                          <Image
-                            width={80}
-                            height={80}
-                            src="/img/blog/recent-post-3.png"
-                            alt="recent-post"
-                          />
+                          <Image src={recentPost3} alt="recent-post" />
                           <div className="news-content">
                             <h6>
                               <a href="#">
@@ -597,23 +520,13 @@ const BlogDetailsPage: React.FC = () => {
                               </a>
                             </h6>
                             <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calender"
-                              />
+                              <Image src={calendarOutlineSvg} alt="calender" />
                               <span>March 18, 2021</span>
                             </div>
                           </div>
                         </li>
                         <li>
-                          <Image
-                            width={80}
-                            height={80}
-                            src="/img/blog/recent-post-4.png"
-                            alt="recent-post"
-                          />
+                          <Image src={recentPost4} alt="recent-post" />
                           <div className="news-content">
                             <h6>
                               <a href="#">
@@ -621,12 +534,7 @@ const BlogDetailsPage: React.FC = () => {
                               </a>
                             </h6>
                             <div className="post-date">
-                              <Image
-                                width={20}
-                                height={20}
-                                src="/img/blog/calendar-outline.svg"
-                                alt="calender"
-                              />
+                              <Image src={calendarOutlineSvg} alt="calender" />
                               <span>March 18, 2021</span>
                             </div>
                           </div>

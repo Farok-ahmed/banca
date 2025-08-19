@@ -3,6 +3,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import faqIllustration from '@/assets/img/faq/illustration.png';
 
 const LoanAccordion = () => {
   const [openId, setOpenId] = useState('collapseOne');
@@ -175,10 +176,8 @@ const LoanAccordion = () => {
       <div className="col-md-4 offset-lg-1 mt-4 mt-md-0 ps-lg-5">
         <div className="faq-img">
           <Image
-            width={900}
-            height={900}
             className="img-fluid"
-            src="/img/faq/illustration.png"
+            src={faqIllustration}
             alt="faq-image"
           />
         </div>

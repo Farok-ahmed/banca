@@ -18,6 +18,32 @@ import IndexCalculator from "@/components/IndexCalculator";
 import DefaultLayout from "@/components/Layout";
 import { SubmitButton } from "./FormButton";
 import { handleSubmit } from "./handleSubmit";
+// Assets
+import bannerImg1 from "@/assets/img/home-5/banner-img-1.png";
+import bannerImg2 from "@/assets/img/home-5/banner-img-2.png";
+import bannerImg3 from "@/assets/img/home-5/banner-img-3.png";
+import bannerShape from "@/assets/img/home-5/banner-shape.png";
+import featureIcon1 from "@/assets/img/home-5/feature-icon-1.svg";
+import featureIcon2 from "@/assets/img/home-5/feature-icon-2.svg";
+import featureIcon3 from "@/assets/img/home-5/feature-icon-3.svg";
+import featureIcon4 from "@/assets/img/home-5/feature-icon-4.svg";
+import featureIcon5 from "@/assets/img/home-5/feature-icon-5.svg";
+import featureIcon6 from "@/assets/img/home-5/feature-icon-6.svg";
+import featureIcon7 from "@/assets/img/home-5/feature-icon-7.svg";
+import aboutArrow1 from "@/assets/img/home-5/about-arrow-1.png";
+import aboutArrow2 from "@/assets/img/home-5/about-arrow-2.png";
+import msg1 from "@/assets/img/home-5/msg-1.png";
+import msg2 from "@/assets/img/home-5/msg-2.png";
+import msg3 from "@/assets/img/home-5/msg-3.png";
+import cardHolder from "@/assets/img/home-5/card-holder.png";
+import bankBalance from "@/assets/img/home-5/bank-balance.png";
+import aboutUsImg from "@/assets/img/home-5/about-us-img.png";
+import country1 from "@/assets/img/home-5/country-1.png";
+import country2 from "@/assets/img/home-5/country-2.png";
+import country3 from "@/assets/img/home-5/country-3.png";
+import country4 from "@/assets/img/home-5/country-4.png";
+import country5 from "@/assets/img/home-5/country-5.png";
+import country6 from "@/assets/img/home-5/country-6.png";
 
 const CompanyPage = () => {
   
@@ -66,36 +92,24 @@ const CompanyPage = () => {
                 <div className="col-lg-5 text-center text-lg-start">
                   <div className="banner-img">
                     <Image
-                      width={380}
-                      height={480}
                       className="img-1 wow fadeInLeft"
                       data-wow-delay="0.3s"
-                      src="/img/home-5/banner-img-1.png"
+                      src={bannerImg1}
                       alt=""
                     />
                     <Image
-                      width={220}
-                      height={200}
                       className="img-2 wow fadeInRight"
                       data-wow-delay="0.8s"
-                      src="/img/home-5/banner-img-2.png"
+                      src={bannerImg2}
                       alt=""
                     />
                     <Image
-                      width={320}
-                      height={240}
                       className="img-3 wow fadeInRight"
                       data-wow-delay="1.1s"
-                      src="/img/home-5/banner-img-3.png"
+                      src={bannerImg3}
                       alt=""
                     />
-                    <Image
-                      width={40}
-                      height={50}
-                      className="img-shape"
-                      src="/img/home-5/banner-shape.png"
-                      alt=""
-                    />
+                    <Image className="img-shape" src={bannerShape} alt="" />
                   </div>
                 </div>
               </div>
@@ -156,12 +170,7 @@ const CompanyPage = () => {
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="0.1s"
                   >
-                    <Image
-                      width={50}
-                      height={50}
-                      src="/img/home-5/feature-icon-1.svg"
-                      alt=""
-                    />
+                    <Image src={featureIcon1} alt="" />
                     <h5>Fast Mobility</h5>
                     <p>Quis dapibus volutpat condi</p>
                   </div>
@@ -171,12 +180,7 @@ const CompanyPage = () => {
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="0.3s"
                   >
-                    <Image
-                      width={50}
-                      height={50}
-                      src="/img/home-5/feature-icon-2.svg"
-                      alt=""
-                    />
+                    <Image src={featureIcon2} alt="" />
                     <h5>Term Loan</h5>
                     <p>Quis dapibus volutpat condi</p>
                   </div>
@@ -187,12 +191,7 @@ const CompanyPage = () => {
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="0.5s"
                   >
-                    <Image
-                      width={50}
-                      height={50}
-                      src="/img/home-5/feature-icon-3.svg"
-                      alt=""
-                    />
+                    <Image src={featureIcon3} alt="" />
                     <h5>Easy Experience</h5>
                     <p>Quis dapibus volutpat condi</p>
                   </div>
@@ -202,12 +201,7 @@ const CompanyPage = () => {
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="0.7s"
                   >
-                    <Image
-                      width={50}
-                      height={50}
-                      src="/img/home-5/feature-icon-4.svg"
-                      alt=""
-                    />
+                    <Image src={featureIcon4} alt="" />
                     <h5>Safe and protected</h5>
                     <p>Quis dapibus volutpat condi</p>
                   </div>
@@ -217,12 +211,7 @@ const CompanyPage = () => {
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="0.9s"
                   >
-                    <Image
-                      width={50}
-                      height={50}
-                      src="/img/home-5/feature-icon-5.svg"
-                      alt=""
-                    />
+                    <Image src={featureIcon5} alt="" />
                     <h5>Wordwide</h5>
                     <p>Quis dapibus volutpat condi</p>
                   </div>
@@ -232,12 +221,7 @@ const CompanyPage = () => {
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="1.1s"
                   >
-                    <Image
-                      width={50}
-                      height={50}
-                      src="/img/home-5/feature-icon-6.svg"
-                      alt=""
-                    />
+                    <Image src={featureIcon6} alt="" />
                     <h5>One term fees</h5>
                     <p>Quis dapibus volutpat condi</p>
                   </div>
@@ -247,12 +231,7 @@ const CompanyPage = () => {
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="1.3s"
                   >
-                    <Image
-                      width={50}
-                      height={50}
-                      src="/img/home-5/feature-icon-7.svg"
-                      alt=""
-                    />
+                    <Image src={featureIcon7} alt="" />
                     <h5>Merchant Payment</h5>
                     <p>Quis dapibus volutpat condi</p>
                   </div>
@@ -303,41 +282,19 @@ const CompanyPage = () => {
                 </div>
                 <div className="col-lg-6 wow fadeInRight">
                   <div className="sms-flow">
+                    <Image className="arrow-1" src={aboutArrow1} alt="" />
+                    <Image className="arrow-2" src={aboutArrow2} alt="" />
                     <Image
-                      width={90}
-                      height={85}
-                      className="arrow-1"
-                      src="/img/home-5/about-arrow-1.png"
-                      alt=""
-                    />
-                    <Image
-                      width={30}
-                      height={65}
-                      className="arrow-2"
-                      src="/img/home-5/about-arrow-2.png"
-                      alt=""
-                    />
-                    <Image
-                      width={540}
-                      height={130}
                       className="msg-1 wow fadeInUp"
                       data-wow-delay="0.1s"
-                      src="/img/home-5/msg-1.png"
+                      src={msg1}
                       alt=""
                     />
+                    <Image className="msg-2" src={msg2} alt="" />
                     <Image
-                      width={290}
-                      height={120}
-                      className="msg-2"
-                      src="/img/home-5/msg-2.png"
-                      alt=""
-                    />
-                    <Image
-                      width={500}
-                      height={160}
                       className="msg-3 wow fadeInDown"
                       data-wow-delay="0.3s"
-                      src="/img/home-5/msg-3.png"
+                      src={msg3}
                       alt=""
                     />
                   </div>
@@ -349,19 +306,11 @@ const CompanyPage = () => {
                   <div className="card-holder">
                     <div className="shape-1"></div>
                     <div className="shape-2"></div>
+                    <Image className="img-1 img-fluid" src={cardHolder} alt="" />
                     <Image
-                      width={700}
-                      height={800}
-                      className="img-1 img-fluid"
-                      src="/img/home-5/card-holder.png"
-                      alt=""
-                    />
-                    <Image
-                      width={300}
-                      height={250}
                       className="img-2 wow fadeInRight"
                       data-wow-delay="0.2s"
-                      src="/img/home-5/bank-balance.png"
+                      src={bankBalance}
                       alt=""
                     />
                   </div>
@@ -798,12 +747,7 @@ const CompanyPage = () => {
                 </div>
                 <div className="col-lg-6 wow fadeInLeft" data-wow-delay="0.3s">
                   <div className="video-tut">
-                    <Image
-                      width={300}
-                      height={380}
-                      src="/img/home-5/about-us-img.png"
-                      alt=""
-                    />
+                    <Image src={aboutUsImg} alt="" style={{width:"auto",height:"auto"}} />
                     <Link
                       className="play-btn"
                       data-fancybox=""
@@ -831,12 +775,7 @@ const CompanyPage = () => {
                     className="country-widget wow fadeInLeft"
                     data-wow-delay="0.1s"
                   >
-                    <Image
-                      width={120}
-                      height={80}
-                      src="/img/home-5/country-1.png"
-                      alt="country"
-                    />
+                    <Image src={country1} alt="country" />
                     <h5>Brazil</h5>
                   </Link>
                 </div>
@@ -846,12 +785,7 @@ const CompanyPage = () => {
                     className="country-widget wow fadeInLeft"
                     data-wow-delay="0.3s"
                   >
-                    <Image
-                      width={120}
-                      height={80}
-                      src="/img/home-5/country-2.png"
-                      alt="country"
-                    />
+                    <Image src={country2} alt="country" />
                     <h5>Canada</h5>
                   </Link>
                 </div>
@@ -861,12 +795,7 @@ const CompanyPage = () => {
                     className="country-widget wow fadeInLeft"
                     data-wow-delay="0.5s"
                   >
-                    <Image
-                      width={120}
-                      height={80}
-                      src="/img/home-5/country-3.png"
-                      alt="country"
-                    />
+                    <Image src={country3} alt="country" />
                     <h5>Australia</h5>
                   </Link>
                 </div>
@@ -876,12 +805,7 @@ const CompanyPage = () => {
                     className="country-widget wow fadeInLeft"
                     data-wow-delay="0.7s"
                   >
-                    <Image
-                      width={120}
-                      height={80}
-                      src="/img/home-5/country-4.png"
-                      alt="country"
-                    />
+                    <Image src={country4} alt="country" />
                     <h5>USA</h5>
                   </Link>
                 </div>
@@ -891,12 +815,7 @@ const CompanyPage = () => {
                     className="country-widget wow fadeInLeft"
                     data-wow-delay="0.9s"
                   >
-                    <Image
-                      width={120}
-                      height={80}
-                      src="/img/home-5/country-5.png"
-                      alt="country"
-                    />
+                    <Image src={country5} alt="country" />
                     <h5>South Korea</h5>
                   </Link>
                 </div>
@@ -907,12 +826,7 @@ const CompanyPage = () => {
                     className="country-widget wow fadeInLeft"
                     data-wow-delay="1.1s"
                   >
-                    <Image
-                      width={130}
-                      height={90}
-                      src="/img/home-5/country-6.png"
-                      alt="country"
-                    />
+                    <Image src={country6} alt="country" />
                     <h5>Bangladesh</h5>
                   </Link>
                 </div>

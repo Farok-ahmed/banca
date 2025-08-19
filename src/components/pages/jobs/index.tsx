@@ -11,6 +11,7 @@ import "@/styles/css/responsive.css";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
 import JobSort from "./JobSort";
+import breadcrumbBg2 from "@/assets/img/breadcrumb/bg-2.png";
 
 const JobsPage = () => {
   
@@ -24,7 +25,7 @@ const JobsPage = () => {
           <section className="breadcrumb-area">
             <div
               className="breadcrumb-widget  pt-145 pb-125"
-              style={{ backgroundImage: `url(img/breadcrumb/bg-2.png)` }}
+              style={{ backgroundImage: `url(${breadcrumbBg2.src})` }}
             >
               <div className="container">
                 <div className="row">
@@ -78,7 +79,7 @@ const JobsPage = () => {
                           <i className="arrow_carrot-down"></i>
                         </span>
                         <select id="locationSelect" className="form-control">
-                          <option value="Bagerhat" selected>
+                          <option value="Bagerhat">
                             Bagerhat
                           </option>
                           <option value="Bandarban">Bandarban</option>

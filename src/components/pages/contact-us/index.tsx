@@ -12,6 +12,14 @@ import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 import DefaultLayout from "@/components/Layout";
 import ContactForm from "./ContactForm";
+// Assets
+import breadcrumbBg4 from "@/assets/img/breadcrumb/bg-4.jpg";
+import callOutline from "@/assets/img/contact/call-outline.png";
+import mailOpenOutline from "@/assets/img/contact/mail-open-outline.png";
+import helpIcon1 from "@/assets/img/contact/help-icon-1.svg";
+import helpIcon2 from "@/assets/img/contact/help-icon-2.svg";
+import helpIcon3 from "@/assets/img/contact/help-icon-3.svg";
+import ctaWave from "@/assets/img/cta/wave.png";
 
 const ContactUsPage = () => {
   return (
@@ -21,7 +29,7 @@ const ContactUsPage = () => {
           <section className="breadcrumb-area">
             <div
               className="breadcrumb-widget  breadcrumb-widget-3 pt-200 pb-200"
-              style={{ backgroundImage: `url(img/breadcrumb/bg-4.jpg)` }}
+              style={{ backgroundImage: `url(${breadcrumbBg4.src})` }}
             >
               <div className="container">
                 <div className="row">
@@ -56,12 +64,7 @@ const ContactUsPage = () => {
                     <div className="col-sm-6">
                       <div className="get-touch-box">
                         <div className="icon">
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/contact/call-outline.png"
-                            alt="call icon"
-                          />
+                          <Image src={callOutline} alt="call icon" />
                         </div>
                         <div>
                           <p>Call the helpline:</p>
@@ -72,12 +75,7 @@ const ContactUsPage = () => {
                     <div className="col-sm-6">
                       <div className="get-touch-box">
                         <div className="icon">
-                          <Image
-                            width={20}
-                            height={20}
-                            src="/img/contact/mail-open-outline.png"
-                            alt="mail icon"
-                          />
+                          <Image src={mailOpenOutline} alt="mail icon" />
                         </div>
                         <div>
                           <p>Email us:</p>
@@ -141,12 +139,7 @@ const ContactUsPage = () => {
                     className="feature-card-widget-4 wow fadeInUp"
                     data-wow-delay="0.1s"
                   >
-                    <Image
-                      width={60}
-                      height={60}
-                      src="/img/contact/help-icon-1.svg"
-                      alt="icon"
-                    />
+                    <Image src={helpIcon1} alt="icon" />
                     <h5 className="mt-4 mb-10">Articles & Guides</h5>
                     <p>
                       100+ articles to get the information you need when you
@@ -165,12 +158,7 @@ const ContactUsPage = () => {
                     className="feature-card-widget-4 wow fadeInUp"
                     data-wow-delay="0.3s"
                   >
-                    <Image
-                      width={60}
-                      height={60}
-                      src="/img/contact/help-icon-2.svg"
-                      alt="icon"
-                    />
+                    <Image src={helpIcon2} alt="icon" />
                     <h5 className="mt-4 mb-10">Technical Support</h5>
                     <p>
                       If you ever need help, you can chat directly with our
@@ -189,12 +177,7 @@ const ContactUsPage = () => {
                     className="feature-card-widget-4 wow fadeInUp"
                     data-wow-delay="0.5s"
                   >
-                    <Image
-                      width={60}
-                      height={60}
-                      src="/img/contact/help-icon-3.svg"
-                      alt="icon"
-                    />
+                    <Image src={helpIcon3} alt="icon" />
                     <h5 className="mt-4 mb-10">Social Media Support</h5>
                     <p>
                       Doing customer support on social media requires a
@@ -228,7 +211,7 @@ const ContactUsPage = () => {
                 <div className="col-md-12 position-relative">
                   <div
                     className="cta cta-bg-violet"
-                    style={{ backgroundImage: `url(img/cta/wave.png)` }}
+                    style={{ backgroundImage: `url(${ctaWave.src})` }}
                   >
                     <div className="row align-items-center">
                       <div className="col-lg-7">

@@ -6,6 +6,11 @@ import "@/styles/css/animate.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 import DefaultLayout from "@/components/Layout";
+// Assets
+import errorBg from "@/assets/img/error/404_bg.png";
+import errorTwo from "@/assets/img/error/404_two.png";
+import errorThree from "@/assets/img/error/404_three.png";
+import errorOne from "@/assets/img/error/404_one.png";
 
 const ErrorPage = () => {
   return (
@@ -21,36 +26,28 @@ const ErrorPage = () => {
               <div className="error_content_two text-center">
                 <div className="error_img">
                   <Image
-                    width={700}
-                    height={420}
                     className="position-absolute error_shap"
-                    src="/img/error/404_bg.png"
+                    src={errorBg}
                     alt=""
                   />
                   <div className="one wow clipInDown" data-wow-delay="1s">
                     <Image
-                      width={140}
-                      height={380}
                       className="img_one"
-                      src="/img/error/404_two.png"
+                      src={errorTwo}
                       alt=""
                     />
                   </div>
                   <div className="two wow clipInDown" data-wow-delay="1.5s">
                     <Image
-                      width={160}
-                      height={380}
                       className="img_two"
-                      src="/img/error/404_three.png"
+                      src={errorThree}
                       alt=""
                     />
                   </div>
                   <div className="three wow clipInDown" data-wow-delay="1.8s">
                     <Image
-                      width={160}
-                      height={380}
                       className="img_three"
-                      src="/img/error/404_one.png"
+                      src={errorOne}
                       alt=""
                     />
                   </div>

@@ -3,12 +3,15 @@ import React from 'react'
 import { Testimonial } from "@/types/Testimonial";
 import Slider from 'react-slick';
 import Image from 'next/image';
+import clientRev1 from '@/assets/img/home-4/client-rev-1.png';
+import clientRev2 from '@/assets/img/home-4/client-rev-2.png';
+import clientRev3 from '@/assets/img/home-4/client-rev-3.png';
 const testimonials: Testimonial[] = [
   {
     id: 1,
     name: "Gerry Kellmen",
     role: "Ui / Ux Designer",
-    image: "/img/home-4/client-rev-1.png",
+  image: clientRev1,
     rating: 5,
     quote:
       "Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything",
@@ -18,7 +21,7 @@ const testimonials: Testimonial[] = [
     id: 2,
     name: "Gerry Kellmen",
     role: "Ui / Ux Designer",
-    image: "/img/home-4/client-rev-2.png",
+  image: clientRev2,
     rating: 5,
     quote:
       "Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything",
@@ -28,7 +31,7 @@ const testimonials: Testimonial[] = [
     id: 3,
     name: "Gerry Kellmen",
     role: "Ui / Ux Designer",
-    image: "/img/home-4/client-rev-3.png",
+  image: clientRev3,
     rating: 5,
     quote:
       "Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything",
@@ -38,7 +41,7 @@ const testimonials: Testimonial[] = [
     id: 4,
     name: "Gerry Kellmen",
     role: "Ui / Ux Designer",
-    image: "/img/home-4/client-rev-1.png",
+  image: clientRev1,
     rating: 5,
     quote:
       "Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything",
@@ -47,7 +50,7 @@ const testimonials: Testimonial[] = [
     id: 5,
     name: "Gerry Kellmen",
     role: "Ui / Ux Designer",
-    image: "/img/home-4/client-rev-2.png",
+  image: clientRev2,
     rating: 5,
     quote:
       "Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything",
@@ -56,7 +59,7 @@ const testimonials: Testimonial[] = [
     id: 6,
     name: "Gerry Kellmen",
     role: "Ui / Ux Designer",
-    image: "/img/home-4/client-rev-3.png",
+  image: clientRev3,
     rating: 5,
     quote:
       "Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything",
@@ -65,7 +68,7 @@ const testimonials: Testimonial[] = [
     id: 7,
     name: "Gerry Kellmen",
     role: "Ui / Ux Designer",
-    image: "/img/home-4/client-rev-1.png",
+  image: clientRev1,
     rating: 5,
     quote:
       "Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything",
@@ -74,7 +77,7 @@ const testimonials: Testimonial[] = [
     id: 8,
     name: "Gerry Kellmen",
     role: "Ui / Ux Designer",
-    image: "/img/home-4/client-rev-2.png",
+  image: clientRev2,
     rating: 5,
     quote:
       "Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything",
@@ -83,7 +86,7 @@ const testimonials: Testimonial[] = [
     id: 9,
     name: "Gerry Kellmen",
     role: "Ui / Ux Designer",
-    image: "/img/home-4/client-rev-3.png",
+  image: clientRev3,
     rating: 5,
     quote:
       "Assertively procrastinate distributed relationships whereas equity invested intellectual capital everything",
@@ -189,8 +192,6 @@ const HomeTestimonials = () => {
                         <Image
                           src={testimonial.image}
                           alt={testimonial.name}
-                          width={50}
-                          height={50}
                           className="rounded-circle"
                         />
                         <div>

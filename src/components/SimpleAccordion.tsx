@@ -6,6 +6,22 @@ import Image from 'next/image';
 import Link from 'next/link';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import shape17 from '@/assets/img/feature/shape-17.png';
+import shape18 from '@/assets/img/feature/shape-18.png';
+import shape19 from '@/assets/img/feature/shape-19.png';
+import shape20 from '@/assets/img/feature/shape-20.png';
+import icon8 from '@/assets/img/feature/icon-8.svg';
+import shape21 from '@/assets/img/feature/shape-21.png';
+import shape22 from '@/assets/img/feature/shape-22.png';
+import shape23 from '@/assets/img/feature/shape-23.png';
+import shape24 from '@/assets/img/feature/shape-24.png';
+import icon9 from '@/assets/img/feature/icon-9.svg';
+import shape25 from '@/assets/img/feature/shape-25.png';
+import shape26 from '@/assets/img/feature/shape-26.png';
+import shape27 from '@/assets/img/feature/shape-27.png';
+import shape28 from '@/assets/img/feature/shape-28.png';
+import shape29 from '@/assets/img/feature/shape-29.png';
+import icon10 from '@/assets/img/feature/icon-10.svg';
 
 const FeatureSlider = () => {
   const settings = {
@@ -47,37 +63,12 @@ const FeatureSlider = () => {
                     data-wow-delay="0.1s"
                   >
                     <div className="shapes">
-                      <Image
-                        width={110}
-                        height={60}
-                        src="/img/feature/shape-17.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={70}
-                        height={60}
-                        src="/img/feature/shape-18.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={30}
-                        height={30}
-                        src="/img/feature/shape-19.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={20}
-                        height={20}
-                        src="/img/feature/shape-20.png"
-                        alt="shape"
-                      />
+                      <Image src={shape17} alt="shape" />
+                      <Image src={shape18} alt="shape" />
+                      <Image src={shape19} alt="shape" />
+                      <Image src={shape20} alt="shape" />
                     </div>
-                    <Image
-                      width={30}
-                      height={30}
-                      src="/img/feature/icon-8.svg"
-                      alt="icon"
-                    />
+                    <Image src={icon8} alt="icon" />
                     <span className="title">Mortgage</span>
                     <h5>
                       Got a <span> question about Mortgage Loan?</span>
@@ -92,37 +83,12 @@ const FeatureSlider = () => {
                     data-wow-delay="0.3s"
                   >
                     <div className="shapes">
-                      <Image
-                        width={100}
-                        height={60}
-                        src="/img/feature/shape-21.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={20}
-                        height={20}
-                        src="/img/feature/shape-22.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-23.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={20}
-                        height={20}
-                        src="/img/feature/shape-24.png"
-                        alt="shape"
-                      />
+                      <Image src={shape21} alt="shape" />
+                      <Image src={shape22} alt="shape" />
+                      <Image src={shape23} alt="shape" />
+                      <Image src={shape24} alt="shape" />
                     </div>
-                    <Image
-                      width={30}
-                      height={30}
-                      src="/img/feature/icon-9.svg"
-                      alt="icon"
-                    />
+                    <Image src={icon9} alt="icon" />
                     <span className="title">Bank account</span>
                     <h5>
                       Got a <span> question about Mortgage Loan?</span>
@@ -137,55 +103,15 @@ const FeatureSlider = () => {
                     data-wow-delay="0.5s"
                   >
                     <div className="shapes">
-                      <Image
-                        width={100}
-                        height={100}
-                        src="/img/feature/shape-25.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={100}
-                        height={100}
-                        src="/img/feature/shape-26.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-27.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-28.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-28.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-29.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-29.png"
-                        alt="shape"
-                      />
+                      <Image src={shape25} alt="shape" />
+                      <Image src={shape26} alt="shape" />
+                      <Image src={shape27} alt="shape" />
+                      <Image src={shape28} alt="shape" />
+                      <Image src={shape28} alt="shape" />
+                      <Image src={shape29} alt="shape" />
+                      <Image src={shape29} alt="shape" />
                     </div>
-                    <Image
-                      width={30}
-                      height={30}
-                      src="/img/feature/icon-10.svg"
-                      alt="icon"
-                    />
+                    <Image src={icon10} alt="icon" />
                     <span className="title">Loans</span>
                     <h5>
                       Got a <span> question about Mortgage Loan?</span>
@@ -200,37 +126,12 @@ const FeatureSlider = () => {
                     data-wow-delay="0.7s"
                   >
                     <div className="shapes">
-                      <Image
-                        width={110}
-                        height={60}
-                        src="/img/feature/shape-17.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={70}
-                        height={60}
-                        src="/img/feature/shape-18.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={30}
-                        height={30}
-                        src="/img/feature/shape-19.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={20}
-                        height={20}
-                        src="/img/feature/shape-20.png"
-                        alt="shape"
-                      />
+                      <Image src={shape17} alt="shape" />
+                      <Image src={shape18} alt="shape" />
+                      <Image src={shape19} alt="shape" />
+                      <Image src={shape20} alt="shape" />
                     </div>
-                    <Image
-                      width={30}
-                      height={30}
-                      src="/img/feature/icon-8.svg"
-                      alt="icon"
-                    />
+                    <Image src={icon8} alt="icon" />
                     <span className="title">Mortgage</span>
                     <h5>
                       Got a <span> question about Mortgage Loan?</span>
@@ -245,37 +146,12 @@ const FeatureSlider = () => {
                     data-wow-delay="0.9s"
                   >
                     <div className="shapes">
-                      <Image
-                        width={100}
-                        height={60}
-                        src="/img/feature/shape-21.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-22.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-23.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-24.png"
-                        alt="shape"
-                      />
+                      <Image src={shape21} alt="shape" />
+                      <Image src={shape22} alt="shape" />
+                      <Image src={shape23} alt="shape" />
+                      <Image src={shape24} alt="shape" />
                     </div>
-                    <Image
-                      width={30}
-                      height={30}
-                      src="/img/feature/icon-9.svg"
-                      alt="icon"
-                    />
+                    <Image src={icon9} alt="icon" />
                     <span className="title">Bank account</span>
                     <h5>
                       Got a <span> question about Mortgage Loan?</span>
@@ -290,55 +166,15 @@ const FeatureSlider = () => {
                     data-wow-delay="1.1s"
                   >
                     <div className="shapes">
-                      <Image
-                        width={80}
-                        height={60}
-                        src="/img/feature/shape-25.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={80}
-                        height={60}
-                        src="/img/feature/shape-26.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-27.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-28.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-28.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-29.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-29.png"
-                        alt="shape"
-                      />
+                      <Image src={shape25} alt="shape" />
+                      <Image src={shape26} alt="shape" />
+                      <Image src={shape27} alt="shape" />
+                      <Image src={shape28} alt="shape" />
+                      <Image src={shape28} alt="shape" />
+                      <Image src={shape29} alt="shape" />
+                      <Image src={shape29} alt="shape" />
                     </div>
-                    <Image
-                      width={30}
-                      height={30}
-                      src="/img/feature/icon-10.svg"
-                      alt="icon"
-                    />
+                    <Image src={icon10} alt="icon" />
                     <span className="title">Loans</span>
                     <h5>
                       Got a <span> question about Mortgage Loan?</span>
@@ -353,37 +189,12 @@ const FeatureSlider = () => {
                     data-wow-delay="1.3s"
                   >
                     <div className="shapes">
-                      <Image
-                        width={110}
-                        height={60}
-                        src="/img/feature/shape-17.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={70}
-                        height={60}
-                        src="/img/feature/shape-18.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={30}
-                        height={30}
-                        src="/img/feature/shape-19.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={20}
-                        height={20}
-                        src="/img/feature/shape-20.png"
-                        alt="shape"
-                      />
+                      <Image src={shape17} alt="shape" />
+                      <Image src={shape18} alt="shape" />
+                      <Image src={shape19} alt="shape" />
+                      <Image src={shape20} alt="shape" />
                     </div>
-                    <Image
-                      width={30}
-                      height={30}
-                      src="/img/feature/icon-8.svg"
-                      alt="icon"
-                    />
+                    <Image src={icon8} alt="icon" />
                     <span className="title">Mortgage</span>
                     <h5>
                       Got a <span> question about Mortgage Loan?</span>
@@ -398,37 +209,12 @@ const FeatureSlider = () => {
                     data-wow-delay="1.5s"
                   >
                     <div className="shapes">
-                      <Image
-                        width={100}
-                        height={70}
-                        src="/img/feature/shape-21.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={100}
-                        height={100}
-                        src="/img/feature/shape-22.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-23.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-24.png"
-                        alt="shape"
-                      />
+                      <Image src={shape21} alt="shape" />
+                      <Image src={shape22} alt="shape" />
+                      <Image src={shape23} alt="shape" />
+                      <Image src={shape24} alt="shape" />
                     </div>
-                    <Image
-                      width={30}
-                      height={30}
-                      src="/img/feature/icon-9.svg"
-                      alt="icon"
-                    />
+                    <Image src={icon9} alt="icon" />
                     <span className="title">Bank account</span>
                     <h5>
                       Got a <span> question about Mortgage Loan?</span>
@@ -443,55 +229,15 @@ const FeatureSlider = () => {
                     data-wow-delay="1.7s"
                   >
                     <div className="shapes">
-                      <Image
-                        width={80}
-                        height={60}
-                        src="/img/feature/shape-25.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={80}
-                        height={60}
-                        src="/img/feature/shape-26.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-27.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-28.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-28.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-29.png"
-                        alt="shape"
-                      />
-                      <Image
-                        width={40}
-                        height={40}
-                        src="/img/feature/shape-29.png"
-                        alt="shape"
-                      />
+                      <Image src={shape25} alt="shape" />
+                      <Image src={shape26} alt="shape" />
+                      <Image src={shape27} alt="shape" />
+                      <Image src={shape28} alt="shape" />
+                      <Image src={shape28} alt="shape" />
+                      <Image src={shape29} alt="shape" />
+                      <Image src={shape29} alt="shape" />
                     </div>
-                    <Image
-                      width={30}
-                      height={30}
-                      src="/img/feature/icon-10.svg"
-                      alt="icon"
-                    />
+                    <Image src={icon10} alt="icon" />
                     <span className="title">Loans</span>
                     <h5>
                       Got a <span> question about Mortgage Loan?</span>
