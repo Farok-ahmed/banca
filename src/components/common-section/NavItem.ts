@@ -1,67 +1,71 @@
-export type SubSubItem = [string, string];
-type SubItem = [string, string] | [string, string, SubSubItem[]];
-interface NavItem {
+export interface SubmenuItem {
+  text: string;
+  link: string;
+  submenu?: SubmenuItem[];
+}
+
+interface NavigationItem {
   label: string;
   href: string;
-  sub: SubItem[];
+  submenu?: SubmenuItem[];
 }
-const NavItems: NavItem[] = [
+const navigationItems: NavigationItem[] = [
   {
     label: "Home",
     href: "/",
-    sub: [
-      ["/", "Smart Finance"],
-      ["/index-company", "Loan Company"],
-      ["/mobile-app", "Mobile App"],
-      ["/simple-banca", "Simple Banca"],
-      ["/loan-steps", "Loan Steps"],
-      ["/finance-sass-app", "Finance Sass App"],
-      ["/small-bank", "Small Bank"],
+    submenu: [
+      { text: "Smart Finance", link: "/" },
+      { text: "Loan Company", link: "/index-company" },
+      { text: "Mobile App", link: "/mobile-app" },
+      { text: "Simple Banca", link: "/simple-banca" },
+      { text: "Loan Steps", link: "/loan-steps" },
+      { text: "Finance Sass App", link: "/finance-sass-app" },
+      { text: "Small Bank", link: "/small-bank" },
     ],
   },
   {
     label: "Loan",
     href: "/loan",
-    sub: [
-      ["/loan", "Get Loan"],
-      [
-        "/loan-details",
-        "Loan Application",
-        [
-          ["/loan-details", "Step 01"],
-          ["/personal-details", "Step 02"],
-          ["/document-upload", "Step 03"],
+    submenu: [
+      { text: "Get loan", link: "/loan" },
+      {
+        text: "Loan Application",
+        link: "/loan-details",
+        submenu: [
+          { text: "Step 01", link: "/loan-details" },
+          { text: "Step 02", link: "/personal-details" },
+          { text: "Step 03", link: "/document-upload" },
         ],
-      ],
+      },
     ],
   },
   {
     label: "Job Pages",
     href: "/career",
-    sub: [
-      ["/career", "Career"],
-      ["/jobs", "Jobs"],
-      ["/job-application", "Job Application"],
+    submenu: [
+      { text: "Career", link: "/career" },
+      { text: "Jobs", link: "/jobs" },
+      { text: "Job Application", link: "/job-application" },
     ],
   },
   {
     label: "Pages",
     href: "/card",
-    sub: [
-      ["/card", "Cards"],
-      ["/about-us", "About Us"],
-      ["/contact-us", "Contact Us"],
-      ["/error", "404 Error"],
+    submenu: [
+      { text: "Cards", link: "/card" },
+      { text: "About Us", link: "/about-us" },
+      { text: "Contact Us", link: "/contact-us" },
+      { text: "404 Error", link: "/error" },
     ],
   },
   {
     label: "Blog",
     href: "/blog-listing",
-    sub: [
-      ["/blog-listing", "Blog Listing"],
-      ["/blog-details", "Blog Details"],
+    submenu: [
+      { text: "Blog Listing", link: "/blog-listing" },
+      { text: "Blog Details", link: "/blog-details" },
     ],
   },
 ];
 
-export { NavItems };
+export { navigationItems };

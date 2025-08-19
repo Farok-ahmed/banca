@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
+import LanguageSelect from "./LanguageSelect";
 
 const TopHeader = () => {
   const pathname = usePathname();
@@ -44,26 +45,7 @@ const TopHeader = () => {
               <div className="header-info-left d-flex align-items-center">
                 {/* Language Dropdown */}
                 <div className="language-list position-relative w-auto">
-                  <select
-                    id="select-lang"
-                    className="form-select border-0 shadow-none text-white pe-5 ps-2"
-                    style={{
-                      appearance: "none",
-                      backgroundColor: "#171d24",
-                      color: "#ffffff",
-                      paddingRight: "2.5rem",
-                      paddingLeft: "0.75rem",
-                      border: "1px solid #ffffff22",
-                      borderRadius: "6px",
-                      height: "38px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <option value="English">English</option>
-                    <option value="Bangla">Bangla</option>
-                    <option value="French">French</option>
-                    <option value="Hindi">Hindi</option>
-                  </select>
+                  <LanguageSelect/>
 
                   {/* Dropdown Arrow */}
                   <span

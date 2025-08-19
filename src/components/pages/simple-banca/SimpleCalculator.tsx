@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import * as noUiSlider from "nouislider";
@@ -6,7 +6,7 @@ interface HTMLDivElementWithSlider extends HTMLDivElement {
   noUiSlider?: noUiSlider.API;
 }
 const SimpleCalculator = () => {
-    const amountSliderRef = useRef<HTMLDivElementWithSlider>(null);
+  const amountSliderRef = useRef<HTMLDivElementWithSlider>(null);
   const periodSliderRef = useRef<HTMLDivElementWithSlider>(null);
 
   const [amount, setAmount] = useState(5000);

@@ -37,6 +37,7 @@ import article2 from "@/assets/img/home-4/article-2.png";
 import article3 from "@/assets/img/home-4/article-3.png";
 import calenderOutline from "@/assets/img/home-4/calender-outline.svg";
 import userProfile from "@/assets/img/home-4/user-profile.svg";
+import FormSelect from "./FormSelect";
 
 const blogPosts: BlogItem[] = [
   {
@@ -164,7 +165,8 @@ export default function Home() {
                         <label className="label" htmlFor="loandetails01">
                           Type of Loan
                         </label>
-                        <select
+                        <FormSelect/>
+                        {/* <select
                           className="w-100 nice-select"
                           id="loandetails01"
                         >
@@ -172,7 +174,7 @@ export default function Home() {
                           <option value="Equity-Finance">
                             Installment loan
                           </option>
-                        </select>
+                        </select> */}
                       </div>
 
                       <div className="mb-3">

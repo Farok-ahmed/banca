@@ -11,7 +11,6 @@ import "@/styles/css/responsive.css";
 import FAQAccordion from "@/components/FaqAccordion";
 import Image from "next/image";
 import Link from "next/link";
-import "nouislider/dist/nouislider.css";
 import FeatureSlider from "@/components/SimpleAccordion";
 import SimplebancaSlider from "@/components/SimplebancaSlider";
 import DefaultLayout from "@/components/Layout";

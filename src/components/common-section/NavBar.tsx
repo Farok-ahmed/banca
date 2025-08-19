@@ -9,7 +9,7 @@ import Logo from "@/assets/img/logo/Logo.png";
 import Logo2 from "@/assets/img/logo/Logo-2.png";
 import Logo3 from "@/assets/img/logo/Logo-3.png";
 import classNames from "classnames";
-import { SubSubItem, NavItems } from "./NavItem";
+import { SubmenuItem, navigationItems } from "./NavItem";
 import TopHeader from "./TopHeader";
 
 const NavBar = () => {
@@ -46,30 +46,37 @@ const NavBar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [lastScrollTop]);
-
   const handleMenuToggle = () => {
-    setMenuOpen(!menuOpen);
+    setMenuOpen((prev) => !prev);
   };
 
-  const toggleDropdown = (label: string) => {
+  const handleDropdownToggle = (label: string) => {
     setOpenDropdown((prev) => (prev === label ? null : label));
   };
 
-  // helper to render caret icon on mobile
-  const renderMobileDropdownIcon = (label: string) => (
-    <i
-      className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none ms-1"
-      aria-hidden="true"
-      onClick={(e) => {
-        e.preventDefault();
-        toggleDropdown(label);
-      }}
-      style={{ cursor: "pointer" }}
-    ></i>
-  );
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 992;
 
-  const isActive = (href: string): boolean => {
-    return pathname === href || pathname.startsWith(href + "/");
+  const isActiveRoute = (
+    href: string,
+    submenu: SubmenuItem[] | null = null
+  ): boolean => {
+    if (pathname === href) return true;
+
+    // Check if any submenu item is active
+    if (submenu) {
+      return submenu.some((item: SubmenuItem) => {
+        if (pathname === item.link) return true;
+        // Check nested submenu
+        if (item.submenu) {
+          return item.submenu.some(
+            (deepItem: SubmenuItem) => pathname === deepItem.link
+          );
+        }
+        return false;
+      });
+    }
+
+    return false;
   };
   // index company page select
   const isIndexCompany = pathname === "/index-company";
@@ -171,77 +178,101 @@ const NavBar = () => {
                   financeSass ? "ms-5 me-auto" : "ms-auto"
                 }`}
               >
-                {NavItems.map((item, idx) => (
-                  <li className="nav-item dropdown submenu" key={idx}>
+                {navigationItems.map((item, idx: number) => (
+                  <li key={idx} className="nav-item dropdown submenu">
                     <Link
                       href={item.href}
-                      className={classNames("nav-link dropdown-toggle", {
-                        active: isActive(item.href),
-                      })}
+                      className={`nav-link dropdown-toggle ${
+                        isActiveRoute(item.href, item.submenu) ? "active" : ""
+                      }`}
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded={openDropdown === item.label}
+                      onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                        if (isMobile) {
+                          e.preventDefault();
+                          handleDropdownToggle(item.label);
+                        }
+                      }}
                     >
                       {item.label}
-                      {renderMobileDropdownIcon(item.label)}
                     </Link>
+                    <i
+                      className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                      aria-hidden="true"
+                      onClick={() => handleDropdownToggle(item.label)}
+                      style={{ cursor: "pointer" }}
+                    ></i>
 
                     <ul
-                      className={classNames("dropdown-menu", {
-                        show: openDropdown === item.label,
-                      })}
+                      className={`dropdown-menu ${
+                        openDropdown === item.label ? "show" : ""
+                      }`}
                     >
-                      {item.sub.map((subItem, subIdx) => {
-                        if (Array.isArray(subItem[2])) {
-                          const subSubList = subItem[2] as SubSubItem[];
-                          return (
-                            <li
-                              className="nav-item dropdown submenu"
-                              key={subIdx}
-                            >
-                              <Link
-                                href="#"
-                                className="nav-link dropdown-toggle"
-                              >
-                                {subItem[1]}
-                                {renderMobileDropdownIcon(
-                                  `${item.label}-nested-${subIdx}`
-                                )}
-                              </Link>
+                      {item.submenu?.map((sub: SubmenuItem, i: number) => (
+                        <li
+                          key={i}
+                          className={`nav-item ${
+                            sub.submenu ? "dropdown submenu" : ""
+                          }`}
+                        >
+                          <Link
+                            href={sub.link}
+                            className={`nav-link ${
+                              pathname === sub.link ? "active" : ""
+                            }`}
+                            onClick={(
+                              e: React.MouseEvent<HTMLAnchorElement>
+                            ) => {
+                              if (isMobile && sub.submenu) {
+                                e.preventDefault();
+                                handleDropdownToggle(
+                                  `${item.label}-${sub.text}`
+                                );
+                              }
+                            }}
+                          >
+                            {sub.text}
+                          </Link>
+                          {sub.submenu && (
+                            <>
+                              <i
+                                className="arrow_carrot-down_alt2 mobile_dropdown_icon d-lg-none"
+                                aria-hidden="true"
+                                onClick={() =>
+                                  handleDropdownToggle(
+                                    `${item.label}-${sub.text}`
+                                  )
+                                }
+                                style={{ cursor: "pointer" }}
+                              ></i>
                               <ul
-                                className={classNames("dropdown-menu", {
-                                  show:
-                                    openDropdown ===
-                                    `${item.label}-nested-${subIdx}`,
-                                })}
+                                className={`dropdown-menu ${
+                                  openDropdown === `${item.label}-${sub.text}`
+                                    ? "show"
+                                    : ""
+                                }`}
                               >
-                                {subSubList.map(([href, label], innerIdx) => (
-                                  <li className="nav-item" key={innerIdx}>
-                                    <Link
-                                      href={href}
-                                      className={classNames("nav-link", {
-                                        active: isActive(href),
-                                      })}
-                                    >
-                                      {label}
-                                    </Link>
-                                  </li>
-                                ))}
+                                {sub.submenu.map(
+                                  (deep: SubmenuItem, j: number) => (
+                                    <li key={j} className="nav-item">
+                                      <Link
+                                        href={deep.link}
+                                        className={`nav-link ${
+                                          pathname === deep.link ? "active" : ""
+                                        }`}
+                                      >
+                                        {deep.text}
+                                      </Link>
+                                    </li>
+                                  )
+                                )}
                               </ul>
-                            </li>
-                          );
-                        } else {
-                          return (
-                            <li className="nav-item" key={subIdx}>
-                              <Link
-                                href={subItem[0]}
-                                className={classNames("nav-link", {
-                                  active: isActive(subItem[0]),
-                                })}
-                              >
-                                {subItem[1]}
-                              </Link>
-                            </li>
-                          );
-                        }
-                      })}
+                            </>
+                          )}
+                        </li>
+                      ))}
                     </ul>
                   </li>
                 ))}
