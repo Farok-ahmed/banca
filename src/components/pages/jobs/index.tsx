@@ -4,19 +4,97 @@
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
-import "@/styles/css/nice-select.css";
-import "@/styles/css/jquery-editable-select.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
 import JobSort from "./JobSort";
 import breadcrumbBg2 from "@/assets/img/breadcrumb/bg-2.png";
+import FormSelect from "@/components/common-section/FormSelect";
+import { OptionType } from "@/components/common-section/type";
+
+const bangladeshDistricts:OptionType[] = [
+  { value: "Bagerhat", label: "Bagerhat" },
+  { value: "Bandarban", label: "Bandarban" },
+  { value: "Barguna", label: "Barguna" },
+  { value: "Barisal", label: "Barisal" },
+  { value: "Bhola", label: "Bhola" },
+  { value: "Barishal Metro", label: "Barishal Metro" },
+  { value: "Bogra", label: "Bogra" },
+  { value: "Brahmmanbaria", label: "Brahmmanbaria" },
+  { value: "Chandpur", label: "Chandpur" },
+  { value: "Chapai Nawabganj", label: "Chapai Nawabganj" },
+  { value: "Chittagong", label: "Chittagong" },
+  { value: "Chuadanga", label: "Chuadanga" },
+  { value: "Chottogram Metro", label: "Chottogram Metro" },
+  { value: "Cox's Bazar", label: "Cox's Bazar" },
+  { value: "Coxsbazar", label: "Coxsbazar" },
+  { value: "Cumilla", label: "Cumilla" },
+  { value: "Dhaka", label: "Dhaka" },
+  { value: "Dinajpur", label: "Dinajpur" },
+  { value: "Dhaka Metro", label: "Dhaka Metro" },
+  { value: "Faridpur", label: "Faridpur" },
+  { value: "Feni", label: "Feni" },
+  { value: "Gaibandha", label: "Gaibandha" },
+  { value: "Gazipur", label: "Gazipur" },
+  { value: "Gazipur Metro", label: "Gazipur Metro" },
+  { value: "Gopalgonj", label: "Gopalgonj" },
+  { value: "Habigonj", label: "Habigonj" },
+  { value: "Jaflong", label: "Jaflong" },
+  { value: "Jamalpur", label: "Jamalpur" },
+  { value: "Jessore", label: "Jessore" },
+  { value: "Jhalokathi", label: "Jhalokathi" },
+  { value: "Jhenaidah", label: "Jhenaidah" },
+  { value: "Joypurhat", label: "Joypurhat" },
+  { value: "Khagrachari", label: "Khagrachari" },
+  { value: "Khulna", label: "Khulna" },
+  { value: "Kishoregonj", label: "Kishoregonj" },
+  { value: "Khulna Metro", label: "Khulna Metro" },
+  { value: "Kurigram", label: "Kurigram" },
+  { value: "Kustia", label: "Kustia" },
+  { value: "Lalmonirhat", label: "Lalmonirhat" },
+  { value: "Laxmipur", label: "Laxmipur" },
+  { value: "Madaripur", label: "Madaripur" },
+  { value: "Magura", label: "Magura" },
+  { value: "Manikgonj", label: "Manikgonj" },
+  { value: "Meherpur", label: "Meherpur" },
+  { value: "Moulabhibazar", label: "Moulabhibazar" },
+  { value: "Munshigonj", label: "Munshigonj" },
+  { value: "Mymensingh", label: "Mymensingh" },
+  { value: "Naogaon", label: "Naogaon" },
+  { value: "Narail", label: "Narail" },
+  { value: "Narayangonj", label: "Narayangonj" },
+  { value: "Narsingdi", label: "Narsingdi" },
+  { value: "Natore", label: "Natore" },
+  { value: "Netrokona", label: "Netrokona" },
+  { value: "Nilphamari", label: "Nilphamari" },
+  { value: "Noakhali", label: "Noakhali" },
+  { value: "Pabna", label: "Pabna" },
+  { value: "Panchagarh", label: "Panchagarh" },
+  { value: "Patuakhali", label: "Patuakhali" },
+  { value: "Pirojpur", label: "Pirojpur" },
+  { value: "Rajbari", label: "Rajbari" },
+  { value: "Rajshahi", label: "Rajshahi" },
+  { value: "Rangamati", label: "Rangamati" },
+  { value: "Rangpur", label: "Rangpur" },
+  { value: "Rajshahi Metro", label: "Rajshahi Metro" },
+  { value: "Rangpur Metro", label: "Rangpur Metro" },
+  { value: "Saint Martin", label: "Saint Martin" },
+  { value: "Satkhira", label: "Satkhira" },
+  { value: "Shariatpur", label: "Shariatpur" },
+  { value: "Sherpur", label: "Sherpur" },
+  { value: "Sirajgonj", label: "Sirajgonj" },
+  { value: "Sylhet Metro", label: "Sylhet Metro" },
+  { value: "Srimangal", label: "Srimangal" },
+  { value: "Sunamgonj", label: "Sunamgonj" },
+  { value: "Sylhet", label: "Sylhet" },
+  { value: "Tangail", label: "Tangail" },
+  { value: "Teknaf", label: "Teknaf" },
+  { value: "Thakurgaon", label: "Thakurgaon" }
+];
+
 
 const JobsPage = () => {
-  
-
-  // Check if current route is active
 
   return (
     <>
@@ -34,10 +112,10 @@ const JobsPage = () => {
                       <h1>Job Posts</h1>
                       <ul>
                         <li>
-                          <Link href="index.html">home</Link>
+                          <Link href="/">home</Link>
                         </li>
                         <li>
-                          <Link href="index.html">pages</Link>
+                          <Link href="/">pages</Link>
                         </li>
                         <li>Careers</li>
                       </ul>
@@ -78,95 +156,7 @@ const JobsPage = () => {
                         <span className="arrow-icon">
                           <i className="arrow_carrot-down"></i>
                         </span>
-                        <select id="locationSelect" className="form-control">
-                          <option value="Bagerhat">
-                            Bagerhat
-                          </option>
-                          <option value="Bandarban">Bandarban</option>
-                          <option value="Barguna">Barguna</option>
-                          <option value="Barisal">Barisal</option>
-                          <option value="Bhola">Bhola</option>
-                          <option value="Barishal Metro">Barishal Metro</option>
-                          <option value="Bogra">Bogra</option>
-                          <option value="Brahmmanbaria">Brahmmanbaria</option>
-                          <option value="Chandpur">Chandpur</option>
-                          <option value="Chapai Nawabganj">
-                            Chapai Nawabganj
-                          </option>
-                          <option value="Chittagong">Chittagong</option>
-                          <option value="Chuadanga">Chuadanga</option>
-                          <option value="Chottogram Metro">
-                            Chottogram Metro
-                          </option>
-                          <option value="Cox&#039;s Bazar">
-                            Cox&#039;s Bazar
-                          </option>
-                          <option value="Coxsbazar">Coxsbazar</option>
-                          <option value="Cumilla">Cumilla</option>
-                          <option value="Dhaka">Dhaka</option>
-                          <option value="Dinajpur">Dinajpur</option>
-                          <option value="Dhaka Metro">Dhaka Metro</option>
-                          <option value="Faridpur">Faridpur</option>
-                          <option value="Feni">Feni</option>
-                          <option value="Gaibandha">Gaibandha</option>
-                          <option value="Gazipur">Gazipur</option>
-                          <option value="Gazipur Metro">Gazipur Metro</option>
-                          <option value="Gopalgonj">Gopalgonj</option>
-                          <option value="Habigonj">Habigonj</option>
-                          <option value="Jaflong">Jaflong</option>
-                          <option value="Jamalpur">Jamalpur</option>
-                          <option value="Jessore">Jessore</option>
-                          <option value="Jhalokathi">Jhalokathi</option>
-                          <option value="Jhenaidah">Jhenaidah</option>
-                          <option value="Joypurhat">Joypurhat</option>
-                          <option value="Khagrachari">Khagrachari</option>
-                          <option value="Khulna">Khulna</option>
-                          <option value="Kishoregonj">Kishoregonj</option>
-                          <option value="Khulna Metro">Khulna Metro</option>
-                          <option value="Kurigram">Kurigram</option>
-                          <option value="Kustia">Kustia</option>
-                          <option value="Lalmonirhat">Lalmonirhat</option>
-                          <option value="Laxmipur">Laxmipur</option>
-                          <option value="Madaripur">Madaripur</option>
-                          <option value="Magura">Magura</option>
-                          <option value="Manikgonj">Manikgonj</option>
-                          <option value="Meherpur">Meherpur</option>
-                          <option value="Moulabhibazar">Moulabhibazar</option>
-                          <option value="Munshigonj">Munshigonj</option>
-                          <option value="Mymensingh">Mymensingh</option>
-                          <option value="Naogaon">Naogaon</option>
-                          <option value="Narail">Narail</option>
-                          <option value="Narayangonj">Narayangonj</option>
-                          <option value="Narsingdi">Narsingdi</option>
-                          <option value="Natore">Natore</option>
-                          <option value="Netrokona">Netrokona</option>
-                          <option value="Nilphamari">Nilphamari</option>
-                          <option value="Noakhali">Noakhali</option>
-                          <option value="Pabna">Pabna</option>
-                          <option value="Panchagarh">Panchagarh</option>
-                          <option value="Patuakhali">Patuakhali</option>
-                          <option value="Pirojpur">Pirojpur</option>
-                          <option value="Rajbari">Rajbari</option>
-                          <option value="Rajshahi">Rajshahi</option>
-                          <option value="Rangamati">Rangamati</option>
-                          <option value="Rangpur">Rangpur</option>
-                          <option value="Rajshahi Metro ">
-                            Rajshahi Metro{" "}
-                          </option>
-                          <option value="Rangpur Metro ">Rangpur Metro </option>
-                          <option value="Saint Martin">Saint Martin</option>
-                          <option value="Satkhira">Satkhira</option>
-                          <option value="Shariatpur">Shariatpur</option>
-                          <option value="Sherpur">Sherpur</option>
-                          <option value="Sirajgonj">Sirajgonj</option>
-                          <option value="Sylhet Metro">Sylhet Metro</option>
-                          <option value="Srimangal">Srimangal</option>
-                          <option value="Sunamgonj">Sunamgonj</option>
-                          <option value="Sylhet">Sylhet</option>
-                          <option value="Tangail">Tangail</option>
-                          <option value="Teknaf">Teknaf</option>
-                          <option value="Thakurgaon">Thakurgaon</option>
-                        </select>
+                        <FormSelect options={bangladeshDistricts} />
                       </div>
                     </div>
 
@@ -274,7 +264,7 @@ const JobsPage = () => {
                       <div className="post-header">
                         <div>
                           <h6 className="job-title">
-                            <Link href="job-application.html">
+                            <Link href="/job-application">
                               Manager- Products & Marketing
                             </Link>{" "}
                           </h6>

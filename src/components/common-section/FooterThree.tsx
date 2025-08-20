@@ -19,7 +19,7 @@ const FooterThree = () => {
               <div className="col-xl-4 col-lg-3 col-6 pr-lg-90">
                 <div className="footer-widget mb-30 wow fadeInLeft">
                   <div className="flog mb-35">
-                    <Link href="index.html">
+                    <Link href="/">
                       <Image src={Logo} alt="logo" />
                     </Link>
                   </div>

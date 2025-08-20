@@ -62,7 +62,7 @@ const FinanceSassAppPage = () => {
                   </p>
                   <div className="d-flex flex-column flex-sm-row justify-content-center mt-25 subscribe-field">
                     <Link
-                      href="loan.html"
+                      href="/loan"
                       data-wow-delay="0.5s"
                       className="wow fadeInUp theme-btn theme-btn-lg mt-50"
                     >

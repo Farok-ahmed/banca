@@ -1,29 +1,17 @@
-"use client";
-import React, { useState } from "react";
+import FormSelect from "@/components/common-section/FormSelect";
+import { OptionType } from "@/components/common-section/type";
 
 const JobSort = () => {
-  const [sortOption, setSortOption] = useState("SortBy Newest");
+ const sortOptions: OptionType[] = [
+  { value: "SortBy Newest", label: "SortBy Newest" },
+  { value: "SortBy Oldest", label: "SortBy Oldest" },
+  { value: "SortBy Popular", label: "SortBy Popular" },
+  { value: "SortBy Trending", label: "SortBy Trending" }
+];
 
-  const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSortOption(e.target.value);
-  };
   return (
     <>
-      <select
-        id="sort-select"
-        className="form-select"
-        value={sortOption}
-        onChange={handleSortChange}
-        style={{
-          outline: "none",
-          boxShadow: "none",
-        }}
-      >
-        <option value="SortBy Newest">SortBy Newest</option>
-        <option value="SortBy Oldest">SortBy Oldest</option>
-        <option value="SortBy Popular">SortBy Popular</option>
-        <option value="SortBy Trending">SortBy Trending</option>
-      </select>
+     <FormSelect options={sortOptions} />
     </>
   );
 };

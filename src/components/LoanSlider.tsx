@@ -1,15 +1,35 @@
-'use client';
+"use client";
 
-import React, { ReactNode } from 'react';
-import Slider from 'react-slick';
-import Image from 'next/image';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import loanType1 from '@/assets/img/home-5/loan-type-1.png';
-import loanType2 from '@/assets/img/home-5/loan-type-2.png';
-import loanType3 from '@/assets/img/home-5/loan-type-3.png';
+import React, { ReactNode } from "react";
+import Slider, { CustomArrowProps } from "react-slick";
+import Image from "next/image";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import loanType1 from "@/assets/img/home-5/loan-type-1.png";
+import loanType2 from "@/assets/img/home-5/loan-type-2.png";
+import loanType3 from "@/assets/img/home-5/loan-type-3.png";
 
 const LoanSlider = () => {
+  const NextArrow: React.FC<CustomArrowProps> = ({ onClick }) => {
+    return (
+      <>
+        <button
+        onClick={onClick}
+        className="slick-next slick-arrow"
+      >
+        <i className="arrow_right"></i>
+      </button>
+      </>
+    );
+  };
+
+  const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => {
+    return (
+      <button onClick={onClick} className="slick-prev slick-arrow">
+        <i className="arrow_left"></i>
+      </button>
+    );
+  };
   const settings = {
     dots: true,
     arrows: true,
@@ -18,47 +38,19 @@ const LoanSlider = () => {
     slidesToShow: 3,
     slidesToScroll: 3,
     autoplay: true,
-    nextArrow: (
-      <div>
-        <div
-          style={{
-            height: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-          className="d-flex justify-content-center align-items-center"
-        >
-          <i className="arrow_right"></i>
-        </div>
-      </div>
-    ),
-    prevArrow: (
-      <div>
-        <div
-          style={{
-            height: '100%',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-          className="d-flex justify-content-center align-items-center"
-        >
-          <i className="arrow_left"></i>
-        </div>
-      </div>
-    ),
+    nextArrow: <NextArrow/>,
+    prevArrow:<PrevArrow/>,
     customPaging: () => (
       <button
         style={{
-          width: '12px',
-          height: '12px',
-          borderRadius: '50%',
+          width: "12px",
+          height: "12px",
+          borderRadius: "50%",
         }}
       ></button>
     ),
     appendDots: (dots: ReactNode) => (
-      <ul style={{ display: 'flex', justifyContent: 'center', gap: '10px' }}>
+      <ul style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
         {dots}
       </ul>
     ),
@@ -80,58 +72,58 @@ const LoanSlider = () => {
 
   const slides = [
     {
-      title: 'Personal Loans',
-  image: loanType1,
+      title: "Personal Loans",
+      image: loanType1,
       description:
-        'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
+        "Our team of experts uses methodology to identify the credit cards most suitable for your needs.",
     },
     {
-      title: 'Installment Loans',
-  image: loanType2,
+      title: "Installment Loans",
+      image: loanType2,
       description:
-        'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
+        "Our team of experts uses methodology to identify the credit cards most suitable for your needs.",
     },
     {
-      title: 'Payday Loans',
-  image: loanType3,
+      title: "Payday Loans",
+      image: loanType3,
       description:
-        'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
+        "Our team of experts uses methodology to identify the credit cards most suitable for your needs.",
     },
     {
-      title: 'Personal Loans',
-  image: loanType1,
+      title: "Personal Loans",
+      image: loanType1,
       description:
-        'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
+        "Our team of experts uses methodology to identify the credit cards most suitable for your needs.",
     },
     {
-      title: 'Installment Loans',
-  image: loanType2,
+      title: "Installment Loans",
+      image: loanType2,
       description:
-        'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
+        "Our team of experts uses methodology to identify the credit cards most suitable for your needs.",
     },
     {
-      title: 'Payday Loans',
-  image: loanType3,
+      title: "Payday Loans",
+      image: loanType3,
       description:
-        'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
+        "Our team of experts uses methodology to identify the credit cards most suitable for your needs.",
     },
     {
-      title: 'Installment Loans',
-  image: loanType2,
+      title: "Installment Loans",
+      image: loanType2,
       description:
-        'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
+        "Our team of experts uses methodology to identify the credit cards most suitable for your needs.",
     },
     {
-      title: 'Payday Loans',
-  image: loanType3,
+      title: "Payday Loans",
+      image: loanType3,
       description:
-        'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
+        "Our team of experts uses methodology to identify the credit cards most suitable for your needs.",
     },
     {
-      title: 'Personal Loans',
-  image: loanType1,
+      title: "Personal Loans",
+      image: loanType1,
       description:
-        'Our team of experts uses methodology to identify the credit cards most suitable for your needs.',
+        "Our team of experts uses methodology to identify the credit cards most suitable for your needs.",
     },
   ];
 

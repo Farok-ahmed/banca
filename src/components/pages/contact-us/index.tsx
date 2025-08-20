@@ -38,7 +38,7 @@ const ContactUsPage = () => {
                       <h1>We are here to help.</h1>
                       <ul>
                         <li>
-                          <a href="index.html">home</a>
+                          <Link href="/">home</Link>
                         </li>
                         <li>Contact Us</li>
                       </ul>

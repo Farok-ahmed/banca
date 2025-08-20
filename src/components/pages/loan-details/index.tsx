@@ -26,10 +26,10 @@ const LoanDetailPage = () => {
                       <h1>Loan details</h1>
                       <ul>
                         <li>
-                          <Link href="index.html">home</Link>
+                          <Link href="/">home</Link>
                         </li>
                         <li>
-                          <Link href="index.html">pages</Link>
+                          <Link href="/">pages</Link>
                         </li>
                         <li>loan</li>
                       </ul>

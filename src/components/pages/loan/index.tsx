@@ -27,6 +27,28 @@ import applyIcon22 from "@/assets/img/apply-loan/icon-2.2.png";
 import applyIcon31 from "@/assets/img/apply-loan/icon-3.1.png";
 import applyIcon32 from "@/assets/img/apply-loan/icon-3.2.png";
 import stepsShield from "@/assets/img/steps/sheild.png";
+import LoanTypeSelect from "./LoanTypeSelect";
+export type OptionTypes = {
+  value: string;
+  label: string;
+};
+
+const loanTypeOptions: OptionTypes[] = [
+  { value: "home_loan", label: "Home Loan" },
+  { value: "loan_against_property", label: "Loan Against Property" },
+  { value: "loan_renovation", label: "Loan Renovation" },
+  { value: "commercial_property", label: "Commercial Property" },
+];
+const districts: OptionTypes[] = [
+  { value: "Bagerhat", label: "Bagerhat" },
+  { value: "Bandarban", label: "Bandarban" },
+  { value: "Barguna", label: "Barguna" },
+  { value: "Barisal", label: "Barisal" },
+  { value: "Bhola", label: "Bhola" },
+  { value: "Barishal Metro", label: "Barishal Metro" },
+  { value: "Bogra", label: "Bogra" },
+  { value: "Brahmmanbaria", label: "Brahmmanbaria" }
+];
 
 const LoanPage = () => {
   return (
@@ -169,36 +191,11 @@ const LoanPage = () => {
                             </span>
 
                             {/* Dropdown */}
-                            <div className="position-relative">
-                              <select
-                                name="select-loan-type"
-                                id="select-loan-type"
-                                className="form-select border-0 ps-0 pe-4 fw-semibold"
-                                style={{
-                                  appearance: "none",
-                                  backgroundColor: "transparent",
-                                  boxShadow: "none",
-                                  cursor: "pointer",
-                                  fontWeight: "normal",
-                                }}
-                              >
-                                <option>Select your Loan</option>
-                                <option value="Home Loan">Home Loan</option>
-                                <option value="Loan Against Property">
-                                  Loan Against Property
-                                </option>
-                                <option value="Loan Renovation">
-                                  Loan Renovation
-                                </option>
-                                <option value="Commercial Property">
-                                  Commercial Property
-                                </option>
-                              </select>
-
+                            <div className="">
+                             
+                                <LoanTypeSelect options={loanTypeOptions} />
                               {/* Chevron icon */}
-                              <span className="position-absolute top-50 end-0 translate-middle-y me-2 text-dark">
-                                <i className="bi bi-chevron-down"></i>
-                              </span>
+                              
                             </div>
                           </div>
                         </div>
@@ -218,39 +215,10 @@ const LoanPage = () => {
                               Where do you currently live?
                             </span>
                             <div
-                              className="select-location d-flex align-items-center position-relative w-100"
+                              className=""
                               id="locationSlectParent"
                             >
-                              <select
-                                className="w-100 custom-select-no-arrow"
-                                name="select-location"
-                                id="locationSelect"
-                                defaultValue={"Bandarban"}
-                                style={{
-                                  appearance: "none",
-                                  backgroundColor: "transparent",
-                                  boxShadow: "none",
-                                  cursor: "pointer",
-                                  fontWeight: "normal",
-                                }}
-                              >
-                                <option value="Bagerhat">Bagerhat</option>
-                                <option value="Bandarban">Bandarban</option>
-                                <option value="Barguna">Barguna</option>
-                                <option value="Barisal">Barisal</option>
-                                <option value="Bhola">Bhola</option>
-                                <option value="Barishal Metro">
-                                  Barishal Metro
-                                </option>
-                                <option value="Bogra">Bogra</option>
-                                <option value="Brahmmanbaria">
-                                  Brahmmanbaria
-                                </option>
-                              </select>
-
-                              <span className="close" id="readOnlyClose">
-                                <i className="icon_close"></i>
-                              </span>
+                             <LoanTypeSelect options={districts} />
                             </div>
                           </div>
                         </div>
@@ -286,8 +254,6 @@ const LoanPage = () => {
           </section>
 
           <BankCalculator />
-
-          {/* <CenterMode /> */}
           <TestimonialSlider />
         </main>
       </DefaultLayout>

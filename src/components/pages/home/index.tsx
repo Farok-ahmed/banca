@@ -37,7 +37,8 @@ import article2 from "@/assets/img/home-4/article-2.png";
 import article3 from "@/assets/img/home-4/article-3.png";
 import calenderOutline from "@/assets/img/home-4/calender-outline.svg";
 import userProfile from "@/assets/img/home-4/user-profile.svg";
-import FormSelect from "./FormSelect";
+import FormSelect from "../../common-section/FormSelect";
+import { OptionType } from "@/components/common-section/type";
 
 const blogPosts: BlogItem[] = [
   {
@@ -77,9 +78,11 @@ const blogPosts: BlogItem[] = [
     delay: "0.5s",
   },
 ];
-
+const options: OptionType[] = [
+  { value: 'Debt-Financing', label: 'Debt Loan' },
+  { value: 'Equity-Finance', label: 'Installment loan' }
+];
 export default function Home() {
-  // helper to render caret icon on mobile
 
   return (
     <>
@@ -165,16 +168,7 @@ export default function Home() {
                         <label className="label" htmlFor="loandetails01">
                           Type of Loan
                         </label>
-                        <FormSelect/>
-                        {/* <select
-                          className="w-100 nice-select"
-                          id="loandetails01"
-                        >
-                          <option value="Debt-Financing">Debt Loan</option>
-                          <option value="Equity-Finance">
-                            Installment loan
-                          </option>
-                        </select> */}
+                        <FormSelect options={options}/>
                       </div>
 
                       <div className="mb-3">

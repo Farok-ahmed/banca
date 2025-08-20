@@ -84,7 +84,7 @@ const LoanStepsPage = () => {
                       the way by offering Home Loan facilities.
                     </p>
                     <Link
-                      href="loan.html"
+                      href="/loan"
                       data-wow-delay="0.5s"
                       className="wow fadeInUp theme-btn theme-btn-lg mt-50"
                     >
@@ -242,7 +242,7 @@ const LoanStepsPage = () => {
                           Considered2
                         </li>
                       </ul>
-                      <Link href="loan.html" className="theme-btn mt-20 w-100">
+                      <Link href="/loan" className="theme-btn mt-20 w-100">
                         Apply for loans
                       </Link>
                     </div>
@@ -779,7 +779,7 @@ const LoanStepsPage = () => {
                       <div className="col-md-5 text-center text-md-end">
                         <div className="cta-content   text-md-end mt-3 mt-md-0">
                           <Link
-                            href="contact.html"
+                            href="/contact-us"
                             className="theme-btn theme-btn-alt wow fadeInLeft m-0"
                           >
                             Contact Us

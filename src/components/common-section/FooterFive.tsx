@@ -15,7 +15,7 @@ const FooterFive = () => {
             <div className="row">
               <div className="col-lg-4 col-sm-6">
                 <div className="f-widget about-widget">
-                  <Link href="index.html" className="p-0 m-0">
+                  <Link href="/" className="p-0 m-0">
                     <Image
                       width={90}
                       height={30}

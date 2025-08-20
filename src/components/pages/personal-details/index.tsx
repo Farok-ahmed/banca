@@ -91,12 +91,12 @@ const PersonalDetailsPage = () => {
                 <div className="stepper-widget mt-sm-5 px-3 px-sm-0">
                   <ul>
                     <li className=" complete  mt-0">
-                      <a href="loan-details.html">
+                      <Link href="/loan-details">
                         <div className="number">
                           <i className="icon_check"></i> <span>1</span>
                         </div>{" "}
                         Loan Details
-                      </a>
+                      </Link>
                     </li>
                     <li className="active">
                       <Link href="/personal-details">
@@ -120,7 +120,7 @@ const PersonalDetailsPage = () => {
 
               <div className="col-lg-9">
                 <div className="loan-details-widget">
-                  <form action="document-upload.html">
+                  <form >
                     <div className="row gy-4">
                       <div className="col-md-6">
                         <label className="label" htmlFor="fName">

@@ -25,14 +25,14 @@ const PricingPlan = () => {
         {/* Toggle Buttons */}
         <div className="pricing_tab_btn text-center">
           <span
-            onClick={() => setIsMonthly(true)}
+            // onClick={() => setIsMonthly(true)}
             className={`tab-btn ${isMonthly ? 'active' : ''}`}
           >
             Monthly
           </span>
-          <span className="toggle-icon" onClick={togglePricing}></span>
+          <span className={`toggle ${isMonthly ? "clicked" : ""}`} onClick={togglePricing}></span>
           <span
-            onClick={() => setIsMonthly(false)}
+            // onClick={() => setIsMonthly(false)}
             className={`tab-btn ${!isMonthly ? 'active' : ''}`}
           >
             Yearly

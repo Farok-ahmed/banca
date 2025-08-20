@@ -4,9 +4,8 @@ import { useEffect, useRef, useState, useMemo } from 'react';
 import * as noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 import Flatpickr from 'react-flatpickr';
-import 'flatpickr/dist/themes/material_blue.css';
 import Link from 'next/link';
-
+ import "flatpickr/dist/flatpickr.css";
 type HTMLDivElementWithSlider = HTMLDivElement & {
   noUiSlider: noUiSlider.API;
 };
