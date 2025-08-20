@@ -1,3 +1,4 @@
+"use client"
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -34,6 +35,9 @@ import article4 from "@/assets/img/blog/article-4.png";
 import faqShape from "@/assets/img/faq/Shape.png";
 import faqAdvisor from "@/assets/img/faq/advisor.png";
 import helpCtaBg from "@/assets/img/help-ad/bg-shape.png";
+import { motion } from "framer-motion";
+import { fadeInRight, fadeInLeft, fadeInUp } from "@/components/animation";
+
 const SampleBancaPage = () => {
   return (
     <>
@@ -80,18 +84,29 @@ const SampleBancaPage = () => {
               <div className="row align-items-end">
                 <div className="col-lg-7 pt-100 pt-lg-200 pb-lg-200 pb-100">
                   <div className="banner-content pb-20 pt-20">
-                    <h1 className="wow fadeInUp" data-wow-delay="0.1s">
+                    <motion.h1
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                      data-wow-delay="0.1s"
+                    >
                       Compare Loans From Several Banks Find The Cheapest Loan
-                    </h1>
+                    </motion.h1>
 
-                    <Link
+                    <motion.a
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       href="/loan"
                       className="wow fadeInUp mt-50 theme-btn theme-btn-rounded-2 theme-btn-lg theme-btn-alt"
                       data-wow-delay="0.3s"
                     >
                       Apply Now
                       <i className="arrow_right"></i>
-                    </Link>
+                    </motion.a>
                   </div>
                 </div>
                 <div className="col-lg-5 d-none d-lg-block position-relative">
@@ -194,35 +209,56 @@ const SampleBancaPage = () => {
               <div className="row">
                 <div className="col-lg-8 mx-auto">
                   <div className="section-title">
-                    <h2 className="wow fadeInUp">
+                    <motion.h2
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                    >
                       Banca Cooperates With These Banks
-                    </h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.3s">
+                    </motion.h2>
+                    <motion.p
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                      data-wow-delay="0.3s"
+                    >
                       {" "}
                       <span>3000+ Companies</span> Trust Sturtaplanding to build
                       landing page for their <span> dream product</span>
-                    </p>
+                    </motion.p>
                   </div>
                 </div>
               </div>
               <div className="row justify-content-between mt-35 gy-sm-0 gy-4  text-center text-lg-start">
                 <div className="col-lg-2 col-6">
-                  <Link
+                  <motion.a
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     href="#"
                     className="single-brand wow fadeInRight"
                     data-wow-delay="0.1s"
                   >
                     <Image className="img-fluid" src={logo1} alt="logo" />
-                  </Link>
+                  </motion.a>
                 </div>
                 <div className="col-lg-2 col-6">
-                  <Link
+                  <motion.a
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     href="#"
                     className="single-brand wow fadeInRight"
                     data-wow-delay="0.3s"
                   >
                     <Image className="img-fluid" src={logo2} alt="logo" />
-                  </Link>
+                  </motion.a>
                 </div>
                 <div className="col-lg-2 col-6">
                   <Link
@@ -305,16 +341,33 @@ const SampleBancaPage = () => {
           <section className="articles-area pt-125 pb-140">
             <div className="container">
               <div className="section-title d-flex flex-wrap justify-content-between text-start align-items-center">
-                <h2 className="mb-3 mb-sm-0 wow fadeInRight">
+                <motion.h2
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="mb-3 mb-sm-0 wow fadeInRight"
+                >
                   More About Finance & Loans
-                </h2>
-                <Link className="wow fadeInLeft" href="/blog-listing">
+                </motion.h2>
+                <motion.a
+                  variants={fadeInLeft}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="wow fadeInLeft"
+                  href="/blog-listing"
+                >
                   See All Articles <i className="arrow_right"></i>
-                </Link>
+                </motion.a>
               </div>
               <div className="row mt-60 gy-4 gy-lg-0">
                 <div className="col-lg-3 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="blog-widget-1 wow fadeInUp"
                     data-wow-delay="0.1s"
                   >
@@ -335,10 +388,14 @@ const SampleBancaPage = () => {
                         <span>February 25, 2021</span>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-3 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="blog-widget-1 wow fadeInUp"
                     data-wow-delay="0.3s"
                   >
@@ -359,10 +416,14 @@ const SampleBancaPage = () => {
                         <span>February 25, 2021</span>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-3 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="blog-widget-1 wow fadeInUp"
                     data-wow-delay="0.5s"
                   >
@@ -383,10 +444,14 @@ const SampleBancaPage = () => {
                         <span>February 25, 2021</span>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-3 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="blog-widget-1 wow fadeInUp"
                     data-wow-delay="0.7s"
                   >
@@ -407,7 +472,7 @@ const SampleBancaPage = () => {
                         <span>February 25, 2021</span>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -423,9 +488,15 @@ const SampleBancaPage = () => {
               <div className="row gy-4 gy-lg-0">
                 <div className="col-lg-6 pr-lg-75">
                   <div className="section-title text-start">
-                    <h2 className="mb-0 wow fadeInUp">
+                    <motion.h2
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="mb-0 wow fadeInUp"
+                    >
                       Our Advisors Are Ready To Help You
-                    </h2>
+                    </motion.h2>
                   </div>
 
                   <div

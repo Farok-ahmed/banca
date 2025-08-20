@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import "@/styles/css/elegant-icons.min.css";
@@ -42,6 +43,8 @@ import country3 from "@/assets/img/home-5/country-3.png";
 import country4 from "@/assets/img/home-5/country-4.png";
 import country5 from "@/assets/img/home-5/country-5.png";
 import country6 from "@/assets/img/home-5/country-6.png";
+import { motion } from "framer-motion";
+import { fadeInRight,fadeInLeft,fadeInUp } from "@/components/animation";
 
 const CompanyPage = () => {
   return (
@@ -52,7 +55,11 @@ const CompanyPage = () => {
             <div className="container">
               <div className="row ">
                 <div className="col-lg-7">
-                  <div
+                  <motion.div
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="banner-content wow fadeInRight"
                     data-wow-delay="0.2s"
                   >
@@ -83,28 +90,40 @@ const CompanyPage = () => {
                         <i className="fas fa-check-circle"></i> No Spamming
                       </li>
                     </ul>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-5 text-center text-lg-start">
                   <div className="banner-img">
-                    <Image
-                      className="img-1 wow fadeInLeft"
+                    <motion.div
+                      variants={fadeInLeft}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInLeft"
                       data-wow-delay="0.3s"
-                      src={bannerImg1}
-                      alt=""
-                    />
-                    <Image
-                      className="img-2 wow fadeInRight"
+                    >
+                      <Image className="img-1" src={bannerImg1} alt="" />
+                    </motion.div>
+                    <motion.div
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInRight"
                       data-wow-delay="0.8s"
-                      src={bannerImg2}
-                      alt=""
-                    />
-                    <Image
-                      className="img-3 wow fadeInRight"
+                   >
+                      <Image className="img-2" src={bannerImg2} alt="" />
+                    </motion.div>
+                    <motion.div
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInRight"
                       data-wow-delay="1.1s"
-                      src={bannerImg3}
-                      alt=""
-                    />
+                   >
+                      <Image className="img-3" src={bannerImg3} alt="" />
+                    </motion.div>
                     <Image className="img-shape" src={bannerShape} alt="" />
                   </div>
                 </div>
@@ -115,7 +134,11 @@ const CompanyPage = () => {
           <div className="banner-fact">
             <div className="container">
               <div className="row gy-lg-0 gy-4">
-                <div
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
                   className="col-lg-4 col-md-6 wow fadeInRight"
                   data-wow-delay="0.1s"
                 >
@@ -125,8 +148,12 @@ const CompanyPage = () => {
                     </div>
                     <p>A global customer base from over 120 countries</p>
                   </div>
-                </div>
-                <div
+                </motion.div>
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
                   className="col-lg-4 col-md-6 wow fadeInRight"
                   data-wow-delay="0.4s"
                 >
@@ -136,8 +163,12 @@ const CompanyPage = () => {
                     </div>
                     <p>Almost over 250 thousand active users</p>
                   </div>
-                </div>
-                <div
+                </motion.div>
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
                   className="col-lg-4 col-md-6 wow fadeInRight mx-auto"
                   data-wow-delay="0.7s"
                 >
@@ -147,7 +178,7 @@ const CompanyPage = () => {
                     </div>
                     <p>10 years worth of experience as a industry expert</p>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -156,84 +187,122 @@ const CompanyPage = () => {
             <div className="container">
               <div className="section-title">
                 <span className="short-title-2">OUR Features</span>
-                <h1 className="wow fadeInUp">
+                <motion.h1
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="wow fadeInUp"
+                >
                   We have better and more feature
-                </h1>
+                </motion.h1>
               </div>
               <div className="row gy-4 mt-50">
                 <div className="col-xl-3 col-lg-4 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="0.1s"
                   >
                     <Image src={featureIcon1} alt="" />
                     <h5>Fast Mobility</h5>
                     <p>Quis dapibus volutpat condi</p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-3 col-lg-4 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="0.3s"
                   >
                     <Image src={featureIcon2} alt="" />
                     <h5>Term Loan</h5>
                     <p>Quis dapibus volutpat condi</p>
-                  </div>
+                  </motion.div>
                 </div>
 
                 <div className="col-xl-3 col-lg-4 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="0.5s"
                   >
                     <Image src={featureIcon3} alt="" />
                     <h5>Easy Experience</h5>
                     <p>Quis dapibus volutpat condi</p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-3 col-lg-4 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="0.7s"
                   >
                     <Image src={featureIcon4} alt="" />
                     <h5>Safe and protected</h5>
                     <p>Quis dapibus volutpat condi</p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-3 col-lg-4 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="0.9s"
                   >
                     <Image src={featureIcon5} alt="" />
                     <h5>Wordwide</h5>
                     <p>Quis dapibus volutpat condi</p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-3 col-lg-4 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="1.1s"
                   >
                     <Image src={featureIcon6} alt="" />
                     <h5>One term fees</h5>
                     <p>Quis dapibus volutpat condi</p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-3 col-lg-4 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-9 wow fadeInUp"
                     data-wow-delay="1.3s"
                   >
                     <Image src={featureIcon7} alt="" />
                     <h5>Merchant Payment</h5>
                     <p>Quis dapibus volutpat condi</p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-3 col-lg-4 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-9 wow fadeInUp widget-link"
                     data-wow-delay="1.7s"
                   >
@@ -241,7 +310,7 @@ const CompanyPage = () => {
                     <Link href="#">
                       More features <i className="arrow_right "></i>
                     </Link>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -250,7 +319,13 @@ const CompanyPage = () => {
           <section className="about-area-2 bg-white">
             <div className="container">
               <div className="row align-items-center">
-                <div className="col-lg-6 wow fadeInLeft">
+                <motion.div
+                  variants={fadeInLeft}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-6 wow fadeInLeft"
+                >
                   <div className="text-start">
                     <h1 className="mb-3">Get loan from 3 simple process</h1>
                     <p>
@@ -275,8 +350,14 @@ const CompanyPage = () => {
                       <i className="arrow_right"></i>
                     </Link>
                   </div>
-                </div>
-                <div className="col-lg-6 wow fadeInRight">
+                </motion.div>
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-6 wow fadeInRight"
+                >
                   <div className="sms-flow">
                     <Image className="arrow-1" src={aboutArrow1} alt="" />
                     <Image className="arrow-2" src={aboutArrow2} alt="" />
@@ -294,7 +375,7 @@ const CompanyPage = () => {
                       alt=""
                     />
                   </div>
-                </div>
+                </motion.div>
               </div>
 
               <div className="row align-items-center gy-4 mt-3">
@@ -307,15 +388,25 @@ const CompanyPage = () => {
                       src={cardHolder}
                       alt=""
                     />
-                    <Image
-                      className="img-2 wow fadeInRight"
+                    <motion.div
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInRight"
                       data-wow-delay="0.2s"
-                      src={bankBalance}
-                      alt=""
-                    />
+                    >
+                      <Image className="img-2" src={bankBalance} alt="" />
+                    </motion.div>
                   </div>
                 </div>
-                <div className="col-lg-6 order-lg-2 order-1 wow fadeInRight">
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-6 order-lg-2 order-1 wow fadeInRight"
+                >
                   <h1 className="mb-3">
                     We have reputable customer relatinships
                   </h1>
@@ -342,7 +433,7 @@ const CompanyPage = () => {
                       </span>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </section>
@@ -351,9 +442,15 @@ const CompanyPage = () => {
             <div className="container">
               <div className="section-title">
                 <span className="short-title-2">Loan calculator</span>
-                <h1 className="wow fadeInUp text-white">
+                <motion.h1
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="wow fadeInUp text-white"
+                >
                   Calculate and confirm your loans
-                </h1>
+                </motion.h1>
               </div>
 
               <IndexCalculator />
@@ -366,10 +463,25 @@ const CompanyPage = () => {
             <div className="container">
               <div className="section-title">
                 <span className="short-title-2">ABout us</span>
-                <h1 className="wow fadeInUp">Learn about how Banca works</h1>
+                <motion.h1
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="wow fadeInUp"
+                >
+                  Learn about how Banca works
+                </motion.h1>
               </div>
               <div className="row align-items-center pt-60 gy-lg-0 gy-4">
-                <div className="col-lg-6 wow fadeInRight" data-wow-delay="0.1s">
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-6 wow fadeInRight"
+                  data-wow-delay="0.1s"
+                >
                   <div>
                     <h5>
                       <span className="round-dot"></span> <span>1.5M</span>{" "}
@@ -390,8 +502,15 @@ const CompanyPage = () => {
                       available, but the majority have.
                     </p>
                   </div>
-                </div>
-                <div className="col-lg-6 wow fadeInLeft" data-wow-delay="0.3s">
+                </motion.div>
+                <motion.div
+                  variants={fadeInLeft}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-6 wow fadeInLeft"
+                  data-wow-delay="0.3s"
+                >
                   <div className="video-tut">
                     <Image
                       src={aboutUsImg}
@@ -407,7 +526,7 @@ const CompanyPage = () => {
                       <i className="fas fa-play"></i>
                     </Link>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </section>
@@ -416,69 +535,101 @@ const CompanyPage = () => {
             <div className="container">
               <div className="section-title">
                 <span className="short-title-2">ABout us</span>
-                <h1 className="wow fadeInUp">Learn about how Banca works</h1>
+                <motion.h1
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="wow fadeInUp"
+                >
+                  Learn about how Banca works
+                </motion.h1>
               </div>
               <div className="row mt-50 gy-xl-0 gy-4 text-center">
                 <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-                  <Link
+                  <motion.a
+                    variants={fadeInLeft}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     href="#"
                     className="country-widget wow fadeInLeft"
                     data-wow-delay="0.1s"
                   >
                     <Image src={country1} alt="country" />
                     <h5>Brazil</h5>
-                  </Link>
+                  </motion.a>
                 </div>
                 <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-                  <Link
+                  <motion.a
+                    variants={fadeInLeft}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     href="#"
                     className="country-widget wow fadeInLeft"
                     data-wow-delay="0.3s"
                   >
                     <Image src={country2} alt="country" />
                     <h5>Canada</h5>
-                  </Link>
+                  </motion.a>
                 </div>
                 <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-                  <Link
+                  <motion.a
+                    variants={fadeInLeft}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     href="#"
                     className="country-widget wow fadeInLeft"
                     data-wow-delay="0.5s"
                   >
                     <Image src={country3} alt="country" />
                     <h5>Australia</h5>
-                  </Link>
+                  </motion.a>
                 </div>
                 <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-                  <Link
+                  <motion.a
+                    variants={fadeInLeft}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     href="#"
                     className="country-widget wow fadeInLeft"
                     data-wow-delay="0.7s"
                   >
                     <Image src={country4} alt="country" />
                     <h5>USA</h5>
-                  </Link>
+                  </motion.a>
                 </div>
                 <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-                  <Link
+                  <motion.a
+                    variants={fadeInLeft}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     href="#"
                     className="country-widget wow fadeInLeft"
                     data-wow-delay="0.9s"
                   >
                     <Image src={country5} alt="country" />
                     <h5>South Korea</h5>
-                  </Link>
+                  </motion.a>
                 </div>
 
                 <div className="col-xl-2 col-lg-3 col-sm-4 col-6">
-                  <Link
+                  <motion.a
+                    variants={fadeInLeft}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     href="#"
                     className="country-widget wow fadeInLeft"
                     data-wow-delay="1.1s"
                   >
                     <Image src={country6} alt="country" />
                     <h5>Bangladesh</h5>
-                  </Link>
+                  </motion.a>
                 </div>
               </div>
             </div>

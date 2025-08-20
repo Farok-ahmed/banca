@@ -1,3 +1,4 @@
+"use client"
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -10,6 +11,8 @@ import "flatpickr/dist/flatpickr.min.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 
+import { motion } from "framer-motion";
+import { fadeInRight, fadeInLeft, fadeInUp } from "@/components/animation";
 import FinanceAccordion from "@/components/FinanceAccordion";
 import PricingPlan from "@/components/PricingPlan";
 import Image from "next/image";
@@ -48,101 +51,171 @@ const FinanceSassAppPage = () => {
             <div className="container">
               <div className="row justify-content-center">
                 <div className="saas-banner-content text-center">
-                  <h5 className="wow fadeInUp" data-wow-delay="0.35s">
+                  <motion.h5
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="wow fadeInUp"
+                    data-wow-delay="0.35s"
+                  >
                     WeLCOME TO THE Best banking WEb application ⭐
-                  </h5>
-                  <h1 className="wow fadeInUp" data-wow-delay="0.45s">
+                  </motion.h5>
+                  <motion.h1
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="wow fadeInUp"
+                    data-wow-delay="0.45s"
+                  >
                     The modern banking <span>solution </span>
                     for your business in one app.
-                  </h1>
-                  <p className="wow fadeInUp" data-wow-delay="0.55s">
+                  </motion.h1>
+                  <motion.p
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="wow fadeInUp"
+                    data-wow-delay="0.55s"
+                  >
                     Inventore veritatis et architecto beatae vitaie dicta
                     explicabore nemo ipsam volupetateme voluptas aspernatur
                     magni.
-                  </p>
+                  </motion.p>
                   <div className="d-flex flex-column flex-sm-row justify-content-center mt-25 subscribe-field">
-                    <Link
+                    <motion.a
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       href="/loan"
                       data-wow-delay="0.5s"
                       className="wow fadeInUp theme-btn theme-btn-lg mt-50"
                     >
                       Get started now
                       <i className="arrow_right-up"></i>
-                    </Link>
-                    <Link
+                    </motion.a>
+                    <motion.a
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       href="/"
                       className="wow fadeInUp mt-50 theme-btn theme-btn-lg theme-btn-alt"
                       data-wow-delay="0.5s"
                     >
                       Learn more
-                    </Link>
+                    </motion.a>
                   </div>
                 </div>
               </div>
-              <div className="dahbord_img wow fadeInUp" data-wow-delay="0.5s">
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                className="dahbord_img wow fadeInUp"
+                data-wow-delay="0.5s"
+              >
                 <Image src={dashboardPng} alt="saas" style={{width:'auto',height:"auto"}} />
-              </div>
+              </motion.div>
             </div>
           </section>
 
           <section className="saas-clients-logo bg-white pt-90 pb-85">
             <div className="container">
-              <p
+              <motion.p
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
                 className="wow fadeInUp clients-logo-title"
                 data-wow-delay="0.3s"
               >
                 Trust Trusted by over <span>10,000+</span> customers wordwide
-              </p>
+              </motion.p>
               <div className="row gy-md-0 gy-4 align-items-center h-100">
                 <div className="col">
-                  <Link href="#">
+                  <motion.a
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    href="#"
+                  >
                     <Image
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.1s"
                       src={cLogo1}
                       alt="logo"
                     />
-                  </Link>
+                  </motion.a>
                 </div>
                 <div className="col">
-                  <Link href="#">
+                  <motion.a
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    href="#"
+                  >
                     <Image
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.3s"
                       src={cLogo2}
                       alt="logo"
                     />
-                  </Link>
+                  </motion.a>
                 </div>
                 <div className="col">
-                  <Link href="#">
+                  <motion.a
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    href="#"
+                  >
                     <Image
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.5s"
                       src={cLogo3}
                       alt="logo"
                     />
-                  </Link>
+                  </motion.a>
                 </div>
                 <div className="col">
-                  <Link href="#">
+                  <motion.a
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    href="#"
+                  >
                     <Image
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.7s"
                       src={cLogo4}
                       alt="logo"
                     />
-                  </Link>
+                  </motion.a>
                 </div>
                 <div className="col">
-                  <Link href="#">
+                  <motion.a
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    href="#"
+                  >
                     <Image
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.7s"
                       src={cLogo5}
                       alt="logo"
                     />
-                  </Link>
+                  </motion.a>
                 </div>
               </div>
             </div>
@@ -162,7 +235,11 @@ const FinanceSassAppPage = () => {
               </div>
               <div className="row">
                 <div className="col-lg-4">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.1s"
                   >
@@ -177,10 +254,14 @@ const FinanceSassAppPage = () => {
                     <a href="#" className="text-btn">
                       Learn More
                     </a>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.3s"
                   >
@@ -195,10 +276,14 @@ const FinanceSassAppPage = () => {
                     <Link href="#" className="text-btn">
                       Learn More
                     </Link>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.6s"
                   >
@@ -213,7 +298,7 @@ const FinanceSassAppPage = () => {
                     <Link href="#" className="text-btn">
                       Learn More
                     </Link>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -224,10 +309,14 @@ const FinanceSassAppPage = () => {
               <div className="saas-features-item row align-items-center">
                 <div className="col-lg-6">
                   <div className="saas-features-img">
-                    <Image
+                    <motion.img
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="wow fadeInRight"
                       data-wow-delay="0.3s"
-                      src={featuresImgOne}
+                      src={featuresImgOne.src}
                       alt=""
                     />
                   </div>
@@ -235,18 +324,35 @@ const FinanceSassAppPage = () => {
                 <div className="col-lg-6">
                   <div className="saas-features-content">
                     <div className="saas-section-title mb-50">
-                      <h2 className="wow fadeInUp">
+                      <motion.h2
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="wow fadeInUp"
+                      >
                         Simplify your finance <span>banking</span> and loan
-                      </h2>
-                      <p className="wow fadeInUp" data-wow-delay="0.2s">
+                      </motion.h2>
+                      <motion.p
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="wow fadeInUp"
+                        data-wow-delay="0.2s"
+                      >
                         Design Season is a collaboration between Leicester is
                         creative hub LCB based in the city is cultural quarter
                         and designers and design businesses all over the city &
                         county
-                      </p>
+                      </motion.p>
                     </div>
                     <div className="d-flex">
-                      <div
+                      <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                         className="features-icon-box wow fadeInUp"
                         data-wow-delay="0.3s"
                       >
@@ -257,8 +363,12 @@ const FinanceSassAppPage = () => {
                           <h4>Single term fees</h4>
                           <p>Easily copy and paste Pricing components</p>
                         </div>
-                      </div>
-                      <div
+                      </motion.div>
+                      <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                         className="features-icon-box two wow fadeInUp"
                         data-wow-delay="0.5s"
                       >
@@ -269,7 +379,7 @@ const FinanceSassAppPage = () => {
                           <h4>150+ Locations</h4>
                           <p>Easily copy and paste Pricing components</p>
                         </div>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
@@ -277,17 +387,25 @@ const FinanceSassAppPage = () => {
               <div className="saas-features-item row align-items-center flex-row-reverse">
                 <div className="col-lg-6">
                   <div className="saas-features-img">
-                    <Image
+                    <motion.img
+                      variants={fadeInLeft}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="wow fadeInLeft"
                       data-wow-delay="0.2s"
-                      src={featuresImgTwo}
+                      src={featuresImgTwo.src}
                       alt=""
                     />
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="saas-features-content">
-                    <div
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="saas-section-title mb-50 wow fadeInUp"
                       data-wow-delay="0.3s"
                     >
@@ -300,9 +418,13 @@ const FinanceSassAppPage = () => {
                         and designers and design businesses all over the city &
                         county
                       </p>
-                    </div>
+                    </motion.div>
                     <div className="d-flex">
-                      <div
+                      <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                         className="features-icon-box feedback d-flex wow fadeInUp"
                         data-wow-delay="0.4s"
                       >
@@ -310,8 +432,12 @@ const FinanceSassAppPage = () => {
                           <h4>500+</h4>
                           <p>Active customers use our application</p>
                         </div>
-                      </div>
-                      <div
+                      </motion.div>
+                      <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                         className="features-icon-box feedback d-flex wow fadeInUp"
                         data-wow-delay="0.5s"
                       >
@@ -319,7 +445,7 @@ const FinanceSassAppPage = () => {
                           <h4>$105k</h4>
                           <p>Loans given out in the last few months</p>
                         </div>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
@@ -330,7 +456,11 @@ const FinanceSassAppPage = () => {
           <section className="app-showcase-area">
             <Image className="shape_img" src={gridTwoPng} alt="" />
             <div className="container">
-              <div
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
                 className="saas-section-title text-center mb-60 wow fadeInUp"
                 data-wow-delay="0.2s"
               >
@@ -342,7 +472,7 @@ const FinanceSassAppPage = () => {
                   but them
                   <br /> majority have suffered alteration form injected.
                 </p>
-              </div>
+              </motion.div>
               <div className="row">
                 <div className="col-lg-6">
                   <div className="app-showcase-item">
@@ -350,17 +480,35 @@ const FinanceSassAppPage = () => {
                       className="round wow floatingBubbles"
                       data-wow-delay="0.3s"
                     ></div>
-                    <h4 className="wow fadeInUp" data-wow-delay="0.6s">
+                    <motion.h4
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                      data-wow-delay="0.6s"
+                    >
                       Simple loan register process
-                    </h4>
-                    <p className="wow fadeInUp" data-wow-delay="0.7s">
+                    </motion.h4>
+                    <motion.p
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                      data-wow-delay="0.7s"
+                    >
                       I transform thorn problems into elagant solutions using
                       visuals design use this pack illustrations for many.
-                    </p>
-                    <Image
+                    </motion.p>
+                    <motion.img
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="wow fadeInUp"
                       data-wow-delay="0.9s"
-                      src={appShowcase1}
+                      src={appShowcase1.src}
                       style={{width:"auto",height:"auto"}}
                       alt=""
                     />
@@ -372,17 +520,35 @@ const FinanceSassAppPage = () => {
                       className="round wow floatingBubbles"
                       data-wow-delay="0.3s"
                     ></div>
-                    <h4 className="wow fadeInUp" data-wow-delay="0.6s">
+                    <motion.h4
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                      data-wow-delay="0.6s"
+                    >
                       Access to secure banking
-                    </h4>
-                    <p className="wow fadeInUp" data-wow-delay="0.7s">
+                    </motion.h4>
+                    <motion.p
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                      data-wow-delay="0.7s"
+                    >
                       I transform thorn problems into elagant solutions using
                       visuals design use this pack illustrations for many.
-                    </p>
-                    <Image
+                    </motion.p>
+                    <motion.img
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="wow fadeInUp"
                       data-wow-delay="0.9s"
-                      src={appShowcase2}
+                      src={appShowcase2.src}
                       style={{width:"auto",height:"auto"}}
                       alt=""
                     />
@@ -390,7 +556,11 @@ const FinanceSassAppPage = () => {
                 </div>
                 <div className="col-lg-12">
                   <div className="app-showcase-item box-three">
-                    <div
+                    <motion.div
+                      variants={fadeInLeft}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="app-text wow fadeInLeft"
                       data-wow-delay="0.2s"
                     >
@@ -399,14 +569,25 @@ const FinanceSassAppPage = () => {
                         I transform thorn problems into elagant solutions using
                         visuals design use this pack illustrations for many.
                       </p>
-                      <a
+                      <motion.a
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                         href="#"
                         className="wow fadeInUp theme-btn theme-btn-lg theme-btn-alt"
                       >
                         Visit loan calculator
-                      </a>
-                    </div>
-                    <div className="img wow fadeInRight" data-wow-delay="0.4ss">
+                      </motion.a>
+                    </motion.div>
+                    <motion.div
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="img wow fadeInRight"
+                      data-wow-delay="0.4ss"
+                    >
                       <Image src={dashApp} alt="" />
                       <div className="app_shap_img one">
                         <Image
@@ -422,7 +603,7 @@ const FinanceSassAppPage = () => {
                           alt=""
                         />
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               </div>
@@ -435,7 +616,14 @@ const FinanceSassAppPage = () => {
 
           <section className="saas-subscribe-area cta-4">
             <div className="container">
-              <div className="cta-content wow fadeInUp" data-wow-delay="0.2s">
+              <motion.div
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                className="cta-content wow fadeInUp"
+                data-wow-delay="0.2s"
+              >
                 <h2 className="mb-10">Start your free trial !</h2>
                 <p>
                   There are many variations of passages of Lorem Ipsum
@@ -463,13 +651,17 @@ const FinanceSassAppPage = () => {
                     <i className="fas fa-check-circle"></i> No Spamming
                   </li>
                 </ul>
-              </div>
+              </motion.div>
             </div>
-            <Image
+            <motion.img
+              variants={fadeInUp}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
               className="saas_dash_img wow fadeInUp"
               data-parallax='{"x": -40, "y": 50}'
               data-wow-delay="0.2s"
-              src={subscribeDashboard}
+              src={subscribeDashboard.src}
               alt=""
             />
           </section>

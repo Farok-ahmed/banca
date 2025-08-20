@@ -1,3 +1,4 @@
+"use client"
 import NewsSlider from "@/components/BancaNews";
 import ClientSlider from "@/components/MobileTestimonial";
 import Image from "next/image";
@@ -43,6 +44,8 @@ import secImg1 from "@/assets/img/security-tips/img-1.png";
 import secImg2 from "@/assets/img/security-tips/img-2.png";
 import secImg3 from "@/assets/img/security-tips/img-3.png";
 import ctaBg from "@/assets/img/client/cta-bg.png";
+import { motion } from "framer-motion";
+import { fadeInRight, fadeInLeft, fadeInUp } from "@/components/animation";
 
 const MobileAppPage = () => {
   // helper to render caret icon on mobile
@@ -164,18 +167,39 @@ const MobileAppPage = () => {
               <div className="row">
                 <div className="col-lg-6 mx-auto pt-160 pt-lg-90 pb-65">
                   <div className="section-title">
-                    <h2 className="wow fadeInUp">Our Featured</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.3s">
+                    <motion.h2
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                    >
+                      Our Featured
+                    </motion.h2>
+                    <motion.p
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                      data-wow-delay="0.3s"
+                    >
                       You may want top security so that you can rest assured
                       that your accounts will not be compromised while you are
                       using the app.
-                    </p>
+                    </motion.p>
                   </div>
                 </div>
               </div>
               <div className="row gy-xl-0 gy-4">
                 <div className="col-xl-3 col-md-6">
-                  <div className="feature-card-widget wow fadeInUp">
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="feature-card-widget wow fadeInUp"
+                  >
                     <div className="card-img">
                       <Image src={featureIcon1} alt="feature svg" />
                     </div>
@@ -184,10 +208,14 @@ const MobileAppPage = () => {
                       It is a long established fact that a reader will be
                       distracted by the readable content
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-3 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget wow fadeInUp"
                     data-wow-delay="0.3s"
                   >
@@ -199,10 +227,14 @@ const MobileAppPage = () => {
                       The way to solve the word placement to treat the phrase
                       easy to use as a single.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-3 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget wow fadeInUp"
                     data-wow-delay="0.6s"
                   >
@@ -214,10 +246,14 @@ const MobileAppPage = () => {
                       We keep your information safe and notify you anytime your
                       saved payment card.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-3 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget wow fadeInUp"
                     data-wow-delay="0.9s"
                   >
@@ -229,7 +265,7 @@ const MobileAppPage = () => {
                       That is why we have a wide range of bill payment options
                       through our Banking service.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -241,23 +277,35 @@ const MobileAppPage = () => {
                 <div className="col-md-6 mx-auto">
                   <div className="img-content">
                     <Image className="bg-img" src={trackBg} alt="shape image" />
-                    <Image
-                      className="track-3 wow fadeInUp"
-                      src={track1}
-                      alt=""
-                    />
-                    <Image
-                      className="track-img track-1 wow fadeInRight"
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                    >
+                      <Image className="track-3" src={track1} alt="" />
+                    </motion.div>
+                    <motion.div
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInRight"
                       data-wow-delay="0.3s"
-                      src={track2}
-                      alt=""
-                    />
-                    <Image
-                      className="track-img track-2 wow fadeInRight"
+                    >
+                      <Image className="track-img track-1" src={track2} alt="" />
+                    </motion.div>
+                    <motion.div
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInRight"
                       data-wow-delay="0.5s"
-                      src={track3}
-                      alt=""
-                    />
+                    >
+                      <Image className="track-img track-2" src={track3} alt="" />
+                    </motion.div>
                   </div>
                 </div>
 
@@ -309,17 +357,25 @@ const MobileAppPage = () => {
                 <div className="col-md-6 mx-auto offset-xl-1 order-1 order-lg-2">
                   <div className="img-content">
                     <Image className="bg-img" src={cardBg} alt="" />
-                    <Image
-                      className="card-1 img-fluid wow fadeInLeft"
-                      src={card1}
-                      alt=""
-                    />
-                    <Image
-                      className="card-2 wow fadeInLeft"
+                    <motion.div
+                      variants={fadeInLeft}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInLeft"
+                    >
+                      <Image className="card-1 img-fluid" src={card1} alt="" />
+                    </motion.div>
+                    <motion.div
+                      variants={fadeInLeft}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInLeft"
                       data-wow-delay="0.3s"
-                      src={card2}
-                      alt=""
-                    />
+                    >
+                      <Image className="card-2" src={card2} alt="" />
+                    </motion.div>
                   </div>
                 </div>
               </div>
@@ -332,29 +388,45 @@ const MobileAppPage = () => {
                 <div className="col-md-6 mx-auto mx-lg-0 text-center">
                   <div className="img-content">
                     <Image className="bg-img" src={ibBg} alt="" />
-                    <Image
-                      className="bank-main img-fluid wow fadeInUp"
-                      src={ibImg1}
-                      alt=""
-                    />
-                    <Image
-                      className="bank-1 img-fluid wow fadeInRight"
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                    >
+                      <Image className="bank-main img-fluid" src={ibImg1} alt="" />
+                    </motion.div>
+                    <motion.div
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInRight"
                       data-wow-delay="0.3s"
-                      src={ibImg2}
-                      alt=""
-                    />
-                    <Image
-                      className="bank-2 img-fluid wow fadeInLeft"
+                    >
+                      <Image className="bank-1 img-fluid" src={ibImg2} alt="" />
+                    </motion.div>
+                    <motion.div
+                      variants={fadeInLeft}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInLeft"
                       data-wow-delay="0.6s"
-                      src={ibImg3}
-                      alt=""
-                    />
-                    <Image
-                      className="bank-3 img-fluid wow fadeInRight"
+                    >
+                      <Image className="bank-2 img-fluid" src={ibImg3} alt="" />
+                    </motion.div>
+                    <motion.div
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInRight"
                       data-wow-delay="0.8s"
-                      src={ibInfo}
-                      alt=""
-                    />
+                    >
+                      <Image className="bank-3 img-fluid" src={ibInfo} alt="" />
+                    </motion.div>
                   </div>
                 </div>
 
@@ -391,7 +463,13 @@ const MobileAppPage = () => {
 
               <div className="row pt-40">
                 <div className="col-xl-6">
-                  <div className="single-security-widget wow fadeInUp">
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="single-security-widget wow fadeInUp"
+                  >
                     <div className="security-img text-center">
                       <Image
                         className="img-fluid round-15"
@@ -407,10 +485,14 @@ const MobileAppPage = () => {
                         such as account information, password, etc at any time.
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-6">
-                  <div
+                  <motion.div
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="single-security-widget mt-xl-0 mt-4 wow fadeInRight"
                     data-wow-delay="0.2s"
                   >
@@ -434,9 +516,13 @@ const MobileAppPage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
 
-                  <div
+                  <motion.div
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="single-security-widget mt-25 mt-lg-30 wow fadeInRight"
                     data-wow-delay="0.4s"
                   >
@@ -463,7 +549,7 @@ const MobileAppPage = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -474,7 +560,15 @@ const MobileAppPage = () => {
           <section className="client-area pt-110 ">
             <div className="container">
               <div className="section-title">
-                <h2 className="wow fadeInUp mb-0">What Our Client Say</h2>
+                <motion.h2
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="wow fadeInUp mb-0"
+                >
+                  What Our Client Say
+                </motion.h2>
               </div>
 
               <ClientSlider />
@@ -501,13 +595,23 @@ const MobileAppPage = () => {
                     </div>
                     <div className="row gy-xl-0 gy-4">
                       <div className="col-xl-5">
-                        <div className="cta-content wow fadeInLeft text-center text-xl-start">
+                        <motion.div
+                          variants={fadeInLeft}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          className="cta-content wow fadeInLeft text-center text-xl-start"
+                        >
                           <h2>Download Our Free Mobile App</h2>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-xl-7 d-flex align-items-center flex-wrap justify-content-xl-end justify-content-center">
                         <Link href="#">
-                          <div
+                          <motion.div
+                            variants={fadeInRight}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true, amount: 0.2 }}
                             className="app-btn mt-3 mt-sm-0 wow fadeInRight"
                             data-wow-delay="0.1s"
                           >
@@ -516,10 +620,14 @@ const MobileAppPage = () => {
                               <span>GET IT ON</span>
                               <p>Google Play</p>
                             </div>
-                          </div>
+                          </motion.div>
                         </Link>
                         <Link href="#">
-                          <div
+                          <motion.div
+                            variants={fadeInRight}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true, amount: 0.2 }}
                             className="app-btn mt-3 mt-sm-0 wow fadeInRight"
                             data-wow-delay="0.2s"
                           >
@@ -528,7 +636,7 @@ const MobileAppPage = () => {
                               <span>Downloan on the</span>
                               <p>Apple Store</p>
                             </div>
-                          </div>
+                          </motion.div>
                         </Link>
                       </div>
                     </div>

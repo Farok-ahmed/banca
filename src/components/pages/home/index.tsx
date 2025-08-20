@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "framer-motion";
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -7,8 +9,6 @@ import "@/styles/css/nice-select.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 import { BlogItem } from "@/types/Blogitem";
-
-// import "bootstrap-icons/font/bootstrap-icons.css";
 import Image from "next/image";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
@@ -39,6 +39,7 @@ import calenderOutline from "@/assets/img/home-4/calender-outline.svg";
 import userProfile from "@/assets/img/home-4/user-profile.svg";
 import FormSelect from "../../common-section/FormSelect";
 import { OptionType } from "@/components/common-section/type";
+import { fadeInLeft, fadeInRight, fadeInUp } from "@/components/animation";
 
 const blogPosts: BlogItem[] = [
   {
@@ -48,9 +49,9 @@ const blogPosts: BlogItem[] = [
     categoryClass: "yellow-bg",
     date: "November 08, 2022",
     author: "Spiderthemes",
-  image: article1,
-  calendarIcon: calenderOutline,
-  userIcon: userProfile,
+    image: article1,
+    calendarIcon: calenderOutline,
+    userIcon: userProfile,
     delay: "0.1s",
   },
   {
@@ -60,9 +61,9 @@ const blogPosts: BlogItem[] = [
     categoryClass: "orange-bg",
     date: "November 08, 2022",
     author: "Spiderthemes",
-  image: article2,
-  calendarIcon: calenderOutline,
-  userIcon: userProfile,
+    image: article2,
+    calendarIcon: calenderOutline,
+    userIcon: userProfile,
     delay: "0.3s",
   },
   {
@@ -72,18 +73,17 @@ const blogPosts: BlogItem[] = [
     categoryClass: "tulip-bg",
     date: "November 08, 2022",
     author: "Spiderthemes",
-  image: article3,
-  calendarIcon: calenderOutline,
-  userIcon: userProfile,
+    image: article3,
+    calendarIcon: calenderOutline,
+    userIcon: userProfile,
     delay: "0.5s",
   },
 ];
 const options: OptionType[] = [
-  { value: 'Debt-Financing', label: 'Debt Loan' },
-  { value: 'Equity-Finance', label: 'Installment loan' }
+  { value: "Debt-Financing", label: "Debt Loan" },
+  { value: "Equity-Finance", label: "Installment loan" },
 ];
 export default function Home() {
-
   return (
     <>
       <DefaultLayout>
@@ -94,19 +94,39 @@ export default function Home() {
                 className="shape"
                 data-parallax='{"x": -30,"y": 90,"rotateZ":50}'
               >
-                <Image className="layer" data-depth="-0.06" src={shape2} alt="Shape 2" />
+                <Image
+                  className="layer"
+                  data-depth="-0.06"
+                  src={shape2}
+                  alt="Shape 2"
+                />
               </div>
               <div className="shape" data-parallax='{"y": -250}'>
-                <Image className="layer" data-depth="-0.15" src={shape3} alt="Shape 3" />
+                <Image
+                  className="layer"
+                  data-depth="-0.15"
+                  src={shape3}
+                  alt="Shape 3"
+                />
               </div>
               <div className="shape" data-parallax='{"x": -40, "y": -150}'>
-                <Image className="layer" data-depth="-0.3" src={shape4} alt="Shape 4" />
+                <Image
+                  className="layer"
+                  data-depth="-0.3"
+                  src={shape4}
+                  alt="Shape 4"
+                />
               </div>
               <div
                 className="shape"
                 data-parallax='{"x": 300, "y": 370, "rotateZ":200}'
               >
-                <Image className="layer" data-depth="0.5" src={shape5} alt="Shape 5" />
+                <Image
+                  className="layer"
+                  data-depth="0.5"
+                  src={shape5}
+                  alt="Shape 5"
+                />
               </div>
 
               <div className="shape"></div>
@@ -116,7 +136,11 @@ export default function Home() {
             <div className="container">
               <div className="row align-items-end pt-170 pb-120">
                 <div className="col-lg-6">
-                  <div
+                  <motion.div
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="banner-content wow fadeInRight"
                     data-wow-delay="0.1s"
                   >
@@ -153,11 +177,15 @@ export default function Home() {
                         </a>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 <div className="col-lg-6">
-                  <div
+                  <motion.div
+                    variants={fadeInLeft}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="basic-loan-calculator wow fadeInLeft"
                     data-wow-delay="0.1s"
                   >
@@ -168,7 +196,7 @@ export default function Home() {
                         <label className="label" htmlFor="loandetails01">
                           Type of Loan
                         </label>
-                        <FormSelect options={options}/>
+                        <FormSelect options={options} />
                       </div>
 
                       <div className="mb-3">
@@ -219,7 +247,7 @@ export default function Home() {
                         Apply for loans
                       </button>
                     </form>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -231,14 +259,27 @@ export default function Home() {
                 <div className="col-lg-6 mx-auto pb-55">
                   <div className="section-title">
                     <span className="short-title-2">_OUR PROCESS</span>
-                    <h1 className="wow fadeInUp">
+                    <motion.h1
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                    >
                       3 <span className="underline-shape">steps</span> to follow
-                    </h1>
-                    <p className="wow fadeInUp" data-wow-delay="0.3s">
+                    </motion.h1>
+                    <motion.p
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                      data-wow-delay="0.3s"
+                    >
                       There are many variations of passages of Lorem Ipsum
                       available, but the majority have suffered alteration in
                       some form,
-                    </p>
+                    </motion.p>
                   </div>
                 </div>
               </div>
@@ -246,7 +287,11 @@ export default function Home() {
               <div className="row gy-xl-0 gy-4">
                 {/* Step 1 */}
                 <div className="col-xl-4 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-8 wow fadeInUp"
                     data-wow-delay="0.1s"
                   >
@@ -258,12 +303,16 @@ export default function Home() {
                       Quis dapibus volutpat condimentum quam sed non elit sed
                       magna lectus dui interdum facilisi justo
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Step 2 */}
                 <div className="col-xl-4 col-md-6">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-8 wow fadeInUp"
                     data-wow-delay="0.3s"
                   >
@@ -275,12 +324,16 @@ export default function Home() {
                       Quis dapibus volutpat condimentum quam sed non elit sed
                       magna lectus dui interdum facilisi justo
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Step 3 */}
                 <div className="col-xl-4 col-md-6 mx-auto">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="feature-card-widget-8 wow fadeInUp"
                     data-wow-delay="0.5s"
                   >
@@ -292,7 +345,7 @@ export default function Home() {
                       Quis dapibus volutpat condimentum quam sed non elit sed
                       magna lectus dui interdum facilisi justo
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -304,14 +357,48 @@ export default function Home() {
                 {/* Left Image Section */}
                 <div className="col-lg-7">
                   <div className="cash-img position-relative">
-                    <Image className="img-fluid" src={manageCashImg} alt="Manage cash" />
-                    <Image className="msg-1 wow fadeInRight" data-wow-delay="0.1s" src={basicInfo2} alt="Info 2" />
-                    <Image className="msg-2 wow fadeInRight" data-wow-delay="0.3s" src={basicInfo3} alt="Info 3" />
+                    <Image
+                      className="img-fluid"
+                      src={manageCashImg}
+                      alt="Manage cash"
+                    />
+                    <motion.div
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
+                      <Image
+                        className="msg-1 wow fadeInRight"
+                        data-wow-delay="0.1s"
+                        src={basicInfo2}
+                        alt="Info 2"
+                      />
+                    </motion.div>
+                    <motion.div
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
+                      <Image
+                        className="msg-2 wow fadeInRight"
+                        data-wow-delay="0.3s"
+                        src={basicInfo3}
+                        alt="Info 3"
+                      />
+                    </motion.div>
                   </div>
                 </div>
 
                 {/* Right Text Section */}
-                <div className="col-lg-5 wow fadeInLeft">
+                <motion.div
+                  variants={fadeInLeft}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-5 wow fadeInLeft"
+                >
                   <div className="section-title text-start">
                     <span className="short-title-2">_WHY BANCA ?</span>
                     <h1 className="mb-3">
@@ -333,14 +420,20 @@ export default function Home() {
                       </li>
                     </ul>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </section>
 
           <FaqTabs />
 
-          <section className="services-area bg-white pt-120 pb-120 wow fadeInUp">
+          <motion.section
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="services-area bg-white pt-120 pb-120 wow fadeInUp"
+          >
             <div className="container">
               <div className="section-title mb-45 text-center">
                 <span className="short-title-2">_SERVICE COMPARISONS</span>
@@ -461,7 +554,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </section>
+          </motion.section>
 
           <HomeTestimonials />
 
@@ -472,9 +565,15 @@ export default function Home() {
             <div className="container">
               <div className="section-title text-center mb-5">
                 <span className="short-title-2">_Blog</span>
-                <h1 className="wow fadeInUp mb-3">
+                <motion.h1
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="wow fadeInUp mb-3"
+                >
                   Our latest <span className="underline-shape">articles</span>
-                </h1>
+                </motion.h1>
                 <p>
                   There are many variations of passages of Lorem Ipsum
                   available,
@@ -490,12 +589,22 @@ export default function Home() {
                     key={post.id}
                     data-wow-delay={post.delay}
                   >
-                    <div className="blog-widget-3 wow fadeInUp">
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="blog-widget-3 wow fadeInUp"
+                    >
                       <Link
                         href="/"
                         className="blog-img d-block position-relative"
                       >
-                        <Image src={post.image} alt="blog-img" className="w-100 h-auto" />
+                        <Image
+                          src={post.image}
+                          alt="blog-img"
+                          className="w-100 h-auto"
+                        />
                         <div className={`catagory ${post.categoryClass}`}>
                           {post.category}
                         </div>
@@ -515,7 +624,7 @@ export default function Home() {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 ))}
               </div>
@@ -529,7 +638,13 @@ export default function Home() {
                   <div className="cta-4 cta-bg-primary">
                     <div className="row align-items-center">
                       <div className="col-lg-6">
-                        <div className="cta-content wow fadeInRight">
+                        <motion.div
+                          variants={fadeInRight}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          className="cta-content wow fadeInRight"
+                        >
                           <h2 className="mb-10">Start your free trial !</h2>
                           <p>
                             There are many variations of passages of Lorem Ipsum
@@ -558,12 +673,28 @@ export default function Home() {
                               Spamming
                             </li>
                           </ul>
-                        </div>
+                        </motion.div>
                       </div>
 
                       <div className="col-lg-6">
-                        <Image className="cta-img wow fadeInUp img-fluid" src={ctaImg} alt="" />
-                        <Image className="shape img-fluid" src={ctaShape} alt="" />
+                        <motion.div
+                          variants={fadeInUp}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                        >
+                          <Image
+                            className="cta-img wow fadeInUp img-fluid"
+                            src={ctaImg}
+                            alt=""
+                          />
+                        </motion.div>
+
+                        <Image
+                          className="shape img-fluid"
+                          src={ctaShape}
+                          alt=""
+                        />
                       </div>
                     </div>
                   </div>

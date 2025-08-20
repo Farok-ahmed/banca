@@ -1,3 +1,4 @@
+"use client"
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -10,6 +11,8 @@ import "@/styles/css/nouislider.min.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 
+import { motion } from "framer-motion";
+import { fadeInRight, fadeInLeft, fadeInUp } from "@/components/animation";
 import BankCalculator from "@/components/BankCalculator";
 import Image from "next/image";
 import Link from "next/link";
@@ -64,17 +67,30 @@ const LoanPage = () => {
                 <div className="col-lg-7 mx-auto">
                   <div className="banner-content text-center">
                     <div className="section-title">
-                      <h1 className="wow fadeInUp">
+                      <motion.h1 
+                        className="wow fadeInUp"
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                      >
                         Get your loan approved in 3 steps
-                      </h1>
+                      </motion.h1>
                     </div>
-                    <Link
-                      className="theme-btn theme-btn-lg theme-btn-alt mt-50 wow fadeInUp"
-                      data-wow-delay="0.2s"
-                      href="/loan-details"
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     >
-                      Get started <i className="arrow_right"></i>
-                    </Link>
+                      <Link
+                        className="theme-btn theme-btn-lg theme-btn-alt mt-50 wow fadeInUp"
+                        data-wow-delay="0.2s"
+                        href="/loan-details"
+                      >
+                        Get started <i className="arrow_right"></i>
+                      </Link>
+                    </motion.div>
                   </div>
                 </div>
               </div>
@@ -84,9 +100,13 @@ const LoanPage = () => {
                   <div className="floated-widget">
                     <div className="row gy-4 gy-lg-0 gx-5">
                       <div className="col-lg-4 border-end">
-                        <div
+                        <motion.div
                           className="steps-widget pr-30 pl-30 wow fadeInUp"
                           data-wow-delay="0.1s"
+                          variants={fadeInUp}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
                         >
                           <Image src={stepIcon1} alt="icon" />
                           <h4>
@@ -96,12 +116,16 @@ const LoanPage = () => {
                             Select your loan amount, answer a few questions and
                             get instant loan amount
                           </p>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-lg-4  border-end">
-                        <div
+                        <motion.div
                           className="steps-widget pr-30 pl-30 wow fadeInUp"
                           data-wow-delay="0.3s"
+                          variants={fadeInUp}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
                         >
                           <Image src={stepIcon2} alt="icon" />
                           <h4>
@@ -111,12 +135,16 @@ const LoanPage = () => {
                             Share required documents with our representative
                             hassle-free
                           </p>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-lg-4">
-                        <div
+                        <motion.div
                           className="steps-widget pr-30 pl-30 wow fadeInUp"
                           data-wow-delay="0.5s"
+                          variants={fadeInUp}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
                         >
                           <Image src={stepIcon3} alt="icon" />
                           <h4>
@@ -126,7 +154,7 @@ const LoanPage = () => {
                             Choose the final sanctioned loan offer with the
                             terms that work best for you
                           </p>
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
@@ -140,9 +168,15 @@ const LoanPage = () => {
               <div className="row pt-3">
                 <div className="col-xl-6 mx-auto">
                   <div className="section-title">
-                    <h2 className="wow fadeInUp">
+                    <motion.h2 
+                      className="wow fadeInUp"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       One step closer to finding your perfect Home!
-                    </h2>
+                    </motion.h2>
                   </div>
                 </div>
               </div>
@@ -151,9 +185,13 @@ const LoanPage = () => {
                   <div className="col-md-10 mx-auto">
                     <div className="row pt-35  gy-lg-0 gy-3">
                       <div className="col-lg-4">
-                        <div
+                        <motion.div
                           className="loan-apply-widget wow fadeInRight"
                           data-wow-delay="0.1s"
+                          variants={fadeInRight}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
                         >
                           <div className="icon">
                             <Image src={applyIcon11} alt="icon-1" />
@@ -170,12 +208,16 @@ const LoanPage = () => {
                               />{" "}
                             </p>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-lg-4">
-                        <div
+                        <motion.div
                           className="loan-apply-widget wow fadeInRight"
                           data-wow-delay="0.3s"
+                          variants={fadeInRight}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
                         >
                           <div className="icon">
                             <Image src={applyIcon21} alt="icon-2" />
@@ -198,12 +240,16 @@ const LoanPage = () => {
                               
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-lg-4">
-                        <div
+                        <motion.div
                           className="loan-apply-widget wow fadeInRight"
                           data-wow-delay="0.5s"
+                          variants={fadeInRight}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
                         >
                           <div className="icon">
                             <Image src={applyIcon31} alt="icon-3" />
@@ -221,10 +267,16 @@ const LoanPage = () => {
                              <LoanTypeSelect options={districts} />
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
 
-                      <div className="col-12 mt-15 d-flex wow fadeInLeft">
+                      <motion.div 
+                        className="col-12 mt-15 d-flex wow fadeInLeft"
+                        variants={fadeInLeft}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                      >
                         <div className="icon">
                           <Image
                             className="img=fluid"
@@ -236,15 +288,19 @@ const LoanPage = () => {
                           Your information is 100% secure. We do not share your
                           info with other parties.
                         </p>
-                      </div>
+                      </motion.div>
 
                       <div className="col-12 text-center mt-35">
-                        <button
+                        <motion.button
                           className="theme-btn theme-btn-lg wow fadeInUp"
                           type="submit"
+                          variants={fadeInUp}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
                         >
                           apply now <i className="arrow_right"></i>
-                        </button>
+                        </motion.button>
                       </div>
                     </div>
                   </div>

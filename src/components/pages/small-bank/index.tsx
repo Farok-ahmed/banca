@@ -1,3 +1,4 @@
+"use client"
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -9,6 +10,9 @@ import "@/styles/css/jquery.fancybox.min.css";
 import "flatpickr/dist/flatpickr.min.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
+
+import { motion } from "framer-motion";
+import { fadeInRight, fadeInUp } from "@/components/animation";
 import Image from "next/image";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
@@ -68,18 +72,43 @@ const SmallBankPage = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="bank-banner-content">
-                    <h5 className="wow fadeInUp" data-wow-delay="0.2s">
+                    <motion.h5
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                      data-wow-delay="0.2s"
+                    >
                       Manage your Finance
-                    </h5>
-                    <h1 className="wow fadeInUp" data-wow-delay="0.3s">
+                    </motion.h5>
+                    <motion.h1
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                      data-wow-delay="0.3s"
+                    >
                       Your <span className="underline-shape">banking</span> made
                       easier.
-                    </h1>
-                    <p className="wow fadeInUp" data-wow-delay="0.4s">
+                    </motion.h1>
+                    <motion.p
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                      data-wow-delay="0.4s"
+                    >
                       Inventore veritatis et architecto beatae vitaie dicta
                       explicab nemo ipsam volupetateme voluptashte aspernatur.
-                    </p>
-                    <div
+                    </motion.p>
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="d-flex flex-column flex-sm-row mt-25 subscribe-field wow fadeInUp"
                       data-wow-delay="0.6s"
                     >
@@ -91,8 +120,12 @@ const SmallBankPage = () => {
                       <button className="input-append theme-btn theme-btn-lg ms-sm-2">
                         Subscribe
                       </button>
-                    </div>
-                    <ul
+                    </motion.div>
+                    <motion.ul
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="list-unstyled feature-list wow fadeInUp"
                       data-wow-delay="0.7s"
                     >
@@ -103,8 +136,12 @@ const SmallBankPage = () => {
                       <li>
                         <i className="fas fa-check-circle"></i> No Spamming
                       </li>
-                    </ul>
-                    <div
+                    </motion.ul>
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="active-user d-flex align-items-center wow fadeInUp"
                       data-wow-delay="0.8s"
                     >
@@ -114,12 +151,16 @@ const SmallBankPage = () => {
                         <Image src={activeUser3} alt="" />
                       </div>
                       5K+ ⭐ Active users
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="bank-card-img">
-                    <div
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="bank-card wow fadeInUp"
                       data-wow-delay="0.8s"
                     >
@@ -129,8 +170,12 @@ const SmallBankPage = () => {
                         alt=""
                         style={{width:"auto",height:"auto"}}
                       />
-                    </div>
-                    <div
+                    </motion.div>
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="bank-card wow fadeInUp"
                       data-wow-delay="0.5s"
                     >
@@ -140,13 +185,17 @@ const SmallBankPage = () => {
                         alt=""
                         style={{width:"auto",height:"auto"}}
                       />
-                    </div>
-                    <div
+                    </motion.div>
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="bank-card wow fadeInUp"
                       data-wow-delay="0.3s"
                     >
                       <Image src={card1} alt="" style={{width:"auto",height:"auto"}} />
-                    </div>
+                    </motion.div>
                     <Image className="shap one" src={linePng} alt="" />
                     <Image
                       data-parallax='{"x": 0, "y": 50, "rotateZ": 305}'
@@ -176,7 +225,13 @@ const SmallBankPage = () => {
             <div className="container">
               <div className="row">
                 <div className="col-lg-4 col-md-4">
-                  <div className="fact-item wow fadeInUp">
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="fact-item wow fadeInUp"
+                  >
                     <div className="icon">
                       <Image src={singleIcon} alt="" />
                     </div>
@@ -186,10 +241,17 @@ const SmallBankPage = () => {
                       about time this allows you to solve within a specified
                       time problem than you would.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4 col-md-4">
-                  <div className="fact-item wow fadeInUp" data-wow-delay="0.2s">
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="fact-item wow fadeInUp"
+                    data-wow-delay="0.2s"
+                  >
                     <div className="icon">
                       <Image src={worldIcon} alt="" />
                     </div>
@@ -199,10 +261,17 @@ const SmallBankPage = () => {
                       about time this allows you to solve within a specified
                       time problem than you would.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4 col-md-4">
-                  <div className="fact-item wow fadeInUp" data-wow-delay="0.4s">
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="fact-item wow fadeInUp"
+                    data-wow-delay="0.4s"
+                  >
                     <div className="icon">
                       <Image src={sheldIcon} alt="" />
                     </div>
@@ -212,7 +281,7 @@ const SmallBankPage = () => {
                       about time this allows you to solve within a specified
                       time problem than you would.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -223,31 +292,58 @@ const SmallBankPage = () => {
               <div className="row">
                 <div className="col-lg-5">
                   <div className="section-title bank-section-title text-start">
-                    <span className="short-title-2 wow fadeInUp">
+                    <motion.span
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="short-title-2 wow fadeInUp"
+                    >
                       OUR PROCESS
-                    </span>
-                    <h1 className="wow fadeInUp">
+                    </motion.span>
+                    <motion.h1
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                    >
                       Get loan from 4 simple{" "}
                       <span className="underline-shape">process</span>
-                    </h1>
-                    <p className="wow fadeInUp" data-wow-delay="0.3s">
+                    </motion.h1>
+                    <motion.p
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="wow fadeInUp"
+                      data-wow-delay="0.3s"
+                    >
                       Choose your training and register for free. If you are a
                       freelancer, the courses are entirely taken care of you
                       have nothing to pay and no money to advance.
-                    </p>
-                    <Link
+                    </motion.p>
+                    <motion.a
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="read-more wow fadeInUp"
                       data-wow-delay="0.3s"
                       href="#"
                     >
                       Learn more about it <i className="arrow_right"></i>
-                    </Link>
+                    </motion.a>
                   </div>
                 </div>
                 <div className="col-lg-7 ps-lg-5">
                   <div className="row">
                     <div className="col-md-6">
-                      <div
+                      <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                         className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                         data-wow-delay="0.1s"
                       >
@@ -257,10 +353,14 @@ const SmallBankPage = () => {
                           Choose your training and register for free if you are
                           a freelancer the courses are entirely taken care.
                         </p>
-                      </div>
+                      </motion.div>
                     </div>
                     <div className="col-md-6">
-                      <div
+                      <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                         className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                         data-wow-delay="0.3s"
                       >
@@ -270,10 +370,14 @@ const SmallBankPage = () => {
                           Choose your training and register for free if you are
                           a freelancer the courses are entirely taken care.
                         </p>
-                      </div>
+                      </motion.div>
                     </div>
                     <div className="col-md-6">
-                      <div
+                      <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                         className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                         data-wow-delay="0.6s"
                       >
@@ -283,10 +387,14 @@ const SmallBankPage = () => {
                           Choose your training and register for free if you are
                           a freelancer the courses are entirely taken care.
                         </p>
-                      </div>
+                      </motion.div>
                     </div>
                     <div className="col-md-6">
-                      <div
+                      <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                         className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                         data-wow-delay="0.6s"
                       >
@@ -296,7 +404,7 @@ const SmallBankPage = () => {
                           Choose your training and register for free if you are
                           a freelancer the courses are entirely taken care.
                         </p>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
@@ -310,20 +418,43 @@ const SmallBankPage = () => {
                 <div className="col-lg-6 offset-lg-1">
                   <div className="app-content">
                     <div className="section-title bank-section-title text-start">
-                      <span className="short-title-2 wow fadeInUp">
+                      <motion.span
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="short-title-2 wow fadeInUp"
+                      >
                         Our Application
-                      </span>
-                      <h1 className="wow fadeInUp">
+                      </motion.span>
+                      <motion.h1
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="wow fadeInUp"
+                      >
                         All your{" "}
                         <span className="underline-shape">financials</span>
                         in one single app.
-                      </h1>
-                      <p className="wow fadeInUp" data-wow-delay="0.3s">
+                      </motion.h1>
+                      <motion.p
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                        className="wow fadeInUp"
+                        data-wow-delay="0.3s"
+                      >
                         It is a long established fact that a reader will be
                         distracted by there readable content of a page when
                         looking at its layout point .
-                      </p>
-                      <ul
+                      </motion.p>
+                      <motion.ul
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                         className="list-unstyled feature-list wow fadeInUp"
                         data-wow-delay="0.4s"
                       >
@@ -337,15 +468,19 @@ const SmallBankPage = () => {
                           <i className="fas fa-check-circle"></i> It is long
                           established fact distracted the readable.
                         </li>
-                      </ul>
+                      </motion.ul>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-5">
-                  <Image
+                  <motion.img
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="wow fadeInUp"
                     data-wow-delay="0.4s"
-                    src={mobilePng}
+                    src={mobilePng.src}
                     alt=""
                   />
                 </div>
@@ -356,11 +491,25 @@ const SmallBankPage = () => {
           <section className="bank-card-area">
             <div className="container">
               <div className="section-title bank-section-title mb-80">
-                <span className="short-title-2 wow fadeInUp">Cards</span>
-                <h1 className="wow fadeInUp text-white">
+                <motion.span
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="short-title-2 wow fadeInUp"
+                >
+                  Cards
+                </motion.span>
+                <motion.h1
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="wow fadeInUp text-white"
+                >
                   We offer variety of <br />
                   <span className="underline-shape">cards</span> with features
-                </h1>
+                </motion.h1>
               </div>
               <div className="row">
                 <div className="col-lg-5">
@@ -369,7 +518,14 @@ const SmallBankPage = () => {
                     id="myTab"
                     role="tablist"
                   >
-                    <li className="nav-item wow fadeInUp" role="presentation">
+                    <motion.li
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="nav-item wow fadeInUp"
+                      role="presentation"
+                    >
                       <button
                         className="nav-link bank-card-item active"
                         id="freelancer-tab"
@@ -386,8 +542,12 @@ const SmallBankPage = () => {
                           a freelancer, the courses are entirely taken care you.
                         </p>
                       </button>
-                    </li>
-                    <li
+                    </motion.li>
+                    <motion.li
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="nav-item wow fadeInUp"
                       data-wow-delay="0.2s"
                       role="presentation"
@@ -408,8 +568,12 @@ const SmallBankPage = () => {
                           a freelancer, the courses are entirely taken care you.
                         </p>
                       </button>
-                    </li>
-                    <li
+                    </motion.li>
+                    <motion.li
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="nav-item wow fadeInUp"
                       data-wow-delay="0.3s"
                       role="presentation"
@@ -430,11 +594,15 @@ const SmallBankPage = () => {
                           a freelancer, the courses are entirely taken care you.
                         </p>
                       </button>
-                    </li>
+                    </motion.li>
                   </ul>
                 </div>
                 <div className="col-lg-6 offset-lg-1">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="tab-content bank-card-content wow fadeInUp"
                     id="myTabContent"
                   >
@@ -471,7 +639,7 @@ const SmallBankPage = () => {
                         <Image className="card_two" src={fCard6} alt="" />
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -481,17 +649,27 @@ const SmallBankPage = () => {
             <div className="container">
               <div className="section-title bank-section-title mb-80">
                 <span className="short-title-2">Our Integrations</span>
-                <h1 className="wow fadeInUp">
+                <motion.h1 
+                  className="wow fadeInUp"
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                >
                   A variety of tools you
                   <br />
                   can <span className="underline-shape">integrate</span> with
-                </h1>
+                </motion.h1>
               </div>
               <div className="row">
                 <div className="col-lg-4 col-sm-6">
-                  <div
+                  <motion.div
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.1s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <div className="card-img">
                       <Image src={slack} alt="feature svg" />
@@ -502,12 +680,16 @@ const SmallBankPage = () => {
                       freelancer the courses are entire taken care about the way
                       to.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                  <div
+                  <motion.div
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.3s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <div className="card-img">
                       <Image src={dropbox} alt="feature svg" />
@@ -518,12 +700,16 @@ const SmallBankPage = () => {
                       freelancer the courses are entire taken care about the way
                       to.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                  <div
+                  <motion.div
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.6s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <div className="card-img">
                       <Image src={googleDrive} alt="feature svg" />
@@ -534,12 +720,16 @@ const SmallBankPage = () => {
                       freelancer the courses are entire taken care about the way
                       to.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                  <div
+                  <motion.div
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.1s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <div className="card-img">
                       <Image src={jira} alt="feature svg" />
@@ -550,12 +740,16 @@ const SmallBankPage = () => {
                       freelancer the courses are entire taken care about the way
                       to.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                  <div
+                  <motion.div
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.3s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <div className="card-img">
                       <Image src={zendesk} alt="feature svg" />
@@ -566,12 +760,16 @@ const SmallBankPage = () => {
                       freelancer the courses are entire taken care about the way
                       to.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                  <div
+                  <motion.div
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.6s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <div className="card-img">
                       <Image src={mailchimp} alt="feature svg" />
@@ -582,7 +780,7 @@ const SmallBankPage = () => {
                       freelancer the courses are entire taken care about the way
                       to.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -592,11 +790,16 @@ const SmallBankPage = () => {
             <div className="container">
               <div className="section-title bank-section-title mb-80">
                 <span className="short-title-2">Worldwide Reach</span>
-                <h1>
+                <motion.h1
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                >
                   Our customer base
                   <br /> reaches{" "}
                   <span className="underline-shape">worldwide</span>
-                </h1>
+                </motion.h1>
               </div>
               <div className="map_inner">
                 <Image src={mapPng} alt="" />
@@ -636,60 +839,84 @@ const SmallBankPage = () => {
 
           <section className="saas-clients-logo bg-white pt-100">
             <div className="container">
-              <p
+              <motion.p
                 className="wow fadeInUp clients-logo-title"
                 data-wow-delay="0.3s"
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
               >
                 Trust Trusted by over <span>10,000+</span> customers wordwide
-              </p>
+              </motion.p>
               <div className="row gy-md-0 gy-4 align-items-center h-100">
                 <div className="col">
                   <Link href="#">
-                    <Image
+                    <motion.img
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.1s"
-                      src={cLogo1}
+                      src={cLogo1.src}
                       alt="logo"
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     />
                   </Link>
                 </div>
                 <div className="col">
                   <Link href="#">
-                    <Image
+                    <motion.img
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.3s"
-                      src={cLogo2}
+                      src={cLogo2.src}
                       alt="logo"
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     />
                   </Link>
                 </div>
                 <div className="col">
                   <Link href="#">
-                    <Image
+                    <motion.img
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.5s"
-                      src={cLogo3}
+                      src={cLogo3.src}
                       alt="logo"
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     />
                   </Link>
                 </div>
                 <div className="col">
                   <Link href="#">
-                    <Image
+                    <motion.img
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.7s"
-                      src={cLogo4}
+                      src={cLogo4.src}
                       alt="logo"
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     />
                   </Link>
                 </div>
                 <div className="col">
                   <Link href="#">
-                    <Image
+                    <motion.img
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.7s"
-                      src={cLogo5}
+                      src={cLogo5.src}
                       alt="logo"
+                      variants={fadeInRight}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     />
                   </Link>
                 </div>
@@ -702,27 +929,47 @@ const SmallBankPage = () => {
               <div className="cta-4 cta-five cta-bg-primary">
                 <div className="row">
                   <div className="col-lg-6">
-                    <div className="cta-content wow fadeInUp">
+                    <motion.div 
+                      className="cta-content wow fadeInUp"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       <h2>Try it for free</h2>
                       <p>
                         Choose your training and register for free. If you are a
                         freelancer, the courses are entirely taken care.
                       </p>
-                      <Link
-                        href="#"
-                        className="wow fadeInUp theme-btn theme-btn-lg"
+                      <motion.div
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                       >
-                        Get started now <i className="arrow_right-up"></i>
-                      </Link>
-                    </div>
+                        <Link
+                          href="#"
+                          className="wow fadeInUp theme-btn theme-btn-lg"
+                        >
+                          Get started now <i className="arrow_right-up"></i>
+                        </Link>
+                      </motion.div>
+                    </motion.div>
                   </div>
                   <div className="col-lg-6 text-end">
-                    <Image
-                      className="wow fadeInUp"
-                      data-wow-delay="0.2s"
-                      src={mobileTwo}
-                      alt=""
-                    />
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
+                      <Image
+                        className="wow fadeInUp"
+                        data-wow-delay="0.2s"
+                        src={mobileTwo}
+                        alt=""
+                      />
+                    </motion.div>
                   </div>
                 </div>
               </div>
