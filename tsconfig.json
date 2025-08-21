@@ -23,6 +23,18 @@
        "@/assets/*": ["./public/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+   "include": [
+    "next-env.d.ts",
+    "next.config.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "public",
+    ".next",
+    "**/*.spec.ts",
+    "**/*.test.ts"
+  ]
 }

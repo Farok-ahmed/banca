@@ -9,31 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.7.2",
-    "@heroicons/react": "^2.2.0",
     "bootstrap": "^5.3.7",
-    "bootstrap-icons": "^1.13.1",
     "flatpickr": "^4.6.13",
-    "font-awesome": "^4.7.0",
     "framer-motion": "^12.23.12",
     "intl-tel-input": "^25.3.1",
-    "ionicons": "^8.0.13",
     "next": "15.3.4",
-    "nice-select2": "^2.4.0",
     "nouislider": "^15.8.1",
     "react": "^19.0.0",
-    "react-bootstrap": "^2.10.10",
     "react-countup": "^6.5.3",
     "react-dom": "^19.0.0",
-    "react-dropzone": "^14.3.8",
     "react-flatpickr": "^4.0.11",
     "react-icons": "^5.5.0",
-    "react-nice-select": "^1.0.6",
     "react-select": "^5.10.2",
     "react-slick": "^0.30.3",
     "sass": "^1.89.2",
-    "slick-carousel": "^1.8.1",
-    "wnumb": "^1.2.0"
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

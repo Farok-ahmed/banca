@@ -598,7 +598,7 @@ export default function Home() {
                       className="blog-widget-3 wow fadeInUp"
                     >
                       <Link
-                        href="/"
+                        href="/blog-details"
                         className="blog-img d-block position-relative"
                       >
                         <Image
@@ -612,7 +612,7 @@ export default function Home() {
                       </Link>
                       <div className="blog-content mt-3">
                         <h4>
-                          <a href="#">{post.title}</a>
+                          <Link href="/blog-details">{post.title}</Link>
                         </h4>
                         <div className="post-info d-flex justify-content-between mt-3">
                           <div className="post-date d-flex align-items-center gap-2">
