@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-
+import Logo from "@/assets/img/logo/Logo.png";
 const FooterFive = () => {
   const patheName = usePathname();
   const smallBank = patheName === "/small-bank";
@@ -17,9 +17,7 @@ const FooterFive = () => {
                 <div className="f-widget about-widget">
                   <Link href="/" className="p-0 m-0">
                     <Image
-                      width={90}
-                      height={30}
-                      src="/img/logo/Logo.png"
+                      src={Logo}
                       alt="logo"
                     />
                   </Link>

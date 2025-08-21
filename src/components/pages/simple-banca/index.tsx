@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -45,7 +45,11 @@ const SampleBancaPage = () => {
         <main>
           <section className="banner-area-3 pt-90" id="banner_animation2">
             <div className="bg-slides">
-              <div
+              <motion.div
+                variants={fadeInRight}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
                 className="slide"
                 data-parallax='{"x": 220, "y": 0, "rotateZ":0}'
               >
@@ -56,8 +60,12 @@ const SampleBancaPage = () => {
                   priority
                   alt="slide shape"
                 />
-              </div>
-              <div
+              </motion.div>
+              <motion.div 
+               variants={fadeInRight}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
                 className="slide"
                 data-parallax='{"x": 270, "y": 0, "rotateZ":0}'
               >
@@ -67,8 +75,12 @@ const SampleBancaPage = () => {
                   src={slideShape2}
                   alt="slide shape"
                 />
-              </div>
-              <div
+              </motion.div>
+              <motion.div
+               variants={fadeInRight}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
                 className="slide"
                 data-parallax='{"x": 330, "y": 0, "rotateZ":0}'
               >
@@ -78,7 +90,7 @@ const SampleBancaPage = () => {
                   src={slideShape3}
                   alt="slide shape"
                 />
-              </div>
+              </motion.div>
             </div>
             <div className="container">
               <div className="row align-items-end">
@@ -260,7 +272,13 @@ const SampleBancaPage = () => {
                     <Image className="img-fluid" src={logo2} alt="logo" />
                   </motion.a>
                 </div>
-                <div className="col-lg-2 col-6">
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-2 col-6"
+                >
                   <Link
                     href="#"
                     className="single-brand wow fadeInRight"
@@ -268,8 +286,14 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo3} alt="logo" />
                   </Link>
-                </div>
-                <div className="col-lg-2 col-6">
+                </motion.div>
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-2 col-6"
+                >
                   <Link
                     href="#"
                     className="single-brand wow fadeInRight"
@@ -277,8 +301,14 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo4} alt="logo" />
                   </Link>
-                </div>
-                <div className="col-lg-2 col-6 d-none d-lg-block">
+                </motion.div>
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-2 col-6 d-none d-lg-block"
+                >
                   <Link
                     href="#"
                     className="single-brand wow fadeInRight"
@@ -286,10 +316,16 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo5} alt="logo" />
                   </Link>
-                </div>
+                </motion.div>
               </div>
               <div className="row justify-content-between gy-sm-0 gy-4 mt-20 text-center text-lg-start">
-                <div className="col-lg-2 col-6">
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-2 col-6"
+                >
                   <Link
                     href="#"
                     className="single-brand wow fadeInRight"
@@ -297,8 +333,14 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo1} alt="logo" />
                   </Link>
-                </div>
-                <div className="col-lg-2 col-6">
+                </motion.div>
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-2 col-6"
+                >
                   <Link
                     href="#"
                     className="single-brand wow fadeInRight"
@@ -306,8 +348,14 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo2} alt="logo" />
                   </Link>
-                </div>
-                <div className="col-lg-2 col-6">
+                </motion.div>
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-2 col-6"
+                >
                   <Link
                     href="#"
                     className="single-brand wow fadeInRight"
@@ -315,8 +363,14 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo3} alt="logo" />
                   </Link>
-                </div>
-                <div className="col-lg-2 col-6">
+                </motion.div>
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-2 col-6"
+                >
                   <Link
                     href="#"
                     className="single-brand wow fadeInRight"
@@ -324,8 +378,14 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo4} alt="logo" />
                   </Link>
-                </div>
-                <div className="col-lg-2 col-6 d-none d-lg-block">
+                </motion.div>
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="col-lg-2 col-6 d-none d-lg-block"
+                >
                   <Link
                     href="#"
                     className="single-brand wow fadeInRight"
@@ -333,7 +393,7 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo5} alt="logo" />
                   </Link>
-                </div>
+                </motion.div>
               </div>
             </div>
           </section>
@@ -374,7 +434,7 @@ const SampleBancaPage = () => {
                     <Image
                       className="w-100"
                       src={article1}
-                      style={{width:"auto",height:"auto"}}
+                      style={{ width: "auto", height: "auto" }}
                       alt="news image"
                     />
                     <div className="blog-content pr-10 pl-10">
@@ -402,7 +462,7 @@ const SampleBancaPage = () => {
                     <Image
                       className="w-100"
                       src={article2}
-                      style={{width:"auto",height:"auto"}}
+                      style={{ width: "auto", height: "auto" }}
                       alt="news image"
                     />
                     <div className="blog-content pr-10 pl-10">
@@ -430,7 +490,7 @@ const SampleBancaPage = () => {
                     <Image
                       className="w-100"
                       src={article3}
-                      style={{width:"auto",height:"auto"}}
+                      style={{ width: "auto", height: "auto" }}
                       alt="news image"
                     />
                     <div className="blog-content pr-10 pl-10">
@@ -458,7 +518,7 @@ const SampleBancaPage = () => {
                     <Image
                       className="w-100"
                       src={article4}
-                      style={{width:"auto",height:"auto"}}
+                      style={{ width: "auto", height: "auto" }}
                       alt="news image"
                     />
                     <div className="blog-content pr-10 pl-10">
@@ -499,7 +559,11 @@ const SampleBancaPage = () => {
                     </motion.h2>
                   </div>
 
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="advisor-img mt-45 wow fadeInUp"
                     data-wow-delay="0.2s"
                   >
@@ -524,7 +588,7 @@ const SampleBancaPage = () => {
                       <div className="circle-shape"></div>
                       All weekdays <span>10.00 - 18.00</span>
                     </div>
-                  </div>
+                  </motion.div>
 
                   <div
                     className="row mt-4 gy-md-0 gy-3 wow fadeInUp"

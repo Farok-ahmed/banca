@@ -3,7 +3,12 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import VisaImg from "@/assets/img/saas-app/visa.png";
+import AmazonImg from "@/assets/img/saas-app/amazon.png";
+import StripeImg from "@/assets/img/saas-app/stripe.png";
+import PaypalImg from "@/assets/img/saas-app/paypal.png";
+import AmexImg from "@/assets/img/saas-app/amex.png";
+import DiscoverImg from "@/assets/img/saas-app/discover.png";
 const FooterFour = () => {
   const patheName = usePathname();
   const financeSass = patheName === "/finance-sass-app";
@@ -125,9 +130,7 @@ const FooterFour = () => {
                   <li>
                     <Link href="#">
                       <Image
-                        width={40}
-                        height={30}
-                        src="/img/saas-app/visa.png"
+                        src={VisaImg}
                         alt="Visa"
                         className="payment-icon"
                       />
@@ -136,9 +139,7 @@ const FooterFour = () => {
                   <li>
                     <Link href="#">
                       <Image
-                        width={40}
-                        height={30}
-                        src="/img/saas-app/amazon.png"
+                        src={AmazonImg}
                         alt="Amazon"
                         className="payment-icon"
                       />
@@ -147,9 +148,7 @@ const FooterFour = () => {
                   <li>
                     <Link href="#">
                       <Image
-                        width={40}
-                        height={30}
-                        src="/img/saas-app/stripe.png"
+                        src={StripeImg}
                         alt="Stripe"
                         className="payment-icon"
                       />
@@ -158,9 +157,7 @@ const FooterFour = () => {
                   <li>
                     <Link href="#">
                       <Image
-                        width={40}
-                        height={30}
-                        src="/img/saas-app/paypal.png"
+                        src={PaypalImg}
                         alt="Paypal"
                         className="payment-icon"
                       />
@@ -169,9 +166,7 @@ const FooterFour = () => {
                   <li>
                     <Link href="#">
                       <Image
-                        width={40}
-                        height={30}
-                        src="/img/saas-app/amex.png"
+                        src={AmexImg}
                         alt="Amex"
                         className="payment-icon"
                       />
@@ -182,7 +177,7 @@ const FooterFour = () => {
                       <Image
                         width={40}
                         height={33}
-                        src="/img/saas-app/discover.png"
+                        src={DiscoverImg}
                         alt="Discover"
                         className="payment-icon"
                       />

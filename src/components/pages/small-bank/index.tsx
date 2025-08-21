@@ -33,12 +33,6 @@ import singleIcon from "@/assets/img/bank/single-icon.png";
 import worldIcon from "@/assets/img/bank/world-icon.png";
 import sheldIcon from "@/assets/img/bank/sheld-icon.png";
 import mobilePng from "@/assets/img/bank/mobile.png";
-import fCard1 from "@/assets/img/bank/f-card1.png";
-import fCard2 from "@/assets/img/bank/f-card2.png";
-import fCard3 from "@/assets/img/bank/f_card3.png";
-import fCard4 from "@/assets/img/bank/f_card4.png";
-import fCard5 from "@/assets/img/bank/f_card5.png";
-import fCard6 from "@/assets/img/bank/f_card6.png";
 import slack from "@/assets/img/bank/slack.png";
 import dropbox from "@/assets/img/bank/dropbox.png";
 import googleDrive from "@/assets/img/bank/google_drive.png";
@@ -60,6 +54,7 @@ import cLogo3 from "@/assets/img/saas-app/c_logo_3.png";
 import cLogo4 from "@/assets/img/saas-app/c_logo_4.png";
 import cLogo5 from "@/assets/img/saas-app/c_logo_5.png";
 import mobileTwo from "@/assets/img/bank/mobile-two.png";
+import CardArea from "./CardArea";
 
 const SmallBankPage = () => {
   return (
@@ -488,162 +483,7 @@ const SmallBankPage = () => {
             </div>
           </section>
 
-          <section className="bank-card-area">
-            <div className="container">
-              <div className="section-title bank-section-title mb-80">
-                <motion.span
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.2 }}
-                  className="short-title-2 wow fadeInUp"
-                >
-                  Cards
-                </motion.span>
-                <motion.h1
-                  variants={fadeInUp}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.2 }}
-                  className="wow fadeInUp text-white"
-                >
-                  We offer variety of <br />
-                  <span className="underline-shape">cards</span> with features
-                </motion.h1>
-              </div>
-              <div className="row">
-                <div className="col-lg-5">
-                  <ul
-                    className="nav nav-tabs bank-card-tab"
-                    id="myTab"
-                    role="tablist"
-                  >
-                    <motion.li
-                      variants={fadeInUp}
-                      initial="hidden"
-                      whileInView="show"
-                      viewport={{ once: true, amount: 0.2 }}
-                      className="nav-item wow fadeInUp"
-                      role="presentation"
-                    >
-                      <button
-                        className="nav-link bank-card-item active"
-                        id="freelancer-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#freelancer"
-                        type="button"
-                        role="tab"
-                        aria-controls="freelancer"
-                        aria-selected="true"
-                      >
-                        <h5>Standard Card</h5>
-                        <p>
-                          Choose your training and register for free. If you are
-                          a freelancer, the courses are entirely taken care you.
-                        </p>
-                      </button>
-                    </motion.li>
-                    <motion.li
-                      variants={fadeInUp}
-                      initial="hidden"
-                      whileInView="show"
-                      viewport={{ once: true, amount: 0.2 }}
-                      className="nav-item wow fadeInUp"
-                      data-wow-delay="0.2s"
-                      role="presentation"
-                    >
-                      <button
-                        className="nav-link bank-card-item"
-                        id="startup-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#startup"
-                        type="button"
-                        role="tab"
-                        aria-controls="startup"
-                        aria-selected="false"
-                      >
-                        <h5>Premium Card</h5>
-                        <p>
-                          Choose your training and register for free. If you are
-                          a freelancer, the courses are entirely taken care you.
-                        </p>
-                      </button>
-                    </motion.li>
-                    <motion.li
-                      variants={fadeInUp}
-                      initial="hidden"
-                      whileInView="show"
-                      viewport={{ once: true, amount: 0.2 }}
-                      className="nav-item wow fadeInUp"
-                      data-wow-delay="0.3s"
-                      role="presentation"
-                    >
-                      <button
-                        className="nav-link bank-card-item"
-                        id="business-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#business"
-                        type="button"
-                        role="tab"
-                        aria-controls="business"
-                        aria-selected="false"
-                      >
-                        <h5>Business Card</h5>
-                        <p>
-                          Choose your training and register for free. If you are
-                          a freelancer, the courses are entirely taken care you.
-                        </p>
-                      </button>
-                    </motion.li>
-                  </ul>
-                </div>
-                <div className="col-lg-6 offset-lg-1">
-                  <motion.div
-                    variants={fadeInUp}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, amount: 0.2 }}
-                    className="tab-content bank-card-content wow fadeInUp"
-                    id="myTabContent"
-                  >
-                    <div
-                      className="tab-pane fade show active"
-                      id="freelancer"
-                      role="tabpanel"
-                      aria-labelledby="freelancer-tab"
-                    >
-                      <div className="card-img">
-                        <Image className="card_one" src={fCard1} alt="" />
-                        <Image className="card_two" src={fCard2} alt="" />
-                      </div>
-                    </div>
-                    <div
-                      className="tab-pane fade"
-                      id="startup"
-                      role="tabpanel"
-                      aria-labelledby="startup-tab"
-                    >
-                      <div className="card-img">
-                        <Image className="card_one" src={fCard3} alt="" />
-                        <Image className="card_two" src={fCard4} alt="" />
-                      </div>
-                    </div>
-                    <div
-                      className="tab-pane fade"
-                      id="business"
-                      role="tabpanel"
-                      aria-labelledby="business-tab"
-                    >
-                      <div className="card-img">
-                        <Image className="card_one" src={fCard5} alt="" />
-                        <Image className="card_two" src={fCard6} alt="" />
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <CardArea/>
 
           <section className="integrate-area bg-white">
             <div className="container">

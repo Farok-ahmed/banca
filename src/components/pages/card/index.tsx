@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+"use client"
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -9,6 +10,8 @@ import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeInLeft, fadeInRight } from "@/components/animation";
 import DefaultLayout from "@/components/Layout";
 // Hero images
 import hero2 from "@/assets/img/card/hero-img-2.png";
@@ -78,25 +81,51 @@ const CardPage = () => {
               <div className="row align-items-center pt-75 pb-60">
                 <div className="col-lg-6 ">
                   <div className="banner-content mb-5 mb-sm-0">
-                    <h1 className="wow fadeInUp mb-0">
+                    <motion.h1 
+                      className="wow fadeInUp mb-0"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       The credit card as it should be.
-                    </h1>
+                    </motion.h1>
 
-                    <p className="wow fadeInUp  mt-20" data-wow-delay="0.2s">
+                    <motion.p 
+                      className="wow fadeInUp  mt-20" 
+                      data-wow-delay="0.2s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       Without an annuity, it gives you cashback on all your
                       purchases and access to months without interest.
-                    </p>
-                    <Link
-                      href="#"
-                      className="wow fadeInUp theme-btn theme-btn-outlined_alt mt-50"
-                      data-wow-delay="0.4s"
+                    </motion.p>
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     >
-                      I want my BancaCard
-                    </Link>
+                      <Link
+                        href="#"
+                        className="wow fadeInUp theme-btn theme-btn-outlined_alt mt-50"
+                        data-wow-delay="0.4s"
+                      >
+                        I want my BancaCard
+                      </Link>
+                    </motion.div>
                   </div>
                 </div>
                 <div className="col-md-6 mx-auto text-center text-sm-end">
-                  <div className="hero-img wow fadeInRight">
+                  <motion.div 
+                    className="hero-img wow fadeInRight"
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                  >
                     <div
                       className="shape"
                       data-parallax='{"x": -120, "y": 90, "rotateZ":0}'
@@ -176,7 +205,7 @@ const CardPage = () => {
                       src={heroImg}
                       alt="card"
                     />
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -186,51 +215,84 @@ const CardPage = () => {
             <div className="container">
               <div className="row gy-lg-0 gy-4">
                 <div className="col-lg-3  wow fadeInLeft pe-0 mr-60">
-                  <p>
+                  <motion.p
+                    variants={fadeInLeft}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                  >
                     ACCEPTABLE TO MILLIONS OF CUSTOMERS WORLDWIDE AND IN TOP
                     MARKETPLACES.
-                  </p>
+                  </motion.p>
                 </div>
                 <div className="col-lg-8 border-start text-center pl-lg-60">
                   <div className="row gy-md-0 gy-4 align-items-center h-100">
                     <div className="col-md-3 col-6">
                       <Link href="#">
-                        <Image
-                          className="img-fluid wow fadeInRight"
-                          data-wow-delay="0.1s"
-                          src={companyLogo1}
-                          alt="logo"
-                        />
+                        <motion.div
+                          variants={fadeInRight}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                        >
+                          <Image
+                            className="img-fluid wow fadeInRight"
+                            data-wow-delay="0.1s"
+                            src={companyLogo1}
+                            alt="logo"
+                          />
+                        </motion.div>
                       </Link>
                     </div>
                     <div className="col-md-3 col-6">
                       <Link href="#">
-                        <Image
-                          className="img-fluid wow fadeInRight"
-                          data-wow-delay="0.3s"
-                          src={companyLogo2}
-                          alt="logo"
-                        />
+                        <motion.div
+                          variants={fadeInRight}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                        >
+                          <Image
+                            className="img-fluid wow fadeInRight"
+                            data-wow-delay="0.3s"
+                            src={companyLogo2}
+                            alt="logo"
+                          />
+                        </motion.div>
                       </Link>
                     </div>
                     <div className="col-md-3 col-6">
                       <Link href="#">
-                        <Image
-                          className="img-fluid wow fadeInRight"
-                          data-wow-delay="0.5s"
-                          src={companyLogo3}
-                          alt="logo"
-                        />
+                        <motion.div
+                          variants={fadeInRight}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                        >
+                          <Image
+                            className="img-fluid wow fadeInRight"
+                            data-wow-delay="0.5s"
+                            src={companyLogo3}
+                            alt="logo"
+                          />
+                        </motion.div>
                       </Link>
                     </div>
                     <div className="col-md-3 col-6">
                       <Link href="#">
-                        <Image
-                          className="img-fluid wow fadeInRight"
-                          data-wow-delay="0.7s"
-                          src={companyLogo4}
-                          alt="logo"
-                        />
+                        <motion.div
+                          variants={fadeInRight}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                        >
+                          <Image
+                            className="img-fluid wow fadeInRight"
+                            data-wow-delay="0.7s"
+                            src={companyLogo4}
+                            alt="logo"
+                          />
+                        </motion.div>
                       </Link>
                     </div>
                   </div>
@@ -244,21 +306,38 @@ const CardPage = () => {
               <div className="row">
                 <div className="col-lg-6 mx-auto">
                   <div className="section-title">
-                    <h2 className="wow fadeInUp">
+                    <motion.h2 
+                      className="wow fadeInUp"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       Great Features Of Banca Card
-                    </h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.3s">
+                    </motion.h2>
+                    <motion.p 
+                      className="wow fadeInUp" 
+                      data-wow-delay="0.3s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       There are many variations of passages of Lorem Ipsum
                       available, but the majority have suffered
-                    </p>
+                    </motion.p>
                   </div>
                 </div>
               </div>
               <div className="row mt-30 gy-4">
                 <div className="col-xl-4 col-md-6">
-                  <div
+                  <motion.div
                     className="feature-card-widget-5 wow fadeInUp"
                     data-wow-delay="0.1s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image src={featureIcon11} alt="icon" />
                     <h4 className="mt-30 mb-15"> Online banking</h4>
@@ -266,12 +345,16 @@ const CardPage = () => {
                       Online banking, also known as internet banking or web
                       banking, is an electronic payment system.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-4 col-md-6">
-                  <div
+                  <motion.div
                     className="feature-card-widget-5 wow fadeInUp"
                     data-wow-delay="0.3s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image  src={featureIcon12} alt="icon" />
                     <h4 className="mt-30 mb-15">Up to 20.000$ limit</h4>
@@ -279,12 +362,16 @@ const CardPage = () => {
                       Online banking, also known as internet banking or web
                       banking, is an electronic payment system.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-4 col-md-6">
-                  <div
+                  <motion.div
                     className="feature-card-widget-5 wow fadeInUp"
                     data-wow-delay="0.5s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image  src={featureIcon13} alt="icon" />
                     <h4 className="mt-30 mb-15">Protection & security</h4>
@@ -292,12 +379,16 @@ const CardPage = () => {
                       Online banking, also known as internet banking or web
                       banking, is an electronic payment system.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-4 col-md-6">
-                  <div
+                  <motion.div
                     className="feature-card-widget-5 wow fadeInUp"
                     data-wow-delay="0.7s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image  src={featureIcon14} alt="icon" />
                     <h4 className="mt-30 mb-15">Mobile application</h4>
@@ -305,12 +396,16 @@ const CardPage = () => {
                       Online banking, also known as internet banking or web
                       banking, is an electronic payment system.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-4 col-md-6">
-                  <div
+                  <motion.div
                     className="feature-card-widget-5 wow fadeInUp"
                     data-wow-delay="0.9s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image  src={featureIcon15} alt="icon" />
                     <h4 className="mt-30 mb-15">Online Shopping</h4>
@@ -318,12 +413,16 @@ const CardPage = () => {
                       Online banking, also known as internet banking or web
                       banking, is an electronic payment system.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-xl-4 col-md-6">
-                  <div
+                  <motion.div
                     className="feature-card-widget-5 wow fadeInUp"
                     data-wow-delay="1.1s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image  src={featureIcon16} alt="icon" />
                     <h4 className="mt-30 mb-15">Small payments fees</h4>
@@ -331,7 +430,7 @@ const CardPage = () => {
                       Online banking, also known as internet banking or web
                       banking, is an electronic payment system.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -347,46 +446,71 @@ const CardPage = () => {
                       <Image src={mastercardPng} alt="logo" />
                     </div>
                     <Image className="bg-img" src={paymentBg} alt="bg img" />
-                    <Image className="img-fluid wow fadeInUp" src={creditCard} alt="credit-card" />
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
+                      <Image className="img-fluid wow fadeInUp" src={creditCard} alt="credit-card" />
+                    </motion.div>
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="section-title text-start">
-                    <h2 className="wow fadeInUp">
+                    <motion.h2 
+                      className="wow fadeInUp"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       Best Ways to Send Your Money From Anywhere You Like
-                    </h2>
-                    <p
+                    </motion.h2>
+                    <motion.p
                       className="border-left pl-10 wow fadeInUp"
                       data-wow-delay="0.2s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       Banca came as a solution to the next generation. Through
                       our portal, you can sit at the comfort of your home,
                       office or pretty much anywhere, and send money to
                       anywhere! Through our strong network.
-                    </p>
+                    </motion.p>
                   </div>
                   <div className="row">
                     <div className="col-md-6">
-                      <div
+                      <motion.div
                         className="payment-system mt-80 wow fadeInRight"
                         data-wow-delay="0.1s"
+                        variants={fadeInRight}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                       >
                         <Image  src={onlinePayment} alt="icon" />
                         <h5 className="mt-20 mb-10">Online Payments</h5>
                         <p>
                           We acceept many type payments getway that you love.
                         </p>
-                      </div>
+                      </motion.div>
                     </div>
                     <div className="col-md-6">
-                      <div
+                      <motion.div
                         className="payment-system mt-65 wow fadeInRight"
                         data-wow-delay="0.3s"
+                        variants={fadeInRight}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
                       >
                         <Image src={safebox} alt="icon" />
                         <h5 className="mt-20 mb-10">Safe Deposit</h5>
                         <p>You can trust us for your deposit. No hidden fee.</p>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
@@ -402,20 +526,39 @@ const CardPage = () => {
               <div className="row">
                 <div className="col-lg-6 pe-lg-0">
                   <div className="section-title mb-35 text-start">
-                    <h2 className="wow fadeInUp">Customize Your Payments</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.3s">
+                    <motion.h2 
+                      className="wow fadeInUp"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
+                      Customize Your Payments
+                    </motion.h2>
+                    <motion.p 
+                      className="wow fadeInUp" 
+                      data-wow-delay="0.3s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       Personalize the newly-improved Payment Options Form to
                       include all your payment methods such as, easy monthly
                       payments, credit cards
-                    </p>
+                    </motion.p>
                   </div>
                 </div>
               </div>
               <div className="row align-items-center">
                 <div className="col-lg-6 order-lg-1 order-2">
-                  <div
+                  <motion.div
                     className="feature-card-widget-6 wow fadeInUp mt-sm-0 mt-5"
                     data-wow-delay="0.1s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <div className="icon mr-20">
                       <Image src={moneyTransfer} alt="icon" />
@@ -427,10 +570,14 @@ const CardPage = () => {
                         of transactions and total number of transactions.
                       </p>
                     </div>
-                  </div>
-                  <div
+                  </motion.div>
+                  <motion.div
                     className="feature-card-widget-6 wow fadeInUp mt-30"
                     data-wow-delay="0.3s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <div className="icon mr-20">
                       <Image src={reminder} alt="icon" />
@@ -442,10 +589,14 @@ const CardPage = () => {
                         of transactions and total number of transactions.
                       </p>
                     </div>
-                  </div>
-                  <div
+                  </motion.div>
+                  <motion.div
                     className="feature-card-widget-6 wow fadeInUp mt-30"
                     data-wow-delay="0.5s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <div className="icon mr-20">
                       <Image src={refresh} alt="icon" />
@@ -457,7 +608,7 @@ const CardPage = () => {
                         of transactions and total number of transactions.
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-6 order-lg-2 order-1 pl-lg-50">
                   <div className="card-img mb-5 mb-sm-0">
@@ -499,19 +650,38 @@ const CardPage = () => {
               <div className="row">
                 <div className="col-lg-6 mx-auto">
                   <div className="section-title">
-                    <h2 className="wow fadeInUp">Why You Choose Us?</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.3s">
+                    <motion.h2 
+                      className="wow fadeInUp"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
+                      Why You Choose Us?
+                    </motion.h2>
+                    <motion.p 
+                      className="wow fadeInUp" 
+                      data-wow-delay="0.3s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       There are many variations of passages of Lorem Ipsum
                       available, but the majority have suffered alteration.
-                    </p>
+                    </motion.p>
                   </div>
                 </div>
               </div>
               <div className="row mt-55 gy-lg-0 gy-4">
                 <div className="col-lg-4">
-                  <div
+                  <motion.div
                     className="content-box pr-lg-30 pl-lg-30 wow fadeInUp"
                     data-wow-delay="0.1s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image  src={layoutSvg} alt="icon" />
                     <h4 className="mt-30 mb-15">Easy to Use</h4>
@@ -519,12 +689,16 @@ const CardPage = () => {
                       There are many variations of passages of Lorem Ipsum
                       available, but the majority have suffered alteration.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4">
-                  <div
+                  <motion.div
                     className="content-box pr-lg-30 pl-lg-30 wow fadeInUp"
                     data-wow-delay="0.3s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <div className="line-shape">
                       <Image
@@ -540,12 +714,16 @@ const CardPage = () => {
                       There are many variations of passages of Lorem Ipsum
                       available, but the majority have suffered alteration.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4">
-                  <div
+                  <motion.div
                     className="content-box pr-lg-30 pl-lg-30 wow fadeInUp"
                     data-wow-delay="0.5s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image  src={antivirusSvg} alt="icon" />
                     <h4 className="mt-30 mb-15">100% Secure</h4>
@@ -553,7 +731,7 @@ const CardPage = () => {
                       There are many variations of passages of Lorem Ipsum
                       available, but the majority have suffered alteration.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -564,23 +742,40 @@ const CardPage = () => {
               <div className="row">
                 <div className="col-lg-7 mx-auto">
                   <div className="section-title">
-                    <h2 className="wow fadeInUp">
+                    <motion.h2 
+                      className="wow fadeInUp"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       Choose Card <br />
                       Considering Your Personal Needs
-                    </h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.3s">
+                    </motion.h2>
+                    <motion.p 
+                      className="wow fadeInUp" 
+                      data-wow-delay="0.3s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       You're considering opening a credit card to build credit.
                       If this is the case, you need to make sure that you act
                       responsibly with your card.{" "}
-                    </p>
+                    </motion.p>
                   </div>
                 </div>
               </div>
               <div className="row mt-60 gy-lg-0 gy-4">
                 <div className="col-lg-3 col-md-6">
-                  <div
+                  <motion.div
                     className="credit-card-box-widget wow fadeInUp"
                     data-wow-delay="0.1s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image className="w-100" src={cardImage4} alt="card" style={{width:"auto",height:"auto"}} />
                     <div className="card-content">
@@ -607,12 +802,16 @@ const CardPage = () => {
                         Learn more <i className="arrow_right"></i>
                       </Link>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-3 col-md-6">
-                  <div
+                  <motion.div
                     className="credit-card-box-widget wow fadeInUp"
                     data-wow-delay="0.3s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image className="w-100" src={cardImage5} style={{width:"auto",height:"auto"}} alt="card" />
                     <div className="card-content">
@@ -639,12 +838,16 @@ const CardPage = () => {
                         Learn more <i className="arrow_right"></i>
                       </Link>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-3 col-md-6">
-                  <div
+                  <motion.div
                     className="credit-card-box-widget wow fadeInUp"
                     data-wow-delay="0.5s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image className="w-100" src={cardImage6} style={{width:"auto",height:"auto"}} alt="card" />
                     <div className="card-content">
@@ -671,12 +874,16 @@ const CardPage = () => {
                         Learn more <i className="arrow_right"></i>
                       </Link>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-3 col-md-6">
-                  <div
+                  <motion.div
                     className="credit-card-box-widget wow fadeInUp"
                     data-wow-delay="0.7s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image className="w-100" src={cardImage7} style={{width:"auto",height:"auto"}} alt="card" />
                     <div className="card-content">
@@ -703,7 +910,7 @@ const CardPage = () => {
                         Learn more <i className="arrow_right"></i>
                       </Link>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -732,7 +939,14 @@ const CardPage = () => {
                 className="shape"
                 data-parallax='{"x": 0, "y": 0, "rotateZ":-6}'
               >
-                <Image className="wow fadeInRight" src={postbox} alt="img" />
+                <motion.div
+                  variants={fadeInRight}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                >
+                  <Image className="wow fadeInRight" src={postbox} alt="img" />
+                </motion.div>
               </div>
               <div
                 className="shape"
@@ -744,7 +958,13 @@ const CardPage = () => {
             <div className="container">
               <div className="row">
                 <div className="col-lg-5">
-                  <div className="cta-content text-black wow fadeInLeft">
+                  <motion.div 
+                    className="cta-content text-black wow fadeInLeft"
+                    variants={fadeInLeft}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                  >
                     <h5>Want to know about our offers first?</h5>
                     <h2>Subscribe our newsletter</h2>
 
@@ -762,7 +982,7 @@ const CardPage = () => {
                         Subscribe
                       </Link>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>

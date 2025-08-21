@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { fadeInUp } from "@/components/animation";
 
 interface FAQItem {
   id: number;
@@ -84,13 +86,23 @@ export default function FAQAccordion() {
 
   return (
     <div className="col-lg-6">
-      <div className="faq-widget-2">
+      <motion.div 
+        className="faq-widget-2"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="accordion" id="accordionExample">
-          {faqData.map((item) => (
-            <div
-              className="single-widget-one wow fadeInUp"
-              data-wow-delay={item.delay}
+          {faqData.map((item, index) => (
+            <motion.div
+              className="single-widget-one"
               key={item.id}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeInUp}
+              transition={{ delay: index * 0.2, duration: 0.6 }}
             >
               <div className="faq-header" id={`heading${item.id}`}>
                 <h6
@@ -99,20 +111,26 @@ export default function FAQAccordion() {
                   role="button"
                 >
                   {item.question}
-                  <i
+                  <motion.i
                     className="icon_plus"
-                    style={{
-                      display: openId === item.id ? "none" : "inline-block",
-                      marginLeft: 8,
+                    initial={false}
+                    animate={{ 
+                      opacity: openId === item.id ? 0 : 1,
+                      rotate: openId === item.id ? 45 : 0
                     }}
-                  ></i>
-                  <i
+                    transition={{ duration: 0.3 }}
+                    style={{ marginLeft: 8 }}
+                  ></motion.i>
+                  <motion.i
                     className="icon_close"
-                    style={{
-                      display: openId === item.id ? "inline-block" : "none",
-                      marginLeft: 8,
+                    initial={false}
+                    animate={{ 
+                      opacity: openId === item.id ? 1 : 0,
+                      rotate: openId === item.id ? 0 : -45
                     }}
-                  ></i>
+                    transition={{ duration: 0.3 }}
+                    style={{ marginLeft: 8 }}
+                  ></motion.i>
                 </h6>
               </div>
               <div
@@ -120,16 +138,26 @@ export default function FAQAccordion() {
                 className={`collapse ${openId === item.id ? "show" : ""}`}
                 aria-labelledby={`heading${item.id}`}
               >
-                <div className="faq-body">
-                  {item.answer.split('\n').map((line, i) => (
-                    <p key={i}>{line}</p>
-                  ))}
-                </div>
+                {openId === item.id && (
+                  <motion.div 
+                    className="faq-body"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                      duration: 0.6,
+                      delay: 0.1
+                    }}
+                  >
+                    {item.answer.split('\n').map((line, i) => (
+                      <p key={i}>{line}</p>
+                    ))}
+                  </motion.div>
+                )}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -6,6 +6,8 @@ import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeInLeft, fadeInRight } from "@/components/animation";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
 import JobSort from "./JobSort";
@@ -252,15 +254,35 @@ const JobsPage = () => {
                   <div className="job-post-widget">
                     <div className="sidebar-header d-flex justify-content-between align-items-center mt-4 mt-lg-0">
                       <div className="sidebar-title">
-                        <h4 className="wow fadeInRight">25 job offers</h4>
+                        <motion.h4 
+                          className="wow fadeInRight"
+                          variants={fadeInRight}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                        >
+                          25 job offers
+                        </motion.h4>
                       </div>
 
-                      <div className="sorting-select wow fadeInLeft me-1">
+                      <motion.div 
+                        className="sorting-select wow fadeInLeft me-1"
+                        variants={fadeInLeft}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                      >
                         <JobSort />
-                      </div>
+                      </motion.div>
                     </div>
 
-                    <div className="single-job-post me-1 wow fadeInUp mt-25">
+                    <motion.div 
+                      className="single-job-post me-1 wow fadeInUp mt-25"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       <div className="post-header">
                         <div>
                           <h6 className="job-title">
@@ -289,10 +311,14 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </div>
-                    <div
+                    </motion.div>
+                    <motion.div
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.1s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       <div className="post-header">
                         <div>
@@ -322,11 +348,15 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
 
-                    <div
+                    <motion.div
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.3s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       <div className="post-header">
                         <div>
@@ -356,10 +386,14 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </div>
-                    <div
+                    </motion.div>
+                    <motion.div
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.5s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       <div className="post-header">
                         <div>
@@ -389,10 +423,14 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </div>
-                    <div
+                    </motion.div>
+                    <motion.div
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.6s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       <div className="post-header">
                         <div>
@@ -422,10 +460,14 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </div>
-                    <div
+                    </motion.div>
+                    <motion.div
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.7s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       <div className="post-header">
                         <div>
@@ -455,10 +497,14 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </div>
-                    <div
+                    </motion.div>
+                    <motion.div
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.8s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       <div className="post-header">
                         <div>
@@ -488,10 +534,14 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </div>
-                    <div
+                    </motion.div>
+                    <motion.div
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.9s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     >
                       <div className="post-header">
                         <div>
@@ -521,17 +571,29 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="text-center mt-70 wow fadeInUp">
+                    <motion.div
+                      className="text-center mt-70 wow fadeInUp"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       {" "}
                       <Link href="#" className="theme-btn theme-btn-outlined">
                         More jobs
                       </Link>
-                    </div>
+                    </motion.div>
                   </div>
 
-                  <div className="email-alert-widget mt-100 wow fadeInUp">
+                  <motion.div
+                    className="email-alert-widget mt-100 wow fadeInUp"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                  >
                     <h4>Get email alerts for the latest Jobs in Bangladesh</h4>
                     <p>You can cancel email alerts at any time.</p>
 
@@ -547,7 +609,7 @@ const JobsPage = () => {
                         </Link>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>

@@ -1,4 +1,5 @@
 // Define type for ReplyForm
+"use server";
 type ReplyFormData = {
   name: string;
   email: string;
@@ -7,7 +8,7 @@ type ReplyFormData = {
   saveInfo: boolean;
 };
 export async function handleReply(formData: FormData): Promise<void> {
-  "use server";
+  
 
   const data: ReplyFormData = {
     name: formData.get("name") as string,

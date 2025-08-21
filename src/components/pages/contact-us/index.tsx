@@ -1,8 +1,10 @@
-// "use client";
+"use client";
 /* eslint-disable react/no-unescaped-entities */
 import AboutAccordion from "@/components/AboutAccordion";
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeInLeft, fadeInRight } from "@/components/animation";
 
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
@@ -125,19 +127,38 @@ const ContactUsPage = () => {
               <div className="row ">
                 <div className="col-md-8 mx-auto">
                   <div className="section-title">
-                    <h2 className="wow fadeInUp">Need more help?</h2>
-                    <p className="wow fadeInUp" data-wow-delay="0.3s">
+                    <motion.h2 
+                      className="wow fadeInUp"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
+                      Need more help?
+                    </motion.h2>
+                    <motion.p 
+                      className="wow fadeInUp" 
+                      data-wow-delay="0.3s"
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                    >
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor.
-                    </p>
+                    </motion.p>
                   </div>
                 </div>
               </div>
               <div className="row mt-60 gy-lg-0 gy-4">
                 <div className="col-lg-4">
-                  <div
+                  <motion.div
                     className="feature-card-widget-4 wow fadeInUp"
                     data-wow-delay="0.1s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image src={helpIcon1} alt="icon" />
                     <h5 className="mt-4 mb-10">Articles & Guides</h5>
@@ -151,12 +172,16 @@ const ContactUsPage = () => {
                     >
                       Visit Knowledge Base
                     </Link>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4">
-                  <div
+                  <motion.div
                     className="feature-card-widget-4 wow fadeInUp"
                     data-wow-delay="0.3s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image src={helpIcon2} alt="icon" />
                     <h5 className="mt-4 mb-10">Technical Support</h5>
@@ -170,12 +195,16 @@ const ContactUsPage = () => {
                     >
                       Chat With Support
                     </Link>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4">
-                  <div
+                  <motion.div
                     className="feature-card-widget-4 wow fadeInUp"
                     data-wow-delay="0.5s"
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image src={helpIcon3} alt="icon" />
                     <h5 className="mt-4 mb-10">Social Media Support</h5>
@@ -197,7 +226,7 @@ const ContactUsPage = () => {
                         <i className="fab fa-linkedin-in"></i>
                       </Link>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -215,21 +244,34 @@ const ContactUsPage = () => {
                   >
                     <div className="row align-items-center">
                       <div className="col-lg-7">
-                        <div className="cta-content wow fadeInRight text-center text-lg-start">
+                        <motion.div 
+                          className="cta-content wow fadeInRight text-center text-lg-start"
+                          variants={fadeInRight}
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                        >
                           <h2 className="mb-0">
                             Meet Banca, the financial partner you can bank on.
                           </h2>
-                        </div>
+                        </motion.div>
                       </div>
 
                       <div className="col-lg-5 mt-4 mt-lg-0 text-center ">
                         <div className="cta-content  text-center text-lg-end">
-                          <Link
-                            href="#"
-                            className="theme-btn theme-btn-alt wow fadeInLeft cta-text-violet"
+                          <motion.div
+                            variants={fadeInLeft}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={{ once: true, amount: 0.2 }}
                           >
-                            Open an Account
-                          </Link>
+                            <Link
+                              href="#"
+                              className="theme-btn theme-btn-alt wow fadeInLeft cta-text-violet"
+                            >
+                              Open an Account
+                            </Link>
+                          </motion.div>
                         </div>
                       </div>
                     </div>

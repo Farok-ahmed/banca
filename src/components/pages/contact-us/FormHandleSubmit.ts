@@ -1,3 +1,4 @@
+ "use server";
 type ContactFormData = {
   name: string;
   email: string;
@@ -5,7 +6,7 @@ type ContactFormData = {
   message: string;
 };
 export async function handleSubmit(formData: FormData) {
-    "use server";
+   
   const data: ContactFormData = {
     name: formData.get("name") as string,
     email: formData.get("email") as string,

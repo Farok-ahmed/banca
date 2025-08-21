@@ -106,7 +106,7 @@ const CareerPage = () => {
                 <motion.h2
                   variants={fadeInUp}
                   initial="hidden"
-                  whileInView="show"
+                  whileInView="visible"
                   viewport={{ once: true, amount: 0.2 }}
                   className="wow fadeInUp"
                 >
@@ -117,7 +117,7 @@ const CareerPage = () => {
                   data-wow-delay="0.3s"
                   variants={fadeInUp}
                   initial="hidden"
-                  whileInView="show"
+                  whileInView="visible"
                   viewport={{ once: true, amount: 0.2 }}
                 >
                   Banca is one of the world's leading international banks.
@@ -137,7 +137,7 @@ const CareerPage = () => {
                     data-wow-delay="0.1s"
                     variants={fadeInUp}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <h4>Who We Are</h4>
@@ -159,7 +159,7 @@ const CareerPage = () => {
                     data-wow-delay="0.3s"
                     variants={fadeInUp}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <h4>Career Areas</h4>
@@ -181,7 +181,7 @@ const CareerPage = () => {
                     data-wow-delay="0.5s"
                     variants={fadeInUp}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <h4>Student Opportunities</h4>
@@ -203,7 +203,7 @@ const CareerPage = () => {
                     data-wow-delay="0.7s"
                     variants={fadeInUp}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <h4>Benefits</h4>
@@ -225,7 +225,7 @@ const CareerPage = () => {
                     data-wow-delay="0.9s"
                     variants={fadeInUp}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <h4>Diversity & Inclusion</h4>
@@ -247,7 +247,7 @@ const CareerPage = () => {
                     data-wow-delay="1.1s"
                     variants={fadeInUp}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <h4>Join Our Community</h4>
@@ -276,7 +276,7 @@ const CareerPage = () => {
                       className="mb-0 wow fadeInRight"
                       variants={fadeInRight}
                       initial="hidden"
-                      whileInView="show"
+                      whileInView="visible"
                       viewport={{ once: true, amount: 0.2 }}
                     >
                       Featured jobs
@@ -287,7 +287,7 @@ const CareerPage = () => {
                   <motion.div
                     variants={fadeInLeft}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <Link
@@ -311,7 +311,7 @@ const CareerPage = () => {
                             data-wow-delay="0.1s"
                             variants={fadeInUp}
                             initial="hidden"
-                            whileInView="show"
+                            whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
                           >
                             <h6 className="job-title">
@@ -339,7 +339,7 @@ const CareerPage = () => {
                             data-wow-delay="0.3s"
                             variants={fadeInUp}
                             initial="hidden"
-                            whileInView="show"
+                            whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
                           >
                             <h6 className="job-title">
@@ -367,7 +367,7 @@ const CareerPage = () => {
                             data-wow-delay="0.5s"
                             variants={fadeInUp}
                             initial="hidden"
-                            whileInView="show"
+                            whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
                           >
                             <h6 className="job-title">
@@ -395,7 +395,7 @@ const CareerPage = () => {
                             data-wow-delay="0.7s"
                             variants={fadeInUp}
                             initial="hidden"
-                            whileInView="show"
+                            whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
                           >
                             <h6 className="job-title">
@@ -425,7 +425,7 @@ const CareerPage = () => {
                     data-wow-delay="0.1s"
                     variants={fadeInUp}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <h6 className="job-title">Manager- Products & Marketing</h6>
@@ -471,7 +471,7 @@ const CareerPage = () => {
                   className="wow fadeInUp"
                   variants={fadeInUp}
                   initial="hidden"
-                  whileInView="show"
+                  whileInView="visible"
                   viewport={{ once: true, amount: 0.2 }}
                 >
                   Learn our recruitment process
@@ -481,7 +481,7 @@ const CareerPage = () => {
                   data-wow-delay="0.3s"
                   variants={fadeInUp}
                   initial="hidden"
-                  whileInView="show"
+                  whileInView="visible"
                   viewport={{ once: true, amount: 0.2 }}
                 >
                   Recruitment is a process of finding and attracting the
@@ -499,7 +499,7 @@ const CareerPage = () => {
                     data-wow-delay="0.1s"
                     variants={fadeInUp}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image
@@ -520,7 +520,7 @@ const CareerPage = () => {
                     data-wow-delay="0.3s"
                     variants={fadeInUp}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image
@@ -541,7 +541,7 @@ const CareerPage = () => {
                     data-wow-delay="0.5s"
                     variants={fadeInUp}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image
@@ -562,7 +562,7 @@ const CareerPage = () => {
                     data-wow-delay="0.7s"
                     variants={fadeInUp}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <Image
@@ -586,7 +586,7 @@ const CareerPage = () => {
                     data-wow-delay="0.1s"
                     variants={fadeInRight}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <h2>Our Offer</h2>
@@ -606,7 +606,7 @@ const CareerPage = () => {
                     data-wow-delay="0.3s"
                     variants={fadeInRight}
                     initial="hidden"
-                    whileInView="show"
+                    whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                   >
                     <h2>FAQ</h2>

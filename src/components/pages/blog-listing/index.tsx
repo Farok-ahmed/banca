@@ -1,5 +1,8 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeInLeft } from "@/components/animation";
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -58,8 +61,22 @@ const BlogListingPage = () => {
                 <div className="row">
                   <div className="col-lg-7 mx-auto">
                     <div className="breadcrumb-content pt-50">
-                      <h1>Blog</h1>
-                      <div className="search-box mt-20">
+                      <motion.h1
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                        variants={fadeInUp}
+                      >
+                        Blog
+                      </motion.h1>
+                      <motion.div 
+                        className="search-box mt-20"
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                        variants={fadeInUp}
+                        transition={{ delay: 0.2 }}
+                      >
                         <form action="#">
                           <div className="input-group">
                             <input
@@ -73,14 +90,21 @@ const BlogListingPage = () => {
                             </button>
                           </div>
                         </form>
-                      </div>
+                      </motion.div>
 
-                      <div className="popular-tags d-flex flex-wrap justify-content-center align-items-center mt-20">
+                      <motion.div 
+                        className="popular-tags d-flex flex-wrap justify-content-center align-items-center mt-20"
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                        variants={fadeInUp}
+                        transition={{ delay: 0.4 }}
+                      >
                         <span>Popular Tags:</span>
                         <Link href="#">Business</Link>
                         <Link href="#">Financial</Link>
                         <Link href="#">Case Study</Link>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
@@ -95,9 +119,13 @@ const BlogListingPage = () => {
                   <div className="blog-post-widget">
                     <div className="row gy-4 ">
                       <div className="col-md-6">
-                        <div
-                          className="blog-widget-2 wow fadeInUp"
-                          data-wow-delay="0.1s"
+                        <motion.div
+                          className="blog-widget-2"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                          transition={{ delay: 0.1 }}
                         >
                           <div className="blog-img">
                             <Image src={blog1} alt="blog-img" style={{width:"auto",height:"auto"}} />
@@ -124,12 +152,16 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-md-6">
-                        <div
-                          className="blog-widget-2 wow fadeInUp"
-                          data-wow-delay="0.3s"
+                        <motion.div
+                          className="blog-widget-2"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                          transition={{ delay: 0.3 }}
                         >
                           <div className="blog-img">
                             <Image src={blog2} alt="blog-img" style={{width:"auto",height:"auto"}} />
@@ -156,12 +188,16 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-md-6">
-                        <div
-                          className="blog-widget-2 wow fadeInUp"
-                          data-wow-delay="0.1s"
+                        <motion.div
+                          className="blog-widget-2"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                          transition={{ delay: 0.1 }}
                         >
                           <div className="blog-img">
                             <Image src={blog3} alt="blog-img" style={{width:"auto",height:"auto"}} />
@@ -188,12 +224,16 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-md-6">
-                        <div
-                          className="blog-widget-2 wow fadeInUp"
-                          data-wow-delay="0.3s"
+                        <motion.div
+                          className="blog-widget-2"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                          transition={{ delay: 0.3 }}
                         >
                           <div className="blog-img">
                             <Image src={blog4} alt="blog-img" style={{width:"auto",height:"auto"}} />
@@ -220,12 +260,16 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-md-6">
-                        <div
-                          className="blog-widget-2 wow fadeInUp"
-                          data-wow-delay="0.1s"
+                        <motion.div
+                          className="blog-widget-2"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                          transition={{ delay: 0.1 }}
                         >
                           <div className="blog-img">
                             <Image src={blog5} alt="blog-img" style={{width:"auto",height:"auto"}}/>
@@ -254,12 +298,16 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-md-6">
-                        <div
-                          className="blog-widget-2 wow fadeInUp"
-                          data-wow-delay="0.3s"
+                        <motion.div
+                          className="blog-widget-2"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                          transition={{ delay: 0.3 }}
                         >
                           <div className="blog-img">
                             <Image src={blog6} alt="blog-img" style={{width:"auto",height:"auto"}} />
@@ -286,12 +334,16 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-md-6">
-                        <div
-                          className="blog-widget-2 wow fadeInUp"
-                          data-wow-delay="0.1s"
+                        <motion.div
+                          className="blog-widget-2"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                          transition={{ delay: 0.1 }}
                         >
                           <div className="blog-img">
                             <Image src={blog7} alt="blog-img" style={{width:"auto",height:"auto"}} />
@@ -318,12 +370,16 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-md-6">
-                        <div
-                          className="blog-widget-2 wow fadeInUp"
-                          data-wow-delay="0.3s"
+                        <motion.div
+                          className="blog-widget-2"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                          transition={{ delay: 0.3 }}
                         >
                           <div className="blog-img">
                             <Image src={blog8} alt="blog-img" style={{width:"auto",height:"auto"}} />
@@ -350,12 +406,16 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-md-6">
-                        <div
-                          className="blog-widget-2 wow fadeInUp"
-                          data-wow-delay="0.1s"
+                        <motion.div
+                          className="blog-widget-2"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                          transition={{ delay: 0.1 }}
                         >
                           <div className="blog-img">
                             <Image src={blog9} alt="blog-img" style={{width:"auto",height:"auto"}}/>
@@ -382,12 +442,16 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-md-6">
-                        <div
-                          className="blog-widget-2 wow fadeInUp"
-                          data-wow-delay="0.3s"
+                        <motion.div
+                          className="blog-widget-2"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                          transition={{ delay: 0.3 }}
                         >
                           <div className="blog-img">
                             <Image src={blog10} alt="blog-img" style={{width:"auto",height:"auto"}}/>
@@ -414,12 +478,18 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
                     <div className="row mt-55">
                       <div className="col-12">
-                        <div className="pagination-widget">
+                        <motion.div 
+                          className="pagination-widget"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                        >
                           <ul>
                             <li>
                               <Link className="active" href="#">
@@ -439,14 +509,20 @@ const BlogListingPage = () => {
                               </Link>
                             </li>
                           </ul>
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-4 ps-xl-5 mt-5 mt-lg-0">
                   <div className="blog-sidebar-widget ps-lg-2">
-                    <div className="widget-subscribe">
+                    <motion.div 
+                      className="widget-subscribe"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInLeft}
+                    >
                       <h4 className="widget-title mb-15">
                         Subscribe to our blog
                       </h4>
@@ -462,9 +538,16 @@ const BlogListingPage = () => {
                           Subscribe
                         </button>
                       </form>
-                    </div>
+                    </motion.div>
 
-                    <div className="widget-social mt-40">
+                    <motion.div 
+                      className="widget-social mt-40"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInLeft}
+                      transition={{ delay: 0.2 }}
+                    >
                       <div className="row text-center gx-3 gy-3 gy-md-0">
                         <div className="col-md-4">
                           <Link href="#">
@@ -488,9 +571,16 @@ const BlogListingPage = () => {
                           </Link>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="widget-catagory mt-55">
+                    <motion.div 
+                      className="widget-catagory mt-55"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInLeft}
+                      transition={{ delay: 0.3 }}
+                    >
                       <h4 className="widget-title mb-20">Categories</h4>
 
                       <ul>
@@ -530,9 +620,16 @@ const BlogListingPage = () => {
                           </Link>{" "}
                         </li>
                       </ul>
-                    </div>
+                    </motion.div>
 
-                    <div className="widget-news mt-50">
+                    <motion.div 
+                      className="widget-news mt-50"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInLeft}
+                      transition={{ delay: 0.4 }}
+                    >
                       <h4 className="widget-title">Reacent News</h4>
 
                       <ul className="recent-post">
@@ -593,8 +690,15 @@ const BlogListingPage = () => {
                           </div>
                         </li>
                       </ul>
-                    </div>
-                    <div className="widget-tags mt-50">
+                    </motion.div>
+                    <motion.div 
+                      className="widget-tags mt-50"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInLeft}
+                      transition={{ delay: 0.5 }}
+                    >
                       <h4 className="widget-title mb-0">Tags</h4>
 
                       <div className="tags d-flex flex-wrap mt-30">
@@ -610,7 +714,7 @@ const BlogListingPage = () => {
                         <Link href="#">sequrity</Link>
                         <Link href="#">agency</Link>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               </div>

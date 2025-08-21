@@ -1,15 +1,61 @@
-'use client';
-/* eslint-disable jsx-a11y/role-supports-aria-props */
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import faqIllustration from '@/assets/img/faq/illustration.png';
+import { useState } from "react";
+import Image from "next/image";
+import faqIllustration from "@/assets/img/faq/illustration.png";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeInRight } from "./animation";
+
+interface AccordionData {
+  id: string;
+  question: string;
+  answer: string;
+  delay: string;
+}
+
+const accordionData: AccordionData[] = [
+  {
+    id: "collapseOne",
+    question: "Can I pay off my loan early?",
+    answer:
+      "Yes, you can pay off your personal loan early without any prepayment penalties. This can save you money on interest charges over the life of your loan.",
+    delay: "0.1s",
+  },
+  {
+    id: "collapseTwo",
+    question: "How much can I borrow with Banca?",
+    answer:
+      "Loan amounts typically range from $1,000 to $100,000, depending on your credit score, income verification, and loan type. Business loans can go up to $5 million.",
+    delay: "0.3s",
+  },
+  {
+    id: "collapseThree",
+    question: "Do you offer refinancing options?",
+    answer:
+      "Yes, we offer refinancing options for personal loans, mortgages, and business loans. Refinancing can help you get better rates or access equity.",
+    delay: "0.5s",
+  },
+  {
+    id: "collapseFour",
+    question: "Can I do all of my banking with you?",
+    answer:
+      "Absolutely! We offer a full range of banking services including checking accounts, savings accounts, credit cards, loans, and investment services.",
+    delay: "0.7s",
+  },
+  {
+    id: "collapseFive",
+    question: "When should I apply for a loan?",
+    answer:
+      "The best time to apply is when you have stable income, good credit score, and clear purpose for the loan. We recommend applying at least 30 days before you need the funds.",
+    delay: "0.9s",
+  },
+];
 
 const LoanAccordion = () => {
-  const [openId, setOpenId] = useState('collapseOne');
+  const [openId, setOpenId] = useState("collapseOne");
 
   const toggle = (id: string) => {
-    setOpenId(prev => (prev === id ? '' : id));
+    setOpenId((prev) => (prev === id ? "" : id));
   };
 
   return (
@@ -17,170 +63,96 @@ const LoanAccordion = () => {
       <div className="col-lg-7 col-md-8">
         <div className="faq-widget">
           <div className="accordion" id="accordionExample">
-            {/* FAQ ITEM 1 */}
-            <div className="single-widget-one wow fadeInUp" data-wow-delay="0.1s">
-              <div className="w-100">
-                <div className="faq-header" id="headingOne">
-                  <h4
-                    className="mb-0"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne"
-                    aria-expanded="true"
-                    aria-controls="collapseOne"
-                    onClick={() => toggle('collapseOne')}
+            {accordionData.map((faq, index) => (
+              <motion.div
+                key={faq.id}
+                className="single-widget-one wow fadeInUp"
+                data-wow-delay={faq.delay}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <div className="w-100">
+                  <div
+                    className="faq-header"
+                    id={`heading${faq.id.charAt(faq.id.length - 1)}`}
                   >
-                    Can I pay off my loan early?
-                    <i className="icon_plus" style={{ display: openId === 'collapseOne' ? 'none' : 'inline-block' }}></i>
-                    <i className="icon_minus-06" style={{ display: openId === 'collapseOne' ? 'inline-block' : 'none' }}></i>
-                  </h4>
-                </div>
-                <div
-                  id="collapseOne"
-                  className={`collapse ${openId === 'collapseOne' ? 'show' : ''}`}
-                  aria-labelledby="headingOne"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div className="faq-body">
-                    <p>
-                      Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                    </p>
+                    <h4 className="mb-0" onClick={() => toggle(faq.id)}>
+                      {faq.question}
+                      <i
+                        className="icon_plus"
+                        style={{
+                          display: openId === faq.id ? "none" : "inline-block",
+                        }}
+                      />
+                      <i
+                        className="icon_minus-06"
+                        style={{
+                          display: openId === faq.id ? "inline-block" : "none",
+                        }}
+                      />
+                    </h4>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            {/* FAQ ITEM 2 */}
-            <div className="single-widget-one wow fadeInUp" data-wow-delay="0.3s">
-              <div className="w-100">
-                <div className="faq-header" id="headingTwo">
-                  <h4
-                    className="mb-0 collapsed"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo"
-                    aria-expanded="false"
-                    aria-controls="collapseTwo"
-                    onClick={() => toggle('collapseTwo')}
+                  <motion.div
+                    id={faq.id}
+                    className={`collapse ${openId === faq.id ? "show" : ""}`}
+                    aria-labelledby={`heading${faq.id.charAt(
+                      faq.id.length - 1
+                    )}`}
+                    data-bs-parent="#accordionExample"
+                    initial={false}
+                    animate={{
+                      height: openId === faq.id ? "auto" : 0,
+                      opacity: openId === faq.id ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    style={{
+                      overflow: "hidden",
+                      maxHeight: openId === faq.id ? "500px" : "0px",
+                    }}
                   >
-                    How much can I Banca?
-                    <i className="icon_plus" style={{ display: openId === 'collapseTwo' ? 'none' : 'inline-block' }}></i>
-                    <i className="icon_minus-06" style={{ display: openId === 'collapseTwo' ? 'inline-block' : 'none' }}></i>
-                  </h4>
+                    <motion.div
+                      className="faq-body"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{
+                        opacity: openId === faq.id ? 1 : 0,
+                        y: openId === faq.id ? 0 : -10,
+                      }}
+                      transition={{
+                        duration: 0.3,
+                        delay: openId === faq.id ? 0.1 : 0,
+                      }}
+                    >
+                      <p>{faq.answer}</p>
+                    </motion.div>
+                  </motion.div>
                 </div>
-                <div
-                  id="collapseTwo"
-                  className={`collapse ${openId === 'collapseTwo' ? 'show' : ''}`}
-                  aria-labelledby="headingTwo"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div className="faq-body">
-                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* FAQ ITEM 3 */}
-            <div className="single-widget-one wow fadeInUp" data-wow-delay="0.5s">
-              <div className="w-100">
-                <div className="faq-header" id="headingThree">
-                  <h4
-                    className="mb-0 collapsed"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseThree"
-                    aria-expanded="false"
-                    aria-controls="collapseThree"
-                    onClick={() => toggle('collapseThree')}
-                  >
-                    Do you offering refinancing ?
-                    <i className="icon_plus" style={{ display: openId === 'collapseThree' ? 'none' : 'inline-block' }}></i>
-                    <i className="icon_minus-06" style={{ display: openId === 'collapseThree' ? 'inline-block' : 'none' }}></i>
-                  </h4>
-                </div>
-                <div
-                  id="collapseThree"
-                  className={`collapse ${openId === 'collapseThree' ? 'show' : ''}`}
-                  aria-labelledby="headingThree"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div className="faq-body">
-                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* FAQ ITEM 4 */}
-            <div className="single-widget-one wow fadeInUp" data-wow-delay="0.7s">
-              <div className="w-100">
-                <div className="faq-header" id="headingFour">
-                  <h4
-                    className="mb-0 collapsed"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseFour"
-                    aria-expanded="false"
-                    aria-controls="collapseFour"
-                    onClick={() => toggle('collapseFour')}
-                  >
-                    Can I do all of my banking with you?
-                    <i className="icon_plus" style={{ display: openId === 'collapseFour' ? 'none' : 'inline-block' }}></i>
-                    <i className="icon_minus-06" style={{ display: openId === 'collapseFour' ? 'inline-block' : 'none' }}></i>
-                  </h4>
-                </div>
-                <div
-                  id="collapseFour"
-                  className={`collapse ${openId === 'collapseFour' ? 'show' : ''}`}
-                  aria-labelledby="headingFour"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div className="faq-body">
-                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* FAQ ITEM 5 */}
-            <div className="single-widget-one wow fadeInUp" data-wow-delay="0.9s">
-              <div className="w-100">
-                <div className="faq-header" id="headingFive">
-                  <h4
-                    className="mb-0 collapsed"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#collapseFive"
-                    aria-expanded="false"
-                    aria-controls="collapseFive"
-                    onClick={() => toggle('collapseFive')}
-                  >
-                    When should I apply?
-                    <i className="icon_plus" style={{ display: openId === 'collapseFive' ? 'none' : 'inline-block' }}></i>
-                    <i className="icon_minus-06" style={{ display: openId === 'collapseFive' ? 'inline-block' : 'none' }}></i>
-                  </h4>
-                </div>
-                <div
-                  id="collapseFive"
-                  className={`collapse ${openId === 'collapseFive' ? 'show' : ''}`}
-                  aria-labelledby="headingFive"
-                  data-bs-parent="#accordionExample"
-                >
-                  <div className="faq-body">
-                    <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>
 
       {/* RIGHT SIDE IMAGE */}
       <div className="col-md-4 offset-lg-1 mt-4 mt-md-0 ps-lg-5">
-        <div className="faq-img">
-          <Image
-            className="img-fluid"
-            src={faqIllustration}
-            alt="faq-image"
-          />
-        </div>
+        <motion.div
+          className="faq-img"
+          variants={fadeInRight}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <div
+          >
+            <Image
+              className="img-fluid"
+              src={faqIllustration}
+              alt="faq-image"
+            />
+          </div>
+        </motion.div>
       </div>
     </div>
   );

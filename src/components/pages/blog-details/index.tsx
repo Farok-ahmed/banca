@@ -1,6 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
+"use client"
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeInLeft, fadeInRight } from "@/components/animation";
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -62,8 +65,22 @@ const BlogDetailsPage: React.FC = () => {
                 <div className="row">
                   <div className="col-lg-8 mx-auto">
                     <div className="breadcrumb-content pt-50">
-                      <h1>How To Save Enough Money To Buy A Home</h1>
-                      <div className="post-info mt-5">
+                      <motion.h1
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                        variants={fadeInUp}
+                      >
+                        How To Save Enough Money To Buy A Home
+                      </motion.h1>
+                      <motion.div 
+                        className="post-info mt-5"
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                        variants={fadeInUp}
+                        transition={{ delay: 0.2 }}
+                      >
                         <div className="autor mr-20">
                           <Image
                             width={20}
@@ -77,7 +94,7 @@ const BlogDetailsPage: React.FC = () => {
                           <Image src={calendarOutlinePng} alt="icon" />
                           <span>March 18, 2021</span>
                         </div>
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </div>
@@ -89,7 +106,13 @@ const BlogDetailsPage: React.FC = () => {
             <div className="container">
               <div className="row gy-lg-0 gy-4">
                 <div className="col-lg-1 position-relative">
-                  <div className="blog-share-widget d-flex d-lg-block align-items-center">
+                  <motion.div 
+                    className="blog-share-widget d-flex d-lg-block align-items-center"
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    variants={fadeInLeft}
+                  >
                     <p>Share Now</p>
                     <div className="social-link">
                       <Link href="#">
@@ -105,42 +128,76 @@ const BlogDetailsPage: React.FC = () => {
                         <i className="fab fa-twitter"></i>
                       </Link>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-7">
                   <div className="post-details-widget pb-70 border-bottom position-relative">
-                    <Image
-                      className="post-img w-100"
-                      src={blogDetailsImg}
-                      style={{width:"auto",height:"auto"}}
-                      alt="post image"
-                    />
+                    <motion.div
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                    >
+                      <Image
+                        className="post-img w-100"
+                        src={blogDetailsImg}
+                        style={{width:"auto",height:"auto"}}
+                        alt="post image"
+                      />
+                    </motion.div>
 
-                    <p className="post-text mt-35">
+                    <motion.p 
+                      className="post-text mt-35"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                      transition={{ delay: 0.1 }}
+                    >
                       Tomfoolery crikey bits and bobs brilliant bamboozled down
                       the pub amongst brolly hanky panky, cack bonnet arse over
                       tit burke bugger all mate bodge fanny around butty,
                       Richard spiffing a load of old tosh porkies hunky-dory
                       ruddy dropped a clanger. Plastered it's all gone to pot I
                       brilliant young delinquent excuse my French
-                    </p>
-                    <p className="post-text mb-0">
+                    </motion.p>
+                    <motion.p 
+                      className="post-text mb-0"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                      transition={{ delay: 0.2 }}
+                    >
                       Bugger all mate chinwag skive off bender cack chap baking
                       cakes brown bread bodge wind up, amongst mush David lurgy
                       burke blow off bits and bobs faff about dropped a clanger,
                       such a fibber so I said spiffing codswallop bite your arm
                       off my lady bleeding tosser.
-                    </p>
+                    </motion.p>
 
-                    <ul className="feature-list">
+                    <motion.ul 
+                      className="feature-list"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                      transition={{ delay: 0.3 }}
+                    >
                       <li>Shop configurations</li>
                       <li>Installing Sylius ecommerce shop</li>
                       <li>Check system requirements</li>
                       <li>Setting up the database</li>
                       <li>Loading sample data for the environment</li>
                       <li>Assets installation</li>
-                    </ul>
-                    <blockquote className="wow fadeInUp">
+                    </motion.ul>
+                    <motion.blockquote 
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                      transition={{ delay: 0.4 }}
+                    >
                       <p>
                         He legged it that blatant brown bread some dodgy chav
                         super a blinding shot my lady lavatory cup of char cor
@@ -158,14 +215,29 @@ const BlogDetailsPage: React.FC = () => {
                           <span>Support Engineer, Aliexpress</span>
                         </div>
                       </div>
-                    </blockquote>
-                    <Image
-                      className="post-img w-100"
-                      src={blogDetailsImg2}
-                      style={{width:"auto",height:"auto"}}
-                      alt="post img"
-                    />
-                    <p className="post-text mt-40 pb-2">
+                    </motion.blockquote>
+                    <motion.div
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                      transition={{ delay: 0.5 }}
+                    >
+                      <Image
+                        className="post-img w-100"
+                        src={blogDetailsImg2}
+                        style={{width:"auto",height:"auto"}}
+                        alt="post img"
+                      />
+                    </motion.div>
+                    <motion.p 
+                      className="post-text mt-40 pb-2"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                      transition={{ delay: 0.1 }}
+                    >
                       He legged it that blatant brown bread some dodgy chav
                       super a blinding shot my lady lavatory cup of char cor
                       blimey guvnor get stuffed mate you mug cobblers off his
@@ -177,24 +249,53 @@ const BlogDetailsPage: React.FC = () => {
                       morish do one wellies zonked I. Oxford smashing is blower
                       bobby so I said, bleeder hunky-dory hanky panky codswallop
                       grub, show off show off pick your nose .
-                    </p>
+                    </motion.p>
 
-                    <h2>Install Sylius via SSH</h2>
-                    <p className="post-text mt-20">
+                    <motion.h2
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                      transition={{ delay: 0.2 }}
+                    >
+                      Install Sylius via SSH
+                    </motion.h2>
+                    <motion.p 
+                      className="post-text mt-20"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                      transition={{ delay: 0.3 }}
+                    >
                       Nancy boy vagabond A bit of how's your father starkers
                       baking cakes boot dropped a clanger my lady bender blow
                       off bugger all mate, jolly good brolly posh ummm I'm
                       telling get stuffed mate up the duff haggle lost the plot
                       off his nut wind up loo, I don't want no agro.
-                    </p>
-                    <div className="tag-widget mt-35">
+                    </motion.p>
+                    <motion.div 
+                      className="tag-widget mt-35"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                      transition={{ delay: 0.4 }}
+                    >
                       <h6>Tags :</h6>
                       <Link href="#">business</Link>
                       <Link href="#">web design</Link>
                       <Link href="#">software</Link>
-                    </div>
+                    </motion.div>
                   </div>
-                  <div className="author-media-widget mt-90 mb-90">
+                  <motion.div 
+                    className="author-media-widget mt-90 mb-90"
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    variants={fadeInUp}
+                    transition={{ delay: 0.1 }}
+                  >
                     <div className="author-img">
                       <Image
                         className="rounded-circle"
@@ -211,14 +312,26 @@ const BlogDetailsPage: React.FC = () => {
                         skive off.!
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                   <div className="related-post-widget pb-90">
-                    <h4 className="blog-widget-title mb-45">Related Post</h4>
+                    <motion.h4 
+                      className="blog-widget-title mb-45"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                    >
+                      Related Post
+                    </motion.h4>
                     <div className="row gy-md-0 gy-4">
                       <div className="col-md-6">
-                        <div
-                          className="blog-widget-2 wow fadeInUp"
-                          data-wow-delay="0.1s"
+                        <motion.div
+                          className="blog-widget-2"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                          transition={{ delay: 0.1 }}
                         >
                           <div className="blog-img">
                             <Image src={blog9} alt="blog-img" style={{width:"auto",height:"auto"}} />
@@ -251,12 +364,16 @@ const BlogDetailsPage: React.FC = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                       <div className="col-md-6">
-                        <div
-                          className="blog-widget-2 wow fadeInUp"
-                          data-wow-delay="0.3s"
+                        <motion.div
+                          className="blog-widget-2"
+                          initial="hidden"
+                          whileInView="show"
+                          viewport={{ once: true, amount: 0.2 }}
+                          variants={fadeInUp}
+                          transition={{ delay: 0.3 }}
                         >
                           <div className="blog-img">
                             <Image src={blog7} alt="blog-img" style={{width:"auto",height:"auto"}} />
@@ -289,15 +406,30 @@ const BlogDetailsPage: React.FC = () => {
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </motion.div>
                       </div>
                     </div>
                   </div>
 
                   <div className="blog-comment-widget pb-90">
-                    <h4 className="blog-widget-title">3 Comments</h4>
+                    <motion.h4 
+                      className="blog-widget-title"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                    >
+                      3 Comments
+                    </motion.h4>
 
-                    <div className="comment-author">
+                    <motion.div 
+                      className="comment-author"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInUp}
+                      transition={{ delay: 0.2 }}
+                    >
                       <ul>
                         <li>
                           <div className="comments-box">
@@ -389,31 +521,51 @@ const BlogDetailsPage: React.FC = () => {
                           </div>
                         </li>
                       </ul>
-                    </div>
+                    </motion.div>
                   </div>
 
-                  <div className="blog-leave-reply">
+                  <motion.div 
+                    className="blog-leave-reply"
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    variants={fadeInUp}
+                    transition={{ delay: 0.3 }}
+                  >
                     <h4 className="blog-widget-title mb-10">Leave a Reply </h4>
                     <p className="pt-2">
                       Your email address will not be published. Required fields
                       are marked *
                     </p>
                     <ReplyForm />
-                  </div>
+                  </motion.div>
                 </div>
 
                 <div className="col-lg-4 ps-xl-5">
                   <div className="blog-sidebar-widget ps-lg-2">
-                    <div className="widget-subscribe">
+                    <motion.div 
+                      className="widget-subscribe"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInRight}
+                    >
                       <h4 className="widget-title mb-15">
                         Subscribe to our blog
                       </h4>
                       <p>Get the latest posts in your email</p>
 
                       <SubscribeForm />
-                    </div>
+                    </motion.div>
 
-                    <div className="widget-social mt-40">
+                    <motion.div 
+                      className="widget-social mt-40"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInRight}
+                      transition={{ delay: 0.1 }}
+                    >
                       <div className="row text-center gx-3 gy-3 gy-md-0">
                         <div className="col-md-4">
                           <Link href="#">
@@ -437,9 +589,16 @@ const BlogDetailsPage: React.FC = () => {
                           </Link>
                         </div>
                       </div>
-                    </div>
+                    </motion.div>
 
-                    <div className="widget-catagory mt-55">
+                    <motion.div 
+                      className="widget-catagory mt-55"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInRight}
+                      transition={{ delay: 0.2 }}
+                    >
                       <h4 className="widget-title mb-20">Categories</h4>
 
                       <ul>
@@ -479,9 +638,16 @@ const BlogDetailsPage: React.FC = () => {
                           </Link>{" "}
                         </li>
                       </ul>
-                    </div>
+                    </motion.div>
 
-                    <div className="widget-news mt-50">
+                    <motion.div 
+                      className="widget-news mt-50"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInRight}
+                      transition={{ delay: 0.3 }}
+                    >
                       <h4 className="widget-title">Recent News</h4>
 
                       <ul className="recent-post">
@@ -540,8 +706,15 @@ const BlogDetailsPage: React.FC = () => {
                           </div>
                         </li>
                       </ul>
-                    </div>
-                    <div className="widget-tags mt-50">
+                    </motion.div>
+                    <motion.div 
+                      className="widget-tags mt-50"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      variants={fadeInRight}
+                      transition={{ delay: 0.4 }}
+                    >
                       <h4 className="widget-title mb-0">Tags</h4>
 
                       <div className="tags d-flex flex-wrap mt-30">
@@ -557,7 +730,7 @@ const BlogDetailsPage: React.FC = () => {
                         <Link href="#">security</Link>
                         <Link href="#">agency</Link>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               </div>

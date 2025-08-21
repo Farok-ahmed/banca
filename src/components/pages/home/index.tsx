@@ -40,6 +40,7 @@ import userProfile from "@/assets/img/home-4/user-profile.svg";
 import FormSelect from "../../common-section/FormSelect";
 import { OptionType } from "@/components/common-section/type";
 import { fadeInLeft, fadeInRight, fadeInUp } from "@/components/animation";
+import Counter from "@/components/common-section/Counter";
 
 const blogPosts: BlogItem[] = [
   {
@@ -535,19 +536,19 @@ export default function Home() {
                 <div className="row gy-md-0 gy-4 text-center">
                   <div className="col-md-4 border-end">
                     <h1 className="counter">
-                      <span>400</span> K
+                      <span><Counter count={400} decimals={0} /></span> K
                     </h1>
                     <p>Total active customers</p>
                   </div>
                   <div className="col-md-4">
                     <h1 className="counter">
-                      <span>100</span>M+
+                      <span><Counter count={100} decimals={0} /></span>M+
                     </h1>
                     <p>Order success rate</p>
                   </div>
                   <div className="col-md-4 border-start">
                     <h1 className="counter">
-                      <span>95.87</span>%
+                      <span><Counter count={95.87} decimals={2} /></span>%
                     </h1>
                     <p>Avg. new projects</p>
                   </div>

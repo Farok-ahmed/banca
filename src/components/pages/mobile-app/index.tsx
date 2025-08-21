@@ -46,6 +46,7 @@ import secImg3 from "@/assets/img/security-tips/img-3.png";
 import ctaBg from "@/assets/img/client/cta-bg.png";
 import { motion } from "framer-motion";
 import { fadeInRight, fadeInLeft, fadeInUp } from "@/components/animation";
+import Counter from "@/components/common-section/Counter";
 
 const MobileAppPage = () => {
   // helper to render caret icon on mobile
@@ -123,7 +124,7 @@ const MobileAppPage = () => {
                           <Image src={bannerIcon1} alt="icon" />
                           <p>Active user</p>
                           <h2 className="counter">
-                            <span>15,000</span>
+                            <span><Counter count={15000} decimals={0} /></span>
                           </h2>
                         </div>
                       </div>
@@ -133,7 +134,7 @@ const MobileAppPage = () => {
                           <Image src={bannerIcon2} alt="icon" />
                           <p>download</p>
                           <h2 className="counter">
-                            <span>49.9</span>k
+                            <span><Counter count={49.9} decimals={1} /></span>k
                           </h2>
                         </div>
                       </div>
@@ -142,7 +143,7 @@ const MobileAppPage = () => {
                           <Image src={bannerIcon3} alt="icon" />
                           <p>reviews</p>
                           <h2 className="counter">
-                            <span>35.7</span>k
+                            <span><Counter count={35.7} decimals={1} /></span>k
                           </h2>
                         </div>
                       </div>
@@ -151,7 +152,7 @@ const MobileAppPage = () => {
                           <Image src={bannerIcon4} alt="icon" />
                           <p>partners</p>
                           <h2 className="counter">
-                            <span>199</span>+
+                            <span><Counter count={199} decimals={0} /></span>+
                           </h2>
                         </div>
                       </div>

@@ -2,10 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/assets/img/logo/Logo.png";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+import { fadeInLeft, fadeInUp } from "../animation";
+import Counter from "./Counter";
+import { formatedDate } from "@/utils/dateFormat";
 const Footer = () => {
-    const pathName = usePathname();
-    const error = pathName === "/error";
-    if (error) return null;
+  const pathName = usePathname();
+  const error = pathName === "/error";
+  if (error) return null;
   return (
     <>
       <footer className="footer footer-3">
@@ -15,7 +19,13 @@ const Footer = () => {
             <div className="row gx-0 pt-60">
               {/* About */}
               <div className="col-lg-4 col-sm-6 text-center text-sm-start">
-                <div className="footer-widget wow fadeInLeft mb-30">
+                <motion.div
+                  variants={fadeInLeft}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="footer-widget wow fadeInLeft mb-30"
+                >
                   <div className="footer-text mb-20">
                     <p>
                       Banca is a leading bank in the worldzone and a prominent
@@ -27,14 +37,14 @@ const Footer = () => {
 
                   <div className="footer-bold">
                     <span className="counter">
-                      $<span>22.818</span>
+                      $<span><Counter count={35.105} decimals={3} /></span>
                     </span>
                     <span className="counter">
-                      -<span>0.22</span>%
+                      -<span><Counter count={0.46} decimals={2} /></span>%
                     </span>
                   </div>
-                  <p className="time">2021-01-05 14:00 (INTERNATIONAL TIME)</p>
-                </div>
+                  <p className="time"> {formatedDate} (INTERNATIONAL TIME)</p>
+                </motion.div>
               </div>
 
               {/* Link Columns */}
@@ -73,7 +83,11 @@ const Footer = () => {
                     index === 0 ? "ms-lg-5" : ""
                   }`}
                 >
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="footer-widget mb-30 wow fadeInUp"
                     data-wow-delay={`${0.1 + index * 0.2}s`}
                   >
@@ -89,7 +103,7 @@ const Footer = () => {
                         ))}
                       </ul>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
               ))}
             </div>

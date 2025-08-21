@@ -7,6 +7,7 @@ import stat1 from "@/assets/img/statistics/img-1.png";
 import stat2 from "@/assets/img/statistics/img-2.png";
 import stat3 from "@/assets/img/statistics/img-3.png";
 import stat4 from "@/assets/img/statistics/img-4.png";
+import Counter from "./common-section/Counter";
 
 const AboutSlider = () => {
   const settings = {
@@ -63,7 +64,7 @@ const AboutSlider = () => {
                   className="widget-content widget-2"
                   style={{ height: 200 }}
                 >
-                  <h1 className="stat-counter">125</h1>
+                  <h1 className="stat-counter"><Counter count={59} decimals={0} /></h1>
                   <p>Our colleagues come from 125 different countries</p>
                 </div>
               </div>
@@ -78,7 +79,7 @@ const AboutSlider = () => {
                     data-wow-delay="0.1s"
                   >
                     <div className="widget-content widget-3">
-                      <h1 className="stat-counter">75</h1>
+                      <h1 className="stat-counter"><Counter count={75} decimals={0} /></h1>
                       <p>More than 75 years in business</p>
                     </div>
                   </div>
@@ -89,7 +90,7 @@ const AboutSlider = () => {
                     data-wow-delay="0.3s"
                   >
                     <div className="widget-content widget-4">
-                      <h1 className="stat-counter">450</h1>
+                      <h1 className="stat-counter"><Counter count={450} decimals={0} /></h1>
                       <p>450 branches worldwide</p>
                     </div>
                   </div>
@@ -100,7 +101,7 @@ const AboutSlider = () => {
                     data-wow-delay="0.5s"
                   >
                     <div className="widget-content widget-5">
-                      <h1 className="stat-counter">25</h1>
+                      <h1 className="stat-counter"><Counter count={25} decimals={0} /></h1>
                       <p>We are present in 25 markets</p>
                     </div>
                   </div>
@@ -136,7 +137,7 @@ const AboutSlider = () => {
                     backgroundImage: `url(${stat3.src})`,
                   }}
                 >
-                  <h1 className="stat-counter">35</h1>
+                  <h1 className="stat-counter"><Counter count={35} decimals={0} /></h1>
                   <p>Global Finance 2020</p>
                 </div>
               </div>
@@ -161,7 +162,7 @@ const AboutSlider = () => {
                         backgroundImage: `url(${stat4.src})`,
                       }}
                     >
-                      <h1 className="stat-counter">2</h1>
+                      <h1 className="stat-counter"><Counter count={2} decimals={0} /></h1>
                       <p>
                         We’re listed on two of Asia’s largest stock exchanges
                       </p>

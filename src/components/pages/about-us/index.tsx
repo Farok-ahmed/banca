@@ -1,7 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
-
+"use client";
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeInUp, fadeInLeft, fadeInRight } from "@/components/animation";
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -33,21 +35,43 @@ const AboutPage = () => {
                 <div className="col-xl-6 col-lg-8">
                   <div className="banner-content py-5">
                     <div className="section-title text-start">
-                      <span className="short-title wow fadeInUp">ABOUT US</span>
-                      <h1 className="wow fadeInUp mb-0" data-wow-delay="0.2s">
+                      <motion.span
+                        className="short-title wow fadeInUp"
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                      >
+                        ABOUT US
+                      </motion.span>
+                      <motion.h1
+                        className="wow fadeInUp mb-0"
+                        data-wow-delay="0.2s"
+                        variants={fadeInUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.2 }}
+                      >
                         Believing, banking and achieving different
-                      </h1>
+                      </motion.h1>
                     </div>
-                    <Link
-                      className="theme-btn-2 theme-btn-primary mt-45 wow fadeInUp"
-                      data-wow-delay="0.4s"
-                      href="#"
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                     >
-                      <span className="arrow">
-                        <span className="horizontal-line"></span>
-                      </span>
-                      View our 2019 Annual Report
-                    </Link>
+                      <Link
+                        className="theme-btn-2 theme-btn-primary mt-45 wow fadeInUp"
+                        data-wow-delay="0.4s"
+                        href="#"
+                      >
+                        <span className="arrow">
+                          <span className="horizontal-line"></span>
+                        </span>
+                        View our 2019 Annual Report
+                      </Link>
+                    </motion.div>
                   </div>
                 </div>
               </div>
@@ -95,18 +119,35 @@ const AboutPage = () => {
           <section className="recognition-area bg_white pt-135 pb-140">
             <div className="container">
               <div className="section-title text-start">
-                <span className="short-title mt-0 wow fadeInUp">
+                <motion.span
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="short-title mt-0 wow fadeInUp"
+                >
                   Recognition
-                </span>
-                <h2 className="mb-0 wow fadeInUp" data-wow-delay="0.2s">
+                </motion.span>
+                <motion.h2
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  className="mb-0 wow fadeInUp"
+                  data-wow-delay="0.2s"
+                >
                   Milestones and Accolades
-                </h2>
+                </motion.h2>
               </div>
 
               <div className="recognition-widget pt-70">
                 <div className="row gy-4 gy-lg-0">
                   <div className="col-lg-3 col-5">
-                    <div
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="widget-navigation wow fadeInUp pe-lg-4"
                       data-wow-delay="0.1s"
                     >
@@ -203,10 +244,14 @@ const AboutPage = () => {
                           </Link>
                         </li>
                       </ul>
-                    </div>
+                    </motion.div>
                   </div>
                   <div className="col-lg-4 col-7">
-                    <div
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="tab-content wow fadeInUp"
                       data-wow-delay="0.3s"
                       id="myTabContent"
@@ -323,10 +368,14 @@ const AboutPage = () => {
                           App
                         </p>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                   <div className="col-xl-4 col-lg-5 offset-xl-1 pr-lg-35 pl-lg-35">
-                    <div
+                    <motion.div
+                      variants={fadeInUp}
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
                       className="accolades-widget wow fadeInUp"
                       data-wow-delay="0.5s"
                     >
@@ -368,7 +417,7 @@ const AboutPage = () => {
                           </li>
                         </ul>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </div>
               </div>
@@ -379,19 +428,32 @@ const AboutPage = () => {
             <div className="container">
               <div className="row align-items-end">
                 <div className="col-sm-8">
-                  <div className="section-title text-start wow fadeInRight">
+                  <motion.div
+                    className="section-title text-start wow fadeInRight"
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                  >
                     <span className="short-title mt-0">Leadership</span>
                     <h2 className="mb-0">Meet our leadership team</h2>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-sm-4 text-end">
-                  <Link
-                    href="#"
-                    className="theme-btn theme-btn-outlined wow fadeInLeft"
+                  <motion.div
+                    variants={fadeInLeft}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                   >
-                    {" "}
-                    see more <i className="arrow_carrot-right "></i>
-                  </Link>
+                    <Link
+                      href="#"
+                      className="theme-btn theme-btn-outlined wow fadeInLeft"
+                    >
+                      {" "}
+                      see more <i className="arrow_carrot-right "></i>
+                    </Link>
+                  </motion.div>
                 </div>
               </div>
 
@@ -412,7 +474,11 @@ const AboutPage = () => {
                 </div>
 
                 <div className="col-lg-4">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="single-leadership-widget wow fadeInUp "
                     data-wow-delay="0.3s"
                   >
@@ -423,10 +489,14 @@ const AboutPage = () => {
                         <p>Co-Founder, Conis</p>
                       </div>
                     </Link>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-lg-4">
-                  <div
+                  <motion.div
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
                     className="single-leadership-widget wow fadeInUp "
                     data-wow-delay="0.5s"
                   >
@@ -437,7 +507,7 @@ const AboutPage = () => {
                         <p>Co-Founder, Conis</p>
                       </div>
                     </Link>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -447,13 +517,19 @@ const AboutPage = () => {
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-md-6">
-                  <div className="cta-content text-black wow fadeInRight">
+                  <motion.div
+                    variants={fadeInRight}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="cta-content text-black wow fadeInRight"
+                  >
                     <h2>Our latest financial results</h2>
                     <p>
                       Access Scotiabank’s latest quarterly results and archived
                       financial documents.
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
                 <div className="col-md-6 ">
                   <div className="cta-content mt-3 mt-sm-0 text-sm-end text-center">

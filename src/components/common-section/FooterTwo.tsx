@@ -4,6 +4,8 @@ import Link from "next/link";
 import React from "react";
 import Logo from "@/assets/img/logo/Logo.png";
 import { usePathname } from "next/navigation";
+import { motion } from 'framer-motion';
+import { fadeInLeft, fadeInUp } from "../animation";
 const FooterTwo = () => {
   const pathName = usePathname();
   const indexCompany = pathName === "/index-company";
@@ -24,7 +26,12 @@ const FooterTwo = () => {
             <div className="row">
               {/* Column 1 */}
               <div className="col-lg-3 col-sm-6 text-center text-sm-start">
-                <div className="footer-widget mb-30 wow fadeInLeft">
+                <motion.div
+                variants={fadeInLeft}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                className="footer-widget mb-30 wow fadeInLeft">
                   <h4 className="mb-20">We are on a mission.</h4>
                   <div className="footer-text mb-20">
                     <p>
@@ -41,12 +48,16 @@ const FooterTwo = () => {
                       height={60}
                     />
                   </div>
-                </div>
+                </motion.div>
               </div>
 
               {/* Column 2 */}
               <div className="col-lg-3 col-sm-6 text-center text-sm-start offset-lg-1">
-                <div
+                <motion.div
+                variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
                   className="footer-widget mb-30 wow fadeInUp"
                   data-wow-delay="0.1s"
                 >
@@ -69,12 +80,16 @@ const FooterTwo = () => {
                       </li>
                     </ul>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
               {/* Column 3 */}
               <div className="col-lg-3 col-sm-6 text-center text-sm-start">
-                <div
+                <motion.div
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
                   className="footer-widget mb-30 wow fadeInUp"
                   data-wow-delay="0.3s"
                 >
@@ -97,12 +112,16 @@ const FooterTwo = () => {
                       </li>
                     </ul>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
               {/* Column 4 */}
               <div className="col-lg-2 col-sm-6 text-center text-sm-start">
-                <div
+                <motion.div
+                variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
                   className="footer-widget mb-30 wow fadeInUp"
                   data-wow-delay="0.5s"
                 >
@@ -125,7 +144,7 @@ const FooterTwo = () => {
                       </li>
                     </ul>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>

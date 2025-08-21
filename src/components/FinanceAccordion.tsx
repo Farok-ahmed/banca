@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { fadeInUp, fadeInLeft, fadeInRight } from './animation';
 
 const faqs = [
   {
@@ -57,9 +59,13 @@ const FinanceAccordion = () => {
   return (
     <section className="saas-faq-area bg-white">
       <div className="container">
-        <div
+        <motion.div
           className="saas-section-title text-center mb-60 wow fadeInUp"
           data-wow-delay="0.2s"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.2 }}
         >
           <h2>
             Frequently asked <span>questions</span>
@@ -69,15 +75,26 @@ const FinanceAccordion = () => {
             them
             <br /> majority have suffered alteration form injected.
           </p>
-        </div>
+        </motion.div>
         <div className="row">
-          <div className="col-lg-6">
+          <motion.div 
+            className="col-lg-6"
+            variants={fadeInLeft}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <div className="accordion" id="accordionExample">
               {faqs.map((faq, index) => (
-                <div
+                <motion.div
                   className="faq_item wow fadeInUp"
                   data-wow-delay={`0.${index + 3}s`}
                   key={index}
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ delay: index * 0.1 }}
                 >
                   <div className="faq-header">
                     <h6
@@ -89,32 +106,61 @@ const FinanceAccordion = () => {
                       <i
                         className="icon_plus"
                         style={{ display: openLeftIndex === index ? 'none' : 'inline-block' }}
-                      ></i>
+                      />
                       <i
                         className="icon_minus-06"
                         style={{ display: openLeftIndex === index ? 'inline-block' : 'none' }}
-                      ></i>
+                      />
                     </h6>
                   </div>
-                  <div
+                  <motion.div
                     className={`collapse ${openLeftIndex === index ? 'show' : ''}`}
+                    initial={false}
+                    animate={{
+                      height: openLeftIndex === index ? "auto" : 0,
+                      opacity: openLeftIndex === index ? 1 : 0
+                    }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    style={{ 
+                      overflow: "hidden",
+                      maxHeight: openLeftIndex === index ? "500px" : "0px"
+                    }}
                   >
-                    <div className="faq-body">
+                    <motion.div 
+                      className="faq-body"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ 
+                        opacity: openLeftIndex === index ? 1 : 0, 
+                        y: openLeftIndex === index ? 0 : -10 
+                      }}
+                      transition={{ duration: 0.3, delay: openLeftIndex === index ? 0.1 : 0 }}
+                    >
                       <p>{faq.answer}</p>
-                    </div>
-                  </div>
-                </div>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="col-lg-6">
+          <motion.div 
+            className="col-lg-6"
+            variants={fadeInRight}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <div className="accordion" id="accordionExample2">
               {rightFaqs.map((faq, index) => (
-                <div
+                <motion.div
                   className="faq_item wow fadeInUp"
                   data-wow-delay={`0.${index + 3}s`}
                   key={index}
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ delay: index * 0.1 }}
                 >
                   <div className="faq-header">
                     <h6
@@ -125,25 +171,44 @@ const FinanceAccordion = () => {
                       {faq.question}
                       <i
                         className="icon_plus"
+                       
                         style={{ display: openRightIndex === index ? 'none' : 'inline-block' }}
-                      ></i>
+                      />
                       <i
                         className="icon_minus-06"
                         style={{ display: openRightIndex === index ? 'inline-block' : 'none' }}
-                      ></i>
+                      />
                     </h6>
                   </div>
-                  <div
+                  <motion.div
                     className={`collapse ${openRightIndex === index ? 'show' : ''}`}
+                    initial={false}
+                    animate={{
+                      height: openRightIndex === index ? "auto" : 0,
+                      opacity: openRightIndex === index ? 1 : 0
+                    }}
+                    transition={{ duration: 0.4, ease: "easeInOut" }}
+                    style={{ 
+                      overflow: "hidden",
+                      maxHeight: openRightIndex === index ? "500px" : "0px"
+                    }}
                   >
-                    <div className="faq-body">
+                    <motion.div 
+                      className="faq-body"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ 
+                        opacity: openRightIndex === index ? 1 : 0, 
+                        y: openRightIndex === index ? 0 : -10 
+                      }}
+                      transition={{ duration: 0.3, delay: openRightIndex === index ? 0.1 : 0 }}
+                    >
                       <p>{faq.answer}</p>
-                    </div>
-                  </div>
-                </div>
+                    </motion.div>
+                  </motion.div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
