@@ -4,21 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import logo2 from '@/assets/img/logo/Logo-2.png';
 
-const getRandomQuote = () => {
-  const quotes = [
-    'We design kbDoc for the readers, optimizing not for page views or engagement',
-    'kbDoc turns out that context is a key part of learning.',
-    'You can create any type of product documentation with kbDoc',
-    'Advanced visual search system powered by Ajax',
-  ];
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-
-  if (randomIndex < 0 || randomIndex >= quotes.length) return getRandomQuote();
-
-  return quotes[randomIndex];
-};
-
-export default function PreLoader() {
+export default function PreLoader({ quote }: { quote: string }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,7 +23,7 @@ export default function PreLoader() {
           </div>
         </div>
         <h2 className="head">Did You Know?</h2>
-        <p>{getRandomQuote()}</p>
+        <p>{quote}</p>
       </div>
     </div>
   );

@@ -28,13 +28,13 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@types/bootstrap": "^5.2.10",
-    "@types/node": "^20",
+    "@types/node": "20.19.11",
     "@types/nouislider": "^9.0.10",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-slick": "^0.23.13",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
-    "typescript": "^5"
+    "typescript": "5.9.2"
   }
 }
