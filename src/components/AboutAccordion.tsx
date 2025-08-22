@@ -59,7 +59,7 @@ const AboutAccordion = () => {
                     <div className="w-100">
                       <div className="faq-header" id={`heading${index}`}>
                         <div className="d-flex justify-content-between align-items-center">
-                          <h4 className="mb-0">{faq.title}</h4>
+                          <h4  onClick={() => toggleAccordion(index)} className="mb-0">{faq.title}</h4>
                           <div>
                             <i
                               className={`icon_plus ${
