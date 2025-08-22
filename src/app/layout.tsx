@@ -13,8 +13,11 @@ export const metadata: Metadata = {
     'Banca is a banking and business loan Next Js template with a modern, clean, and professional design. It is a great choice for any financial institution or business looking to create a modern and professional website.',
   icons: {
     icon: '/img/favicon.png',
+    shortcut: '/img/favicon.png',
+    apple: '/img/favicon.png', 
   },
 };
+
 
 export default function RootLayout({
   children,
