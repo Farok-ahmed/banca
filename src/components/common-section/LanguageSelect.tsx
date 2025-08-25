@@ -18,7 +18,9 @@ const options: OptionType[] = [
 ];
 
 const LanguageSelect: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState<SingleValue<OptionType>>(options[0]);
+  const [selectedOption, setSelectedOption] = useState<SingleValue<OptionType>>(
+    options[0]
+  );
 
   // custom styles type
   const customStyles: StylesConfig<OptionType, false> = {
@@ -39,7 +41,7 @@ const LanguageSelect: React.FC = () => {
         : state.isFocused
         ? "#131417"
         : "#2c303a",
-    focus: "none",
+      focus: "none",
       color: state.isSelected ? "white" : "#c3c3c3",
       "&:hover": {
         color: "white",
@@ -54,6 +56,7 @@ const LanguageSelect: React.FC = () => {
 
   return (
     <Select<OptionType, false>
+      instanceId="language-select"
       value={selectedOption}
       onChange={setSelectedOption}
       options={options}

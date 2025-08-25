@@ -37,10 +37,9 @@ import article2 from "@/assets/img/home-4/article-2.png";
 import article3 from "@/assets/img/home-4/article-3.png";
 import calenderOutline from "@/assets/img/home-4/calender-outline.svg";
 import userProfile from "@/assets/img/home-4/user-profile.svg";
-import FormSelect from "../../common-section/FormSelect";
-import { OptionType } from "@/components/common-section/type";
 import { fadeInLeft, fadeInRight, fadeInUp } from "@/components/animation";
 import Counter from "@/components/common-section/Counter";
+import LoanForm from "./LoanForm";
 
 const blogPosts: BlogItem[] = [
   {
@@ -80,10 +79,7 @@ const blogPosts: BlogItem[] = [
     delay: "0.5s",
   },
 ];
-const options: OptionType[] = [
-  { value: "Debt-Financing", label: "Debt Loan" },
-  { value: "Equity-Finance", label: "Installment loan" },
-];
+
 export default function Home() {
   return (
     <>
@@ -192,7 +188,8 @@ export default function Home() {
                   >
                     <Image className="shape" src={shape1} alt="Shape 1" />
                     <h4>Loan calculator</h4>
-                    <form action="" className="d-flex flex-column">
+                    <LoanForm/>
+                    {/* <form action="" className="d-flex flex-column">
                       <div className="mb-3">
                         <label className="label" htmlFor="loandetails01">
                           Type of Loan
@@ -247,7 +244,7 @@ export default function Home() {
                       <button type="submit" className="theme-btn w-100">
                         Apply for loans
                       </button>
-                    </form>
+                    </form> */}
                   </motion.div>
                 </div>
               </div>

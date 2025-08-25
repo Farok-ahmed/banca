@@ -64,7 +64,7 @@ const PricingPlan = () => {
                       <li><i className="icon_check_alt"></i> Variations of passages</li>
                       <li><i className="icon_check_alt"></i> Alteration some form injected</li>
                     </ul>
-                    <Link href="/contact" className="price_btn theme-btn theme-btn-alt">Choose Plan</Link>
+                    <Link href="/contact-us" className="price_btn theme-btn theme-btn-alt">Choose Plan</Link>
                   </div>
                 </div>
               ))}

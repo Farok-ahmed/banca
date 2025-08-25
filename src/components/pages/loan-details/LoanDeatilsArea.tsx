@@ -122,13 +122,13 @@ const LoanDeatilsArea = () => {
                       <label className="label" htmlFor="loandetails01">
                         Choose your financing type
                       </label>
-                      <FormSelect options={financeOptions} />
+                      <FormSelect options={financeOptions} name="financingType" />
                     </div>
                     <div className="col-md-6">
                       <label className="label" htmlFor="loandetails02">
                         Choose your preferred bank service
                       </label>
-                      <FormSelect options={bankingOptions} />
+                      <FormSelect options={bankingOptions} name="bankingService" />
                     </div>
                     <div className="col-md-6">
                       <label className="label" htmlFor="loan-amount">

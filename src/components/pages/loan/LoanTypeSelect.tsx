@@ -12,6 +12,7 @@ const LoanTypeSelect = ({options}: {options: OptionTypes[]}) => {
   return (
     <Select
       options={options}
+      instanceId="loan-type-select"
       styles={{
         container: (base) => ({
           ...base,

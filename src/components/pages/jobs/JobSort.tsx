@@ -11,7 +11,7 @@ const JobSort = () => {
 
   return (
     <>
-     <FormSelect options={sortOptions} />
+     <FormSelect options={sortOptions} name="sort" />
     </>
   );
 };

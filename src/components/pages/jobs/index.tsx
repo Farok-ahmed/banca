@@ -158,7 +158,7 @@ const JobsPage = () => {
                         <span className="arrow-icon">
                           <i className="arrow_carrot-down"></i>
                         </span>
-                        <FormSelect options={bangladeshDistricts} />
+                        <FormSelect options={bangladeshDistricts} name="location"  />
                       </div>
                     </div>
 

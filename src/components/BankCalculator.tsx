@@ -289,7 +289,7 @@ const CalculatorSection = () => {
                     </h1>
 
                     <Link
-                      href="/loan/personal-details"
+                      href="/personal-details"
                       className="theme-btn theme-btn-lg mt-40"
                     >
                       Apply Now <i className="arrow_right"></i>
