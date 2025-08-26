@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from 'next/image';
 import testiImg1 from '@/assets/img/testimonial/img-1.png';
 import testiImg2 from '@/assets/img/testimonial/img-2.png';
+import Link from 'next/link';
 
 const testimonials = [
   {
@@ -111,9 +112,9 @@ export default function TestimonialSlider() {
                   <div className="col-8 d-flex align-items-center">
                     <div className="testimonial-content">
                       <div className="watch-button">
-                        <a data-fancybox href={item.video}>
+                        <Link data-fancybox href={item.video}>
                           <i className="fa fa-play"></i> watch the video
-                        </a>
+                        </Link>
                       </div>
                       <h2>{item.title}</h2>
                       <p className="pr-lg-60">{item.text}</p>

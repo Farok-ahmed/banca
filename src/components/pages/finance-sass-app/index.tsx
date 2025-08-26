@@ -251,9 +251,9 @@ const FinanceSassAppPage = () => {
                       There are many variations in passage lorem Ipsum available
                       of them will.
                     </p>
-                    <a href="#" className="text-btn">
+                    <Link href="#" className="text-btn">
                       Learn More
-                    </a>
+                    </Link>
                   </motion.div>
                 </div>
                 <div className="col-lg-4">
@@ -635,12 +635,12 @@ const FinanceSassAppPage = () => {
                     className="form-control"
                     placeholder="Enter Email address"
                   />
-                  <a
+                  <Link
                     href="#"
                     className="input-append theme-btn theme-btn-lg ms-sm-3"
                   >
                     Subscribe
-                  </a>
+                  </Link>
                 </div>
                 <ul className="list-unstyled feature-list">
                   <li>

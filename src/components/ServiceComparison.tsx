@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import logo2 from '@/assets/img/logo/Logo-2.png';
+import Link from 'next/link';
 
 const ServiceComparison = () => {
   return (
@@ -86,9 +87,9 @@ const ServiceComparison = () => {
               <tr>
                 <th className="feature-head bg-transparent"></th>
                 <td className="feature-item p-0 bg-transparent">
-                  <a href="#" className="theme-btn">
+                  <Link href="#" className="theme-btn">
                     <span>Get started now</span> <i className="arrow_right"></i>
-                  </a>
+                  </Link>
                 </td>
                 <td className="feature-item bg-transparent"></td>
               </tr>

@@ -381,9 +381,9 @@ const BlogDetailsPage: React.FC = () => {
                           </div>
                           <div className="blog-content">
                             <h5>
-                              <a href="#">
+                              <Link href="#">
                                 How our revamped API can help your finances
-                              </a>
+                              </Link>
                             </h5>
                             <p>
                               Cup of char brilliant horse play bro bread sloshed
@@ -447,9 +447,9 @@ const BlogDetailsPage: React.FC = () => {
                                   <Image src={calendarOutlineSvg} alt="" />
                                   <span>March 18, 2021</span>
                                 </div>
-                                <a className="reply" href="#">
+                                <Link className="reply" href="#">
                                   Reply <i className="arrow_right"></i>
-                                </a>
+                                </Link>
                               </div>
                               <p>
                                 Wouldn't it be better practice to use
@@ -478,9 +478,9 @@ const BlogDetailsPage: React.FC = () => {
                                   <Image src={calendarOutlineSvg} alt="" />
                                   <span>March 18, 2021</span>
                                 </div>
-                                <a className="reply" href="#">
+                                <Link className="reply" href="#">
                                   Reply <i className="arrow_right"></i>
-                                </a>
+                                </Link>
                               </div>
                               <p>
                                 Thenks Demo User for Wouldn't it be better
@@ -505,9 +505,9 @@ const BlogDetailsPage: React.FC = () => {
                                   <Image src={calendarOutlineSvg} alt="" />
                                   <span>March 18, 2021</span>
                                 </div>
-                                <a className="reply" href="#">
+                                <Link className="reply" href="#">
                                   Reply <i className="arrow_right"></i>
-                                </a>
+                                </Link>
                               </div>
                               <p>
                                 Wouldn't it be better practice to use
@@ -655,9 +655,9 @@ const BlogDetailsPage: React.FC = () => {
                           <Image src={recentPost1} alt="recent-post" />
                           <div className="news-content">
                             <h6>
-                              <a href="#">
+                              <Link href="#">
                                 Is It Worth Buying A Premium Form Builder.
-                              </a>
+                              </Link>
                             </h6>
                             <div className="post-date">
                               <Image src={calendarOutlineSvg} alt="calender" />
@@ -669,7 +669,7 @@ const BlogDetailsPage: React.FC = () => {
                           <Image src={recentPost2} alt="recent-post" />
                           <div className="news-content">
                             <h6>
-                              <a href="#">10 Classic Summer Vacations</a>
+                              <Link href="#">10 Classic Summer Vacations</Link>
                             </h6>
                             <div className="post-date">
                               <Image src={calendarOutlineSvg} alt="calender" />
@@ -681,9 +681,9 @@ const BlogDetailsPage: React.FC = () => {
                           <Image src={recentPost3} alt="recent-post" />
                           <div className="news-content">
                             <h6>
-                              <a href="#">
+                              <Link href="#">
                                 How To Easily Add weForms Widget Using Elementor
-                              </a>
+                              </Link>
                             </h6>
                             <div className="post-date">
                               <Image src={calendarOutlineSvg} alt="calender" />
@@ -695,9 +695,9 @@ const BlogDetailsPage: React.FC = () => {
                           <Image src={recentPost4} alt="recent-post" />
                           <div className="news-content">
                             <h6>
-                              <a href="#">
+                              <Link href="#">
                                 How to Create GDPR Consent Form In WordPress
-                              </a>
+                              </Link>
                             </h6>
                             <div className="post-date">
                               <Image src={calendarOutlineSvg} alt="calender" />

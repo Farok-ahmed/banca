@@ -129,7 +129,7 @@ const LoanPage = () => {
                         >
                           <Image src={stepIcon2} alt="icon" />
                           <h4>
-                            <a href="#">Submit Documents</a>
+                            <Link href="#">Submit Documents</Link>
                           </h4>
                           <p>
                             Share required documents with our representative
@@ -148,7 +148,7 @@ const LoanPage = () => {
                         >
                           <Image src={stepIcon3} alt="icon" />
                           <h4>
-                            <a href="#">Approval in Principle</a>
+                            <Link href="#">Approval in Principle</Link>
                           </h4>
                           <p>
                             Choose the final sanctioned loan offer with the

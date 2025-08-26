@@ -152,26 +152,26 @@ export default function Home() {
                     </p>
 
                     <div className="d-flex flex-wrap mt-40">
-                      <a href="#" className="theme-btn me-4">
+                      <Link href="#" className="theme-btn me-4">
                         Get started now
-                      </a>
-                      <a href="#" className="under_link">
+                      </Link>
+                      <Link href="#" className="under_link">
                         Explore more <i className="arrow_right"></i>
-                      </a>
+                      </Link>
                     </div>
 
                     <div className="co-operators">
                       <p className="mb-4">We are cooperating with:</p>
                       <div className="d-flex flex-wrap">
-                        <a href="#">
+                        <Link href="#">
                           <Image src={cooperator1} alt="cooperator 1" />
-                        </a>
-                        <a href="#">
+                        </Link>
+                        <Link href="#">
                           <Image src={cooperator2} alt="cooperator 2" />
-                        </a>
-                        <a href="#">
+                        </Link>
+                        <Link href="#">
                           <Image src={cooperator3} alt="cooperator 3" />
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </motion.div>
@@ -518,10 +518,10 @@ export default function Home() {
                     <tr>
                       <th className="feature-head bg-transparent"></th>
                       <td className="feature-item p-0 bg-transparent">
-                        <a href="#" className="theme-btn">
+                        <Link href="#" className="theme-btn">
                           <span>Get started now</span>{" "}
                           <i className="arrow_right"></i>
-                        </a>
+                        </Link>
                       </td>
                       <td className="feature-item bg-transparent"></td>
                     </tr>

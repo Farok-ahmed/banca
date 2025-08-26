@@ -3,6 +3,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
 import LanguageSelect from "./LanguageSelect";
+import Link from "next/link";
 
 const TopHeader = () => {
   const pathname = usePathname();
@@ -73,12 +74,12 @@ const TopHeader = () => {
                       src="/img/phone-outline-white.png"
                       alt="phone"
                     />
-                    <a href="tel:01234567890">+01234-567890</a>
+                    <Link href="tel:01234567890">+01234-567890</Link>
                   </li>
 
                   <li>
                     <i className="icon_mail_alt"></i>
-                    <a href="mailto:bancainfo@email.com">bancainfo@email.com</a>
+                    <Link href="mailto:bancainfo@email.com">bancainfo@email.com</Link>
                   </li>
                 </ul>
               </div>

@@ -6,6 +6,7 @@ import Image from 'next/image';
 import freelanceTab from '@/assets/img/home-4/freelance-tab.png';
 import freelanceTab2 from '@/assets/img/home-4/freelance-tab-2.png';
 import faqImg from '@/assets/img/home-4/faq-Img.png';
+import Link from 'next/link';
 const tabContent: TabData[] = [
   {
     id: "freelancer",
@@ -115,9 +116,9 @@ const FaqTabs = () => {
                                 </span>
                               </h1>
                               <p>{tab.description}</p>
-                              <a className="read-more" href="#">
+                              <Link className="read-more" href="#">
                                 Get started now <i className="arrow_right" />
-                              </a>
+                              </Link>
                             </div>
                           </div>
                           <div className="col-lg-7">
@@ -185,7 +186,7 @@ const FaqTabs = () => {
                           ))}
                         </div>
                         <h6 className="more-contact">
-                          Have more question ? <a href="/contact">Contact Us</a>
+                          Have more question ? <Link href="/contact">Contact Us</Link>
                         </h6>
                       </div>
                     </div>
