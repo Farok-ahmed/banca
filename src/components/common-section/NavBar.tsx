@@ -138,7 +138,7 @@ const NavBar = () => {
                 ))}
               </ul>
 
-              <PurchaseButton isIndexCompany={routeHelpers.isIndexCompany} />
+              <PurchaseButton isIndexCompany={routeHelpers.isIndexCompany} isJobs={routeHelpers.jobs} />
               <ThemeToggle theme={theme} onToggleTheme={toggleTheme} />
             </div>
           </div>
@@ -277,12 +277,13 @@ const SubmenuItem: React.FC<SubmenuItemProps> = ({
 
 interface PurchaseButtonProps {
   isIndexCompany: boolean;
+  isJobs: boolean;
 }
 
-const PurchaseButton: React.FC<PurchaseButtonProps> = ({ isIndexCompany }) => (
+const PurchaseButton: React.FC<PurchaseButtonProps> = ({ isIndexCompany,isJobs }) => (
   <Link
     className={`theme-btn ${
-      isIndexCompany ? "" : "theme-btn-rounded-2 theme-btn-alt"
+      (isIndexCompany || isJobs) ? "" : "theme-btn-rounded-2 theme-btn-alt"
     }`}
     href="https://themeforest.net/item/banca-banking-business-loan-bootstrap5html-website-template/32788885?s_rank=9"
     target="_blank"

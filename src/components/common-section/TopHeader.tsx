@@ -40,7 +40,7 @@ const TopHeader = () => {
 
   return (
     <>
-      <div className="header-top py-2 bg_white">
+      <div className="header-top py-2 ">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6">

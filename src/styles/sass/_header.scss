@@ -116,7 +116,7 @@ header {
     &.header-menu-3,
     &.header-menu-4 {
       .theme-btn {
-        background-color: $theme-color !important;
+        background-color: $theme-color;
         color: #fff;
       }
       .navbar {
@@ -162,13 +162,13 @@ header {
       background-color: var(--bs-white);
 
       .theme-btn {
-        background-color: var(--brand_color) !important;
+        background-color: var(--brand_color);
         color: #fff;
         border-color: transparent;
         &:hover {
           background-color: transparent;
           border-color: var(--brand_color);
-          color: var(--brand_color);
+          color: var(--font-color-white);
           transition: all 0.3s ease-in-out;
         }
       }
@@ -190,7 +190,7 @@ header {
     }
     &.header-menu-4 {
       .theme-btn {
-        background-color: var(--brand_color) !important;
+        background-color: var(--brand_color);
         &:hover {
           background-color: $theme-title-color;
         }

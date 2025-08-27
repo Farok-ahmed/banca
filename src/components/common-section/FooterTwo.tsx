@@ -185,7 +185,7 @@ const FooterTwo = () => {
                 <div className="row">
                   <div className="copyright-text text-md-start text-center">
                     <p>
-                      Copyright &copy; Banca 2025.
+                      Copyright &copy; Banca {new Date().getFullYear()}.
                       <br className="d-sm-none" />
                       <Link className="ms-3" href="#">
                         Privacy

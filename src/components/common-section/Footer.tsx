@@ -127,7 +127,7 @@ const Footer = () => {
               <div className="col-lg-5 text-center my-3 my-sm-0">
                 <div className="copyright-text">
                   <p>
-                    Copyright &copy; Banca 2025. <br className="d-sm-none" />
+                    Copyright &copy; Banca {new Date().getFullYear()}. <br className="d-sm-none" />
                     <Link className="ms-2" href="#">
                       Privacy
                     </Link>{" "}

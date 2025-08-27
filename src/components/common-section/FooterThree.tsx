@@ -166,7 +166,7 @@ const FooterThree = () => {
               </div>
               <div className="col-lg-4 text-center text-lg-end ">
                 <div className="copyright-text short-text">
-                  <p>Copyright&copy; 2021, All Rights Reserved</p>
+                  <p>Copyright&copy; {new Date().getFullYear()}, All Rights Reserved</p>
                 </div>
               </div>
             </div>

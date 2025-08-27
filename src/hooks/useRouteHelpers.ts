@@ -22,7 +22,7 @@ const ROUTE_CONFIGS = {
     "/blog-details",
   ],
   bgWhite: ["/jobs", "/job-application", "/about-us"],
-  logo2Routes: ["/index-company", "/loan-steps", "/error","/finance-sass-app"],
+  logo2Routes: ["/index-company", "/loan-steps", "/error","/finance-sass-app","/jobs","/job-application","/about-us"],
   logo3Routes: ["/mobile-app"],
 } as const;
 const useRouteHelpers = (pathname: string) => {
@@ -40,6 +40,7 @@ const useRouteHelpers = (pathname: string) => {
     isMobileApp: pathname === "/mobile-app",
     isFinanceSass: pathname === "/finance-sass-app",
     isIndexCompany: pathname === "/index-company",
+    jobs: pathname === "/jobs" || pathname === "/job-application" || pathname === "/about-us",
   };
 };
 

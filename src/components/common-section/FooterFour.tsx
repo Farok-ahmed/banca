@@ -120,7 +120,7 @@ const FooterFour = () => {
                     </Link>
                   </div>
                   <p>
-                    2025 <Link href="#">Banca</Link>. All rights reserved
+                    {new Date().getFullYear()} <Link href="#">Banca</Link>. All rights reserved
                   </p>
                 </div>
               </div>
