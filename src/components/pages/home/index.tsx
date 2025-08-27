@@ -5,7 +5,7 @@ import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
-import "@/styles/css/nice-select.css";
+// import "@/styles/css/nice-select.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 import { BlogItem } from "@/types/Blogitem";

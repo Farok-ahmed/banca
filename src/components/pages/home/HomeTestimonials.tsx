@@ -2,6 +2,7 @@
 import React from "react";
 import { Testimonial } from "@/types/Testimonial";
 import Slider, { CustomArrowProps, Settings } from "react-slick";
+import "@/styles/css/testimonial.css";
 import Image from "next/image";
 import clientRev1 from "@/assets/img/home-4/client-rev-1.png";
 import clientRev2 from "@/assets/img/home-4/client-rev-2.png";
@@ -97,8 +98,8 @@ const HomeTestimonials = () => {
   const NextArrow: React.FC<CustomArrowProps> = (props) => {
     const { onClick } = props; // ignore currentSlide / slideCount
     return (
-      <button onClick={onClick} type="button" className="slick-prev slick-arrow" style={{}}>
-        <i className="arrow_left" />
+      <button onClick={onClick} type="button" className="slick-prev slick-arrow " style={{}}>
+        <i className="arrow_left icon-focus" />
       </button>
     );
   };
@@ -108,7 +109,7 @@ const HomeTestimonials = () => {
     const { onClick } = props;
     return (
      <button onClick={onClick} type="button" className="slick-next slick-arrow" style={{}}>
-        <i className="arrow_right" />
+        <i className="arrow_right icon-focus" />
       </button>
     );
   };

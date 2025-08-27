@@ -103,7 +103,7 @@ const ClientSlider = () => {
         {testimonials.map((item, index) => (
           <div key={index}>
             <div
-              className="single-client wow fadeInUp px-3"
+              className="single-client wow fadeInUp px-6"
               data-wow-delay={`0.${(index % 9) + 1}s`}
             >
               <Image

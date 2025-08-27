@@ -17,7 +17,7 @@ const LoanSlider = () => {
         onClick={onClick}
         className="slick-next slick-arrow"
       >
-        <i className="arrow_right"></i>
+        <i className="arrow_right icon-focus"></i>
       </button>
       </>
     );
@@ -26,7 +26,7 @@ const LoanSlider = () => {
   const PrevArrow: React.FC<CustomArrowProps> = ({ onClick }) => {
     return (
       <button onClick={onClick} className="slick-prev slick-arrow">
-        <i className="arrow_left"></i>
+        <i className="arrow_left icon-focus"></i>
       </button>
     );
   };
