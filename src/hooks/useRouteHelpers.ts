@@ -22,7 +22,7 @@ const ROUTE_CONFIGS = {
     "/blog-details",
   ],
   bgWhite: ["/jobs", "/job-application", "/about-us"],
-  logo2Routes: ["/index-company", "/loan-steps", "/error"],
+  logo2Routes: ["/index-company", "/loan-steps", "/error","/finance-sass-app"],
   logo3Routes: ["/mobile-app"],
 } as const;
 const useRouteHelpers = (pathname: string) => {

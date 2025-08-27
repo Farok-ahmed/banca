@@ -2,8 +2,9 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
-import LanguageSelect from "./LanguageSelect";
 import Link from "next/link";
+import FormSelect from "./FormSelect";
+import { OptionType } from "./type";
 
 const TopHeader = () => {
   const pathname = usePathname();
@@ -37,17 +38,23 @@ const TopHeader = () => {
     !blogDetails
   )
     return null;
+
+    const options: OptionType[] = [
+  { value: "english", label: "English" },
+  { value: "bangla", label: "Bangla" },
+  { value: "french", label: "French" },
+  { value: "hindi", label: "Hindi" },
+];
   return (
     <>
-      <div className="header-top py-2">
+      <div className="header-top py-2 bg_white">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6">
               <div className="header-info-left d-flex align-items-center">
                 {/* Language Dropdown */}
                 <div className="language-list position-relative w-auto">
-                  <LanguageSelect/>
-
+                    <FormSelect options={options} name="bangla" />
                   {/* Dropdown Arrow */}
                   <span
                     className="position-absolute top-50 end-0 translate-middle-y me-2 text-white pointer-events-none"
@@ -58,7 +65,7 @@ const TopHeader = () => {
                 </div>
 
                 {/* Timestamp */}
-                <div className="timestamp ms-4 text-white d-flex align-items-center gap-2">
+                <div className="timestamp ms-4">
                   <i className="icon_clock_alt"></i> Mon - Fri 10:00-18:00
                 </div>
               </div>

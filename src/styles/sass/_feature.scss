@@ -684,6 +684,12 @@
       button {
         background-color: #cacccf;
         border: none;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        &::before{
+            display: none;
+        }
       }
 
       &.slick-active {
