@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import React from "react";
+import LanguageSelect from "./LanguageSelect";
 import Link from "next/link";
 import FormSelect from "./FormSelect";
 import { OptionType } from "./type";
@@ -54,7 +55,8 @@ const TopHeader = () => {
               <div className="header-info-left d-flex align-items-center">
                 {/* Language Dropdown */}
                 <div className="language-list position-relative w-auto">
-                    <FormSelect options={options} name="bangla" />
+                  <LanguageSelect/>
+                    {/* <FormSelect options={options} name="bangla" /> */}
                   {/* Dropdown Arrow */}
                   <span
                     className="position-absolute top-50 end-0 translate-middle-y me-2 text-white pointer-events-none"

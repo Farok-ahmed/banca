@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Select, { SingleValue, StylesConfig } from "react-select";
 import "./custom.css";
+import { useTheme } from "@/contextAPi/ThemeContext";
 
 // Option type define
 interface OptionType {
@@ -21,17 +22,19 @@ const LanguageSelect: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<SingleValue<OptionType>>(
     options[0]
   );
+  const { theme } = useTheme();
+    const isLightTheme = theme === "light";
 
   // custom styles type
   const customStyles: StylesConfig<OptionType, false> = {
     control: (base) => ({
       ...base,
-      backgroundColor: "#171d24",
-      borderColor: "#171d24",
-      color: "#fff",
+      backgroundColor: isLightTheme ? "#fff" : "#171d24",
+      borderColor: isLightTheme ? "#fff" : "#171d24",
+      color: isLightTheme ? "#000" : "#000",
       boxShadow: "none",
       "&:hover": {
-        borderColor: "#171d24",
+        borderColor: isLightTheme ? "#fff" : "#171d24",
       },
     }),
     option: (base, state) => ({
@@ -50,7 +53,7 @@ const LanguageSelect: React.FC = () => {
     }),
     singleValue: (base) => ({
       ...base,
-      color: "#fff",
+      color:isLightTheme ? "#000" : "#fff",
     }),
   };
 
