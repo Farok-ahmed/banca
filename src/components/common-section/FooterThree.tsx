@@ -61,14 +61,17 @@ const FooterThree = () => {
                   </div>
                   <div className="footer-link">
                     <ul>
-                      <li>
-                        <Link href="#"> Download</Link>
+                       <li>
+                        <Link href="/career"> Careers</Link>
+                      </li>
+                     <li>
+                        <Link href="/card">Cards</Link>
                       </li>
                       <li>
-                        <Link href="#"> Payments</Link>
+                        <Link href="/loan"> Get Loan</Link>
                       </li>
                       <li>
-                        <Link href="#"> Online Banking</Link>
+                        <Link href="/index-company"> Loan Company</Link>
                       </li>
                     </ul>
                   </div>
@@ -89,20 +92,18 @@ const FooterThree = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <Link href="#"> About Us</Link>
+                        <Link href="/about-us"> About Us</Link>
                       </li>
                       <li>
-                        <Link href="#"> Contact us</Link>
+                        <Link href="/contact-us"> Contact us</Link>
                       </li>
                       <li>
-                        <Link href="#"> Roadmap</Link>
+                        <Link href="/card"> Cards</Link>
                       </li>
                       <li>
-                        <Link href="#"> Blog</Link>
+                        <Link href="/blog-listing"> Blog</Link>
                       </li>
-                      <li>
-                        <Link href="#"> Careers</Link>
-                      </li>
+                     
                     </ul>
                   </div>
                 </motion.div>
@@ -122,20 +123,18 @@ const FooterThree = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <Link href="#">Borrow money</Link>
+                        <Link href="/loan">Loan</Link>
                       </li>
                       <li>
-                        <Link href="#">Collective loans</Link>
+                        <Link href="/loan-details">Loan Application</Link>
                       </li>
                       <li>
-                        <Link href="#">Budget schedule</Link>
+                        <Link href="/jobs">Jobs</Link>
                       </li>
                       <li>
-                        <Link href="#">Debt calculator</Link>
+                        <Link href="/job-application">Jobs Application</Link>
                       </li>
-                      <li>
-                        <Link href="#">Student scholarship</Link>
-                      </li>
+                      
                     </ul>
                   </div>
                 </motion.div>

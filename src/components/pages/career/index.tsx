@@ -146,7 +146,7 @@ const CareerPage = () => {
                       That's why we're simple and personal in all that we do.
                     </p>
                     <Link
-                      href="#"
+                    href="/about-us"
                       className="theme-btn theme-btn-outlined mb-4 mt-45 "
                     >
                       Learn more
@@ -168,7 +168,7 @@ const CareerPage = () => {
                       prosper. See where you could make a difference.
                     </p>
                     <Link
-                      href="#"
+                      href="/career"
                       className="theme-btn theme-btn-outlined mb-4 mt-45 "
                     >
                       Explore
@@ -190,7 +190,7 @@ const CareerPage = () => {
                       career, put your talents to the test at Santander US.
                     </p>
                     <Link
-                      href="#"
+                      href="/jobs"
                       className="theme-btn theme-btn-outlined mb-4 mt-45 "
                     >
                       Find out more
@@ -212,7 +212,7 @@ const CareerPage = () => {
                       offer to you and your family.
                     </p>
                     <Link
-                      href="#"
+                      href="/about-us"
                       className="theme-btn theme-btn-outlined mb-4 mt-45 "
                     >
                       Discover
@@ -234,7 +234,7 @@ const CareerPage = () => {
                       work hard to build an inclusive environment.
                     </p>
                     <Link
-                      href="#"
+                      href="/contact-us"
                       className="theme-btn theme-btn-outlined mb-4 mt-45 w-50"
                     >
                       Read more
@@ -256,7 +256,7 @@ const CareerPage = () => {
                       you'll receive job opportunity alerts here.
                     </p>
                     <Link
-                      href="#"
+                      href="/contact-us"
                       className="theme-btn theme-btn-outlined mb-4 mt-45 w-50"
                     >
                       Join Now
@@ -594,7 +594,7 @@ const CareerPage = () => {
                       You will be invited at our head office to take a skills
                       and knowledge assessment.
                     </p>
-                    <Link href="#">
+                    <Link href="/loan-steps">
                       <span>Read more</span> <i className="arrow_right"></i>
                     </Link>
                   </motion.div>
@@ -614,7 +614,7 @@ const CareerPage = () => {
                       Find the answers to frequently asked questions about
                       working at AfrAsia.
                     </p>
-                    <Link href="#">
+                    <Link href="/contact-us">
                       <span>Read more</span> <i className="arrow_right"></i>
                     </Link>
                   </motion.div>

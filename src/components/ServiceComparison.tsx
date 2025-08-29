@@ -87,7 +87,7 @@ const ServiceComparison = () => {
               <tr>
                 <th className="feature-head bg-transparent"></th>
                 <td className="feature-item p-0 bg-transparent">
-                  <Link href="#" className="theme-btn">
+                  <Link href="/contact-us" className="theme-btn">
                     <span>Get started now</span> <i className="arrow_right"></i>
                   </Link>
                 </td>

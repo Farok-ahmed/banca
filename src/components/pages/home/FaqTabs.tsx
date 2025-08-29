@@ -116,7 +116,7 @@ const FaqTabs = () => {
                                 </span>
                               </h1>
                               <p>{tab.description}</p>
-                              <Link className="read-more" href="#">
+                              <Link className="read-more" href="/contact-us">
                                 Get started now <i className="arrow_right" />
                               </Link>
                             </div>
@@ -186,7 +186,7 @@ const FaqTabs = () => {
                           ))}
                         </div>
                         <h6 className="more-contact">
-                          Have more question ? <Link href="/contact">Contact Us</Link>
+                          Have more question ? <Link href="/contact-us">Contact Us</Link>
                         </h6>
                       </div>
                     </div>

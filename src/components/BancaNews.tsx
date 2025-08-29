@@ -106,10 +106,10 @@ const NewsSlider = () => {
                 />
                 <div className="blog-content pr-20 pl-20 mt-3">
                   <h4>
-                    <Link href="#">{item.title}</Link>
+                    <Link href="/blog-details">{item.title}</Link>
                   </h4>
                   <p>{item.desc}</p>
-                  <Link className="read-more" href="#">
+                  <Link className="read-more" href="/blog-details">
                     Read More <i className="arrow_right"></i>
                   </Link>
                 </div>

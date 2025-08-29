@@ -320,7 +320,7 @@ const MobileAppPage = () => {
                     </p>
 
                     <div>
-                      <Link className="theme-btn-2 mt-55" href="#">
+                      <Link className="theme-btn-2 mt-55" href="/card">
                         <span className="arrow">
                           <span className="horizontal-line"></span>
                         </span>
@@ -346,7 +346,7 @@ const MobileAppPage = () => {
                     </p>
 
                     <div>
-                      <Link className="theme-btn-2 mt-55" href="#">
+                      <Link className="theme-btn-2 mt-55" href="/card">
                         <span className="arrow">
                           <span className="horizontal-line"></span>
                         </span>
@@ -443,7 +443,7 @@ const MobileAppPage = () => {
                     </p>
 
                     <div>
-                      <Link className="theme-btn-2 mt-55" href="#">
+                      <Link className="theme-btn-2 mt-55" href="/loan-steps">
                         <span className="arrow">
                           <span className="horizontal-line"></span>
                         </span>

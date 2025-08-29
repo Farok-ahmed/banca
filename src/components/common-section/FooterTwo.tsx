@@ -67,16 +67,16 @@ const FooterTwo = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <Link href="#">About Us</Link>
+                        <Link href="/about-us">About Us</Link>
                       </li>
                       <li>
-                        <Link href="#">Recognition</Link>
+                        <Link href="/contact-us">Contact Us</Link>
                       </li>
                       <li>
-                        <Link href="#">Executive Team</Link>
+                        <Link href="/card">Card</Link>
                       </li>
                       <li>
-                        <Link href="#">Careers</Link>
+                        <Link href="/career">Careers</Link>
                       </li>
                     </ul>
                   </div>
@@ -99,16 +99,16 @@ const FooterTwo = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <Link href="#">Business Loans | Main</Link>
+                        <Link href="/loan">Business Loans</Link>
                       </li>
                       <li>
-                        <Link href="#">Loan Calculator</Link>
+                        <Link href="/index-company">Loan Calculator</Link>
                       </li>
                       <li>
-                        <Link href="#">Refer a Friend</Link>
+                        <Link href="/loan-details">Loan Application</Link>
                       </li>
                       <li>
-                        <Link href="#">Partner Program</Link>
+                        <Link href="/jobs">Jobs</Link>
                       </li>
                     </ul>
                   </div>
@@ -131,16 +131,16 @@ const FooterTwo = () => {
                   <div className="footer-link">
                     <ul>
                       <li>
-                        <Link href="#">Customer Care</Link>
+                        <Link href="/contact-us">Customer Care</Link>
                       </li>
                       <li>
-                        <Link href="#">Contact Us</Link>
+                        <Link href="/contact-us">Contact Us</Link>
                       </li>
                       <li>
-                        <Link href="#">Security Center</Link>
+                        <Link href="/loan">Loan</Link>
                       </li>
                       <li>
-                        <Link href="#">Blog</Link>
+                        <Link href="/blog-listing">Blog</Link>
                       </li>
                     </ul>
                   </div>

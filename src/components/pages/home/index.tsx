@@ -152,10 +152,10 @@ export default function Home() {
                     </p>
 
                     <div className="d-flex flex-wrap mt-40">
-                      <Link href="#" className="theme-btn me-4">
+                      <Link href="/contact-us" className="theme-btn me-4">
                         Get started now
                       </Link>
-                      <Link href="#" className="under_link">
+                      <Link href="/contact-us" className="under_link">
                         Explore more <i className="arrow_right"></i>
                       </Link>
                     </div>
@@ -188,63 +188,7 @@ export default function Home() {
                   >
                     <Image className="shape" src={shape1} alt="Shape 1" />
                     <h4>Loan calculator</h4>
-                    <LoanForm/>
-                    {/* <form action="" className="d-flex flex-column">
-                      <div className="mb-3">
-                        <label className="label" htmlFor="loandetails01">
-                          Type of Loan
-                        </label>
-                        <FormSelect options={options} />
-                      </div>
-
-                      <div className="mb-3">
-                        <label className="label" htmlFor="loan-amount">
-                          Amount of money
-                        </label>
-                        <div className="input-field d-flex align-items-center">
-                          <span>$</span>
-                          <input
-                            type="text"
-                            id="loan-amount"
-                            placeholder="Enter amount"
-                            className="form-control"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="mb-3">
-                        <label className="label" htmlFor="loan-time">
-                          For how long (days)
-                        </label>
-                        <div className="input-field">
-                          <input
-                            type="text"
-                            id="loan-time"
-                            placeholder="For how long (days)"
-                            className="form-control"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="mb-4">
-                        <label className="label" htmlFor="loan-repayment">
-                          Repayments
-                        </label>
-                        <div className="input-field d-flex align-items-center">
-                          <span>$</span>
-                          <input
-                            type="text"
-                            id="loan-repayment"
-                            placeholder="Enter amount"
-                            className="form-control"
-                          />
-                        </div>
-                      </div>
-
-                      <button type="submit" className="theme-btn w-100">
-                        Apply for loans
-                      </button>
-                    </form> */}
+                    <LoanForm />
                   </motion.div>
                 </div>
               </div>
@@ -518,7 +462,7 @@ export default function Home() {
                     <tr>
                       <th className="feature-head bg-transparent"></th>
                       <td className="feature-item p-0 bg-transparent">
-                        <Link href="#" className="theme-btn">
+                        <Link href="/loan" className="theme-btn">
                           <span>Get started now</span>{" "}
                           <i className="arrow_right"></i>
                         </Link>
@@ -533,19 +477,28 @@ export default function Home() {
                 <div className="row gy-md-0 gy-4 text-center">
                   <div className="col-md-4 border-end">
                     <h1 className="counter">
-                      <span><Counter count={400} decimals={0} /></span> K
+                      <span>
+                        <Counter count={400} decimals={0} />
+                      </span>{" "}
+                      K
                     </h1>
                     <p>Total active customers</p>
                   </div>
                   <div className="col-md-4">
                     <h1 className="counter">
-                      <span><Counter count={100} decimals={0} /></span>M+
+                      <span>
+                        <Counter count={100} decimals={0} />
+                      </span>
+                      M+
                     </h1>
                     <p>Order success rate</p>
                   </div>
                   <div className="col-md-4 border-start">
                     <h1 className="counter">
-                      <span><Counter count={95.87} decimals={2} /></span>%
+                      <span>
+                        <Counter count={95.87} decimals={2} />
+                      </span>
+                      %
                     </h1>
                     <p>Avg. new projects</p>
                   </div>

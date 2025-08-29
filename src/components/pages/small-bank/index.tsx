@@ -325,7 +325,7 @@ const SmallBankPage = () => {
                       viewport={{ once: true, amount: 0.2 }}
                       className="read-more wow fadeInUp"
                       data-wow-delay="0.3s"
-                      href="#"
+                      href="/loan"
                     >
                       Learn more about it <i className="arrow_right"></i>
                     </motion.a>
@@ -788,7 +788,7 @@ const SmallBankPage = () => {
                         viewport={{ once: true, amount: 0.2 }}
                       >
                         <Link
-                          href="#"
+                          href="/loan-details"
                           className="wow fadeInUp theme-btn theme-btn-lg"
                         >
                           Get started now <i className="arrow_right-up"></i>

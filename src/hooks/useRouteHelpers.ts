@@ -40,7 +40,7 @@ const useRouteHelpers = (pathname: string) => {
     isMobileApp: pathname === "/mobile-app",
     isFinanceSass: pathname === "/finance-sass-app",
     isIndexCompany: pathname === "/index-company",
-    jobs: pathname === "/jobs" || pathname === "/job-application" || pathname === "/about-us",
+    jobs: pathname === "/jobs" || pathname === "/job-application" || pathname === "/about-us" || pathname === "/loan-steps" || pathname === "/finance-sass-app",
   };
 };
 

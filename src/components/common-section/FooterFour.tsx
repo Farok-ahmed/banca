@@ -48,54 +48,54 @@ const FooterFour = () => {
                   <h4 className="f-widget-title">Support</h4>
                   <ul className="footer-link">
                     <li>
-                      <Link href="#">Pricing</Link>
+                      <Link href="/loan">Get Loan</Link>
                     </li>
                     <li>
-                      <Link href="#">Account Information</Link>
+                      <Link href="/card">Cards</Link>
                     </li>
                     <li>
-                      <Link href="#">About</Link>
+                      <Link href="/about-us">About</Link>
                     </li>
                     <li>
-                      <Link href="#">Contact us</Link>
+                      <Link href="/contact-us">Contact us</Link>
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="col-lg-3 col-sm-6">
                 <div className="f-widget link-widget">
-                  <h4 className="f-widget-title">Design Online</h4>
+                  <h4 className="f-widget-title">Product</h4>
                   <ul className="footer-link">
                     <li>
-                      <Link href="#">Logo Maker</Link>
+                      <Link href="/jobs">Jobs</Link>
                     </li>
                     <li>
-                      <Link href="#">Cover Photo Maker</Link>
+                      <Link href="/job-application">Jobs Application</Link>
                     </li>
                     <li>
-                      <Link href="#">Banner Maker</Link>
+                      <Link href="/loan">Loan</Link>
                     </li>
                     <li>
-                      <Link href="#">Branded Templates</Link>
+                      <Link href="/loan-details">Loan Application</Link>
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="col-lg-2 col-sm-6">
                 <div className="f-widget link-widget">
-                  <h4 className="f-widget-title">Tools</h4>
+                  <h4 className="f-widget-title">Help</h4>
                   <ul className="footer-link">
                     <li>
-                      <Link href="#">Templates</Link>
+                      <Link href="/blog-listing">Our news</Link>
                     </li>
                     <li>
-                      <Link href="#">PDF Editor</Link>
+                      <Link href="/jobs">Our job offers</Link>
                     </li>
                     <li>
-                      <Link href="#">Animator</Link>
+                      <Link href="/career">Career</Link>
                     </li>
                     <li>
-                      <Link href="#">Image Resizer</Link>
+                      <Link href="/blog-listing">Blog</Link>
                     </li>
                   </ul>
                 </div>
@@ -120,7 +120,7 @@ const FooterFour = () => {
                     </Link>
                   </div>
                   <p>
-                    {new Date().getFullYear()} <Link href="#">Banca</Link>. All rights reserved
+                    {new Date().getFullYear()} <Link href="/">Banca</Link>. All rights reserved
                   </p>
                 </div>
               </div>

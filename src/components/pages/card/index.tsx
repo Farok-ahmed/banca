@@ -109,7 +109,7 @@ const CardPage = () => {
                       viewport={{ once: true, amount: 0.2 }}
                     >
                       <Link
-                        href="#"
+                        href="/contact-us"
                         className="wow fadeInUp theme-btn theme-btn-outlined_alt mt-50"
                         data-wow-delay="0.4s"
                       >

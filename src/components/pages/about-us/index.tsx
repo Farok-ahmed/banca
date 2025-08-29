@@ -64,7 +64,7 @@ const AboutPage = () => {
                       <Link
                         className="theme-btn-2 theme-btn-primary mt-45 wow fadeInUp"
                         data-wow-delay="0.4s"
-                        href="#"
+                        href="/contact-us"
                       >
                         <span className="arrow">
                           <span className="horizontal-line"></span>
@@ -533,7 +533,7 @@ const AboutPage = () => {
                 </div>
                 <div className="col-md-6 ">
                   <div className="cta-content mt-3 mt-sm-0 text-sm-end text-center">
-                    <Link href="#" className="theme-btn wow fadeInLeft">
+                    <Link href="/contact-us" className="theme-btn wow fadeInLeft">
                       See results
                     </Link>
                   </div>

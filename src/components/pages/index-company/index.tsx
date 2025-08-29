@@ -345,7 +345,7 @@ const CompanyPage = () => {
                         established fact distracted by the readable
                       </li>
                     </ul>
-                    <Link href="#" className="read-more-btn">
+                    <Link href="/loan" className="read-more-btn">
                       <span>Learn about the process</span>
                       <i className="arrow_right"></i>
                     </Link>

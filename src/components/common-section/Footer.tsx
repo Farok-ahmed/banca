@@ -54,28 +54,64 @@ const Footer = () => {
                 {
                   title: "Banca at a Glance",
                   links: [
-                    "Our core Businesses",
-                    "Our 'company purpose'",
-                    "Jobs & Careers",
-                    "Our Responsibility",
+                    {
+                        href:"/about-us",
+                        title:"Our core Businesses"
+                    },
+                    {
+                        href:"/about-us",
+                        title:"Our 'company Purpose",
+                    },
+                    {
+                        href:"/jobs",
+                        title:"Jobs & Careers",
+                    },
+                    {
+                        href:"/about-us",
+                        title:"Our Responsibility",
+                    },
                   ],
                 },
                 {
                   title: "Publications",
                   links: [
-                    "Compliance Publications",
-                    "Annual Reports",
-                    "CSR Reports",
-                    "Financial documentation",
+                    {
+                        href:"/loan",
+                        title:"Loan Agreements",
+                    },
+                    {
+                        href:"/card",
+                        title:"Cards",
+                    },
+                    {
+                        href:"/contact-us",
+                        title:"Contact Us",
+                    },
+                    {
+                        href:"/loan-details",
+                        title:"Loan Application",
+                    },
                   ],
                 },
                 {
                   title: "Direct Access",
                   links: [
-                    "Our news",
-                    "Our press releases",
-                    "Our job offers",
-                    "Our websites",
+                    {
+                        href:"/blog-listing",
+                        title:"Our news",
+                    },
+                    {
+                        href:"/blog-listing",
+                        title:"Our press releases",
+                    },
+                    {
+                        href:"/jobs",
+                        title:"Our job offers",
+                    },
+                    {
+                        href:"/",
+                        title:"Our websites",
+                    },
                   ],
                 },
               ].map((section, index) => (
@@ -100,7 +136,7 @@ const Footer = () => {
                       <ul>
                         {section.links.map((link, i) => (
                           <li key={i}>
-                            <Link href="#">{link}</Link>
+                            <Link href={link.href}>{link.title}</Link>
                           </li>
                         ))}
                       </ul>

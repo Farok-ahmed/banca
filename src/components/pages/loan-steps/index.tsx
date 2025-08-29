@@ -300,7 +300,7 @@ const LoanStepsPage = () => {
                         </li>
                       </ul>
                       <Link
-                        href="#"
+                        href="/contact-us"
                         className="theme-btn theme-btn-light w-100 mt-30"
                       >
                         Learn more
@@ -359,7 +359,7 @@ const LoanStepsPage = () => {
                       a daily basis.
                     </p>
                     <Link
-                      href="#"
+                      href="/contact-us"
                       className="theme-btn theme-btn-outlined mt-45"
                     >
                       Find Out More
@@ -383,7 +383,7 @@ const LoanStepsPage = () => {
                       Optimize your teams expenses by always staying in control.
                     </p>
                     <Link
-                      href="#"
+                      href="/contact-us"
                       className="theme-btn theme-btn-outlined mt-45"
                     >
                       Find Out More
@@ -408,7 +408,7 @@ const LoanStepsPage = () => {
                       share capital.
                     </p>
                     <Link
-                      href="#"
+                      href="/contact-us"
                       className="theme-btn theme-btn-outlined mt-45"
                     >
                       Find Out More
@@ -433,7 +433,7 @@ const LoanStepsPage = () => {
                       finances and accounting.
                     </p>
                     <Link
-                      href="#"
+                      href="/contact-us"
                       className="theme-btn theme-btn-outlined mt-45"
                     >
                       Find Out More
@@ -618,7 +618,7 @@ const LoanStepsPage = () => {
                     <p>
                       We always have your security in mind. Rest easy knowing
                       your data is protected with 128-bit encryption.{" "}
-                      <Link href="#">Learn more.</Link>
+                      <Link href="/loan">Learn more.</Link>
                     </p>
                   </div>
                 </div>

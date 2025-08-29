@@ -32,16 +32,16 @@ const FooterFive = () => {
                   <h4 className="f-widget-title">Company</h4>
                   <ul className="footer-link">
                     <li>
-                      <Link href="#">Pricing</Link>
+                      <Link href="/about-us">About Us</Link>
                     </li>
                     <li>
-                      <Link href="#">Account Information</Link>
+                      <Link href="/loan">Loan</Link>
                     </li>
                     <li>
-                      <Link href="#">About</Link>
+                      <Link href="/card">Cards</Link>
                     </li>
                     <li>
-                      <Link href="#">Contact us</Link>
+                      <Link href="/contact-us">Contact us</Link>
                     </li>
                   </ul>
                 </div>
@@ -51,54 +51,54 @@ const FooterFive = () => {
                   <h4 className="f-widget-title">Resources</h4>
                   <ul className="footer-link">
                     <li>
-                      <Link href="#">News</Link>
+                      <Link href="/blog-listing">News</Link>
                     </li>
                     <li>
-                      <Link href="#">Blog</Link>
+                      <Link href="/blog-listing">Blog</Link>
                     </li>
                     <li>
-                      <Link href="#">Help Center</Link>
+                      <Link href="/contact-us">Help Center</Link>
                     </li>
                     <li>
-                      <Link href="#">Tutorials</Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col-lg-2 col-sm-6">
-                <div className="f-widget link-widget">
-                  <h4 className="f-widget-title">Design Online</h4>
-                  <ul className="footer-link">
-                    <li>
-                      <Link href="#">Logo Maker</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Cover Photo Maker</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Banner Maker</Link>
-                    </li>
-                    <li>
-                      <Link href="#">Branded Templates</Link>
+                      <Link href="/career">Career</Link>
                     </li>
                   </ul>
                 </div>
               </div>
               <div className="col-lg-2 col-sm-6">
                 <div className="f-widget link-widget">
-                  <h4 className="f-widget-title">Tools</h4>
+                  <h4 className="f-widget-title">Product</h4>
                   <ul className="footer-link">
                     <li>
-                      <Link href="#">Templates</Link>
+                      <Link href="/jobs">Jobs</Link>
                     </li>
                     <li>
-                      <Link href="#">PDF Editor</Link>
+                      <Link href="/loan">Loan</Link>
                     </li>
                     <li>
-                      <Link href="#">Animator</Link>
+                      <Link href="/job-application">Jobs Application</Link>
                     </li>
                     <li>
-                      <Link href="#">Image Resizer</Link>
+                      <Link href="/loan-details">Loan Application</Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-lg-2 col-sm-6">
+                <div className="f-widget link-widget">
+                  <h4 className="f-widget-title">Publications</h4>
+                  <ul className="footer-link">
+                    <li>
+                      <Link href="/loan">Loan Agreements</Link>
+                    </li>
+                    <li>
+                      <Link href="/card">Cards</Link>
+                    </li>
+                    <li>
+                      <Link href="/contact-us">Contact Us</Link>
+                    </li>
+                    <li>
+                      <Link href="/loan-details">Loan Application</Link>
                     </li>
                   </ul>
                 </div>
