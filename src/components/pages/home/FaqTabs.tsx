@@ -7,6 +7,7 @@ import freelanceTab from '@/assets/img/home-4/freelance-tab.png';
 import freelanceTab2 from '@/assets/img/home-4/freelance-tab-2.png';
 import faqImg from '@/assets/img/home-4/faq-Img.png';
 import Link from 'next/link';
+import { motion, AnimatePresence } from 'framer-motion';
 const tabContent: TabData[] = [
   {
     id: "freelancer",
@@ -147,15 +148,23 @@ const FaqTabs = () => {
                       <div className="faq-widget">
                         <div className="accordion" id="accordionExample">
                           {faqItems.map((item, index) => (
-                            <div
+                            <motion.div
                               className="single-faq wow fadeInUp"
                               data-wow-delay={`0.${index + 1}s`}
                               key={item.id}
+                              initial={{ opacity: 0, y: 20 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ 
+                                duration: 0.5, 
+                                delay: index * 0.1,
+                                ease: "easeOut"
+                              }}
                             >
                               <div className="w-100">
                                 <div
                                   className="faq-header"
                                   id={`heading${item.id}`}
+                                 
                                 >
                                   <h4
                                     className={`mb-0 ${
@@ -163,31 +172,71 @@ const FaqTabs = () => {
                                     }`}
                                     onClick={() => toggleAccordion(item.id)}
                                     style={{ cursor: "pointer" }}
+                                   
                                   >
                                     {item.question}
-                                    <i className="icon_plus"></i>
-                                    <i className="icon_minus-06"></i>
+                                    <i 
+                                      className="icon_plus"
+                                     
+                                    ></i>
+                                    <i 
+                                      className="icon_minus-06"
+                                     
+                                    ></i>
                                   </h4>
                                 </div>
-                                <div
-                                  id={`collapse${item.id}`}
-                                  className={`collapse ${
-                                    active === item.id ? "show" : ""
-                                  }`}
-                                  aria-labelledby={`heading${item.id}`}
-                                  data-bs-parent="#accordionExample"
-                                >
-                                  <div className="faq-body">
-                                    <p>{item.answer}</p>
-                                  </div>
-                                </div>
+                                <AnimatePresence>
+                                  {active === item.id && (
+                                    <motion.div
+                                      id={`collapse${item.id}`}
+                                      className="collapse show"
+                                      aria-labelledby={`heading${item.id}`}
+                                      data-bs-parent="#accordionExample"
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{ 
+                                        height: "auto", 
+                                        opacity: 1 
+                                      }}
+                                      exit={{ 
+                                        height: 0, 
+                                        opacity: 0 
+                                      }}
+                                      transition={{ 
+                                        duration: 0.3,
+                                        ease: "easeInOut"
+                                      }}
+                                      style={{ overflow: "hidden" }}
+                                    >
+                                      <motion.div 
+                                        className="faq-body"
+                                        initial={{ y: -10 }}
+                                        animate={{ y: 0 }}
+                                        exit={{ y: -10 }}
+                                        transition={{ 
+                                          duration: 0.2,
+                                          delay: 0.1
+                                        }}
+                                      >
+                                        <p>{item.answer}</p>
+                                      </motion.div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
                               </div>
-                            </div>
+                            </motion.div>
                           ))}
                         </div>
-                        <h6 className="more-contact">
+                        <motion.h6 
+                          className="more-contact"
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ 
+                            duration: 0.5, 
+                            delay: faqItems.length * 0.1 + 0.2 
+                          }}
+                        >
                           Have more question ? <Link href="/contact-us">Contact Us</Link>
-                        </h6>
+                        </motion.h6>
                       </div>
                     </div>
                   </div>
