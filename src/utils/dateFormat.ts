@@ -1,8 +1,2 @@
-const date = new Date();
-// here use js Intl Time format
-const formatedDate =  new Intl.DateTimeFormat('en-US', {
-  year: 'numeric',
-  month: '2-digit',
-  day: '2-digit',
-}).format(date);
+const formatedDate = "2025-09-01T10:45:40.378Z";
 export {formatedDate}
