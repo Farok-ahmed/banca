@@ -2,7 +2,6 @@
 
 import Slider from 'react-slick';
 import Image from 'next/image';
-import Link from 'next/link';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import client1 from '@/assets/img/client/client-1.png';
@@ -85,6 +84,12 @@ const ClientSlider = () => {
     autoplaySpeed: 4000,
     slidesToShow: 3,
     slidesToScroll: 3,
+    accessibility: false,
+    beforeChange: () => {
+    if (document.activeElement) {
+      (document.activeElement as HTMLElement).blur();
+    }
+  },
     responsive: [
       {
         breakpoint: 1024,
@@ -119,9 +124,9 @@ const ClientSlider = () => {
                 </div>
                 <div className="rating d-flex">
                   {[...Array(5)].map((_, i) => (
-                    <Link href="#" key={i}>
+                    <span key={i}>
                       <i className="icon_star"></i>
-                    </Link>
+                    </span>
                   ))}
                 </div>
               </div>

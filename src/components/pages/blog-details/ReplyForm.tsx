@@ -57,7 +57,7 @@ const ReplyForm = () => {
           </div>
           <div className="col-12 mt-lg-30">
             <input type="checkbox" id="checkRadio" name="saveInfo" />
-            <label className="check-label" htmlFor="checkRadio">
+            <label className="check-label px-2" htmlFor="checkRadio">
               Save my name, email, and website in this browser for the next time
               I comment.
             </label>

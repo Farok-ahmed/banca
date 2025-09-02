@@ -16,12 +16,11 @@ import DefaultLayout from "@/components/Layout";
 import ContactForm from "./ContactForm";
 // Assets
 import breadcrumbBg4 from "@/assets/img/breadcrumb/bg-4.jpg";
-import callOutline from "@/assets/img/contact/call-outline.png";
-import mailOpenOutline from "@/assets/img/contact/mail-open-outline.png";
 import helpIcon1 from "@/assets/img/contact/help-icon-1.svg";
 import helpIcon2 from "@/assets/img/contact/help-icon-2.svg";
 import helpIcon3 from "@/assets/img/contact/help-icon-3.svg";
 import ctaWave from "@/assets/img/cta/wave.png";
+import { FaPhoneAlt, FaRegEnvelopeOpen } from "react-icons/fa";
 
 const ContactUsPage = () => {
   return (
@@ -66,7 +65,7 @@ const ContactUsPage = () => {
                     <div className="col-sm-6">
                       <div className="get-touch-box">
                         <div className="icon">
-                          <Image src={callOutline} alt="call icon" />
+                          <FaPhoneAlt color="#3a86e8" style={{marginTop:"-6px"}} />
                         </div>
                         <div>
                           <p>Call the helpline:</p>
@@ -77,7 +76,7 @@ const ContactUsPage = () => {
                     <div className="col-sm-6">
                       <div className="get-touch-box">
                         <div className="icon">
-                          <Image src={mailOpenOutline} alt="mail icon" />
+                          <FaRegEnvelopeOpen color="#3a86e8" style={{marginTop:"-6px"}} />
                         </div>
                         <div>
                           <p>Email us:</p>

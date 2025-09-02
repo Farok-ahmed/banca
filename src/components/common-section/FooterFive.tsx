@@ -109,8 +109,8 @@ const FooterFive = () => {
             <div className="col-lg-7 col-md-6">
               <div className="d-flex">
                 <p className="copyright-text">
-                  <Link href="#">Terms of Service</Link>
-                  <Link href="#">Privacy Policy</Link>
+                  <Link href="/terms-services">Terms of Service</Link>
+                  <Link href="/privacy">Privacy Policy</Link>
                   <Link href="#">Cookies Policy</Link>
                 </p>
               </div>

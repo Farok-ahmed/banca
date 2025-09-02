@@ -187,11 +187,11 @@ const FooterTwo = () => {
                     <p>
                       Copyright &copy; Banca {new Date().getFullYear()}.
                       <br className="d-sm-none" />
-                      <Link className="ms-3" href="#">
+                      <Link className="ms-3" href="/privacy">
                         Privacy
                       </Link>{" "}
                       |{" "}
-                      <Link className="ms-0" href="#">
+                      <Link className="ms-0" href="/terms-services">
                         Terms of Use
                       </Link>
                     </p>

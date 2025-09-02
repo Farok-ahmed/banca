@@ -135,7 +135,7 @@ const LoanDeatilsArea = () => {
                         Yout loan amount
                       </label>
                       <div className="input-field">
-                        <span>$</span>
+                        <span className="dollar-icon">$</span>
                         <input
                           type="number"
                           id="loan-amount"

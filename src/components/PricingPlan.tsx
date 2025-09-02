@@ -45,9 +45,9 @@ const PricingPlan = () => {
             <div className="row justify-content-center">
               {/* Monthly Plans */}
               {[
-                { title: 'Basic', price: '$15', period: 'month' },
-                { title: 'Premium', price: '$25', period: 'month' },
-                { title: 'Business', price: '$45', period: 'month' }
+                { title: 'Basic', price: '$25', period: 'year' },
+                { title: 'Premium', price: '$35', period: 'year' },
+                { title: 'Business', price: '$55', period: 'year' }
               ].map((plan, i) => (
                 <div className="col-xl-4 col-md-6" key={i}>
                   <div className="price_item">
@@ -76,9 +76,9 @@ const PricingPlan = () => {
             <div className="row justify-content-center">
               {/* Yearly Plans */}
               {[
-                { title: 'Basic', price: '$25', period: 'year' },
-                { title: 'Premium', price: '$35', period: 'year' },
-                { title: 'Business', price: '$55', period: 'year' }
+                { title: 'Basic', price: '$15', period: 'month' },
+                { title: 'Premium', price: '$25', period: 'month' },
+                { title: 'Business', price: '$45', period: 'month' }
               ].map((plan, i) => (
                 <div className="col-xl-4 col-md-6" key={i}>
                   <div className="price_item">

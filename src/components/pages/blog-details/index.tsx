@@ -633,7 +633,7 @@ const BlogDetailsPage: React.FC = () => {
                           </Link>{" "}
                         </li>
                         <li>
-                          <Link href="#">
+                          <Link href="/privacy">
                             Privacy<span>(05)</span>
                           </Link>{" "}
                         </li>

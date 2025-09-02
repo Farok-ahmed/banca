@@ -57,7 +57,7 @@ const LoanForm = () => {
           Amount of money
         </label>
         <div className="input-field d-flex align-items-center">
-          <span>$</span>
+          <span className="dollar-icon">$</span>
           <input
             type="number"
             id="amount"
@@ -90,7 +90,7 @@ const LoanForm = () => {
           Repayments
         </label>
         <div className="input-field d-flex align-items-center">
-          <span>$</span>
+          <span className="dollar-icon">$</span>
           <input
             type="number"
             id="repayment"

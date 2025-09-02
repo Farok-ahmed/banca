@@ -69,6 +69,29 @@ const faqItems: FaqItem[] = [
       "Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid...",
   },
 ];
+
+// Animation variants for tab content
+const tabContentVariants = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
 const FaqTabs = () => {
     const [activeTab, setActiveTab] = useState("freelancer");
 
@@ -85,49 +108,58 @@ const FaqTabs = () => {
                   <ul className="nav nav-tabs" role="tablist">
                     {tabContent.map((tab) => (
                       <li className="nav-item" role="presentation" key={tab.id}>
-                        <button
+                        <motion.button
                           className={`nav-link ${
                             activeTab === tab.id ? "active" : ""
                           }`}
                           onClick={() => setActiveTab(tab.id)}
                           type="button"
+                          whileHover={{ scale: 1.02 }}
+                          whileTap={{ scale: 0.98 }}
+                          transition={{ duration: 0.2 }}
                         >
                           {tab.label}
-                        </button>
+                        </motion.button>
                       </li>
                     ))}
                   </ul>
     
                   {/* Tab Panels */}
                   <div className="tab-content pt-4">
-                    {tabContent.map((tab) => (
-                      <div
-                        key={tab.id}
-                        className={`tab-pane fade ${
-                          activeTab === tab.id ? "show active" : ""
-                        }`}
-                      >
-                        <div className="row align-items-center">
-                          <div className="col-lg-5">
-                            <div className="section-title text-start">
-                              <h1>
-                                {tab.title.split(" ")[0]}{" "}
-                                <span className="underline-shape">
-                                  {tab.title.split(" ").slice(1).join(" ")}
-                                </span>
-                              </h1>
-                              <p>{tab.description}</p>
-                              <Link className="read-more" href="/contact-us">
-                                Get started now <i className="arrow_right" />
-                              </Link>
+                    <AnimatePresence mode="wait">
+                      {tabContent.map((tab) => 
+                        activeTab === tab.id && (
+                          <motion.div
+                            key={tab.id}
+                            className="tab-pane fade show active"
+                            variants={tabContentVariants}
+                            initial="hidden"
+                            animate="show"
+                            exit="exit"
+                          >
+                            <div className="row align-items-center">
+                              <div className="col-lg-5">
+                                <div className="section-title text-start">
+                                  <h1>
+                                    {tab.title.split(" ")[0]}{" "}
+                                    <span className="underline-shape">
+                                      {tab.title.split(" ").slice(1).join(" ")}
+                                    </span>
+                                  </h1>
+                                  <p>{tab.description}</p>
+                                  <Link className="read-more" href="/contact-us">
+                                    Get started now <i className="arrow_right" />
+                                  </Link>
+                                </div>
+                              </div>
+                              <div className="col-lg-7">
+                                <Image className="img-fluid" src={tab.imgSrc} alt={tab.label} />
+                              </div>
                             </div>
-                          </div>
-                          <div className="col-lg-7">
-                            <Image className="img-fluid" src={tab.imgSrc} alt={tab.label} />
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+                          </motion.div>
+                        )
+                      )}
+                    </AnimatePresence>
                   </div>
                 </div>
               </section>

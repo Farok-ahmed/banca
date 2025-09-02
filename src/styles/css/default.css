@@ -1889,3 +1889,8 @@
     padding-right: 200px;
   }
 }
+.body_dark {
+  .dollar-icon {
+    color: white !important;
+  }
+}

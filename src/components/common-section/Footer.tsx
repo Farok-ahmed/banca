@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -39,10 +39,17 @@ const Footer = () => {
 
                   <div className="footer-bold">
                     <span className="counter">
-                      $<span><Counter count={35.105} decimals={3} /></span>
+                      $
+                      <span>
+                        <Counter count={35.105} decimals={3} />
+                      </span>
                     </span>
                     <span className="counter">
-                      -<span><Counter count={0.46} decimals={2} /></span>%
+                      -
+                      <span>
+                        <Counter count={0.46} decimals={2} />
+                      </span>
+                      %
                     </span>
                   </div>
                   <p className="time"> {formatedDate} (INTERNATIONAL TIME)</p>
@@ -55,20 +62,20 @@ const Footer = () => {
                   title: "Banca at a Glance",
                   links: [
                     {
-                        href:"/about-us",
-                        title:"Our core Businesses"
+                      href: "/about-us",
+                      title: "Our core Businesses",
                     },
                     {
-                        href:"/about-us",
-                        title:"Our 'company Purpose",
+                      href: "/about-us",
+                      title: "Our 'company Purpose",
                     },
                     {
-                        href:"/jobs",
-                        title:"Jobs & Careers",
+                      href: "/jobs",
+                      title: "Jobs & Careers",
                     },
                     {
-                        href:"/about-us",
-                        title:"Our Responsibility",
+                      href: "/about-us",
+                      title: "Our Responsibility",
                     },
                   ],
                 },
@@ -76,20 +83,20 @@ const Footer = () => {
                   title: "Publications",
                   links: [
                     {
-                        href:"/loan",
-                        title:"Loan Agreements",
+                      href: "/loan",
+                      title: "Loan Agreements",
                     },
                     {
-                        href:"/card",
-                        title:"Cards",
+                      href: "/card",
+                      title: "Cards",
                     },
                     {
-                        href:"/contact-us",
-                        title:"Contact Us",
+                      href: "/contact-us",
+                      title: "Contact Us",
                     },
                     {
-                        href:"/loan-details",
-                        title:"Loan Application",
+                      href: "/loan-details",
+                      title: "Loan Application",
                     },
                   ],
                 },
@@ -97,20 +104,20 @@ const Footer = () => {
                   title: "Direct Access",
                   links: [
                     {
-                        href:"/blog-listing",
-                        title:"Our news",
+                      href: "/blog-listing",
+                      title: "Our news",
                     },
                     {
-                        href:"/blog-listing",
-                        title:"Our press releases",
+                      href: "/blog-listing",
+                      title: "Our press releases",
                     },
                     {
-                        href:"/jobs",
-                        title:"Our job offers",
+                      href: "/jobs",
+                      title: "Our job offers",
                     },
                     {
-                        href:"/",
-                        title:"Our websites",
+                      href: "/",
+                      title: "Our websites",
                     },
                   ],
                 },
@@ -163,12 +170,13 @@ const Footer = () => {
               <div className="col-lg-5 text-center my-3 my-sm-0">
                 <div className="copyright-text">
                   <p>
-                    Copyright &copy; Banca {new Date().getFullYear()}. <br className="d-sm-none" />
-                    <Link className="ms-2" href="#">
+                    Copyright &copy; Banca {new Date().getFullYear()}.{" "}
+                    <br className="d-sm-none" />
+                    <Link className="ms-2" href="/privacy">
                       Privacy
                     </Link>{" "}
                     |{" "}
-                    <Link className="ms-0" href="#">
+                    <Link className="ms-0" href="/terms-services">
                       Term of Use
                     </Link>
                   </p>
