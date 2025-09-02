@@ -53,6 +53,7 @@ const navigationItems: NavigationItem[] = [
     href: "/card",
     submenu: [
       { text: "Cards", link: "/card" },
+      { text: "Typography", link: "/typography" },
       { text: "About Us", link: "/about-us" },
       { text: "Contact Us", link: "/contact-us" },
       { text: "404 Error", link: "/error" },

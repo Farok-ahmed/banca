@@ -6,6 +6,8 @@ import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
+import NewsLatter from "@/components/common-section/NewsLatter";
+import Link from "next/link";
 const Typography = () => {
   return (
     <DefaultLayout>
@@ -161,44 +163,44 @@ const Typography = () => {
           <h5 className="h5 regular">Unordered Lists (Nested)</h5>
           <ul className="list-unstyled unorderlist">
             <li>
-              <a href="#">Option panel</a>
+              <Link href="#">Option panel</Link >
               <ul className="list-unstyled">
                 <li>
-                  <a href="#">Incredible Support</a>
+                  <Link href="#">Incredible Support</Link >
                   <ul className="list-unstyled">
                     <li>
-                      <a href="#">Life time Update</a>
+                      <Link href="#">Life time Update</Link >
                     </li>
                     <li>
-                      <a href="#">Unlimited Colors</a>
+                      <Link href="#">Unlimited Colors</Link >
                     </li>
                     <li>
-                      <a href="#">Translation Ready</a>
+                      <Link href="#">Translation Ready</Link >
                     </li>
                   </ul>
                 </li>
                 <li>
-                  <a href="#">List item two</a>
+                  <Link href="#">List item two</Link >
                 </li>
                 <li>
-                  <a href="#">List item three</a>
+                  <Link href="#">List item three</Link >
                 </li>
               </ul>
             </li>
             <li>
-              <a href="#">Option panel</a>
+              <Link href="#">Option panel</Link >
             </li>
             <li>
-              <a href="#">Easy to Customize</a>
+              <Link href="#">Easy to Customize</Link >
             </li>
             <li>
-              <a href="#">User Friendly</a>
+              <Link href="#">User Friendly</Link >
             </li>
             <li>
-              <a href="#">Incredible Support</a>
+              <Link href="#">Incredible Support</Link >
             </li>
             <li>
-              <a href="#">Customize</a>
+              <Link href="#">Customize</Link >
             </li>
           </ul>
           <div className="steps-panel">
@@ -221,44 +223,44 @@ const Typography = () => {
           <h5 className="h5 regular">Ordered Lists (Nested)</h5>
           <ol>
             <li>
-              <a href="#">Option panel</a>
+              <Link href="#">Option panel</Link >
               <ol>
                 <li>
-                  <a href="#">Incredible Support</a>
+                  <Link href="#">Incredible Support</Link >
                   <ol>
                     <li>
-                      <a href="#">Life time Update</a>
+                      <Link href="#">Life time Update</Link >
                     </li>
                     <li>
-                      <a href="#">Unlimited Colors</a>
+                      <Link href="#">Unlimited Colors</Link >
                     </li>
                     <li>
-                      <a href="#">Translation Ready</a>
+                      <Link href="#">Translation Ready</Link >
                     </li>
                   </ol>
                 </li>
                 <li>
-                  <a href="#">List item two</a>
+                  <Link href="#">List item two</Link >
                 </li>
                 <li>
-                  <a href="#">List item three</a>
+                  <Link href="#">List item three</Link >
                 </li>
               </ol>
             </li>
             <li>
-              <a href="#">Option panel</a>
+              <Link href="#">Option panel</Link >
             </li>
             <li>
-              <a href="#">Easy to Customize</a>
+              <Link href="#">Easy to Customize</Link >
             </li>
             <li>
-              <a href="#">User Friendly</a>
+              <Link href="#">User Friendly</Link >
             </li>
             <li>
-              <a href="#">Incredible Support</a>
+              <Link href="#">Incredible Support</Link >
             </li>
             <li>
-              <a href="#">Customize</a>
+              <Link href="#">Customize</Link >
             </li>
           </ol>
           <div className="steps-panel">
@@ -315,86 +317,77 @@ const Typography = () => {
         <h4 className="h4">All Button Style</h4>
         <h6 className="h6 m-0">Button sizes</h6>
         <div className="button_inner_one">
-          <a href="#" className="action_btn btn_small">
+          <Link href="#" className="action_btn btn_small">
             Banca
-          </a>
-          <a href="#" className="action_btn btn_small_two">
+          </Link >
+          <Link href="#" className="action_btn btn_small_two">
             Banca
-          </a>
-          <a href="#" className="action_btn btn_small_three">
+          </Link >
+          <Link href="#" className="action_btn btn_small_three">
             Banca
-          </a>
-          <a href="#" className="action_btn btn_bg">
+          </Link >
+          <Link href="#" className="action_btn btn_bg">
             Banca
-          </a>
-          <a href="#" className="action_btn btn_radious_none">
+          </Link >
+          <Link href="#" className="action_btn btn_radious_none">
             Banca
-          </a>
-          <a href="#" className="action_btn btn_radious_45">
+          </Link >
+          <Link href="#" className="action_btn btn_radious_45">
             Banca
-          </a>
+          </Link >
         </div>
       </div>
       <div className="button_inner">
         <h6 className="h6 m-0">Button border sizes</h6>
         <div className="button_inner_one">
-          <a href="#" className="doc_border_btn btn_small">
+          <Link href="#" className="doc_border_btn btn_small">
             Docs
-          </a>
-          <a href="#" className="doc_border_btn btn_small_two">
+          </Link >
+          <Link href="#" className="doc_border_btn btn_small_two">
             Banca
-          </a>
-          <a href="#" className="doc_border_btn doc_border_btn_two">
+          </Link >
+          <Link href="#" className="doc_border_btn doc_border_btn_two">
             Banca
-          </a>
-          <a href="#" className="doc_border_btn btn_bg">
+          </Link >
+          <Link href="#" className="doc_border_btn btn_bg">
             Banca
-          </a>
-          <a href="#" className="doc_border_btn btn_radious_none">
+          </Link >
+          <Link href="#" className="doc_border_btn btn_radious_none">
             Banca
-          </a>
-          <a href="#" className="doc_border_btn btn_radious_45">
+          </Link >
+          <Link href="#" className="doc_border_btn btn_radious_45">
             Banca
-          </a>
+          </Link >
         </div>
       </div>
       <div className="button_inner">
         <h6 className="h6 m-0">Button with icon</h6>
         <div className="button_inner_one">
-          <a className="nav_btn icon_btn docy_login_btn" href="#">
+          <Link className="nav_btn icon_btn docy_login_btn" href="#">
             <i className="icon_profile" />
             Log In
-          </a>
-          <a href="#" className="doc_border_btn arrow_btn_medium">
+          </Link >
+          <Link href="#" className="doc_border_btn arrow_btn_medium">
             View All Docs
             <i className="arrow_right" />
-          </a>
-          <a href="#" className="doc_border_btn arrow_btn_big">
+          </Link >
+          <Link href="#" className="doc_border_btn arrow_btn_big">
             Live Chat Now
             <i className="icon_chat_alt" />
-          </a>
-          <a className="nav_btn icon_btn arrow_btn_small" href="#">
+          </Link >
+          <Link className="nav_btn icon_btn arrow_btn_small" href="#">
             <i className="icon_house_alt" />
             View All Docs
-          </a>
-          <a className="nav_btn icon_btn arrow_btn_small_two" href="#">
+          </Link >
+          <Link className="nav_btn icon_btn arrow_btn_small_two" href="#">
             <i className="icon_documents_alt" />
             All Docs
-          </a>
+          </Link>
         </div>
       </div>
     </div>
   </section>
-  <section className="action_area_three">
-    <div className="container">
-      <div className="action_content_three text-center">
-        <h2>Banca will definitely make Your life easier</h2>
-        <a href="#" className="doc_border_btn doc_border_btn_two">
-          Buy Banca Now
-        </a>
-      </div>
-    </div>
-  </section>
+  <NewsLatter/>
 </>
 
     </DefaultLayout>
