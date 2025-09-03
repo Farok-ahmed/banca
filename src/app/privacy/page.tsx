@@ -17,7 +17,7 @@ const Privacy = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-12">
-                <div className="breadcrumb-content pt-90">
+                <div className="breadcrumb-content pb-90">
                   <h1>Privacy Policy</h1>
                 </div>
               </div>
