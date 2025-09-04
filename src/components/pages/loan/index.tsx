@@ -186,7 +186,7 @@ const LoanPage = () => {
                     <div className="row pt-35  gy-lg-0 gy-3">
                       <div className="col-lg-4">
                         <motion.div
-                          className="loan-apply-widget wow fadeInRight"
+                          className="loan-apply-widget wow fadeInRight h-100"
                           data-wow-delay="0.1s"
                           variants={fadeInRight}
                           initial="hidden"

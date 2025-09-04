@@ -627,17 +627,19 @@ export default function Home() {
                       </div>
 
                       <div className="col-lg-6">
-                        <motion.div
+                         <motion.img
                           variants={fadeInUp}
                           initial="hidden"
                           whileInView="show"
-                          viewport={{ once: true, amount: 0.2 }}
-                        >
-                          <Image
+                          viewport={{ once: true, amount: "all" }}
                             className="cta-img wow fadeInUp img-fluid"
-                            src={ctaImg}
+                            src={ctaImg.src}
                             alt=""
                           />
+                        <motion.div
+                         
+                        >
+                         
                         </motion.div>
 
                         <Image

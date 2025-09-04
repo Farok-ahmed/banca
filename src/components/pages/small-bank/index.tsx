@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -163,7 +163,7 @@ const SmallBankPage = () => {
                         data-parallax='{"x": 0, "y": 90}'
                         src={card3}
                         alt=""
-                        style={{width:"auto",height:"auto"}}
+                        style={{ width: "auto", height: "auto" }}
                       />
                     </motion.div>
                     <motion.div
@@ -178,7 +178,7 @@ const SmallBankPage = () => {
                         data-parallax='{"x": 0, "y": 50}'
                         src={card2}
                         alt=""
-                        style={{width:"auto",height:"auto"}}
+                        style={{ width: "auto", height: "auto" }}
                       />
                     </motion.div>
                     <motion.div
@@ -189,7 +189,11 @@ const SmallBankPage = () => {
                       className="bank-card wow fadeInUp"
                       data-wow-delay="0.3s"
                     >
-                      <Image src={card1} alt="" style={{width:"auto",height:"auto"}} />
+                      <Image
+                        src={card1}
+                        alt=""
+                        style={{ width: "auto", height: "auto" }}
+                      />
                     </motion.div>
                     <Image className="shap one" src={linePng} alt="" />
                     <Image
@@ -483,13 +487,13 @@ const SmallBankPage = () => {
             </div>
           </section>
 
-          <CardArea/>
+          <CardArea />
 
           <section className="integrate-area bg-white">
             <div className="container">
               <div className="section-title bank-section-title mb-80">
                 <span className="short-title-2">Our Integrations</span>
-                <motion.h1 
+                <motion.h1
                   className="wow fadeInUp"
                   variants={fadeInUp}
                   initial="hidden"
@@ -645,28 +649,60 @@ const SmallBankPage = () => {
                 <Image src={mapPng} alt="" />
                 <ul className="list-unstyled map_list">
                   <li className="active wow zoomIn" data-wow-delay="0.2s">
-                    <Image src={flag1} alt="" style={{width:"auto",height:"auto"}} />
+                    <Image
+                      src={flag1}
+                      alt=""
+                      style={{ width: "auto", height: "auto" }}
+                    />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.4s">
-                    <Image src={flag2} alt="" style={{width:"auto",height:"auto"}} />
+                    <Image
+                      src={flag2}
+                      alt=""
+                      style={{ width: "auto", height: "auto" }}
+                    />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.5s">
-                    <Image src={flag3} alt="" style={{width:"auto",height:"auto"}} />
+                    <Image
+                      src={flag3}
+                      alt=""
+                      style={{ width: "auto", height: "auto" }}
+                    />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.6s">
-                    <Image src={flag4} alt="" style={{width:"auto",height:"auto"}} />
+                    <Image
+                      src={flag4}
+                      alt=""
+                      style={{ width: "auto", height: "auto" }}
+                    />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.7s">
-                    <Image src={flag5} alt="" style={{width:"auto",height:"auto"}} />
+                    <Image
+                      src={flag5}
+                      alt=""
+                      style={{ width: "auto", height: "auto" }}
+                    />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.8s">
-                    <Image src={flag6} alt="" style={{width:"auto",height:"auto"}} />
+                    <Image
+                      src={flag6}
+                      alt=""
+                      style={{ width: "auto", height: "auto" }}
+                    />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.9s">
-                    <Image src={flag7} alt="" style={{width:"auto",height:"auto"}} />
+                    <Image
+                      src={flag7}
+                      alt=""
+                      style={{ width: "auto", height: "auto" }}
+                    />
                   </li>
                   <li className="wow zoomIn" data-wow-delay="0.95s">
-                    <Image src={flag8} alt="" style={{width:"auto",height:"auto"}} />
+                    <Image
+                      src={flag8}
+                      alt=""
+                      style={{ width: "auto", height: "auto" }}
+                    />
                   </li>
                 </ul>
               </div>
@@ -769,7 +805,7 @@ const SmallBankPage = () => {
               <div className="cta-4 cta-five cta-bg-primary">
                 <div className="row">
                   <div className="col-lg-6">
-                    <motion.div 
+                    <motion.div
                       className="cta-content wow fadeInUp"
                       variants={fadeInUp}
                       initial="hidden"

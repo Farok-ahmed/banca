@@ -11,12 +11,17 @@ import { formatedDate } from "@/utils/dateFormat";
 const Footer = () => {
   const pathName = usePathname();
   const error = pathName === "/error";
+  const home = pathName === "/";
+  const loanSteps = pathName ==="/loan-steps";
+  const typography = pathName ==="/typography";
+  const contactUs = pathName ==="/contact-us";
+  const isTopPadding = home || loanSteps || typography || contactUs;
   if (error) return null;
   return (
     <>
       <footer className="footer footer-3">
         {/* Footer Top */}
-        <div className="footer-top pt-200 pb-lg-115 pb-120">
+        <div className={`footer-top ${isTopPadding ? "pt-200":"pt-105"} pb-lg-115 pb-120`}>
           <div className="container">
             <div className="row gx-0 pt-60">
               {/* About */}

@@ -5,7 +5,7 @@
     .testimonial-slider-3{
         .slick-arrow {
     position: absolute;
-    top: 50%;
+    top: calc((100% - 83px) / 2);
     transform: translate(-80%, -50%);
     height: 40px;
     width: 40px;

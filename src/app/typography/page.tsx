@@ -282,6 +282,7 @@ const Typography = () => {
       </div>
       <div className="blockquote_inner">
         <h4 className="h4">Blockquote</h4>
+        <br/>
         <blockquote className="blockquote">
           <p className="mb-0">
             Sloshed porkies it's your round bugger up the kyver say buggered
@@ -293,14 +294,16 @@ const Typography = () => {
           </p>
         </blockquote>
         <h6 className="h6 regular">Single line blockquote:</h6>
+        <br />
         <blockquote className="blockquote_two">
           <h5 className="mb-0 h5">
-            <span className="quote_icon">,,</span>Stay Hungry. Stay foolish.
+            <span className="quote_icon"></span>Stay Hungry. Stay foolish.
           </h5>
         </blockquote>
         <h6 className="h6 regular">
           Multi line blockquote with a cite reference:
         </h6>
+        <br />
         <blockquote className="blockquote_two">
           <h5 className="mb-0 h5">
             <span className="quote_icon">,,</span>The HTML{" "}

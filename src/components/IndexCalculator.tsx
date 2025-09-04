@@ -1,18 +1,16 @@
-'use client';
-
-import { useEffect, useRef, useState, useMemo } from 'react';
-import * as noUiSlider from 'nouislider';
-import 'nouislider/dist/nouislider.css';
-import Flatpickr from 'react-flatpickr';
-import Link from 'next/link';
- import "flatpickr/dist/flatpickr.css";
+"use client";
+import { useEffect, useRef, useState, useMemo } from "react";
+import * as noUiSlider from "nouislider";
+import Flatpickr from "react-flatpickr";
+import Link from "next/link";
+import "flatpickr/dist/flatpickr.css";
 type HTMLDivElementWithSlider = HTMLDivElement & {
   noUiSlider: noUiSlider.API;
 };
 
 const IndexCalculator = () => {
-  const [termType, setTermType] = useState<'yearly' | 'monthly' | 'weekly'>(
-    'yearly'
+  const [termType, setTermType] = useState<"yearly" | "monthly" | "weekly">(
+    "yearly"
   );
 
   const [amount, setAmount] = useState(5000);
@@ -41,10 +39,10 @@ const IndexCalculator = () => {
     let periodicRate: number;
     let totalPeriods: number;
 
-    if (termType === 'yearly') {
+    if (termType === "yearly") {
       periodicRate = rate / 100 / 12; // Monthly rate
       totalPeriods = duration * 12; // Total months
-    } else if (termType === 'monthly') {
+    } else if (termType === "monthly") {
       periodicRate = rate / 100 / 12; // Monthly rate
       totalPeriods = duration; // Already in months
     } else {
@@ -59,13 +57,13 @@ const IndexCalculator = () => {
       return {
         emi: emi.toFixed(2),
         total: amount.toFixed(2),
-        interest: '0.00',
+        interest: "0.00",
         duration: `${duration} ${
-          termType === 'yearly'
-            ? 'Years'
-            : termType === 'monthly'
-              ? 'Months'
-              : 'Weeks'
+          termType === "yearly"
+            ? "Years"
+            : termType === "monthly"
+            ? "Months"
+            : "Weeks"
         }`,
       };
     }
@@ -81,11 +79,11 @@ const IndexCalculator = () => {
       total: total.toFixed(2),
       interest: interest.toFixed(2),
       duration: `${duration} ${
-        termType === 'yearly'
-          ? 'Years'
-          : termType === 'monthly'
-            ? 'Months'
-            : 'Weeks'
+        termType === "yearly"
+          ? "Years"
+          : termType === "monthly"
+          ? "Months"
+          : "Weeks"
       }`,
     };
   }, [amount, rate, duration, termType]);
@@ -110,7 +108,7 @@ const IndexCalculator = () => {
         step: 100,
         connect: [true, false],
       });
-      amountSlider.noUiSlider.on('update', (values: (string | number)[]) => {
+      amountSlider.noUiSlider.on("update", (values: (string | number)[]) => {
         setAmount(parseFloat(values[0].toString()));
       });
     }
@@ -122,7 +120,7 @@ const IndexCalculator = () => {
         step: 0.1,
         connect: [true, false],
       });
-      rateSlider.noUiSlider.on('update', (values: (string | number)[]) => {
+      rateSlider.noUiSlider.on("update", (values: (string | number)[]) => {
         setRate(parseFloat(values[0].toString()));
       });
     }
@@ -166,7 +164,7 @@ const IndexCalculator = () => {
       });
 
       sliderRef.current.noUiSlider.on(
-        'update',
+        "update",
         (values: (string | number)[]) => {
           setDuration(parseInt(values[0].toString()));
         }
@@ -195,11 +193,11 @@ const IndexCalculator = () => {
               <div className="range-label mt-40">Loan Term</div>
               <nav>
                 <div className="nav nav-tabs loan-type-select" role="tablist">
-                  {(['yearly', 'monthly', 'weekly'] as const).map((type) => (
+                  {(["yearly", "monthly", "weekly"] as const).map((type) => (
                     <button
                       key={type}
                       className={`nav-link ${
-                        termType === type ? 'active' : ''
+                        termType === type ? "active" : ""
                       }`}
                       onClick={() => setTermType(type)}
                       type="button"
@@ -238,21 +236,21 @@ const IndexCalculator = () => {
                 <div className="tab-content">
                   <div
                     className={`tab-pane fade ${
-                      termType === 'yearly' ? 'show active' : ''
+                      termType === "yearly" ? "show active" : ""
                     }`}
                   >
                     <div id="YearRangeSlider" ref={yearSliderRef}></div>
                   </div>
                   <div
                     className={`tab-pane fade ${
-                      termType === 'monthly' ? 'show active' : ''
+                      termType === "monthly" ? "show active" : ""
                     }`}
                   >
                     <div id="MonthRangeSlider" ref={monthSliderRef}></div>
                   </div>
                   <div
                     className={`tab-pane fade ${
-                      termType === 'weekly' ? 'show active' : ''
+                      termType === "weekly" ? "show active" : ""
                     }`}
                   >
                     <div id="WeekRangeSlider" ref={weekSliderRef}></div>
@@ -266,16 +264,16 @@ const IndexCalculator = () => {
                     readOnly
                   />
                   <span className="input-group-text loanTermIndicator">
-                    {termType === 'yearly'
-                      ? 'Years'
-                      : termType === 'monthly'
-                        ? 'Months'
-                        : 'Weeks'}
+                    {termType === "yearly"
+                      ? "Years"
+                      : termType === "monthly"
+                      ? "Months"
+                      : "Weeks"}
                   </span>
                 </div>
               </div>
 
-              <div className="d-flex loan-start-date" style={{ gap: '20px' }}>
+              <div className="d-flex loan-start-date" style={{ gap: "20px" }}>
                 <div>
                   <div className="range-label">Start Date</div>
                   <div className="inp-container">
@@ -285,7 +283,7 @@ const IndexCalculator = () => {
                       className="form-control"
                       value={startDate as Date[]}
                       onChange={(date) => setStartDate(date)}
-                      options={{ dateFormat: 'd F Y', position: 'above' }}
+                      options={{ dateFormat: "d F Y", position: "above" }}
                     />
                   </div>
                 </div>
@@ -298,7 +296,7 @@ const IndexCalculator = () => {
                       className="form-control"
                       value={endDate as Date[]}
                       onChange={(date) => setEndDate(date)}
-                      options={{ dateFormat: 'd F Y', position: 'above' }}
+                      options={{ dateFormat: "d F Y", position: "above" }}
                     />
                   </div>
                 </div>
@@ -319,7 +317,10 @@ const IndexCalculator = () => {
                   </h2>
                 </div>
                 <div className="pie">
-                  <div className="left-side half-circle" style={{ transform: `rotate(${rate * 4 }deg)` }} ></div>
+                  <div
+                    className="left-side half-circle"
+                    style={{ transform: `rotate(${rate * 4}deg)` }}
+                  ></div>
                   <div className="right-side half-circle"></div>
                 </div>
                 <div className="circle-border"></div>

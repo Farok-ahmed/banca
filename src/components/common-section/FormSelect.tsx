@@ -54,6 +54,10 @@ const FormSelect = ({ options,name="" }: { options: OptionType[], name: string }
           color: isLightTheme ? "#000" : state.isSelected ? "#fff" : "#c3c3c3",
           cursor: "pointer",
         }),
+        indicatorSeparator: (base) => ({
+          ...base,
+          width:0,
+        }),
         singleValue: (base) => ({
           ...base,
           color: isLightTheme ? "#000" : "#fff",

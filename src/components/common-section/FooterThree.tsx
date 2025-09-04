@@ -5,9 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import Logo from "@/assets/img/logo/Logo.png";
-import LanguageSelect from "./LanguageSelect";
 import { motion } from "framer-motion";
 import { fadeInLeft, fadeInUp } from "../animation";
+import LanguageSelectTwo from "./LanguageSelectTwo";
 const FooterThree = () => {
   const patheName = usePathname();
   const mobile = patheName === "/mobile-app";
@@ -151,7 +151,7 @@ const FooterThree = () => {
                   className="d-flex justify-content-center d-lg-block"
                   style={{ width: "130px" }}
                 >
-                  <LanguageSelect />
+                  <LanguageSelectTwo />
 
                   <span className="position-absolute top-50 end-0 translate-middle-y me-2">
                     <i className="bi bi-chevron-down text-white"></i>

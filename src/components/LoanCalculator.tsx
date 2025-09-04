@@ -1,19 +1,16 @@
-'use client';
-import { useEffect, useRef, useState, useMemo } from 'react';
-import * as noUiSlider from 'nouislider';
-import 'nouislider/dist/nouislider.css';
-import Flatpickr from 'react-flatpickr';
+"use client";
+import { useEffect, useRef, useState, useMemo } from "react";
+import * as noUiSlider from "nouislider";
+import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/flatpickr.css";
-import Link from 'next/link';
-
+import Link from "next/link";
 type HTMLDivElementWithSlider = HTMLDivElement & {
   noUiSlider: noUiSlider.API;
 };
 
-
 const LoanCalculator = () => {
-  const [termType, setTermType] = useState<'yearly' | 'monthly' | 'weekly'>(
-    'yearly'
+  const [termType, setTermType] = useState<"yearly" | "monthly" | "weekly">(
+    "yearly"
   );
   const [amount, setAmount] = useState(5000);
   const [rate, setRate] = useState(5);
@@ -41,13 +38,14 @@ const LoanCalculator = () => {
     let periodicRate: number;
     let totalPeriods: number;
 
-    if (termType === 'yearly') {
+    if (termType === "yearly") {
       periodicRate = rate / 100 / 12; // Monthly rate
       totalPeriods = duration * 12; // Total months
-    } else if (termType === 'monthly') {
+    } else if (termType === "monthly") {
       periodicRate = rate / 100 / 12; // Monthly rate
       totalPeriods = duration; // Already in months
-    } else { // weekly
+    } else {
+      // weekly
       periodicRate = rate / 100 / 52; // Weekly rate
       totalPeriods = duration; // Already in weeks
     }
@@ -58,32 +56,33 @@ const LoanCalculator = () => {
       return {
         emi: emi.toFixed(2),
         total: amount.toFixed(2),
-        interest: '0.00',
+        interest: "0.00",
         duration: `${duration} ${
-          termType === 'yearly'
-            ? 'Years'
-            : termType === 'monthly'
-              ? 'Months'
-              : 'Weeks'
+          termType === "yearly"
+            ? "Years"
+            : termType === "monthly"
+            ? "Months"
+            : "Weeks"
         }`,
       };
     }
 
-    const emi = (amount * periodicRate * Math.pow(1 + periodicRate, totalPeriods)) / 
-                (Math.pow(1 + periodicRate, totalPeriods) - 1);
+    const emi =
+      (amount * periodicRate * Math.pow(1 + periodicRate, totalPeriods)) /
+      (Math.pow(1 + periodicRate, totalPeriods) - 1);
     const total = emi * totalPeriods;
     const interest = total - amount;
-    
+
     return {
       emi: emi.toFixed(2),
       total: total.toFixed(2),
       interest: interest.toFixed(2),
       duration: `${duration} ${
-        termType === 'yearly'
-          ? 'Years'
-          : termType === 'monthly'
-            ? 'Months'
-            : 'Weeks'
+        termType === "yearly"
+          ? "Years"
+          : termType === "monthly"
+          ? "Months"
+          : "Weeks"
       }`,
     };
   }, [amount, rate, duration, termType]);
@@ -108,7 +107,7 @@ const LoanCalculator = () => {
         step: 100,
         connect: [true, false],
       });
-      amountSlider.noUiSlider.on('update', (values: (string|number)[]) => {
+      amountSlider.noUiSlider.on("update", (values: (string | number)[]) => {
         setAmount(parseFloat(values[0].toString()));
       });
     }
@@ -120,7 +119,7 @@ const LoanCalculator = () => {
         step: 0.1,
         connect: [true, false],
       });
-      rateSlider.noUiSlider.on('update', (values: (string|number)[]) => {
+      rateSlider.noUiSlider.on("update", (values: (string | number)[]) => {
         setRate(parseFloat(values[0].toString()));
       });
     }
@@ -138,9 +137,9 @@ const LoanCalculator = () => {
       monthly: monthSliderRef,
       weekly: weekSliderRef,
     };
-    
+
     // Clean up all duration sliders first
-    Object.values(refMap).forEach(ref => {
+    Object.values(refMap).forEach((ref) => {
       if (ref.current?.noUiSlider) {
         ref.current.noUiSlider.destroy();
       }
@@ -162,14 +161,17 @@ const LoanCalculator = () => {
         step: 1,
         connect: [true, false],
       });
-      
-      sliderRef.current.noUiSlider.on('update', (values: (string|number)[]) => {
-        setDuration(parseInt(values[0].toString()));
-      });
+
+      sliderRef.current.noUiSlider.on(
+        "update",
+        (values: (string | number)[]) => {
+          setDuration(parseInt(values[0].toString()));
+        }
+      );
     }
 
     return () => {
-      Object.values(refMap).forEach(ref => {
+      Object.values(refMap).forEach((ref) => {
         if (ref.current?.noUiSlider) {
           ref.current.noUiSlider.destroy();
         }
@@ -198,11 +200,11 @@ const LoanCalculator = () => {
               <div className="range-label mt-40">Loan Term</div>
               <nav>
                 <div className="nav nav-tabs loan-type-select" role="tablist">
-                  {(['yearly', 'monthly', 'weekly'] as const).map((type) => (
+                  {(["yearly", "monthly", "weekly"] as const).map((type) => (
                     <button
                       key={type}
                       className={`nav-link ${
-                        termType === type ? 'active' : ''
+                        termType === type ? "active" : ""
                       }`}
                       onClick={() => setTermType(type)}
                       type="button"
@@ -241,21 +243,21 @@ const LoanCalculator = () => {
                 <div className="tab-content">
                   <div
                     className={`tab-pane fade ${
-                      termType === 'yearly' ? 'show active' : ''
+                      termType === "yearly" ? "show active" : ""
                     }`}
                   >
                     <div id="YearRangeSlider" ref={yearSliderRef}></div>
                   </div>
                   <div
                     className={`tab-pane fade ${
-                      termType === 'monthly' ? 'show active' : ''
+                      termType === "monthly" ? "show active" : ""
                     }`}
                   >
                     <div id="MonthRangeSlider" ref={monthSliderRef}></div>
                   </div>
                   <div
                     className={`tab-pane fade ${
-                      termType === 'weekly' ? 'show active' : ''
+                      termType === "weekly" ? "show active" : ""
                     }`}
                   >
                     <div id="WeekRangeSlider" ref={weekSliderRef}></div>
@@ -269,16 +271,16 @@ const LoanCalculator = () => {
                     readOnly
                   />
                   <span className="input-group-text loanTermIndicator">
-                    {termType === 'yearly'
-                      ? 'Years'
-                      : termType === 'monthly'
-                        ? 'Months'
-                        : 'Weeks'}
+                    {termType === "yearly"
+                      ? "Years"
+                      : termType === "monthly"
+                      ? "Months"
+                      : "Weeks"}
                   </span>
                 </div>
               </div>
 
-              <div className="d-flex loan-start-date" style={{ gap: '20px' }}>
+              <div className="d-flex loan-start-date" style={{ gap: "20px" }}>
                 <div>
                   <div className="range-label">Start Date</div>
                   <div className="inp-container">
@@ -288,7 +290,7 @@ const LoanCalculator = () => {
                       className="form-control"
                       value={startDate as Date[]}
                       onChange={(date) => setStartDate(date)}
-                      options={{ dateFormat: 'd F Y', position: 'above' }}
+                      options={{ dateFormat: "d F Y", position: "above" }}
                     />
                   </div>
                 </div>
@@ -301,7 +303,7 @@ const LoanCalculator = () => {
                       className="form-control"
                       value={endDate as Date[]}
                       onChange={(date) => setEndDate(date)}
-                      options={{ dateFormat: 'd F Y', position: 'above' }}
+                      options={{ dateFormat: "d F Y", position: "above" }}
                     />
                   </div>
                 </div>
@@ -317,7 +319,9 @@ const LoanCalculator = () => {
               <div className="pie-wrapper mt-25" id="loan_graph_circle">
                 <div className="label">
                   Total Amount
-                  <h2 className="LoanTotalAmount">${parseFloat(result.total).toLocaleString()}</h2>
+                  <h2 className="LoanTotalAmount">
+                    ${parseFloat(result.total).toLocaleString()}
+                  </h2>
                 </div>
                 <div className="pie">
                   <div className="left-side half-circle"></div>
@@ -338,11 +342,15 @@ const LoanCalculator = () => {
                   <span className="label">
                     Total Amount (Principal + Interest)
                   </span>
-                  <span className="amount">${parseFloat(result.total).toLocaleString()}</span>
+                  <span className="amount">
+                    ${parseFloat(result.total).toLocaleString()}
+                  </span>
                 </li>
                 <li>
                   <span className="label">Interest Payable</span>
-                  <span className="amount">${parseFloat(result.interest).toLocaleString()}</span>
+                  <span className="amount">
+                    ${parseFloat(result.interest).toLocaleString()}
+                  </span>
                 </li>
                 <li>
                   <span className="label">Loan Duration</span>
@@ -350,7 +358,9 @@ const LoanCalculator = () => {
                 </li>
                 <li>
                   <span className="label">Your EMI Amount</span>
-                  <span className="amount">${parseFloat(result.emi).toLocaleString()}</span>
+                  <span className="amount">
+                    ${parseFloat(result.emi).toLocaleString()}
+                  </span>
                 </li>
               </ul>
               <Link

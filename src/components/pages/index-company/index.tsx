@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import "@/styles/css/elegant-icons.min.css";
@@ -6,8 +6,7 @@ import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "@/styles/css/nice-select.css";
-import "@/styles/css/nouislider.min.css";
+import "nouislider/dist/nouislider.css";
 import "@/styles/css/jquery.fancybox.min.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
@@ -44,7 +43,7 @@ import country4 from "@/assets/img/home-5/country-4.png";
 import country5 from "@/assets/img/home-5/country-5.png";
 import country6 from "@/assets/img/home-5/country-6.png";
 import { motion } from "framer-motion";
-import { fadeInRight,fadeInLeft,fadeInUp } from "@/components/animation";
+import { fadeInRight, fadeInLeft, fadeInUp } from "@/components/animation";
 
 const CompanyPage = () => {
   return (
@@ -111,7 +110,7 @@ const CompanyPage = () => {
                       viewport={{ once: true, amount: 0.2 }}
                       className="wow fadeInRight"
                       data-wow-delay="0.8s"
-                   >
+                    >
                       <Image className="img-2" src={bannerImg2} alt="" />
                     </motion.div>
                     <motion.div
@@ -121,7 +120,7 @@ const CompanyPage = () => {
                       viewport={{ once: true, amount: 0.2 }}
                       className="wow fadeInRight"
                       data-wow-delay="1.1s"
-                   >
+                    >
                       <Image className="img-3" src={bannerImg3} alt="" />
                     </motion.div>
                     <Image className="img-shape" src={bannerShape} alt="" />

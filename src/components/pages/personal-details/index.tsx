@@ -3,7 +3,6 @@ import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
 import "@/styles/css/nice-select.css";
-import "@/styles/css/intlTelInput.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 
@@ -23,6 +22,8 @@ const PersonalDetailsPage = () => {
         initialCountry: "bd",
         nationalMode: false,
         formatOnDisplay: true,
+        countrySearch: false,
+        separateDialCode: true,
       });
     }
   }, []);
@@ -254,7 +255,8 @@ const PersonalDetailsPage = () => {
                           id="inputPhoneNumber"
                           ref={inputRef}
                           className="form-control w-100"
-                          type="number" // use "tel" instead of "number" for better intl support
+                          type="tel" // use "tel" instead of "number" for better intl support
+                          
                         />
                       </div>
 

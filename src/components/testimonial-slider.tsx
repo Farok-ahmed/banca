@@ -57,11 +57,11 @@ function PrevArrow(props: CustomArrowProps) {
 
 export default function TestimonialSlider() {
   const settings = {
-  dots: true,
+  dots: false,
   arrows: true,
   infinite: true,
   centerMode: true,
-  centerPadding: "300px", // space to show next/prev slides
+  centerPadding: "300px", 
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: true,

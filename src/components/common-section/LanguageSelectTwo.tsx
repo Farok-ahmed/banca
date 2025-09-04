@@ -17,7 +17,7 @@ const options: OptionType[] = [
   { value: "hindi", label: "Hindi" },
 ];
 
-const LanguageSelect: React.FC = () => {
+const LanguageSelectTwo: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<SingleValue<OptionType>>(
     options[0]
   );
@@ -26,21 +26,22 @@ const LanguageSelect: React.FC = () => {
   const customStyles: StylesConfig<OptionType, false> = {
     control: (base) => ({
       ...base,
-      backgroundColor: "#171d24",
-      borderColor: "#171d24",
+      backgroundColor: "#0f1122",
+      borderColor: "#0f1122",
       color: "#000",
       boxShadow: "none",
+      
       "&:hover": {
-        borderColor: "#171d24",
+        borderColor: "#0f1122",
       },
     }),
     option: (base, state) => ({
       ...base,
       backgroundColor: state.isSelected
-        ? "#131417"
+        ? "#0f1122"
         : state.isFocused
-        ? "#131417"
-        : "#2c303a",
+        ? "#1d2037"
+        : "#0f1122",
       focus: "none",
       color: state.isSelected ? "white" : "#c3c3c3",
       "&:hover": {
@@ -72,4 +73,4 @@ const LanguageSelect: React.FC = () => {
   );
 };
 
-export default LanguageSelect;
+export default LanguageSelectTwo;

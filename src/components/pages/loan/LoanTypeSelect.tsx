@@ -57,6 +57,10 @@ const LoanTypeSelect = ({options}: {options: OptionTypes[]}) => {
           ...base,
           color: isLightTheme ? "#000" : "#fff",
         }),
+        indicatorSeparator: (base) => ({
+          ...base,
+          width: 0,
+        }),
         menuList: (base) => {
           return {
             ...base,
