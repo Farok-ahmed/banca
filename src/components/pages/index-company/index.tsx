@@ -93,26 +93,25 @@ const CompanyPage = () => {
                 </div>
                 <div className="col-lg-5 text-center text-lg-start">
                   <div className="banner-img">
-                    <motion.div
+                    <motion.img
                       variants={fadeInLeft}
                       initial="hidden"
                       whileInView="show"
                       viewport={{ once: true, amount: 0.2 }}
-                      className="wow fadeInLeft"
-                      data-wow-delay="0.3s"
-                    >
-                      <Image className="img-1" src={bannerImg1} alt="" />
-                    </motion.div>
-                    <motion.div
+                      className="img-1"
+                      src={bannerImg1.src}
+                      alt=""
+                    />
+                    <motion.img
                       variants={fadeInRight}
                       initial="hidden"
                       whileInView="show"
                       viewport={{ once: true, amount: 0.2 }}
-                      className="wow fadeInRight"
-                      data-wow-delay="0.8s"
-                    >
-                      <Image className="img-2" src={bannerImg2} alt="" />
-                    </motion.div>
+                      className="img-2"
+                      src={bannerImg2.src}
+                      alt=""
+                    />
+
                     <motion.div
                       variants={fadeInRight}
                       initial="hidden"

@@ -96,7 +96,10 @@ export default function RecognitionTabs() {
                     className={`nav-link ${
                       activeTab === tab.year ? "active" : ""
                     }`}
-                    onClick={() => setActiveTab(tab.year)}
+                    onClick={(e)=>{
+                        e.preventDefault();
+                        setActiveTab(tab.year);
+                    }}
                   >
                     {tab.year}
                   </Link>

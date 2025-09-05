@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import NewsSlider from "@/components/BancaNews";
 import ClientSlider from "@/components/MobileTestimonial";
 import Image from "next/image";
@@ -124,7 +124,9 @@ const MobileAppPage = () => {
                           <Image src={bannerIcon1} alt="icon" />
                           <p>Active user</p>
                           <h2 className="counter">
-                            <span><Counter count={15000} decimals={0} /></span>
+                            <span>
+                              <Counter count={15000} decimals={0} />
+                            </span>
                           </h2>
                         </div>
                       </div>
@@ -134,7 +136,10 @@ const MobileAppPage = () => {
                           <Image src={bannerIcon2} alt="icon" />
                           <p>download</p>
                           <h2 className="counter">
-                            <span><Counter count={49.9} decimals={1} /></span>k
+                            <span>
+                              <Counter count={49.9} decimals={1} />
+                            </span>
+                            k
                           </h2>
                         </div>
                       </div>
@@ -143,7 +148,10 @@ const MobileAppPage = () => {
                           <Image src={bannerIcon3} alt="icon" />
                           <p>reviews</p>
                           <h2 className="counter">
-                            <span><Counter count={35.7} decimals={1} /></span>k
+                            <span>
+                              <Counter count={35.7} decimals={1} />
+                            </span>
+                            k
                           </h2>
                         </div>
                       </div>
@@ -152,7 +160,10 @@ const MobileAppPage = () => {
                           <Image src={bannerIcon4} alt="icon" />
                           <p>partners</p>
                           <h2 className="counter">
-                            <span><Counter count={199} decimals={0} /></span>+
+                            <span>
+                              <Counter count={199} decimals={0} />
+                            </span>
+                            +
                           </h2>
                         </div>
                       </div>
@@ -240,7 +251,11 @@ const MobileAppPage = () => {
                     data-wow-delay="0.6s"
                   >
                     <div className="card-img">
-                      <Image src={featureIcon3} alt="feature svg" style={{width:"auto",height:"auto"}} />
+                      <Image
+                        src={featureIcon3}
+                        alt="feature svg"
+                        style={{ width: "auto", height: "auto" }}
+                      />
                     </div>
                     <h4>save your Card</h4>
                     <p>
@@ -287,26 +302,25 @@ const MobileAppPage = () => {
                     >
                       <Image className="track-3" src={track1} alt="" />
                     </motion.div>
-                    <motion.div
+
+                    <motion.img
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.2 }}
+                      className="track-img track-1"
+                      src={track2.src}
+                      alt=""
+                    />
+
+                    <motion.img
                       variants={fadeInRight}
                       initial="hidden"
                       whileInView="show"
                       viewport={{ once: true, amount: 0.2 }}
-                      className="wow fadeInRight"
-                      data-wow-delay="0.3s"
-                    >
-                      <Image className="track-img track-1" src={track2} alt="" />
-                    </motion.div>
-                    <motion.div
-                      variants={fadeInRight}
-                      initial="hidden"
-                      whileInView="show"
-                      viewport={{ once: true, amount: 0.2 }}
-                      className="wow fadeInRight"
-                      data-wow-delay="0.5s"
-                    >
-                      <Image className="track-img track-2" src={track3} alt="" />
-                    </motion.div>
+                      className="track-img track-2"
+                      src={track3.src}
+                      alt=""
+                    />
                   </div>
                 </div>
 
@@ -367,16 +381,16 @@ const MobileAppPage = () => {
                     >
                       <Image className="card-1 img-fluid" src={card1} alt="" />
                     </motion.div>
-                    <motion.div
+
+                    <motion.img
                       variants={fadeInLeft}
                       initial="hidden"
                       whileInView="show"
                       viewport={{ once: true, amount: 0.2 }}
-                      className="wow fadeInLeft"
-                      data-wow-delay="0.3s"
-                    >
-                      <Image className="card-2" src={card2} alt="" />
-                    </motion.div>
+                      className="card-2"
+                      src={card2.src}
+                      alt=""
+                    />
                   </div>
                 </div>
               </div>
@@ -396,38 +410,42 @@ const MobileAppPage = () => {
                       viewport={{ once: true, amount: 0.2 }}
                       className="wow fadeInUp"
                     >
-                      <Image className="bank-main img-fluid" src={ibImg1} alt="" />
+                      <Image
+                        className="bank-main img-fluid"
+                        src={ibImg1}
+                        alt=""
+                      />
                     </motion.div>
-                    <motion.div
+
+                    <motion.img
                       variants={fadeInRight}
                       initial="hidden"
                       whileInView="show"
                       viewport={{ once: true, amount: 0.2 }}
-                      className="wow fadeInRight"
-                      data-wow-delay="0.3s"
-                    >
-                      <Image className="bank-1 img-fluid" src={ibImg2} alt="" />
-                    </motion.div>
-                    <motion.div
+                      className="bank-1 img-fluid"
+                      src={ibImg2.src}
+                      alt=""
+                    />
+
+                    <motion.img
                       variants={fadeInLeft}
                       initial="hidden"
                       whileInView="show"
                       viewport={{ once: true, amount: 0.2 }}
-                      className="wow fadeInLeft"
-                      data-wow-delay="0.6s"
-                    >
-                      <Image className="bank-2 img-fluid" src={ibImg3} alt="" />
-                    </motion.div>
-                    <motion.div
+                      className="bank-2 img-fluid"
+                      src={ibImg3.src}
+                      alt=""
+                    />
+
+                    <motion.img
                       variants={fadeInRight}
                       initial="hidden"
                       whileInView="show"
                       viewport={{ once: true, amount: 0.2 }}
-                      className="wow fadeInRight"
-                      data-wow-delay="0.8s"
-                    >
-                      <Image className="bank-3 img-fluid" src={ibInfo} alt="" />
-                    </motion.div>
+                      className="bank-3 img-fluid"
+                      src={ibInfo.src}
+                      alt=""
+                    />
                   </div>
                 </div>
 
