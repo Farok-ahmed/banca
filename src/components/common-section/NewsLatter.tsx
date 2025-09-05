@@ -10,7 +10,7 @@ import ctaShape from "@/assets/img/home-4/cta-shape.png";
 const NewsLatter = () => {
   return (
     <>
-      <section className="cta-area-3 bg-white">
+      <section className="bg-white">
             <div className="container">
               <div className="row">
                 <div className="col-md-12 position-relative">
@@ -56,19 +56,17 @@ const NewsLatter = () => {
                       </div>
 
                       <div className="col-lg-6">
-                        <motion.div
+                        
+                          <motion.img
                           variants={fadeInUp}
                           initial="hidden"
                           whileInView="show"
-                          viewport={{ once: true, amount: 0.2 }}
-                        >
-                          <Image
+                          viewport={{ once: false, amount: 0.2 }}
                             className="cta-img wow fadeInUp img-fluid"
-                            src={ctaImg}
+                            src={ctaImg.src}
                             alt=""
                           />
-                        </motion.div>
-
+                       
                         <Image
                           className="shape img-fluid"
                           src={ctaShape}

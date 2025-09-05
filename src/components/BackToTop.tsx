@@ -1,39 +1,36 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function BackToTop() {
   const [visible, setVisible] = useState(false);
-  const buttonRef = useRef<HTMLAnchorElement>(null);
 
+  // Scroll checker
   const backToTopActivator = () => {
     if (window.scrollY > 200) setVisible(true);
     else setVisible(false);
   };
 
+  // Back to top function
   const handleBackToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   useEffect(() => {
-    const btn = buttonRef.current;
-    window.document.addEventListener("scroll", backToTopActivator);
-    btn?.addEventListener("click", handleBackToTop);
+    window.addEventListener("scroll", backToTopActivator);
 
     return () => {
-      window.document.removeEventListener("scroll", backToTopActivator);
-      btn?.removeEventListener("click", handleBackToTop);
+      window.removeEventListener("scroll", backToTopActivator);
     };
   }, []);
 
   return (
-    <Link
-      href="#"
-      ref={buttonRef}
+    <button
+      onClick={handleBackToTop}
       id="back-to-top"
       title="Back to Top"
       className={visible ? "show" : ""}
-    ></Link>
+    >
+    </button>
   );
 }

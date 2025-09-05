@@ -272,7 +272,7 @@
     transition: all 0.3s linear;
     &:hover{
         background: #f8fdfe;
-        border-color: #79ccde;
+        border-color: var(--brand_color);
         color:black;
     }
 }

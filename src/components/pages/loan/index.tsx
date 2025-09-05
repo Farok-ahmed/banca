@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/styles/css/jquery-editable-select.css";
 import "@/styles/css/jquery.fancybox.min.css";
-import "@/styles/css/nouislider.min.css";
+import "nouislider/dist/nouislider.css";
 import "@/styles/css/default.css";
 import "@/styles/css/responsive.css";
 
