@@ -1,11 +1,10 @@
-"use client"
 import React from 'react'
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { fadeInRight, fadeInUp } from '../animation';
 import ctaImg from "@/assets/img/home-4/cta-Img.png";
 import ctaShape from "@/assets/img/home-4/cta-shape.png";
+import AnimationDiv, { AnimationImg } from '../animation/AnimationDiv';
 
 const NewsLatter = () => {
   return (
@@ -17,7 +16,7 @@ const NewsLatter = () => {
                   <div className="cta-4 cta-bg-primary">
                     <div className="row align-items-center">
                       <div className="col-lg-6">
-                        <motion.div
+                        <AnimationDiv
                           variants={fadeInRight}
                           initial="hidden"
                           whileInView="show"
@@ -52,12 +51,12 @@ const NewsLatter = () => {
                               Spamming
                             </li>
                           </ul>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
 
                       <div className="col-lg-6">
                         
-                          <motion.img
+                          <AnimationImg
                           variants={fadeInUp}
                           initial="hidden"
                           whileInView="show"

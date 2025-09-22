@@ -1,17 +1,9 @@
-"use client"
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
 import "@/styles/css/nice-select.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/styles/css/jquery-editable-select.css";
 import "@/styles/css/jquery.fancybox.min.css";
 import "nouislider/dist/nouislider.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
-
-import { motion } from "framer-motion";
 import { fadeInRight, fadeInLeft, fadeInUp } from "@/components/animation";
 import BankCalculator from "@/components/BankCalculator";
 import Image from "next/image";
@@ -31,6 +23,7 @@ import applyIcon31 from "@/assets/img/apply-loan/icon-3.1.png";
 import applyIcon32 from "@/assets/img/apply-loan/icon-3.2.png";
 import stepsShield from "@/assets/img/steps/sheild.png";
 import LoanTypeSelect from "./LoanTypeSelect";
+import AnimationDiv, { AnimationH1, AnimationH2 } from "@/components/animation/AnimationDiv";
 export type OptionTypes = {
   value: string;
   label: string;
@@ -67,7 +60,7 @@ const LoanPage = () => {
                 <div className="col-lg-7 mx-auto">
                   <div className="banner-content text-center">
                     <div className="section-title">
-                      <motion.h1 
+                      <AnimationH1 
                         className="wow fadeInUp"
                         variants={fadeInUp}
                         initial="hidden"
@@ -75,9 +68,9 @@ const LoanPage = () => {
                         viewport={{ once: true, amount: 0.2 }}
                       >
                         Get your loan approved in 3 steps
-                      </motion.h1>
+                      </AnimationH1>
                     </div>
-                    <motion.div
+                    <AnimationDiv
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -90,7 +83,7 @@ const LoanPage = () => {
                       >
                         Get started <i className="arrow_right"></i>
                       </Link>
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
                 </div>
               </div>
@@ -100,7 +93,7 @@ const LoanPage = () => {
                   <div className="floated-widget">
                     <div className="row gy-4 gy-lg-0 gx-5">
                       <div className="col-lg-4 border-end">
-                        <motion.div
+                        <AnimationDiv
                           className="steps-widget pr-30 pl-30 wow fadeInUp"
                           data-wow-delay="0.1s"
                           variants={fadeInUp}
@@ -116,10 +109,10 @@ const LoanPage = () => {
                             Select your loan amount, answer a few questions and
                             get instant loan amount
                           </p>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-lg-4  border-end">
-                        <motion.div
+                        <AnimationDiv
                           className="steps-widget pr-30 pl-30 wow fadeInUp"
                           data-wow-delay="0.3s"
                           variants={fadeInUp}
@@ -135,10 +128,10 @@ const LoanPage = () => {
                             Share required documents with our representative
                             hassle-free
                           </p>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-lg-4">
-                        <motion.div
+                        <AnimationDiv
                           className="steps-widget pr-30 pl-30 wow fadeInUp"
                           data-wow-delay="0.5s"
                           variants={fadeInUp}
@@ -154,7 +147,7 @@ const LoanPage = () => {
                             Choose the final sanctioned loan offer with the
                             terms that work best for you
                           </p>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                     </div>
                   </div>
@@ -168,7 +161,7 @@ const LoanPage = () => {
               <div className="row pt-3">
                 <div className="col-xl-6 mx-auto">
                   <div className="section-title">
-                    <motion.h2 
+                    <AnimationH2 
                       className="wow fadeInUp"
                       variants={fadeInUp}
                       initial="hidden"
@@ -176,7 +169,7 @@ const LoanPage = () => {
                       viewport={{ once: true, amount: 0.2 }}
                     >
                       One step closer to finding your perfect Home!
-                    </motion.h2>
+                    </AnimationH2>
                   </div>
                 </div>
               </div>
@@ -185,7 +178,7 @@ const LoanPage = () => {
                   <div className="col-md-10 mx-auto">
                     <div className="row pt-35  gy-lg-0 gy-3">
                       <div className="col-lg-4">
-                        <motion.div
+                        <AnimationDiv
                           className="loan-apply-widget wow fadeInRight h-100"
                           data-wow-delay="0.1s"
                           variants={fadeInRight}
@@ -208,10 +201,10 @@ const LoanPage = () => {
                               />{" "}
                             </p>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-lg-4">
-                        <motion.div
+                        <AnimationDiv
                           className="loan-apply-widget wow fadeInRight"
                           data-wow-delay="0.3s"
                           variants={fadeInRight}
@@ -240,10 +233,10 @@ const LoanPage = () => {
                               
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-lg-4">
-                        <motion.div
+                        <AnimationDiv
                           className="loan-apply-widget wow fadeInRight"
                           data-wow-delay="0.5s"
                           variants={fadeInRight}
@@ -267,10 +260,10 @@ const LoanPage = () => {
                              <LoanTypeSelect options={districts} />
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
 
-                      <motion.div 
+                      <AnimationDiv 
                         className="col-12 mt-15 d-flex wow fadeInLeft"
                         variants={fadeInLeft}
                         initial="hidden"
@@ -288,19 +281,15 @@ const LoanPage = () => {
                           Your information is 100% secure. We do not share your
                           info with other parties.
                         </p>
-                      </motion.div>
+                      </AnimationDiv>
 
                       <div className="col-12 text-center mt-35">
-                        <motion.button
+                        <button
                           className="theme-btn theme-btn-lg wow fadeInUp"
                           type="submit"
-                          variants={fadeInUp}
-                          initial="hidden"
-                          whileInView="show"
-                          viewport={{ once: true, amount: 0.2 }}
                         >
                           apply now <i className="arrow_right"></i>
-                        </motion.button>
+                        </button>
                       </div>
                     </div>
                   </div>

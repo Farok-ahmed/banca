@@ -1,10 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
 import DefaultLayout from "@/components/Layout";
 // Assets
 import errorBg from "@/assets/img/error/404_bg.png";

@@ -1,17 +1,9 @@
-"use client"
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/styles/css/nice-select.css";
 import "nouislider/dist/nouislider.css";
 import "@/styles/css/jquery.fancybox.min.css";
 import "flatpickr/dist/flatpickr.min.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
-
-import { motion } from "framer-motion";
 import { fadeInRight, fadeInLeft, fadeInUp } from "@/components/animation";
 import FinanceAccordion from "@/components/FinanceAccordion";
 import PricingPlan from "@/components/PricingPlan";
@@ -40,6 +32,7 @@ import dashApp from "@/assets/img/saas-app/dash_app.png";
 import dashAppSmall from "@/assets/img/saas-app/dash_app_small.png";
 import dashAppSmall2 from "@/assets/img/saas-app/dash_app_small2.png";
 import subscribeDashboard from "@/assets/img/saas-app/subscribe-dashboard.png";
+import AnimationDiv, { AnimationH1, AnimationH2, AnimationH4, AnimationH5, AnimationImg, AnimationLink, AnimationP } from "@/components/animation/AnimationDiv";
 
 const FinanceSassAppPage = () => {
   return (
@@ -51,7 +44,7 @@ const FinanceSassAppPage = () => {
             <div className="container">
               <div className="row justify-content-center">
                 <div className="saas-banner-content text-center">
-                  <motion.h5
+                  <AnimationH5
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -60,8 +53,8 @@ const FinanceSassAppPage = () => {
                     data-wow-delay="0.35s"
                   >
                     WeLCOME TO THE Best banking WEb application ⭐
-                  </motion.h5>
-                  <motion.h1
+                  </AnimationH5>
+                  <AnimationH1
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -71,8 +64,8 @@ const FinanceSassAppPage = () => {
                   >
                     The modern banking <span>solution </span>
                     for your business in one app.
-                  </motion.h1>
-                  <motion.p
+                  </AnimationH1>
+                  <AnimationP
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -83,9 +76,9 @@ const FinanceSassAppPage = () => {
                     Inventore veritatis et architecto beatae vitaie dicta
                     explicabore nemo ipsam volupetateme voluptas aspernatur
                     magni.
-                  </motion.p>
+                  </AnimationP>
                   <div className="d-flex flex-column flex-sm-row justify-content-center mt-25 subscribe-field">
-                    <motion.a
+                    <AnimationLink
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -96,8 +89,8 @@ const FinanceSassAppPage = () => {
                     >
                       Get started now
                       <i className="arrow_right-up"></i>
-                    </motion.a>
-                    <motion.a
+                    </AnimationLink>
+                    <AnimationLink
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -107,11 +100,11 @@ const FinanceSassAppPage = () => {
                       data-wow-delay="0.5s"
                     >
                       Learn more
-                    </motion.a>
+                    </AnimationLink>
                   </div>
                 </div>
               </div>
-              <motion.div
+              <AnimationDiv
                 variants={fadeInUp}
                 initial="hidden"
                 whileInView="show"
@@ -120,13 +113,13 @@ const FinanceSassAppPage = () => {
                 data-wow-delay="0.5s"
               >
                 <Image src={dashboardPng} alt="saas" style={{width:'auto',height:"auto"}} />
-              </motion.div>
+              </AnimationDiv>
             </div>
           </section>
 
           <section className="saas-clients-logo bg-white pt-90 pb-85">
             <div className="container">
-              <motion.p
+              <AnimationP
                 variants={fadeInUp}
                 initial="hidden"
                 whileInView="show"
@@ -135,10 +128,10 @@ const FinanceSassAppPage = () => {
                 data-wow-delay="0.3s"
               >
                 Trust Trusted by over <span>10,000+</span> customers wordwide
-              </motion.p>
+              </AnimationP>
               <div className="row gy-md-0 gy-4 align-items-center h-100">
                 <div className="col">
-                  <motion.a
+                  <AnimationLink
                     variants={fadeInRight}
                     initial="hidden"
                     whileInView="show"
@@ -151,10 +144,10 @@ const FinanceSassAppPage = () => {
                       src={cLogo1}
                       alt="logo"
                     />
-                  </motion.a>
+                  </AnimationLink>
                 </div>
                 <div className="col">
-                  <motion.a
+                  <AnimationLink
                     variants={fadeInRight}
                     initial="hidden"
                     whileInView="show"
@@ -167,10 +160,10 @@ const FinanceSassAppPage = () => {
                       src={cLogo2}
                       alt="logo"
                     />
-                  </motion.a>
+                  </AnimationLink>
                 </div>
                 <div className="col">
-                  <motion.a
+                  <AnimationLink
                     variants={fadeInRight}
                     initial="hidden"
                     whileInView="show"
@@ -183,10 +176,10 @@ const FinanceSassAppPage = () => {
                       src={cLogo3}
                       alt="logo"
                     />
-                  </motion.a>
+                  </AnimationLink>
                 </div>
                 <div className="col">
-                  <motion.a
+                  <AnimationLink
                     variants={fadeInRight}
                     initial="hidden"
                     whileInView="show"
@@ -199,10 +192,10 @@ const FinanceSassAppPage = () => {
                       src={cLogo4}
                       alt="logo"
                     />
-                  </motion.a>
+                  </AnimationLink>
                 </div>
                 <div className="col">
-                  <motion.a
+                  <AnimationLink
                     variants={fadeInRight}
                     initial="hidden"
                     whileInView="show"
@@ -215,7 +208,7 @@ const FinanceSassAppPage = () => {
                       src={cLogo5}
                       alt="logo"
                     />
-                  </motion.a>
+                  </AnimationLink>
                 </div>
               </div>
             </div>
@@ -235,7 +228,7 @@ const FinanceSassAppPage = () => {
               </div>
               <div className="row">
                 <div className="col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -254,10 +247,10 @@ const FinanceSassAppPage = () => {
                     <Link href="#" className="text-btn">
                       Learn More
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -276,10 +269,10 @@ const FinanceSassAppPage = () => {
                     <Link href="#" className="text-btn">
                       Learn More
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -298,7 +291,7 @@ const FinanceSassAppPage = () => {
                     <Link href="#" className="text-btn">
                       Learn More
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
             </div>
@@ -309,7 +302,7 @@ const FinanceSassAppPage = () => {
               <div className="saas-features-item row align-items-center">
                 <div className="col-lg-6">
                   <div className="saas-features-img">
-                    <motion.img
+                    <AnimationImg
                       variants={fadeInRight}
                       initial="hidden"
                       whileInView="show"
@@ -324,7 +317,7 @@ const FinanceSassAppPage = () => {
                 <div className="col-lg-6">
                   <div className="saas-features-content">
                     <div className="saas-section-title mb-50">
-                      <motion.h2
+                      <AnimationH2
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -332,8 +325,8 @@ const FinanceSassAppPage = () => {
                         className="wow fadeInUp"
                       >
                         Simplify your finance <span>banking</span> and loan
-                      </motion.h2>
-                      <motion.p
+                      </AnimationH2>
+                      <AnimationP
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -345,10 +338,10 @@ const FinanceSassAppPage = () => {
                         creative hub LCB based in the city is cultural quarter
                         and designers and design businesses all over the city &
                         county
-                      </motion.p>
+                      </AnimationP>
                     </div>
                     <div className="d-flex">
-                      <motion.div
+                      <AnimationDiv
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -363,8 +356,8 @@ const FinanceSassAppPage = () => {
                           <h4>Single term fees</h4>
                           <p>Easily copy and paste Pricing components</p>
                         </div>
-                      </motion.div>
-                      <motion.div
+                      </AnimationDiv>
+                      <AnimationDiv
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -379,7 +372,7 @@ const FinanceSassAppPage = () => {
                           <h4>150+ Locations</h4>
                           <p>Easily copy and paste Pricing components</p>
                         </div>
-                      </motion.div>
+                      </AnimationDiv>
                     </div>
                   </div>
                 </div>
@@ -387,7 +380,7 @@ const FinanceSassAppPage = () => {
               <div className="saas-features-item row align-items-center flex-row-reverse">
                 <div className="col-lg-6">
                   <div className="saas-features-img">
-                    <motion.img
+                    <AnimationImg
                       variants={fadeInLeft}
                       initial="hidden"
                       whileInView="show"
@@ -401,7 +394,7 @@ const FinanceSassAppPage = () => {
                 </div>
                 <div className="col-lg-6">
                   <div className="saas-features-content">
-                    <motion.div
+                    <AnimationDiv
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -418,9 +411,9 @@ const FinanceSassAppPage = () => {
                         and designers and design businesses all over the city &
                         county
                       </p>
-                    </motion.div>
+                    </AnimationDiv>
                     <div className="d-flex">
-                      <motion.div
+                      <AnimationDiv
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -432,8 +425,8 @@ const FinanceSassAppPage = () => {
                           <h4>500+</h4>
                           <p>Active customers use our application</p>
                         </div>
-                      </motion.div>
-                      <motion.div
+                      </AnimationDiv>
+                      <AnimationDiv
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -445,7 +438,7 @@ const FinanceSassAppPage = () => {
                           <h4>$105k</h4>
                           <p>Loans given out in the last few months</p>
                         </div>
-                      </motion.div>
+                      </AnimationDiv>
                     </div>
                   </div>
                 </div>
@@ -456,7 +449,7 @@ const FinanceSassAppPage = () => {
           <section className="app-showcase-area">
             <Image className="shape_img" src={gridTwoPng} alt="" />
             <div className="container">
-              <motion.div
+              <AnimationDiv
                 variants={fadeInUp}
                 initial="hidden"
                 whileInView="show"
@@ -472,7 +465,7 @@ const FinanceSassAppPage = () => {
                   but them
                   <br /> majority have suffered alteration form injected.
                 </p>
-              </motion.div>
+              </AnimationDiv>
               <div className="row">
                 <div className="col-lg-6">
                   <div className="app-showcase-item">
@@ -480,7 +473,7 @@ const FinanceSassAppPage = () => {
                       className="round wow floatingBubbles"
                       data-wow-delay="0.3s"
                     ></div>
-                    <motion.h4
+                    <AnimationH4
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -489,8 +482,8 @@ const FinanceSassAppPage = () => {
                       data-wow-delay="0.6s"
                     >
                       Simple loan register process
-                    </motion.h4>
-                    <motion.p
+                    </AnimationH4>
+                    <AnimationP
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -500,8 +493,8 @@ const FinanceSassAppPage = () => {
                     >
                       I transform thorn problems into elagant solutions using
                       visuals design use this pack illustrations for many.
-                    </motion.p>
-                    <motion.img
+                    </AnimationP>
+                    <AnimationImg
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -520,7 +513,7 @@ const FinanceSassAppPage = () => {
                       className="round wow floatingBubbles"
                       data-wow-delay="0.3s"
                     ></div>
-                    <motion.h4
+                    <AnimationH4
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -529,8 +522,8 @@ const FinanceSassAppPage = () => {
                       data-wow-delay="0.6s"
                     >
                       Access to secure banking
-                    </motion.h4>
-                    <motion.p
+                    </AnimationH4>
+                    <AnimationP
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -540,8 +533,8 @@ const FinanceSassAppPage = () => {
                     >
                       I transform thorn problems into elagant solutions using
                       visuals design use this pack illustrations for many.
-                    </motion.p>
-                    <motion.img
+                    </AnimationP>
+                    <AnimationImg
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -556,7 +549,7 @@ const FinanceSassAppPage = () => {
                 </div>
                 <div className="col-lg-12">
                   <div className="app-showcase-item box-three">
-                    <motion.div
+                    <AnimationDiv
                       variants={fadeInLeft}
                       initial="hidden"
                       whileInView="show"
@@ -569,7 +562,7 @@ const FinanceSassAppPage = () => {
                         I transform thorn problems into elagant solutions using
                         visuals design use this pack illustrations for many.
                       </p>
-                      <motion.a
+                      <AnimationLink
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -578,9 +571,9 @@ const FinanceSassAppPage = () => {
                         className="wow fadeInUp theme-btn theme-btn-lg theme-btn-alt"
                       >
                         Visit loan calculator
-                      </motion.a>
-                    </motion.div>
-                    <motion.div
+                      </AnimationLink>
+                    </AnimationDiv>
+                    <AnimationDiv
                       variants={fadeInRight}
                       initial="hidden"
                       whileInView="show"
@@ -603,7 +596,7 @@ const FinanceSassAppPage = () => {
                           alt=""
                         />
                       </div>
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
                 </div>
               </div>
@@ -616,7 +609,7 @@ const FinanceSassAppPage = () => {
 
           <section className="saas-subscribe-area cta-4">
             <div className="container">
-              <motion.div
+              <AnimationDiv
                 variants={fadeInUp}
                 initial="hidden"
                 whileInView="show"
@@ -651,9 +644,9 @@ const FinanceSassAppPage = () => {
                     <i className="fas fa-check-circle"></i> No Spamming
                   </li>
                 </ul>
-              </motion.div>
+              </AnimationDiv>
             </div>
-            <motion.img
+            <AnimationImg
               variants={fadeInUp}
               initial="hidden"
               whileInView="show"

@@ -1,11 +1,5 @@
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
 import "@/styles/css/nice-select.css";
 import "@/styles/css/jquery-editable-select.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
-
 import JobApplicationSection from "@/components/JobForm";
 import DefaultLayout from "@/components/Layout";
 import breadcrumbBg2 from "@/assets/img/breadcrumb/bg-2.png";

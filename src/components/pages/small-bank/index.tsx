@@ -1,17 +1,9 @@
-"use client";
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/styles/css/nice-select.css";
 import "nouislider/dist/nouislider.css";
 import "@/styles/css/jquery.fancybox.min.css";
 import "flatpickr/dist/flatpickr.min.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
-
-import { motion } from "framer-motion";
 import { fadeInRight, fadeInUp } from "@/components/animation";
 import Image from "next/image";
 import Link from "next/link";
@@ -55,6 +47,7 @@ import cLogo4 from "@/assets/img/saas-app/c_logo_4.png";
 import cLogo5 from "@/assets/img/saas-app/c_logo_5.png";
 import mobileTwo from "@/assets/img/bank/mobile-two.png";
 import CardArea from "./CardArea";
+import AnimationDiv, { AnimationH1, AnimationH5, AnimationImg, AnimationLink, AnimationP, AnimationSpan } from "@/components/animation/AnimationDiv";
 
 const SmallBankPage = () => {
   return (
@@ -67,7 +60,7 @@ const SmallBankPage = () => {
               <div className="row">
                 <div className="col-lg-6">
                   <div className="bank-banner-content">
-                    <motion.h5
+                    <AnimationH5
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -76,8 +69,8 @@ const SmallBankPage = () => {
                       data-wow-delay="0.2s"
                     >
                       Manage your Finance
-                    </motion.h5>
-                    <motion.h1
+                    </AnimationH5>
+                    <AnimationH1
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -87,8 +80,8 @@ const SmallBankPage = () => {
                     >
                       Your <span className="underline-shape">banking</span> made
                       easier.
-                    </motion.h1>
-                    <motion.p
+                    </AnimationH1>
+                    <AnimationP
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -98,8 +91,8 @@ const SmallBankPage = () => {
                     >
                       Inventore veritatis et architecto beatae vitaie dicta
                       explicab nemo ipsam volupetateme voluptashte aspernatur.
-                    </motion.p>
-                    <motion.div
+                    </AnimationP>
+                    <AnimationDiv
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -115,12 +108,8 @@ const SmallBankPage = () => {
                       <button className="input-append theme-btn theme-btn-lg ms-sm-2">
                         Subscribe
                       </button>
-                    </motion.div>
-                    <motion.ul
-                      variants={fadeInUp}
-                      initial="hidden"
-                      whileInView="show"
-                      viewport={{ once: true, amount: 0.2 }}
+                    </AnimationDiv>
+                    <ul
                       className="list-unstyled feature-list wow fadeInUp"
                       data-wow-delay="0.7s"
                     >
@@ -131,8 +120,8 @@ const SmallBankPage = () => {
                       <li>
                         <i className="fas fa-check-circle"></i> No Spamming
                       </li>
-                    </motion.ul>
-                    <motion.div
+                    </ul>
+                    <AnimationDiv
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -146,12 +135,12 @@ const SmallBankPage = () => {
                         <Image src={activeUser3} alt="" />
                       </div>
                       5K+ ⭐ Active users
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
                 </div>
                 <div className="col-lg-6">
                   <div className="bank-card-img">
-                    <motion.div
+                    <AnimationDiv
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -165,8 +154,8 @@ const SmallBankPage = () => {
                         alt=""
                         style={{ width: "auto", height: "auto" }}
                       />
-                    </motion.div>
-                    <motion.div
+                    </AnimationDiv>
+                    <AnimationDiv
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -180,8 +169,8 @@ const SmallBankPage = () => {
                         alt=""
                         style={{ width: "auto", height: "auto" }}
                       />
-                    </motion.div>
-                    <motion.div
+                    </AnimationDiv>
+                    <AnimationDiv
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -194,7 +183,7 @@ const SmallBankPage = () => {
                         alt=""
                         style={{ width: "auto", height: "auto" }}
                       />
-                    </motion.div>
+                    </AnimationDiv>
                     <Image className="shap one" src={linePng} alt="" />
                     <Image
                       data-parallax='{"x": 0, "y": 50, "rotateZ": 305}'
@@ -224,7 +213,7 @@ const SmallBankPage = () => {
             <div className="container">
               <div className="row">
                 <div className="col-lg-4 col-md-4">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -240,10 +229,10 @@ const SmallBankPage = () => {
                       about time this allows you to solve within a specified
                       time problem than you would.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-4 col-md-4">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -260,10 +249,10 @@ const SmallBankPage = () => {
                       about time this allows you to solve within a specified
                       time problem than you would.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-4 col-md-4">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -280,7 +269,7 @@ const SmallBankPage = () => {
                       about time this allows you to solve within a specified
                       time problem than you would.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
             </div>
@@ -291,7 +280,7 @@ const SmallBankPage = () => {
               <div className="row">
                 <div className="col-lg-5">
                   <div className="section-title bank-section-title text-start">
-                    <motion.span
+                    <AnimationSpan
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -299,8 +288,8 @@ const SmallBankPage = () => {
                       className="short-title-2 wow fadeInUp"
                     >
                       OUR PROCESS
-                    </motion.span>
-                    <motion.h1
+                    </AnimationSpan>
+                    <AnimationH1
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -309,8 +298,8 @@ const SmallBankPage = () => {
                     >
                       Get loan from 4 simple{" "}
                       <span className="underline-shape">process</span>
-                    </motion.h1>
-                    <motion.p
+                    </AnimationH1>
+                    <AnimationP
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -321,8 +310,8 @@ const SmallBankPage = () => {
                       Choose your training and register for free. If you are a
                       freelancer, the courses are entirely taken care of you
                       have nothing to pay and no money to advance.
-                    </motion.p>
-                    <motion.a
+                    </AnimationP>
+                    <AnimationLink
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -332,13 +321,13 @@ const SmallBankPage = () => {
                       href="/loan"
                     >
                       Learn more about it <i className="arrow_right"></i>
-                    </motion.a>
+                    </AnimationLink>
                   </div>
                 </div>
                 <div className="col-lg-7 ps-lg-5">
                   <div className="row">
                     <div className="col-md-6">
-                      <motion.div
+                      <AnimationDiv
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -352,10 +341,10 @@ const SmallBankPage = () => {
                           Choose your training and register for free if you are
                           a freelancer the courses are entirely taken care.
                         </p>
-                      </motion.div>
+                      </AnimationDiv>
                     </div>
                     <div className="col-md-6">
-                      <motion.div
+                      <AnimationDiv
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -369,10 +358,10 @@ const SmallBankPage = () => {
                           Choose your training and register for free if you are
                           a freelancer the courses are entirely taken care.
                         </p>
-                      </motion.div>
+                      </AnimationDiv>
                     </div>
                     <div className="col-md-6">
-                      <motion.div
+                      <AnimationDiv
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -386,10 +375,10 @@ const SmallBankPage = () => {
                           Choose your training and register for free if you are
                           a freelancer the courses are entirely taken care.
                         </p>
-                      </motion.div>
+                      </AnimationDiv>
                     </div>
                     <div className="col-md-6">
-                      <motion.div
+                      <AnimationDiv
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -403,7 +392,7 @@ const SmallBankPage = () => {
                           Choose your training and register for free if you are
                           a freelancer the courses are entirely taken care.
                         </p>
-                      </motion.div>
+                      </AnimationDiv>
                     </div>
                   </div>
                 </div>
@@ -417,7 +406,7 @@ const SmallBankPage = () => {
                 <div className="col-lg-6 offset-lg-1">
                   <div className="app-content">
                     <div className="section-title bank-section-title text-start">
-                      <motion.span
+                      <AnimationSpan
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -425,8 +414,8 @@ const SmallBankPage = () => {
                         className="short-title-2 wow fadeInUp"
                       >
                         Our Application
-                      </motion.span>
-                      <motion.h1
+                      </AnimationSpan>
+                      <AnimationH1
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -436,8 +425,8 @@ const SmallBankPage = () => {
                         All your{" "}
                         <span className="underline-shape">financials</span>
                         in one single app.
-                      </motion.h1>
-                      <motion.p
+                      </AnimationH1>
+                      <AnimationP
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -448,12 +437,8 @@ const SmallBankPage = () => {
                         It is a long established fact that a reader will be
                         distracted by there readable content of a page when
                         looking at its layout point .
-                      </motion.p>
-                      <motion.ul
-                        variants={fadeInUp}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={{ once: true, amount: 0.2 }}
+                      </AnimationP>
+                      <ul
                         className="list-unstyled feature-list wow fadeInUp"
                         data-wow-delay="0.4s"
                       >
@@ -467,12 +452,12 @@ const SmallBankPage = () => {
                           <i className="fas fa-check-circle"></i> It is long
                           established fact distracted the readable.
                         </li>
-                      </motion.ul>
+                      </ul>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-5">
-                  <motion.img
+                  <AnimationImg
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -493,7 +478,7 @@ const SmallBankPage = () => {
             <div className="container">
               <div className="section-title bank-section-title mb-80">
                 <span className="short-title-2">Our Integrations</span>
-                <motion.h1
+                <AnimationH1
                   className="wow fadeInUp"
                   variants={fadeInUp}
                   initial="hidden"
@@ -503,11 +488,11 @@ const SmallBankPage = () => {
                   A variety of tools you
                   <br />
                   can <span className="underline-shape">integrate</span> with
-                </motion.h1>
+                </AnimationH1>
               </div>
               <div className="row">
                 <div className="col-lg-4 col-sm-6">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.1s"
                     variants={fadeInUp}
@@ -524,10 +509,10 @@ const SmallBankPage = () => {
                       freelancer the courses are entire taken care about the way
                       to.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.3s"
                     variants={fadeInUp}
@@ -544,10 +529,10 @@ const SmallBankPage = () => {
                       freelancer the courses are entire taken care about the way
                       to.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.6s"
                     variants={fadeInUp}
@@ -564,10 +549,10 @@ const SmallBankPage = () => {
                       freelancer the courses are entire taken care about the way
                       to.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.1s"
                     variants={fadeInUp}
@@ -584,10 +569,10 @@ const SmallBankPage = () => {
                       freelancer the courses are entire taken care about the way
                       to.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.3s"
                     variants={fadeInUp}
@@ -604,10 +589,10 @@ const SmallBankPage = () => {
                       freelancer the courses are entire taken care about the way
                       to.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-4 col-sm-6">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-8 saas-feature-card wow fadeInUp"
                     data-wow-delay="0.6s"
                     variants={fadeInUp}
@@ -624,7 +609,7 @@ const SmallBankPage = () => {
                       freelancer the courses are entire taken care about the way
                       to.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
             </div>
@@ -634,7 +619,7 @@ const SmallBankPage = () => {
             <div className="container">
               <div className="section-title bank-section-title mb-80">
                 <span className="short-title-2">Worldwide Reach</span>
-                <motion.h1
+                <AnimationH1
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="show"
@@ -643,7 +628,7 @@ const SmallBankPage = () => {
                   Our customer base
                   <br /> reaches{" "}
                   <span className="underline-shape">worldwide</span>
-                </motion.h1>
+                </AnimationH1>
               </div>
               <div className="map_inner">
                 <Image src={mapPng} alt="" />
@@ -715,7 +700,7 @@ const SmallBankPage = () => {
 
           <section className="saas-clients-logo bg-white pt-100">
             <div className="container">
-              <motion.p
+              <AnimationP
                 className="wow fadeInUp clients-logo-title"
                 data-wow-delay="0.3s"
                 variants={fadeInUp}
@@ -724,11 +709,11 @@ const SmallBankPage = () => {
                 viewport={{ once: true, amount: 0.2 }}
               >
                 Trust Trusted by over <span>10,000+</span> customers wordwide
-              </motion.p>
+              </AnimationP>
               <div className="row gy-md-0 gy-4 align-items-center h-100">
                 <div className="col">
                   <Link href="#">
-                    <motion.img
+                    <AnimationImg
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.1s"
                       src={cLogo1.src}
@@ -742,7 +727,7 @@ const SmallBankPage = () => {
                 </div>
                 <div className="col">
                   <Link href="#">
-                    <motion.img
+                    <AnimationImg
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.3s"
                       src={cLogo2.src}
@@ -756,7 +741,7 @@ const SmallBankPage = () => {
                 </div>
                 <div className="col">
                   <Link href="#">
-                    <motion.img
+                    <AnimationImg
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.5s"
                       src={cLogo3.src}
@@ -770,7 +755,7 @@ const SmallBankPage = () => {
                 </div>
                 <div className="col">
                   <Link href="#">
-                    <motion.img
+                    <AnimationImg
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.7s"
                       src={cLogo4.src}
@@ -784,7 +769,7 @@ const SmallBankPage = () => {
                 </div>
                 <div className="col">
                   <Link href="#">
-                    <motion.img
+                    <AnimationImg
                       className="clients-logo img-fluid wow fadeInRight"
                       data-wow-delay="0.7s"
                       src={cLogo5.src}
@@ -805,7 +790,7 @@ const SmallBankPage = () => {
               <div className="cta-4 cta-five cta-bg-primary">
                 <div className="row">
                   <div className="col-lg-6">
-                    <motion.div
+                    <AnimationDiv
                       className="cta-content wow fadeInUp"
                       variants={fadeInUp}
                       initial="hidden"
@@ -817,7 +802,7 @@ const SmallBankPage = () => {
                         Choose your training and register for free. If you are a
                         freelancer, the courses are entirely taken care.
                       </p>
-                      <motion.div
+                      <AnimationDiv
                         variants={fadeInUp}
                         initial="hidden"
                         whileInView="show"
@@ -829,11 +814,11 @@ const SmallBankPage = () => {
                         >
                           Get started now <i className="arrow_right-up"></i>
                         </Link>
-                      </motion.div>
-                    </motion.div>
+                      </AnimationDiv>
+                    </AnimationDiv>
                   </div>
                   <div className="col-lg-6 text-end">
-                    <motion.div
+                    <AnimationDiv
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -845,7 +830,7 @@ const SmallBankPage = () => {
                         src={mobileTwo}
                         alt=""
                       />
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
                 </div>
               </div>

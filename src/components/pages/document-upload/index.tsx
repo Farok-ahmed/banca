@@ -1,11 +1,4 @@
-
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
 import "@/styles/css/nice-select.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
- 
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
 import DocumentForm from "./DocumentForm";

@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import { fadeInUp } from "@/components/animation";
 import Image from "next/image";
 import recognitionIcon from "@/assets/img/recognition/icon.svg";
+import AnimationDiv from "@/components/animation/AnimationDiv";
 const tabData = [
   {
     year: "2020",
@@ -115,7 +116,7 @@ export default function RecognitionTabs() {
             {tabData.map(
               (tab) =>
                 activeTab === tab.year && (
-                  <motion.div 
+                  <AnimationDiv 
                     key={tab.year} 
                     className="tab-content"
                     variants={contentVariants}
@@ -127,7 +128,7 @@ export default function RecognitionTabs() {
                     {tab.content.map((item, i) => (
                       <p key={i}>{item}</p>
                     ))}
-                  </motion.div>
+                  </AnimationDiv>
                 )
             )}
           </AnimatePresence>
@@ -135,7 +136,7 @@ export default function RecognitionTabs() {
 
         {/* Right Side Awards Example */}
         <div className="col-xl-4 col-lg-5 offset-xl-1 pr-lg-35 pl-lg-35">
-          <motion.div
+          <AnimationDiv
             variants={fadeInUp}
             initial="hidden"
             whileInView="show"
@@ -173,7 +174,7 @@ export default function RecognitionTabs() {
                 </li>
               </ul>
             </div>
-          </motion.div>
+          </AnimationDiv>
         </div>
       </div>
     </div>

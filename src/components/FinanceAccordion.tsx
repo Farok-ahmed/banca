@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { fadeInUp, fadeInLeft, fadeInRight } from './animation';
+import AnimationDiv from './animation/AnimationDiv';
 
 const faqs = [
   {
@@ -59,7 +59,7 @@ const FinanceAccordion = () => {
   return (
     <section className="saas-faq-area bg-white">
       <div className="container">
-        <motion.div
+        <AnimationDiv
           className="saas-section-title text-center mb-60 wow fadeInUp"
           data-wow-delay="0.2s"
           variants={fadeInUp}
@@ -75,9 +75,9 @@ const FinanceAccordion = () => {
             them
             <br /> majority have suffered alteration form injected.
           </p>
-        </motion.div>
+        </AnimationDiv>
         <div className="row">
-          <motion.div 
+          <AnimationDiv 
             className="col-lg-6"
             variants={fadeInLeft}
             initial="hidden"
@@ -86,7 +86,7 @@ const FinanceAccordion = () => {
           >
             <div className="accordion" id="accordionExample">
               {faqs.map((faq, index) => (
-                <motion.div
+                <AnimationDiv
                   className="faq_item wow fadeInUp"
                   data-wow-delay={`0.${index + 3}s`}
                   key={index}
@@ -113,7 +113,7 @@ const FinanceAccordion = () => {
                       />
                     </h6>
                   </div>
-                  <motion.div
+                  <AnimationDiv
                     className={`collapse ${openLeftIndex === index ? 'show' : ''}`}
                     initial={false}
                     animate={{
@@ -126,7 +126,7 @@ const FinanceAccordion = () => {
                       maxHeight: openLeftIndex === index ? "500px" : "0px"
                     }}
                   >
-                    <motion.div 
+                    <AnimationDiv 
                       className="faq-body"
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ 
@@ -136,14 +136,14 @@ const FinanceAccordion = () => {
                       transition={{ duration: 0.3, delay: openLeftIndex === index ? 0.1 : 0 }}
                     >
                       <p>{faq.answer}</p>
-                    </motion.div>
-                  </motion.div>
-                </motion.div>
+                    </AnimationDiv>
+                  </AnimationDiv>
+                </AnimationDiv>
               ))}
             </div>
-          </motion.div>
+          </AnimationDiv>
 
-          <motion.div 
+          <AnimationDiv 
             className="col-lg-6"
             variants={fadeInRight}
             initial="hidden"
@@ -152,7 +152,7 @@ const FinanceAccordion = () => {
           >
             <div className="accordion" id="accordionExample2">
               {rightFaqs.map((faq, index) => (
-                <motion.div
+                <AnimationDiv
                   className="faq_item wow fadeInUp"
                   data-wow-delay={`0.${index + 3}s`}
                   key={index}
@@ -180,7 +180,7 @@ const FinanceAccordion = () => {
                       />
                     </h6>
                   </div>
-                  <motion.div
+                  <AnimationDiv
                     className={`collapse ${openRightIndex === index ? 'show' : ''}`}
                     initial={false}
                     animate={{
@@ -193,7 +193,7 @@ const FinanceAccordion = () => {
                       maxHeight: openRightIndex === index ? "500px" : "0px"
                     }}
                   >
-                    <motion.div 
+                    <AnimationDiv 
                       className="faq-body"
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ 
@@ -203,12 +203,12 @@ const FinanceAccordion = () => {
                       transition={{ duration: 0.3, delay: openRightIndex === index ? 0.1 : 0 }}
                     >
                       <p>{faq.answer}</p>
-                    </motion.div>
-                  </motion.div>
-                </motion.div>
+                    </AnimationDiv>
+                  </AnimationDiv>
+                </AnimationDiv>
               ))}
             </div>
-          </motion.div>
+          </AnimationDiv>
         </div>
       </div>
     </section>

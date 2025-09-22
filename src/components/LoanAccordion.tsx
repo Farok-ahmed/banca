@@ -3,8 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import faqIllustration from "@/assets/img/faq/illustration.png";
-import { motion } from "framer-motion";
 import { fadeInUp, fadeInRight } from "./animation";
+import AnimationDiv from "./animation/AnimationDiv";
 
 interface AccordionData {
   id: string;
@@ -64,7 +64,7 @@ const LoanAccordion = () => {
         <div className="faq-widget">
           <div className="accordion" id="accordionExample">
             {accordionData.map((faq, index) => (
-              <motion.div
+              <AnimationDiv
                 key={faq.id}
                 className="single-widget-one wow fadeInUp"
                 data-wow-delay={faq.delay}
@@ -95,7 +95,7 @@ const LoanAccordion = () => {
                       />
                     </h4>
                   </div>
-                  <motion.div
+                  <AnimationDiv
                     id={faq.id}
                     className={`collapse ${openId === faq.id ? "show" : ""}`}
                     aria-labelledby={`heading${faq.id.charAt(
@@ -113,7 +113,7 @@ const LoanAccordion = () => {
                       maxHeight: openId === faq.id ? "500px" : "0px",
                     }}
                   >
-                    <motion.div
+                    <AnimationDiv
                       className="faq-body"
                       initial={{ opacity: 0, y: -10 }}
                       animate={{
@@ -126,10 +126,10 @@ const LoanAccordion = () => {
                       }}
                     >
                       <p>{faq.answer}</p>
-                    </motion.div>
-                  </motion.div>
+                    </AnimationDiv>
+                  </AnimationDiv>
                 </div>
-              </motion.div>
+              </AnimationDiv>
             ))}
           </div>
         </div>
@@ -137,7 +137,7 @@ const LoanAccordion = () => {
 
       {/* RIGHT SIDE IMAGE */}
       <div className="col-md-4 offset-lg-1 mt-4 mt-md-0 ps-lg-5">
-        <motion.div
+        <AnimationDiv
           className="faq-img"
           variants={fadeInRight}
           initial="hidden"
@@ -152,7 +152,7 @@ const LoanAccordion = () => {
               alt="faq-image"
             />
           </div>
-        </motion.div>
+        </AnimationDiv>
       </div>
     </div>
   );

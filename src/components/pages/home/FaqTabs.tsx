@@ -8,6 +8,7 @@ import freelanceTab2 from '@/assets/img/home-4/freelance-tab-2.png';
 import faqImg from '@/assets/img/home-4/faq-Img.png';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import AnimationDiv, { AnimationH5 } from '@/components/animation/AnimationDiv';
 const tabContent: TabData[] = [
   {
     id: "freelancer",
@@ -129,7 +130,7 @@ const FaqTabs = () => {
                     <AnimatePresence mode="wait">
                       {tabContent.map((tab) => 
                         activeTab === tab.id && (
-                          <motion.div
+                          <AnimationDiv
                             key={tab.id}
                             className="tab-pane fade show active"
                             variants={tabContentVariants}
@@ -156,7 +157,7 @@ const FaqTabs = () => {
                                 <Image className="img-fluid" src={tab.imgSrc} alt={tab.label} />
                               </div>
                             </div>
-                          </motion.div>
+                          </AnimationDiv>
                         )
                       )}
                     </AnimatePresence>
@@ -180,7 +181,7 @@ const FaqTabs = () => {
                       <div className="faq-widget">
                         <div className="accordion" id="accordionExample">
                           {faqItems.map((item, index) => (
-                            <motion.div
+                            <AnimationDiv
                               className="single-faq wow fadeInUp"
                               data-wow-delay={`0.${index + 1}s`}
                               key={item.id}
@@ -219,7 +220,7 @@ const FaqTabs = () => {
                                 </div>
                                 <AnimatePresence>
                                   {active === item.id && (
-                                    <motion.div
+                                    <AnimationDiv
                                       id={`collapse${item.id}`}
                                       className="collapse show"
                                       aria-labelledby={`heading${item.id}`}
@@ -239,7 +240,7 @@ const FaqTabs = () => {
                                       }}
                                       style={{ overflow: "hidden" }}
                                     >
-                                      <motion.div 
+                                      <AnimationDiv 
                                         className="faq-body"
                                         initial={{ y: -10 }}
                                         animate={{ y: 0 }}
@@ -250,15 +251,15 @@ const FaqTabs = () => {
                                         }}
                                       >
                                         <p>{item.answer}</p>
-                                      </motion.div>
-                                    </motion.div>
+                                      </AnimationDiv>
+                                    </AnimationDiv>
                                   )}
                                 </AnimatePresence>
                               </div>
-                            </motion.div>
+                            </AnimationDiv>
                           ))}
                         </div>
-                        <motion.h6 
+                        <AnimationH5 
                           className="more-contact"
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -268,7 +269,7 @@ const FaqTabs = () => {
                           }}
                         >
                           Have more question ? <Link href="/contact-us">Contact Us</Link>
-                        </motion.h6>
+                        </AnimationH5>
                       </div>
                     </div>
                   </div>

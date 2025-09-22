@@ -1,14 +1,15 @@
+"use client"
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fadeInUp } from "@/components/animation";
 import Image from "next/image";
-
 import fCard1 from "@/assets/img/bank/f-card1.png";
 import fCard2 from "@/assets/img/bank/f-card2.png";
 import fCard3 from "@/assets/img/bank/f_card3.png";
 import fCard4 from "@/assets/img/bank/f_card4.png";
 import fCard5 from "@/assets/img/bank/f_card5.png";
 import fCard6 from "@/assets/img/bank/f_card6.png";
+import AnimationDiv, { AnimationH1, AnimationSpan } from "@/components/animation/AnimationDiv";
 
 interface TabData {
   id: string;
@@ -70,7 +71,7 @@ const CardArea = () => {
       <section className="bank-card-area">
         <div className="container">
           <div className="section-title bank-section-title mb-80">
-            <motion.span
+            <AnimationSpan
               variants={fadeInUp}
               initial="hidden"
               whileInView="show"
@@ -78,8 +79,8 @@ const CardArea = () => {
               className="short-title-2 wow fadeInUp"
             >
               Cards
-            </motion.span>
-            <motion.h1
+            </AnimationSpan>
+            <AnimationH1
               variants={fadeInUp}
               initial="hidden"
               whileInView="show"
@@ -88,7 +89,7 @@ const CardArea = () => {
             >
               We offer variety of <br />
               <span className="underline-shape">cards</span> with features
-            </motion.h1>
+            </AnimationH1>
           </div>
           <div className="row">
             <div className="col-lg-5">
@@ -125,7 +126,7 @@ const CardArea = () => {
               </ul>
             </div>
             <div className="col-lg-6 offset-lg-1">
-              <motion.div
+              <AnimationDiv
                 variants={fadeInUp}
                 initial="hidden"
                 whileInView="show"
@@ -135,7 +136,7 @@ const CardArea = () => {
               >
                 <AnimatePresence mode="wait">
                   {activeTabData && (
-                    <motion.div
+                    <AnimationDiv
                       key={activeTab}
                       className="tab-pane fade show active"
                       id={activeTab}
@@ -146,13 +147,13 @@ const CardArea = () => {
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <motion.div
+                      <AnimationDiv
                         className="card-img"
                         initial={{ scale: 0.9 }}
                         animate={{ scale: 1 }}
                         transition={{ duration: 0.4, delay: 0.1 }}
                       >
-                        <motion.div
+                        <AnimationDiv
                           initial={{ y: 20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ duration: 0.5, delay: 0.2 }}
@@ -162,8 +163,8 @@ const CardArea = () => {
                             src={activeTabData.cardImages.cardOne}
                             alt={`${activeTabData.title} - Card 1`}
                           />
-                        </motion.div>
-                        <motion.div
+                        </AnimationDiv>
+                        <AnimationDiv
                           initial={{ y: 20, opacity: 0 }}
                           animate={{ y: 0, opacity: 1 }}
                           transition={{ duration: 0.5, delay: 0.3 }}
@@ -173,12 +174,12 @@ const CardArea = () => {
                             src={activeTabData.cardImages.cardTwo}
                             alt={`${activeTabData.title} - Card 2`}
                           />
-                        </motion.div>
-                      </motion.div>
-                    </motion.div>
+                        </AnimationDiv>
+                      </AnimationDiv>
+                    </AnimationDiv>
                   )}
                 </AnimatePresence>
-              </motion.div>
+              </AnimationDiv>
             </div>
           </div>
         </div>

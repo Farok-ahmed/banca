@@ -1,12 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
-
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
-import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight } from "@/components/animation";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
@@ -14,6 +6,7 @@ import JobSort from "./JobSort";
 import breadcrumbBg2 from "@/assets/img/breadcrumb/bg-2.png";
 import FormSelect from "@/components/common-section/FormSelect";
 import { OptionType } from "@/components/common-section/type";
+import AnimationDiv, { AnimationH4 } from "@/components/animation/AnimationDiv";
 
 const bangladeshDistricts:OptionType[] = [
   { value: "Bagerhat", label: "Bagerhat" },
@@ -254,7 +247,7 @@ const JobsPage = () => {
                   <div className="job-post-widget">
                     <div className="sidebar-header d-flex justify-content-between align-items-center mt-4 mt-lg-0">
                       <div className="sidebar-title">
-                        <motion.h4 
+                        <AnimationH4 
                           className="wow fadeInRight"
                           variants={fadeInRight}
                           initial="hidden"
@@ -262,10 +255,10 @@ const JobsPage = () => {
                           viewport={{ once: true, amount: 0.2 }}
                         >
                           25 job offers
-                        </motion.h4>
+                        </AnimationH4>
                       </div>
 
-                      <motion.div 
+                      <AnimationDiv 
                         className="sorting-select wow fadeInLeft me-1"
                         variants={fadeInLeft}
                         initial="hidden"
@@ -273,10 +266,10 @@ const JobsPage = () => {
                         viewport={{ once: true, amount: 0.2 }}
                       >
                         <JobSort />
-                      </motion.div>
+                      </AnimationDiv>
                     </div>
 
-                    <motion.div 
+                    <AnimationDiv 
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       variants={fadeInUp}
                       initial="hidden"
@@ -311,8 +304,8 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </motion.div>
-                    <motion.div
+                    </AnimationDiv>
+                    <AnimationDiv
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.1s"
                       variants={fadeInUp}
@@ -348,9 +341,9 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </motion.div>
+                    </AnimationDiv>
 
-                    <motion.div
+                    <AnimationDiv
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.3s"
                       variants={fadeInUp}
@@ -386,8 +379,8 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </motion.div>
-                    <motion.div
+                    </AnimationDiv>
+                    <AnimationDiv
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.5s"
                       variants={fadeInUp}
@@ -423,8 +416,8 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </motion.div>
-                    <motion.div
+                    </AnimationDiv>
+                    <AnimationDiv
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.6s"
                       variants={fadeInUp}
@@ -460,8 +453,8 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </motion.div>
-                    <motion.div
+                    </AnimationDiv>
+                    <AnimationDiv
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.7s"
                       variants={fadeInUp}
@@ -497,8 +490,8 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </motion.div>
-                    <motion.div
+                    </AnimationDiv>
+                    <AnimationDiv
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.8s"
                       variants={fadeInUp}
@@ -534,8 +527,8 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </motion.div>
-                    <motion.div
+                    </AnimationDiv>
+                    <AnimationDiv
                       className="single-job-post me-1 wow fadeInUp mt-25"
                       data-wow-delay="0.9s"
                       variants={fadeInUp}
@@ -571,9 +564,9 @@ const JobsPage = () => {
                           helping others to ...
                         </p>
                       </div>
-                    </motion.div>
+                    </AnimationDiv>
 
-                    <motion.div
+                    <AnimationDiv
                       className="text-center mt-70 wow fadeInUp"
                       variants={fadeInUp}
                       initial="hidden"
@@ -584,10 +577,10 @@ const JobsPage = () => {
                       <Link href="#" className="theme-btn theme-btn-outlined">
                         More jobs
                       </Link>
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
 
-                  <motion.div
+                  <AnimationDiv
                     className="email-alert-widget mt-100 wow fadeInUp"
                     variants={fadeInUp}
                     initial="hidden"
@@ -609,7 +602,7 @@ const JobsPage = () => {
                         </Link>
                       </div>
                     </div>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
             </div>

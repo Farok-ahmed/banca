@@ -1,14 +1,8 @@
-"use client";
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/styles/css/nice-select.css";
 import "nouislider/dist/nouislider.css";
-import "@/styles/css/jquery.fancybox.min.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
+import "@/styles/css/jquery.fancybox.min.css";;
 import FAQAccordion from "@/components/FaqAccordion";
 import Image from "next/image";
 import Link from "next/link";
@@ -35,8 +29,8 @@ import article4 from "@/assets/img/blog/article-4.png";
 import faqShape from "@/assets/img/faq/Shape.png";
 import faqAdvisor from "@/assets/img/faq/advisor.png";
 import helpCtaBg from "@/assets/img/help-ad/bg-shape.png";
-import { motion } from "framer-motion";
 import { fadeInRight, fadeInLeft, fadeInUp } from "@/components/animation";
+import AnimationDiv, { AnimationH1, AnimationH2, AnimationLink, AnimationP } from "@/components/animation/AnimationDiv";
 
 const SampleBancaPage = () => {
   return (
@@ -45,7 +39,7 @@ const SampleBancaPage = () => {
         <main>
           <section className="banner-area-3 pt-90" id="banner_animation2">
             <div className="bg-slides">
-              <motion.div
+              <AnimationDiv
                 variants={fadeInRight}
                 initial="hidden"
                 whileInView="show"
@@ -60,8 +54,8 @@ const SampleBancaPage = () => {
                   priority
                   alt="slide shape"
                 />
-              </motion.div>
-              <motion.div 
+              </AnimationDiv>
+              <AnimationDiv 
                variants={fadeInRight}
                 initial="hidden"
                 whileInView="show"
@@ -75,8 +69,8 @@ const SampleBancaPage = () => {
                   src={slideShape2}
                   alt="slide shape"
                 />
-              </motion.div>
-              <motion.div
+              </AnimationDiv>
+              <AnimationDiv
                variants={fadeInRight}
                 initial="hidden"
                 whileInView="show"
@@ -90,13 +84,13 @@ const SampleBancaPage = () => {
                   src={slideShape3}
                   alt="slide shape"
                 />
-              </motion.div>
+              </AnimationDiv>
             </div>
             <div className="container">
               <div className="row align-items-end">
                 <div className="col-lg-7 pt-100 pt-lg-200 pb-lg-200 pb-100">
                   <div className="banner-content pb-20 pt-20">
-                    <motion.h1
+                    <AnimationH1
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -105,9 +99,9 @@ const SampleBancaPage = () => {
                       data-wow-delay="0.1s"
                     >
                       Compare Loans From Several Banks Find The Cheapest Loan
-                    </motion.h1>
+                    </AnimationH1>
 
-                    <motion.a
+                    <AnimationLink
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -118,7 +112,7 @@ const SampleBancaPage = () => {
                     >
                       Apply Now
                       <i className="arrow_right"></i>
-                    </motion.a>
+                    </AnimationLink>
                   </div>
                 </div>
                 <div className="col-lg-5 d-none d-lg-block position-relative">
@@ -221,7 +215,7 @@ const SampleBancaPage = () => {
               <div className="row">
                 <div className="col-lg-8 mx-auto">
                   <div className="section-title">
-                    <motion.h2
+                    <AnimationH2
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -229,8 +223,8 @@ const SampleBancaPage = () => {
                       className="wow fadeInUp"
                     >
                       Banca Cooperates With These Banks
-                    </motion.h2>
-                    <motion.p
+                    </AnimationH2>
+                    <AnimationP
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -241,13 +235,13 @@ const SampleBancaPage = () => {
                       {" "}
                       <span>3000+ Companies</span> Trust Sturtaplanding to build
                       landing page for their <span> dream product</span>
-                    </motion.p>
+                    </AnimationP>
                   </div>
                 </div>
               </div>
               <div className="row justify-content-between mt-35 gy-sm-0 gy-4  text-center text-lg-start">
                 <div className="col-lg-2 col-6">
-                  <motion.a
+                  <AnimationLink
                     variants={fadeInRight}
                     initial="hidden"
                     whileInView="show"
@@ -257,10 +251,10 @@ const SampleBancaPage = () => {
                     data-wow-delay="0.1s"
                   >
                     <Image className="img-fluid" src={logo1} alt="logo" />
-                  </motion.a>
+                  </AnimationLink>
                 </div>
                 <div className="col-lg-2 col-6">
-                  <motion.a
+                  <AnimationLink
                     variants={fadeInRight}
                     initial="hidden"
                     whileInView="show"
@@ -270,9 +264,9 @@ const SampleBancaPage = () => {
                     data-wow-delay="0.3s"
                   >
                     <Image className="img-fluid" src={logo2} alt="logo" />
-                  </motion.a>
+                  </AnimationLink>
                 </div>
-                <motion.div
+                <AnimationDiv
                   variants={fadeInRight}
                   initial="hidden"
                   whileInView="show"
@@ -286,8 +280,8 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo3} alt="logo" />
                   </Link>
-                </motion.div>
-                <motion.div
+                </AnimationDiv>
+                <AnimationDiv
                   variants={fadeInRight}
                   initial="hidden"
                   whileInView="show"
@@ -301,8 +295,8 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo4} alt="logo" />
                   </Link>
-                </motion.div>
-                <motion.div
+                </AnimationDiv>
+                <AnimationDiv
                   variants={fadeInRight}
                   initial="hidden"
                   whileInView="show"
@@ -316,10 +310,10 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo5} alt="logo" />
                   </Link>
-                </motion.div>
+                </AnimationDiv>
               </div>
               <div className="row justify-content-between gy-sm-0 gy-4 mt-20 text-center text-lg-start">
-                <motion.div
+                <AnimationDiv
                   variants={fadeInRight}
                   initial="hidden"
                   whileInView="show"
@@ -333,8 +327,8 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo1} alt="logo" />
                   </Link>
-                </motion.div>
-                <motion.div
+                </AnimationDiv>
+                <AnimationDiv
                   variants={fadeInRight}
                   initial="hidden"
                   whileInView="show"
@@ -348,8 +342,8 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo2} alt="logo" />
                   </Link>
-                </motion.div>
-                <motion.div
+                </AnimationDiv>
+                <AnimationDiv
                   variants={fadeInRight}
                   initial="hidden"
                   whileInView="show"
@@ -363,8 +357,8 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo3} alt="logo" />
                   </Link>
-                </motion.div>
-                <motion.div
+                </AnimationDiv>
+                <AnimationDiv
                   variants={fadeInRight}
                   initial="hidden"
                   whileInView="show"
@@ -378,8 +372,8 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo4} alt="logo" />
                   </Link>
-                </motion.div>
-                <motion.div
+                </AnimationDiv>
+                <AnimationDiv
                   variants={fadeInRight}
                   initial="hidden"
                   whileInView="show"
@@ -393,7 +387,7 @@ const SampleBancaPage = () => {
                   >
                     <Image className="img-fluid" src={logo5} alt="logo" />
                   </Link>
-                </motion.div>
+                </AnimationDiv>
               </div>
             </div>
           </section>
@@ -401,7 +395,7 @@ const SampleBancaPage = () => {
           <section className="articles-area pt-125 pb-140">
             <div className="container">
               <div className="section-title d-flex flex-wrap justify-content-between text-start align-items-center">
-                <motion.h2
+                <AnimationH2
                   variants={fadeInRight}
                   initial="hidden"
                   whileInView="show"
@@ -409,8 +403,8 @@ const SampleBancaPage = () => {
                   className="mb-3 mb-sm-0 wow fadeInRight"
                 >
                   More About Finance & Loans
-                </motion.h2>
-                <motion.a
+                </AnimationH2>
+                <AnimationLink
                   variants={fadeInLeft}
                   initial="hidden"
                   whileInView="show"
@@ -419,11 +413,11 @@ const SampleBancaPage = () => {
                   href="/blog-listing"
                 >
                   See All Articles <i className="arrow_right"></i>
-                </motion.a>
+                </AnimationLink>
               </div>
               <div className="row mt-60 gy-4 gy-lg-0">
                 <div className="col-lg-3 col-md-6">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -448,10 +442,10 @@ const SampleBancaPage = () => {
                         <span>February 25, 2021</span>
                       </div>
                     </div>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-3 col-md-6">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -476,10 +470,10 @@ const SampleBancaPage = () => {
                         <span>February 25, 2021</span>
                       </div>
                     </div>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-3 col-md-6">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -504,10 +498,10 @@ const SampleBancaPage = () => {
                         <span>February 25, 2021</span>
                       </div>
                     </div>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-3 col-md-6">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -532,7 +526,7 @@ const SampleBancaPage = () => {
                         <span>February 25, 2021</span>
                       </div>
                     </div>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
             </div>
@@ -548,7 +542,7 @@ const SampleBancaPage = () => {
               <div className="row gy-4 gy-lg-0">
                 <div className="col-lg-6 pr-lg-75">
                   <div className="section-title text-start">
-                    <motion.h2
+                    <AnimationH2
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -556,10 +550,10 @@ const SampleBancaPage = () => {
                       className="mb-0 wow fadeInUp"
                     >
                       Our Advisors Are Ready To Help You
-                    </motion.h2>
+                    </AnimationH2>
                   </div>
 
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -588,7 +582,7 @@ const SampleBancaPage = () => {
                       <div className="circle-shape"></div>
                       All weekdays <span>10.00 - 18.00</span>
                     </div>
-                  </motion.div>
+                  </AnimationDiv>
 
                   <div
                     className="row mt-4 gy-md-0 gy-3 wow fadeInUp"

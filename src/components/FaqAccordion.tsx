@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/components/animation";
+import AnimationDiv from "./animation/AnimationDiv";
 
 interface FAQItem {
   id: number;
@@ -86,7 +87,7 @@ export default function FAQAccordion() {
 
   return (
     <div className="col-lg-6">
-      <motion.div 
+      <AnimationDiv 
         className="faq-widget-2"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +96,7 @@ export default function FAQAccordion() {
       >
         <div className="accordion" id="accordionExample">
           {faqData.map((item, index) => (
-            <motion.div
+            <AnimationDiv
               className="single-widget-one"
               key={item.id}
               initial="hidden"
@@ -139,7 +140,7 @@ export default function FAQAccordion() {
                 aria-labelledby={`heading${item.id}`}
               >
                 {openId === item.id && (
-                  <motion.div 
+                  <AnimationDiv 
                     className="faq-body"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -151,13 +152,13 @@ export default function FAQAccordion() {
                     {item.answer.split('\n').map((line, i) => (
                       <p key={i}>{line}</p>
                     ))}
-                  </motion.div>
+                  </AnimationDiv>
                 )}
               </div>
-            </motion.div>
+            </AnimationDiv>
           ))}
         </div>
-      </motion.div>
+      </AnimationDiv>
     </div>
   );
 }

@@ -5,9 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
 import Logo from "@/assets/img/logo/Logo.png";
-import { motion } from "framer-motion";
 import { fadeInLeft, fadeInUp } from "../animation";
 import LanguageSelectTwo from "./LanguageSelectTwo";
+import AnimationDiv from "../animation/AnimationDiv";
 const FooterThree = () => {
   const patheName = usePathname();
   const mobile = patheName === "/mobile-app";
@@ -19,7 +19,7 @@ const FooterThree = () => {
           <div className="container">
             <div className="row">
               <div className="col-xl-4 col-lg-3 col-6 pr-lg-90">
-                <motion.div
+                <AnimationDiv
                   variants={fadeInLeft}
                   initial="hidden"
                   whileInView="show"
@@ -48,7 +48,7 @@ const FooterThree = () => {
                       <i className="fab fa-google"></i>
                     </Link>
                   </div>
-                </motion.div>
+                </AnimationDiv>
               </div>
 
               <div className="col-xl-3 col-lg-2 col-6">
@@ -78,7 +78,7 @@ const FooterThree = () => {
                 </div>
               </div>
               <div className="col-xl-3 col-lg-2 col-6">
-                <motion.div
+                <AnimationDiv
                 variants={fadeInUp}
                   initial="hidden"
                   whileInView="show"
@@ -106,10 +106,10 @@ const FooterThree = () => {
                      
                     </ul>
                   </div>
-                </motion.div>
+                </AnimationDiv>
               </div>
               <div className="col-xl-2 col-lg-2 col-6">
-                <motion.div
+                <AnimationDiv
                 variants={fadeInUp}
                   initial="hidden"
                   whileInView="show"
@@ -137,7 +137,7 @@ const FooterThree = () => {
                       
                     </ul>
                   </div>
-                </motion.div>
+                </AnimationDiv>
               </div>
             </div>
           </div>

@@ -4,8 +4,8 @@ import Link from "next/link";
 import React from "react";
 import Logo from "@/assets/img/logo/Logo.png";
 import { usePathname } from "next/navigation";
-import { motion } from 'framer-motion';
 import { fadeInLeft, fadeInUp } from "../animation";
+import AnimationDiv from "../animation/AnimationDiv";
 const FooterTwo = () => {
   const pathName = usePathname();
   const indexCompany = pathName === "/index-company";
@@ -26,7 +26,7 @@ const FooterTwo = () => {
             <div className="row">
               {/* Column 1 */}
               <div className="col-lg-3 col-sm-6 text-center text-sm-start">
-                <motion.div
+                <AnimationDiv
                 variants={fadeInLeft}
                   initial="hidden"
                   whileInView="show"
@@ -48,12 +48,12 @@ const FooterTwo = () => {
                       height={60}
                     />
                   </div>
-                </motion.div>
+                </AnimationDiv>
               </div>
 
               {/* Column 2 */}
               <div className="col-lg-3 col-sm-6 text-center text-sm-start offset-lg-1">
-                <motion.div
+                <AnimationDiv
                 variants={fadeInUp}
                   initial="hidden"
                   whileInView="show"
@@ -80,12 +80,12 @@ const FooterTwo = () => {
                       </li>
                     </ul>
                   </div>
-                </motion.div>
+                </AnimationDiv>
               </div>
 
               {/* Column 3 */}
               <div className="col-lg-3 col-sm-6 text-center text-sm-start">
-                <motion.div
+                <AnimationDiv
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="show"
@@ -112,12 +112,12 @@ const FooterTwo = () => {
                       </li>
                     </ul>
                   </div>
-                </motion.div>
+                </AnimationDiv>
               </div>
 
               {/* Column 4 */}
               <div className="col-lg-2 col-sm-6 text-center text-sm-start">
-                <motion.div
+                <AnimationDiv
                 variants={fadeInUp}
                   initial="hidden"
                   whileInView="show"
@@ -144,7 +144,7 @@ const FooterTwo = () => {
                       </li>
                     </ul>
                   </div>
-                </motion.div>
+                </AnimationDiv>
               </div>
             </div>
           </div>

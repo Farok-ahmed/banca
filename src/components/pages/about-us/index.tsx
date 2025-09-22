@@ -1,19 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight } from "@/components/animation";
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "@/styles/css/nice-select.css";
 import "nouislider/dist/nouislider.css";
 import "@/styles/css/jquery.fancybox.min.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
 import DefaultLayout from "@/components/Layout";
 import AboutSlider from "@/components/AboutSlider";
 import aboutBg from "@/assets/img/banner/about-bg.png";
@@ -21,6 +14,7 @@ import leader1 from "@/assets/img/leadership/img-1.png";
 import leader2 from "@/assets/img/leadership/img-2.png";
 import leader3 from "@/assets/img/leadership/img-3.png";
 import RecognitionTabs from "./RecognitionTabs";
+import AnimationDiv, { AnimationH1, AnimationH2, AnimationSpan } from "@/components/animation/AnimationDiv";
 const AboutPage = () => {
   return (
     <>
@@ -35,7 +29,7 @@ const AboutPage = () => {
                 <div className="col-xl-6 col-lg-8">
                   <div className="banner-content py-5">
                     <div className="section-title text-start">
-                      <motion.span
+                      <AnimationSpan
                         className="short-title wow fadeInUp"
                         variants={fadeInUp}
                         initial="hidden"
@@ -43,8 +37,8 @@ const AboutPage = () => {
                         viewport={{ once: true, amount: 0.2 }}
                       >
                         ABOUT US
-                      </motion.span>
-                      <motion.h1
+                      </AnimationSpan>
+                      <AnimationH1
                         className="wow fadeInUp mb-0"
                         data-wow-delay="0.2s"
                         variants={fadeInUp}
@@ -53,9 +47,9 @@ const AboutPage = () => {
                         viewport={{ once: true, amount: 0.2 }}
                       >
                         Believing, banking and achieving different
-                      </motion.h1>
+                      </AnimationH1>
                     </div>
-                    <motion.div
+                    <AnimationDiv
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -71,7 +65,7 @@ const AboutPage = () => {
                         </span>
                         View our 2019 Annual Report
                       </Link>
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
                 </div>
               </div>
@@ -119,7 +113,7 @@ const AboutPage = () => {
           <section className="recognition-area bg_white pt-135 pb-140">
             <div className="container">
               <div className="section-title text-start">
-                <motion.span
+                <AnimationSpan
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="show"
@@ -127,8 +121,8 @@ const AboutPage = () => {
                   className="short-title mt-0 wow fadeInUp"
                 >
                   Recognition
-                </motion.span>
-                <motion.h2
+                </AnimationSpan>
+                <AnimationH2
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="show"
@@ -137,7 +131,7 @@ const AboutPage = () => {
                   data-wow-delay="0.2s"
                 >
                   Milestones and Accolades
-                </motion.h2>
+                </AnimationH2>
               </div>
               <RecognitionTabs/>
             </div>
@@ -147,7 +141,7 @@ const AboutPage = () => {
             <div className="container">
               <div className="row align-items-end">
                 <div className="col-sm-8">
-                  <motion.div
+                  <AnimationDiv
                     className="section-title text-start wow fadeInRight"
                     variants={fadeInRight}
                     initial="hidden"
@@ -156,10 +150,10 @@ const AboutPage = () => {
                   >
                     <span className="short-title mt-0">Leadership</span>
                     <h2 className="mb-0">Meet our leadership team</h2>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-sm-4 text-end">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInLeft}
                     initial="hidden"
                     whileInView="show"
@@ -172,7 +166,7 @@ const AboutPage = () => {
                       {" "}
                       see more <i className="arrow_carrot-right "></i>
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
 
@@ -193,7 +187,7 @@ const AboutPage = () => {
                 </div>
 
                 <div className="col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -208,10 +202,10 @@ const AboutPage = () => {
                         <p>Co-Founder, Conis</p>
                       </div>
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -226,7 +220,7 @@ const AboutPage = () => {
                         <p>Co-Founder, Conis</p>
                       </div>
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
             </div>
@@ -236,7 +230,7 @@ const AboutPage = () => {
             <div className="container">
               <div className="row align-items-center">
                 <div className="col-md-6">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInRight}
                     initial="hidden"
                     whileInView="show"
@@ -248,7 +242,7 @@ const AboutPage = () => {
                       Access Scotiabank’s latest quarterly results and archived
                       financial documents.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-md-6 ">
                   <div className="cta-content mt-3 mt-sm-0 text-sm-end text-center">

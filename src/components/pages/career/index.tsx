@@ -1,12 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
 import "@/styles/css/nice-select.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
-
 import Image from "next/image";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
@@ -16,8 +9,8 @@ import recruitmentIcon1 from "@/assets/img/recruitment-proccess/icon-1.svg";
 import recruitmentIcon2 from "@/assets/img/recruitment-proccess/icon-2.svg";
 import recruitmentIcon3 from "@/assets/img/recruitment-proccess/icon-3.svg";
 import recruitmentIcon4 from "@/assets/img/recruitment-proccess/icon-4.svg";
-import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight } from "@/components/animation";
+import AnimationDiv, { AnimationH2, AnimationP } from "@/components/animation/AnimationDiv";
 
 const CareerPage = () => {
   return (
@@ -103,7 +96,7 @@ const CareerPage = () => {
           <section className="pt-200 pb-145 bg_disable">
             <div className="container pt-40">
               <div className="section-title text-start pt-5 pt-md-0">
-                <motion.h2
+                <AnimationH2
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="show"
@@ -111,8 +104,8 @@ const CareerPage = () => {
                   className="wow fadeInUp"
                 >
                   Forget the expected. Do the exceptional
-                </motion.h2>
-                <motion.p 
+                </AnimationH2>
+                <AnimationP 
                   className="wow fadeInUp" 
                   data-wow-delay="0.3s"
                   variants={fadeInUp}
@@ -127,12 +120,12 @@ const CareerPage = () => {
                   opportunities to make connections all over the world and help
                   build the bank for the future. Take a look and discover what
                   it means to work for Santander US.
-                </motion.p>
+                </AnimationP>
               </div>
 
               <div className="row gy-4 mt-30">
                 <div className="col-md-6 col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-7 wow fadeInUp"
                     data-wow-delay="0.1s"
                     variants={fadeInUp}
@@ -151,10 +144,10 @@ const CareerPage = () => {
                     >
                       Learn more
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-md-6 col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-7 wow fadeInUp"
                     data-wow-delay="0.3s"
                     variants={fadeInUp}
@@ -173,10 +166,10 @@ const CareerPage = () => {
                     >
                       Explore
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-md-6 col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-7 wow fadeInUp"
                     data-wow-delay="0.5s"
                     variants={fadeInUp}
@@ -195,10 +188,10 @@ const CareerPage = () => {
                     >
                       Find out more
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-md-6 col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-7 wow fadeInUp"
                     data-wow-delay="0.7s"
                     variants={fadeInUp}
@@ -217,10 +210,10 @@ const CareerPage = () => {
                     >
                       Discover
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-md-6 col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-7 wow fadeInUp"
                     data-wow-delay="0.9s"
                     variants={fadeInUp}
@@ -239,10 +232,10 @@ const CareerPage = () => {
                     >
                       Read more
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-md-6 col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-7 wow fadeInUp"
                     data-wow-delay="1.1s"
                     variants={fadeInUp}
@@ -261,7 +254,7 @@ const CareerPage = () => {
                     >
                       Join Now
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
             </div>
@@ -272,7 +265,7 @@ const CareerPage = () => {
               <div className="row justify-content-between align-items-center">
                 <div className="col-md-6">
                   <div className="section-title text-start">
-                    <motion.h2 
+                    <AnimationH2 
                       className="mb-0 wow fadeInRight"
                       variants={fadeInRight}
                       initial="hidden"
@@ -280,11 +273,11 @@ const CareerPage = () => {
                       viewport={{ once: true, amount: 0.2 }}
                     >
                       Featured jobs
-                    </motion.h2>
+                    </AnimationH2>
                   </div>
                 </div>
                 <div className="col-md-4 text-end">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInLeft}
                     initial="hidden"
                     whileInView="show"
@@ -296,7 +289,7 @@ const CareerPage = () => {
                     >
                       Show All <i className="arrow_right"></i>{" "}
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
 
@@ -306,7 +299,7 @@ const CareerPage = () => {
                     <ul className="feature-job-list">
                       <li className="mt-0">
                         <Link href="/job-application">
-                          <motion.div
+                          <AnimationDiv
                             className="single-feature-job wow fadeInUp"
                             data-wow-delay="0.1s"
                             variants={fadeInUp}
@@ -328,13 +321,13 @@ const CareerPage = () => {
                                 <span>Branch Banking</span> | Full-time
                               </div>
                             </div>
-                          </motion.div>
+                          </AnimationDiv>
                         </Link>
                       </li>
 
                       <li>
                         <Link href="/job-application">
-                          <motion.div
+                          <AnimationDiv
                             className="single-feature-job wow fadeInUp"
                             data-wow-delay="0.3s"
                             variants={fadeInUp}
@@ -356,13 +349,13 @@ const CareerPage = () => {
                                 <span>Branch Banking</span> | Full-time
                               </div>
                             </div>
-                          </motion.div>
+                          </AnimationDiv>
                         </Link>
                       </li>
 
                       <li>
                         <Link href="/job-application">
-                          <motion.div
+                          <AnimationDiv
                             className="single-feature-job wow fadeInUp"
                             data-wow-delay="0.5s"
                             variants={fadeInUp}
@@ -384,13 +377,13 @@ const CareerPage = () => {
                                 <span>Branch Banking</span> | Full-time
                               </div>
                             </div>
-                          </motion.div>
+                          </AnimationDiv>
                         </Link>
                       </li>
 
                       <li>
                         <Link href="/job-application">
-                          <motion.div
+                          <AnimationDiv
                             className="single-feature-job wow fadeInUp"
                             data-wow-delay="0.7s"
                             variants={fadeInUp}
@@ -412,7 +405,7 @@ const CareerPage = () => {
                                 <span>Branch Banking</span> | Full-time
                               </div>
                             </div>
-                          </motion.div>
+                          </AnimationDiv>
                         </Link>
                       </li>
                     </ul>
@@ -420,7 +413,7 @@ const CareerPage = () => {
                 </div>
 
                 <div className="col-lg-5 mt-lg-0 mt-4">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-job-description wow fadeInUp"
                     data-wow-delay="0.1s"
                     variants={fadeInUp}
@@ -458,7 +451,7 @@ const CareerPage = () => {
                     >
                       Apply Now <i className="arrow_right"></i>
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
             </div>
@@ -467,7 +460,7 @@ const CareerPage = () => {
           <section className="recruitment-procces bg_disable pt-120 pb-100">
             <div className="container">
               <div className="section-title text-start">
-                <motion.h2 
+                <AnimationH2 
                   className="wow fadeInUp"
                   variants={fadeInUp}
                   initial="hidden"
@@ -475,8 +468,8 @@ const CareerPage = () => {
                   viewport={{ once: true, amount: 0.2 }}
                 >
                   Learn our recruitment process
-                </motion.h2>
-                <motion.p 
+                </AnimationH2>
+                <AnimationP 
                   className="wow fadeInUp" 
                   data-wow-delay="0.3s"
                   variants={fadeInUp}
@@ -489,12 +482,12 @@ const CareerPage = () => {
                   organization. It sources the candidates with the abilities and
                   attitude, which are required for achieving the objectives of
                   an organization.
-                </motion.p>
+                </AnimationP>
               </div>
 
               <div className="row pt-60 pb-100 gy-4 gy-lg-0">
                 <div className="col-md-6 col-lg-3">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-2 wow fadeInUp text-start py-5"
                     data-wow-delay="0.1s"
                     variants={fadeInUp}
@@ -512,10 +505,10 @@ const CareerPage = () => {
                       Submit your CV or resume through our online portal if you
                       meet our requirements.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-md-6 col-lg-3">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-2 wow fadeInUp text-start py-5"
                     data-wow-delay="0.3s"
                     variants={fadeInUp}
@@ -533,10 +526,10 @@ const CareerPage = () => {
                       After looking at your CV you will be inviled for a
                       telephone interview at a time.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-md-6 col-lg-3">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-2 wow fadeInUp text-start py-5"
                     data-wow-delay="0.5s"
                     variants={fadeInUp}
@@ -554,10 +547,10 @@ const CareerPage = () => {
                       You will be invited at our head office to take a skills
                       and knowledge assessment.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-md-6 col-lg-3">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-2 wow fadeInUp text-start py-5"
                     data-wow-delay="0.7s"
                     variants={fadeInUp}
@@ -575,13 +568,13 @@ const CareerPage = () => {
                       If you can pass all stages we will invite you for a final
                       interview with our CEO.
                     </p>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
 
               <div className="row our-offer gy-4 gy-md-0">
                 <div className="col-md-6">
-                  <motion.div
+                  <AnimationDiv
                     className="single-offer-box wow fadeInRight"
                     data-wow-delay="0.1s"
                     variants={fadeInRight}
@@ -597,11 +590,11 @@ const CareerPage = () => {
                     <Link href="/loan-steps">
                       <span>Read more</span> <i className="arrow_right"></i>
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
 
                 <div className="col-md-6">
-                  <motion.div
+                  <AnimationDiv
                     className="single-offer-box wow fadeInRight"
                     data-wow-delay="0.3s"
                     variants={fadeInRight}
@@ -617,7 +610,7 @@ const CareerPage = () => {
                     <Link href="/contact-us">
                       <span>Read more</span> <i className="arrow_right"></i>
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
             </div>

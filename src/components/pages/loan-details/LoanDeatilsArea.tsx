@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
 import icon41 from "@/assets/img/apply-loan/icon-4.1.png";

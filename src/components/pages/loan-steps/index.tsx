@@ -1,11 +1,4 @@
-"use client"
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
 import "@/styles/css/nice-select.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
-
 import LoanAccordion from "@/components/LoanAccordion";
 import Image from "next/image";
 import Link from "next/link";
@@ -56,8 +49,8 @@ import ctaIcon3 from "@/assets/img/cta/icon-3.png";
 import ctaIcon4 from "@/assets/img/cta/icon-4.png";
 import ctaIcon5 from "@/assets/img/cta/icon-5.png";
 import ctaIcon6 from "@/assets/img/cta/icon-6.png";
-import { motion } from "framer-motion";
 import { fadeInRight, fadeInUp } from "@/components/animation";
+import AnimationDiv, { AnimationH1, AnimationH2, AnimationLink, AnimationP } from "@/components/animation/AnimationDiv";
 
 const LoanStepsPage = () => {
   return (
@@ -79,7 +72,7 @@ const LoanStepsPage = () => {
                       src={bannerShape3}
                       alt="shape"
                     />
-                    <motion.h1
+                    <AnimationH1
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -87,8 +80,8 @@ const LoanStepsPage = () => {
                       className="wow fadeInUp mb-0"
                     >
                       Flexible home loans for the international lifestyle.
-                    </motion.h1>
-                    <motion.p
+                    </AnimationH1>
+                    <AnimationP
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -98,8 +91,8 @@ const LoanStepsPage = () => {
                     >
                       Banca is the one you can rely that will support you all
                       the way by offering Home Loan facilities.
-                    </motion.p>
-                    <motion.a
+                    </AnimationP>
+                    <AnimationLink
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -109,12 +102,12 @@ const LoanStepsPage = () => {
                       className="wow fadeInUp theme-btn theme-btn-lg mt-50"
                     >
                       Apply now <i className="arrow_right"></i>
-                    </motion.a>
+                    </AnimationLink>
                   </div>
                 </div>
                 <div className=" col-md-6 col-lg-5 offset-lg-1 pt-40">
                   <div className="banner-img">
-                    <motion.div
+                    <AnimationDiv
                       variants={fadeInRight}
                       initial="hidden"
                       whileInView="show"
@@ -126,7 +119,7 @@ const LoanStepsPage = () => {
                       priority
                       alt="banner-img"
                     />
-                    </motion.div>
+                    </AnimationDiv>
                     <div className="shapes">
                       <Image
                         data-parallax='{"x": 0, "y": 130, "rotateZ":0}'
@@ -166,7 +159,7 @@ const LoanStepsPage = () => {
               <div className="feature">
                 <div className="row gy-lg-0 gy-4">
                   <div className="col-lg-4">
-                    <motion.div
+                    <AnimationDiv
                       variants={fadeInRight}
                       initial="hidden"
                       whileInView="show"
@@ -190,10 +183,10 @@ const LoanStepsPage = () => {
                         <p>UP TO $5M</p>
                         <h6>High Rang Loan</h6>
                       </div>
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
                   <div className="col-lg-4">
-                    <motion.div
+                    <AnimationDiv
                       variants={fadeInRight}
                       initial="hidden"
                       whileInView="show"
@@ -216,10 +209,10 @@ const LoanStepsPage = () => {
                         <p>FROM 7.50%</p>
                         <h6>Offer Low Interest</h6>
                       </div>
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
                   <div className="col-lg-4">
-                    <motion.div
+                    <AnimationDiv
                       variants={fadeInRight}
                       initial="hidden"
                       whileInView="show"
@@ -241,7 +234,7 @@ const LoanStepsPage = () => {
                         <p>7 DAYS PROCESS</p>
                         <h6>Fast & Easy Process</h6>
                       </div>
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
                 </div>
               </div>
@@ -317,7 +310,7 @@ const LoanStepsPage = () => {
               <div className="row">
                 <div className="col-lg-8 mx-auto">
                   <div className="section-title">
-                    <motion.h2
+                    <AnimationH2
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -325,8 +318,8 @@ const LoanStepsPage = () => {
                       className="wow fadeInUp"
                     >
                       Manage your corporate finances by yourself or in a team
-                    </motion.h2>
-                    <motion.p
+                    </AnimationH2>
+                    <AnimationP
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -335,14 +328,14 @@ const LoanStepsPage = () => {
                       data-wow-delay="0.3s"
                     >
                       To replace or complement your bank
-                    </motion.p>
+                    </AnimationP>
                   </div>
                 </div>
               </div>
 
               <div className="row pt-60 gy-4 gy-xl-0">
                 <div className="col-xl-3 col-md-6">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -364,10 +357,10 @@ const LoanStepsPage = () => {
                     >
                       Find Out More
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-xl-3 col-md-6">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -388,10 +381,10 @@ const LoanStepsPage = () => {
                     >
                       Find Out More
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-xl-3 col-md-6">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -413,10 +406,10 @@ const LoanStepsPage = () => {
                     >
                       Find Out More
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-xl-3 col-md-6">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -438,7 +431,7 @@ const LoanStepsPage = () => {
                     >
                       Find Out More
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
             </div>
@@ -449,7 +442,7 @@ const LoanStepsPage = () => {
               <div className="row">
                 <div className="col-md-8 mx-auto">
                   <div className="section-title">
-                    <motion.h2
+                    <AnimationH2
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -457,8 +450,8 @@ const LoanStepsPage = () => {
                       className="wow fadeInUp mb-3"
                     >
                       Here is how it works.
-                    </motion.h2>
-                    <motion.p
+                    </AnimationH2>
+                    <AnimationP
                       variants={fadeInUp}
                       initial="hidden"
                       whileInView="show"
@@ -468,14 +461,14 @@ const LoanStepsPage = () => {
                     >
                       When you are ready, Cardinal Loans is ready too - 24 hours
                       a day, 7 days a week.
-                    </motion.p>
+                    </AnimationP>
                   </div>
                 </div>
               </div>
 
               <div className="row pt-60 gy-lg-0 gy-4">
                 <div className="col-lg-6 pe-lg-5">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -529,11 +522,11 @@ const LoanStepsPage = () => {
                         </span>
                       </li>
                     </ul>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
 
                 <div className="col-lg-6 ps-lg-0">
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -583,7 +576,7 @@ const LoanStepsPage = () => {
                         <span className="text">We help your qualify</span>{" "}
                       </li>
                     </ul>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
             </div>
@@ -629,7 +622,7 @@ const LoanStepsPage = () => {
           <section className="faq-area pt-125 pb-200">
             <div className="container">
               <div className="section-title text-start">
-                <motion.h2
+                <AnimationH2
                   variants={fadeInUp}
                   initial="hidden"
                   whileInView="show"
@@ -637,7 +630,7 @@ const LoanStepsPage = () => {
                   className="mb-0 wow fadeInUp"
                 >
                   Frequently asked questions
-                </motion.h2>
+                </AnimationH2>
               </div>
 
              

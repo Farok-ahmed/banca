@@ -1,5 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "@/styles/css/elegant-icons.min.css";
+import "@/styles/css/all.min.css";
+import "@/styles/css/animate.css";
+import "@/styles/css/default.css";
 import "@/styles/sass/style.scss";
+import "@/styles/css/responsive.css";
 import type { Metadata } from 'next';
 import BackToTop from '@/components/BackToTop';
 import PreLoader from '@/components/Loader';

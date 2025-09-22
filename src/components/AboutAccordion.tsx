@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
+import AnimationDiv from './animation/AnimationDiv';
 
 const faqs = [
   {
@@ -65,7 +66,7 @@ const AboutAccordion = () => {
   return (
     <section className="faq-area-2 pt-125 pb-200 bg_white">
       <div className="container">
-        <motion.div 
+        <AnimationDiv 
           className="section-title"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,11 +74,11 @@ const AboutAccordion = () => {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2>Frequently asked questions</h2>
-        </motion.div>
+        </AnimationDiv>
         <div className="row">
           <div className="col-lg-10 mx-auto">
             <div className="faq-widget">
-              <motion.div 
+              <AnimationDiv 
                 className="accordion" 
                 id="accordionExample"
                 variants={containerVariants}
@@ -133,7 +134,7 @@ const AboutAccordion = () => {
 
                       <AnimatePresence>
                         {activeIndex === index && (
-                          <motion.div
+                          <AnimationDiv
                             id={`collapse${index}`}
                             className="collapse show"
                             aria-labelledby={`heading${index}`}
@@ -147,7 +148,7 @@ const AboutAccordion = () => {
                             }}
                             style={{ overflow: "hidden" }}
                           >
-                            <motion.div 
+                            <AnimationDiv 
                               className="faq-body pr-lg-130"
                               initial={{ opacity: 0, y: -10 }}
                               animate={{ opacity: 1, y: 0 }}
@@ -155,14 +156,14 @@ const AboutAccordion = () => {
                               transition={{ delay: 0.1, duration: 0.3 }}
                             >
                               <p>{faq.content}</p>
-                            </motion.div>
-                          </motion.div>
+                            </AnimationDiv>
+                          </AnimationDiv>
                         )}
                       </AnimatePresence>
                     </div>
                   </div>
                 ))}
-              </motion.div>
+              </AnimationDiv>
             </div>
           </div>
         </div>

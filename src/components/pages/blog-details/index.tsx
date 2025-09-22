@@ -1,15 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client"
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight } from "@/components/animation";
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
 import "@/styles/css/nice-select.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
 import DefaultLayout from "@/components/Layout";
 import SubscribeForm from "./SubscribeForm";
 import ReplyForm from "./ReplyForm";
@@ -19,7 +12,6 @@ import polygon4 from "@/assets/img/breadcrumb/Polygon-4.png";
 import userProfilePng from "@/assets/img/blog/user-profile.png";
 import calendarOutlinePng from "@/assets/img/blog/calendar-outline.png";
 import blogDetailsImg from "@/assets/img/blog/blog-details-img.jpg";
-import quoteAuthor from "@/assets/img/blog/quote-author.png";
 import blogDetailsImg2 from "@/assets/img/blog/blog-details-img-2.jpg";
 import author1 from "@/assets/img/blog/author-1.png";
 import blog9 from "@/assets/img/blog/blog-9.png";
@@ -36,6 +28,8 @@ import recentPost4 from "@/assets/img/blog/recent-post-4.png";
 import comment1 from "@/assets/img/blog/comment-1.png";
 import comment2 from "@/assets/img/blog/comment-2.png";
 import comment3 from "@/assets/img/blog/comment-3.png";
+import AnimationDiv, { AnimationH1, AnimationH2, AnimationH4, AnimationP } from "@/components/animation/AnimationDiv";
+import SettingList from "./SettingList";
 
 const BlogDetailsPage: React.FC = () => {
   return (
@@ -65,15 +59,15 @@ const BlogDetailsPage: React.FC = () => {
                 <div className="row">
                   <div className="col-lg-8 mx-auto">
                     <div className="breadcrumb-content pt-50">
-                      <motion.h1
+                      <AnimationH1
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: true, amount: 0.2 }}
                         variants={fadeInUp}
                       >
                         How To Save Enough Money To Buy A Home
-                      </motion.h1>
-                      <motion.div 
+                      </AnimationH1>
+                      <AnimationDiv 
                         className="post-info mt-5"
                         initial="hidden"
                         whileInView="show"
@@ -94,7 +88,7 @@ const BlogDetailsPage: React.FC = () => {
                           <Image src={calendarOutlinePng} alt="icon" />
                           <span>March 18, 2021</span>
                         </div>
-                      </motion.div>
+                      </AnimationDiv>
                     </div>
                   </div>
                 </div>
@@ -106,7 +100,7 @@ const BlogDetailsPage: React.FC = () => {
             <div className="container">
               <div className="row gy-lg-0 gy-4">
                 <div className="col-lg-1 position-relative">
-                  <motion.div 
+                  <AnimationDiv 
                     className="blog-share-widget d-flex d-lg-block align-items-center"
                     initial="hidden"
                     whileInView="show"
@@ -128,11 +122,11 @@ const BlogDetailsPage: React.FC = () => {
                         <i className="fab fa-twitter"></i>
                       </Link>
                     </div>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-7">
                   <div className="post-details-widget pb-70 border-bottom position-relative">
-                    <motion.div
+                    <AnimationDiv
                       initial="hidden"
                       whileInView="show"
                       viewport={{ once: true, amount: 0.2 }}
@@ -144,9 +138,9 @@ const BlogDetailsPage: React.FC = () => {
                         style={{width:"auto",height:"auto"}}
                         alt="post image"
                       />
-                    </motion.div>
+                    </AnimationDiv>
 
-                    <motion.p 
+                    <AnimationP 
                       className="post-text mt-35"
                       initial="hidden"
                       whileInView="show"
@@ -160,8 +154,8 @@ const BlogDetailsPage: React.FC = () => {
                       Richard spiffing a load of old tosh porkies hunky-dory
                       ruddy dropped a clanger. Plastered it's all gone to pot I
                       brilliant young delinquent excuse my French
-                    </motion.p>
-                    <motion.p 
+                    </AnimationP>
+                    <AnimationP 
                       className="post-text mb-0"
                       initial="hidden"
                       whileInView="show"
@@ -174,49 +168,10 @@ const BlogDetailsPage: React.FC = () => {
                       burke blow off bits and bobs faff about dropped a clanger,
                       such a fibber so I said spiffing codswallop bite your arm
                       off my lady bleeding tosser.
-                    </motion.p>
+                    </AnimationP>
 
-                    <motion.ul 
-                      className="feature-list"
-                      initial="hidden"
-                      whileInView="show"
-                      viewport={{ once: true, amount: 0.2 }}
-                      variants={fadeInUp}
-                      transition={{ delay: 0.3 }}
-                    >
-                      <li>Shop configurations</li>
-                      <li>Installing Sylius ecommerce shop</li>
-                      <li>Check system requirements</li>
-                      <li>Setting up the database</li>
-                      <li>Loading sample data for the environment</li>
-                      <li>Assets installation</li>
-                    </motion.ul>
-                    <motion.blockquote 
-                      initial="hidden"
-                      whileInView="show"
-                      viewport={{ once: true, amount: 0.2 }}
-                      variants={fadeInUp}
-                      transition={{ delay: 0.4 }}
-                    >
-                      <p>
-                        He legged it that blatant brown bread some dodgy chav
-                        super a blinding shot my lady lavatory cup of char cor
-                        blimey guvnor get stuffed mate you mug cobblers off his
-                        nut pukka
-                      </p>
-                      <div className="author">
-                        <Image
-                          className="img-fluid rounded-circle"
-                          src={quoteAuthor}
-                          alt=""
-                        />
-                        <div>
-                          <h6>Jesus Requena </h6>
-                          <span>Support Engineer, Aliexpress</span>
-                        </div>
-                      </div>
-                    </motion.blockquote>
-                    <motion.div
+                    <SettingList/>
+                    <AnimationDiv
                       initial="hidden"
                       whileInView="show"
                       viewport={{ once: true, amount: 0.2 }}
@@ -229,8 +184,8 @@ const BlogDetailsPage: React.FC = () => {
                         style={{width:"auto",height:"auto"}}
                         alt="post img"
                       />
-                    </motion.div>
-                    <motion.p 
+                    </AnimationDiv>
+                    <AnimationP 
                       className="post-text mt-40 pb-2"
                       initial="hidden"
                       whileInView="show"
@@ -249,9 +204,9 @@ const BlogDetailsPage: React.FC = () => {
                       morish do one wellies zonked I. Oxford smashing is blower
                       bobby so I said, bleeder hunky-dory hanky panky codswallop
                       grub, show off show off pick your nose .
-                    </motion.p>
+                    </AnimationP>
 
-                    <motion.h2
+                    <AnimationH2
                       initial="hidden"
                       whileInView="show"
                       viewport={{ once: true, amount: 0.2 }}
@@ -259,8 +214,8 @@ const BlogDetailsPage: React.FC = () => {
                       transition={{ delay: 0.2 }}
                     >
                       Install Sylius via SSH
-                    </motion.h2>
-                    <motion.p 
+                    </AnimationH2>
+                    <AnimationP 
                       className="post-text mt-20"
                       initial="hidden"
                       whileInView="show"
@@ -273,8 +228,8 @@ const BlogDetailsPage: React.FC = () => {
                       off bugger all mate, jolly good brolly posh ummm I'm
                       telling get stuffed mate up the duff haggle lost the plot
                       off his nut wind up loo, I don't want no agro.
-                    </motion.p>
-                    <motion.div 
+                    </AnimationP>
+                    <AnimationDiv 
                       className="tag-widget mt-35"
                       initial="hidden"
                       whileInView="show"
@@ -286,9 +241,9 @@ const BlogDetailsPage: React.FC = () => {
                       <Link href="#">business</Link>
                       <Link href="#">web design</Link>
                       <Link href="#">software</Link>
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
-                  <motion.div 
+                  <AnimationDiv 
                     className="author-media-widget mt-90 mb-90"
                     initial="hidden"
                     whileInView="show"
@@ -312,9 +267,9 @@ const BlogDetailsPage: React.FC = () => {
                         skive off.!
                       </p>
                     </div>
-                  </motion.div>
+                  </AnimationDiv>
                   <div className="related-post-widget pb-90">
-                    <motion.h4 
+                    <AnimationH4 
                       className="blog-widget-title mb-45"
                       initial="hidden"
                       whileInView="show"
@@ -322,10 +277,10 @@ const BlogDetailsPage: React.FC = () => {
                       variants={fadeInUp}
                     >
                       Related Post
-                    </motion.h4>
+                    </AnimationH4>
                     <div className="row gy-md-0 gy-4">
                       <div className="col-md-6">
-                        <motion.div
+                        <AnimationDiv
                           className="blog-widget-2"
                           initial="hidden"
                           whileInView="show"
@@ -364,10 +319,10 @@ const BlogDetailsPage: React.FC = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-md-6">
-                        <motion.div
+                        <AnimationDiv
                           className="blog-widget-2"
                           initial="hidden"
                           whileInView="show"
@@ -406,13 +361,13 @@ const BlogDetailsPage: React.FC = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                     </div>
                   </div>
 
                   <div className="blog-comment-widget pb-90">
-                    <motion.h4 
+                    <AnimationH4 
                       className="blog-widget-title"
                       initial="hidden"
                       whileInView="show"
@@ -420,9 +375,9 @@ const BlogDetailsPage: React.FC = () => {
                       variants={fadeInUp}
                     >
                       3 Comments
-                    </motion.h4>
+                    </AnimationH4>
 
-                    <motion.div 
+                    <AnimationDiv 
                       className="comment-author"
                       initial="hidden"
                       whileInView="show"
@@ -521,10 +476,10 @@ const BlogDetailsPage: React.FC = () => {
                           </div>
                         </li>
                       </ul>
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
 
-                  <motion.div 
+                  <AnimationDiv 
                     className="blog-leave-reply"
                     initial="hidden"
                     whileInView="show"
@@ -538,12 +493,12 @@ const BlogDetailsPage: React.FC = () => {
                       are marked *
                     </p>
                     <ReplyForm />
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
 
                 <div className="col-lg-4 ps-xl-5">
                   <div className="blog-sidebar-widget ps-lg-2">
-                    <motion.div 
+                    <AnimationDiv 
                       className="widget-subscribe"
                       initial="hidden"
                       whileInView="show"
@@ -556,9 +511,9 @@ const BlogDetailsPage: React.FC = () => {
                       <p>Get the latest posts in your email</p>
 
                       <SubscribeForm />
-                    </motion.div>
+                    </AnimationDiv>
 
-                    <motion.div 
+                    <AnimationDiv 
                       className="widget-social mt-40"
                       initial="hidden"
                       whileInView="show"
@@ -589,9 +544,9 @@ const BlogDetailsPage: React.FC = () => {
                           </Link>
                         </div>
                       </div>
-                    </motion.div>
+                    </AnimationDiv>
 
-                    <motion.div 
+                    <AnimationDiv 
                       className="widget-catagory mt-55"
                       initial="hidden"
                       whileInView="show"
@@ -638,9 +593,9 @@ const BlogDetailsPage: React.FC = () => {
                           </Link>{" "}
                         </li>
                       </ul>
-                    </motion.div>
+                    </AnimationDiv>
 
-                    <motion.div 
+                    <AnimationDiv 
                       className="widget-news mt-50"
                       initial="hidden"
                       whileInView="show"
@@ -706,8 +661,8 @@ const BlogDetailsPage: React.FC = () => {
                           </div>
                         </li>
                       </ul>
-                    </motion.div>
-                    <motion.div 
+                    </AnimationDiv>
+                    <AnimationDiv 
                       className="widget-tags mt-50"
                       initial="hidden"
                       whileInView="show"
@@ -730,7 +685,7 @@ const BlogDetailsPage: React.FC = () => {
                         <Link href="#">security</Link>
                         <Link href="#">agency</Link>
                       </div>
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
                 </div>
               </div>

@@ -1,11 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import DefaultLayout from "@/components/Layout";
 import React from "react";
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
 import NewsLatter from "@/components/common-section/NewsLatter";
 import Link from "next/link";
 const Typography = () => {

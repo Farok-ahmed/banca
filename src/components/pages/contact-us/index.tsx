@@ -1,17 +1,9 @@
-"use client";
 /* eslint-disable react/no-unescaped-entities */
 import AboutAccordion from "@/components/AboutAccordion";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft, fadeInRight } from "@/components/animation";
-
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
 import "@/styles/css/nice-select.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
 import DefaultLayout from "@/components/Layout";
 import ContactForm from "./ContactForm";
 // Assets
@@ -21,6 +13,7 @@ import helpIcon2 from "@/assets/img/contact/help-icon-2.svg";
 import helpIcon3 from "@/assets/img/contact/help-icon-3.svg";
 import ctaWave from "@/assets/img/cta/wave.png";
 import { FaPhoneAlt, FaRegEnvelopeOpen } from "react-icons/fa";
+import AnimationDiv, { AnimationH2, AnimationP } from "@/components/animation/AnimationDiv";
 
 const ContactUsPage = () => {
   return (
@@ -126,7 +119,7 @@ const ContactUsPage = () => {
               <div className="row ">
                 <div className="col-md-8 mx-auto">
                   <div className="section-title">
-                    <motion.h2 
+                    <AnimationH2 
                       className="wow fadeInUp"
                       variants={fadeInUp}
                       initial="hidden"
@@ -134,8 +127,8 @@ const ContactUsPage = () => {
                       viewport={{ once: true, amount: 0.2 }}
                     >
                       Need more help?
-                    </motion.h2>
-                    <motion.p 
+                    </AnimationH2>
+                    <AnimationP 
                       className="wow fadeInUp" 
                       data-wow-delay="0.3s"
                       variants={fadeInUp}
@@ -145,13 +138,13 @@ const ContactUsPage = () => {
                     >
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                       sed do eiusmod tempor.
-                    </motion.p>
+                    </AnimationP>
                   </div>
                 </div>
               </div>
               <div className="row mt-60 gy-lg-0 gy-4">
                 <div className="col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-4 wow fadeInUp"
                     data-wow-delay="0.1s"
                     variants={fadeInUp}
@@ -171,10 +164,10 @@ const ContactUsPage = () => {
                     >
                       Visit Knowledge Base
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-4 wow fadeInUp"
                     data-wow-delay="0.3s"
                     variants={fadeInUp}
@@ -194,10 +187,10 @@ const ContactUsPage = () => {
                     >
                       Chat With Support
                     </Link>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
                 <div className="col-lg-4">
-                  <motion.div
+                  <AnimationDiv
                     className="feature-card-widget-4 wow fadeInUp"
                     data-wow-delay="0.5s"
                     variants={fadeInUp}
@@ -225,7 +218,7 @@ const ContactUsPage = () => {
                         <i className="fab fa-linkedin-in"></i>
                       </Link>
                     </div>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               </div>
             </div>
@@ -243,7 +236,7 @@ const ContactUsPage = () => {
                   >
                     <div className="row align-items-center">
                       <div className="col-lg-7">
-                        <motion.div 
+                        <AnimationDiv 
                           className="cta-content wow fadeInRight text-center text-lg-start"
                           variants={fadeInRight}
                           initial="hidden"
@@ -253,12 +246,12 @@ const ContactUsPage = () => {
                           <h2 className="mb-0">
                             Meet Banca, the financial partner you can bank on.
                           </h2>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
 
                       <div className="col-lg-5 mt-4 mt-lg-0 text-center ">
                         <div className="cta-content  text-center text-lg-end">
-                          <motion.div
+                          <AnimationDiv
                             variants={fadeInLeft}
                             initial="hidden"
                             whileInView="show"
@@ -270,7 +263,7 @@ const ContactUsPage = () => {
                             >
                               Open an Account
                             </Link>
-                          </motion.div>
+                          </AnimationDiv>
                         </div>
                       </div>
                     </div>

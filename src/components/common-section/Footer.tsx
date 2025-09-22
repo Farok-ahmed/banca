@@ -4,10 +4,10 @@ import Link from "next/link";
 
 import Logo from "@/assets/img/logo/Logo.png";
 import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
 import { fadeInLeft, fadeInUp } from "../animation";
 import Counter from "./Counter";
 import { formatedDate } from "@/utils/dateFormat";
+import AnimationDiv from "../animation/AnimationDiv";
 const Footer = () => {
   const pathName = usePathname();
   const error = pathName === "/error";
@@ -16,6 +16,12 @@ const Footer = () => {
   const typography = pathName ==="/typography";
   const contactUs = pathName ==="/contact-us";
   const isTopPadding = home || loanSteps || typography || contactUs;
+   const indexCompany = pathName === "/index-company";
+  const mobileApp = pathName === "/mobile-app";
+  const simpleBanca = pathName === "/simple-banca";
+  const financeSass = pathName === "/finance-sass-app";
+  const smallBank = pathName === "/small-bank";
+  if (indexCompany || mobileApp || simpleBanca || financeSass || smallBank) return null;
   if (error) return null;
   return (
     <>
@@ -26,7 +32,7 @@ const Footer = () => {
             <div className="row gx-0 pt-60">
               {/* About */}
               <div className="col-lg-4 col-sm-6 text-center text-sm-start">
-                <motion.div
+                <AnimationDiv
                   variants={fadeInLeft}
                   initial="hidden"
                   whileInView="show"
@@ -58,7 +64,7 @@ const Footer = () => {
                     </span>
                   </div>
                   <p className="time"> {formatedDate} (INTERNATIONAL TIME)</p>
-                </motion.div>
+                </AnimationDiv>
               </div>
 
               {/* Link Columns */}
@@ -133,7 +139,7 @@ const Footer = () => {
                     index === 0 ? "ms-lg-5" : ""
                   }`}
                 >
-                  <motion.div
+                  <AnimationDiv
                     variants={fadeInUp}
                     initial="hidden"
                     whileInView="show"
@@ -153,7 +159,7 @@ const Footer = () => {
                         ))}
                       </ul>
                     </div>
-                  </motion.div>
+                  </AnimationDiv>
                 </div>
               ))}
             </div>

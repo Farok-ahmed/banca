@@ -1,14 +1,7 @@
-"use client"
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { fadeInUp, fadeInLeft } from "@/components/animation";
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
-import "@/styles/css/animate.css";
 import "@/styles/css/nice-select.css";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
 import DefaultLayout from "@/components/Layout";
 import breadcrumbBg from "@/assets/img/breadcrumb/bg-3.jpg";
 import polygon1 from "@/assets/img/breadcrumb/Polygon-1.png";
@@ -32,6 +25,7 @@ import recentPost1 from "@/assets/img/blog/recent-post-1.png";
 import recentPost2 from "@/assets/img/blog/recent-post-2.png";
 import recentPost3 from "@/assets/img/blog/recent-post-3.png";
 import recentPost4 from "@/assets/img/blog/recent-post-4.png";
+import AnimationDiv, { AnimationH1 } from "@/components/animation/AnimationDiv";
 
 const BlogListingPage = () => {
   return (
@@ -61,15 +55,15 @@ const BlogListingPage = () => {
                 <div className="row">
                   <div className="col-lg-7 mx-auto">
                     <div className="breadcrumb-content pt-50">
-                      <motion.h1
+                      <AnimationH1
                         initial="hidden"
                         whileInView="show"
                         viewport={{ once: true, amount: 0.2 }}
                         variants={fadeInUp}
                       >
                         Blog
-                      </motion.h1>
-                      <motion.div 
+                      </AnimationH1>
+                      <AnimationDiv 
                         className="search-box mt-20"
                         initial="hidden"
                         whileInView="show"
@@ -90,9 +84,9 @@ const BlogListingPage = () => {
                             </button>
                           </div>
                         </form>
-                      </motion.div>
+                      </AnimationDiv>
 
-                      <motion.div 
+                      <AnimationDiv 
                         className="popular-tags d-flex flex-wrap justify-content-center align-items-center mt-20"
                         initial="hidden"
                         whileInView="show"
@@ -104,7 +98,7 @@ const BlogListingPage = () => {
                         <Link href="#">Business</Link>
                         <Link href="#">Financial</Link>
                         <Link href="#">Case Study</Link>
-                      </motion.div>
+                      </AnimationDiv>
                     </div>
                   </div>
                 </div>
@@ -119,7 +113,7 @@ const BlogListingPage = () => {
                   <div className="blog-post-widget">
                     <div className="row gy-4 ">
                       <div className="col-md-6">
-                        <motion.div
+                        <AnimationDiv
                           className="blog-widget-2"
                           initial="hidden"
                           whileInView="show"
@@ -152,10 +146,10 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-md-6">
-                        <motion.div
+                        <AnimationDiv
                           className="blog-widget-2"
                           initial="hidden"
                           whileInView="show"
@@ -188,10 +182,10 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-md-6">
-                        <motion.div
+                        <AnimationDiv
                           className="blog-widget-2"
                           initial="hidden"
                           whileInView="show"
@@ -224,10 +218,10 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-md-6">
-                        <motion.div
+                        <AnimationDiv
                           className="blog-widget-2"
                           initial="hidden"
                           whileInView="show"
@@ -260,10 +254,10 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-md-6">
-                        <motion.div
+                        <AnimationDiv
                           className="blog-widget-2"
                           initial="hidden"
                           whileInView="show"
@@ -298,10 +292,10 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-md-6">
-                        <motion.div
+                        <AnimationDiv
                           className="blog-widget-2"
                           initial="hidden"
                           whileInView="show"
@@ -334,10 +328,10 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-md-6">
-                        <motion.div
+                        <AnimationDiv
                           className="blog-widget-2"
                           initial="hidden"
                           whileInView="show"
@@ -370,10 +364,10 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-md-6">
-                        <motion.div
+                        <AnimationDiv
                           className="blog-widget-2"
                           initial="hidden"
                           whileInView="show"
@@ -406,10 +400,10 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-md-6">
-                        <motion.div
+                        <AnimationDiv
                           className="blog-widget-2"
                           initial="hidden"
                           whileInView="show"
@@ -442,10 +436,10 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                       <div className="col-md-6">
-                        <motion.div
+                        <AnimationDiv
                           className="blog-widget-2"
                           initial="hidden"
                           whileInView="show"
@@ -478,12 +472,12 @@ const BlogListingPage = () => {
                               </div>
                             </div>
                           </div>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                     </div>
                     <div className="row mt-55">
                       <div className="col-12">
-                        <motion.div 
+                        <AnimationDiv 
                           className="pagination-widget"
                           initial="hidden"
                           whileInView="show"
@@ -509,14 +503,14 @@ const BlogListingPage = () => {
                               </Link>
                             </li>
                           </ul>
-                        </motion.div>
+                        </AnimationDiv>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-lg-4 ps-xl-5 mt-5 mt-lg-0">
                   <div className="blog-sidebar-widget ps-lg-2">
-                    <motion.div 
+                    <AnimationDiv 
                       className="widget-subscribe"
                       initial="hidden"
                       whileInView="show"
@@ -538,9 +532,9 @@ const BlogListingPage = () => {
                           Subscribe
                         </button>
                       </form>
-                    </motion.div>
+                    </AnimationDiv>
 
-                    <motion.div 
+                    <AnimationDiv 
                       className="widget-social mt-40"
                       initial="hidden"
                       whileInView="show"
@@ -571,9 +565,9 @@ const BlogListingPage = () => {
                           </Link>
                         </div>
                       </div>
-                    </motion.div>
+                    </AnimationDiv>
 
-                    <motion.div 
+                    <AnimationDiv 
                       className="widget-catagory mt-55"
                       initial="hidden"
                       whileInView="show"
@@ -620,9 +614,9 @@ const BlogListingPage = () => {
                           </Link>{" "}
                         </li>
                       </ul>
-                    </motion.div>
+                    </AnimationDiv>
 
-                    <motion.div 
+                    <AnimationDiv 
                       className="widget-news mt-50"
                       initial="hidden"
                       whileInView="show"
@@ -690,8 +684,8 @@ const BlogListingPage = () => {
                           </div>
                         </li>
                       </ul>
-                    </motion.div>
-                    <motion.div 
+                    </AnimationDiv>
+                    <AnimationDiv 
                       className="widget-tags mt-50"
                       initial="hidden"
                       whileInView="show"
@@ -714,7 +708,7 @@ const BlogListingPage = () => {
                         <Link href="#">sequrity</Link>
                         <Link href="#">agency</Link>
                       </div>
-                    </motion.div>
+                    </AnimationDiv>
                   </div>
                 </div>
               </div>
