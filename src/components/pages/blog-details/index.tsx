@@ -28,7 +28,12 @@ import recentPost4 from "@/assets/img/blog/recent-post-4.png";
 import comment1 from "@/assets/img/blog/comment-1.png";
 import comment2 from "@/assets/img/blog/comment-2.png";
 import comment3 from "@/assets/img/blog/comment-3.png";
-import AnimationDiv, { AnimationH1, AnimationH2, AnimationH4, AnimationP } from "@/components/animation/AnimationDiv";
+import AnimationDiv, {
+  AnimationH1,
+  AnimationH2,
+  AnimationH4,
+  AnimationP,
+} from "@/components/animation/AnimationDiv";
 import SettingList from "./SettingList";
 
 const BlogDetailsPage: React.FC = () => {
@@ -67,7 +72,7 @@ const BlogDetailsPage: React.FC = () => {
                       >
                         How To Save Enough Money To Buy A Home
                       </AnimationH1>
-                      <AnimationDiv 
+                      <AnimationDiv
                         className="post-info mt-5"
                         initial="hidden"
                         whileInView="show"
@@ -100,7 +105,7 @@ const BlogDetailsPage: React.FC = () => {
             <div className="container">
               <div className="row gy-lg-0 gy-4">
                 <div className="col-lg-1 position-relative">
-                  <AnimationDiv 
+                  <AnimationDiv
                     className="blog-share-widget d-flex d-lg-block align-items-center"
                     initial="hidden"
                     whileInView="show"
@@ -135,12 +140,12 @@ const BlogDetailsPage: React.FC = () => {
                       <Image
                         className="post-img w-100"
                         src={blogDetailsImg}
-                        style={{width:"auto",height:"auto"}}
+                        style={{ width: "auto", height: "auto" }}
                         alt="post image"
                       />
                     </AnimationDiv>
 
-                    <AnimationP 
+                    <AnimationP
                       className="post-text mt-35"
                       initial="hidden"
                       whileInView="show"
@@ -155,7 +160,7 @@ const BlogDetailsPage: React.FC = () => {
                       ruddy dropped a clanger. Plastered it's all gone to pot I
                       brilliant young delinquent excuse my French
                     </AnimationP>
-                    <AnimationP 
+                    <AnimationP
                       className="post-text mb-0"
                       initial="hidden"
                       whileInView="show"
@@ -170,7 +175,7 @@ const BlogDetailsPage: React.FC = () => {
                       off my lady bleeding tosser.
                     </AnimationP>
 
-                    <SettingList/>
+                    <SettingList />
                     <AnimationDiv
                       initial="hidden"
                       whileInView="show"
@@ -181,11 +186,11 @@ const BlogDetailsPage: React.FC = () => {
                       <Image
                         className="post-img w-100"
                         src={blogDetailsImg2}
-                        style={{width:"auto",height:"auto"}}
+                        style={{ width: "auto", height: "auto" }}
                         alt="post img"
                       />
                     </AnimationDiv>
-                    <AnimationP 
+                    <AnimationP
                       className="post-text mt-40 pb-2"
                       initial="hidden"
                       whileInView="show"
@@ -215,7 +220,7 @@ const BlogDetailsPage: React.FC = () => {
                     >
                       Install Sylius via SSH
                     </AnimationH2>
-                    <AnimationP 
+                    <AnimationP
                       className="post-text mt-20"
                       initial="hidden"
                       whileInView="show"
@@ -229,7 +234,7 @@ const BlogDetailsPage: React.FC = () => {
                       telling get stuffed mate up the duff haggle lost the plot
                       off his nut wind up loo, I don't want no agro.
                     </AnimationP>
-                    <AnimationDiv 
+                    <AnimationDiv
                       className="tag-widget mt-35"
                       initial="hidden"
                       whileInView="show"
@@ -243,7 +248,7 @@ const BlogDetailsPage: React.FC = () => {
                       <Link href="#">software</Link>
                     </AnimationDiv>
                   </div>
-                  <AnimationDiv 
+                  <AnimationDiv
                     className="author-media-widget mt-90 mb-90"
                     initial="hidden"
                     whileInView="show"
@@ -269,7 +274,7 @@ const BlogDetailsPage: React.FC = () => {
                     </div>
                   </AnimationDiv>
                   <div className="related-post-widget pb-90">
-                    <AnimationH4 
+                    <AnimationH4
                       className="blog-widget-title mb-45"
                       initial="hidden"
                       whileInView="show"
@@ -289,7 +294,11 @@ const BlogDetailsPage: React.FC = () => {
                           transition={{ delay: 0.1 }}
                         >
                           <div className="blog-img">
-                            <Image src={blog9} alt="blog-img" style={{width:"auto",height:"auto"}} />
+                            <Image
+                              src={blog9}
+                              alt="blog-img"
+                              style={{ width: "auto", height: "auto" }}
+                            />
                             <div className="catagory bg_primary">buisiness</div>
                           </div>
                           <div className="blog-content">
@@ -331,7 +340,11 @@ const BlogDetailsPage: React.FC = () => {
                           transition={{ delay: 0.3 }}
                         >
                           <div className="blog-img">
-                            <Image src={blog7} alt="blog-img" style={{width:"auto",height:"auto"}} />
+                            <Image
+                              src={blog7}
+                              alt="blog-img"
+                              style={{ width: "auto", height: "auto" }}
+                            />
                             <div className="catagory bg_primary">buisiness</div>
                           </div>
                           <div className="blog-content">
@@ -367,7 +380,7 @@ const BlogDetailsPage: React.FC = () => {
                   </div>
 
                   <div className="blog-comment-widget pb-90">
-                    <AnimationH4 
+                    <AnimationH4
                       className="blog-widget-title"
                       initial="hidden"
                       whileInView="show"
@@ -377,7 +390,7 @@ const BlogDetailsPage: React.FC = () => {
                       3 Comments
                     </AnimationH4>
 
-                    <AnimationDiv 
+                    <AnimationDiv
                       className="comment-author"
                       initial="hidden"
                       whileInView="show"
@@ -479,7 +492,7 @@ const BlogDetailsPage: React.FC = () => {
                     </AnimationDiv>
                   </div>
 
-                  <AnimationDiv 
+                  <AnimationDiv
                     className="blog-leave-reply"
                     initial="hidden"
                     whileInView="show"
@@ -498,7 +511,7 @@ const BlogDetailsPage: React.FC = () => {
 
                 <div className="col-lg-4 ps-xl-5">
                   <div className="blog-sidebar-widget ps-lg-2">
-                    <AnimationDiv 
+                    <AnimationDiv
                       className="widget-subscribe"
                       initial="hidden"
                       whileInView="show"
@@ -513,7 +526,7 @@ const BlogDetailsPage: React.FC = () => {
                       <SubscribeForm />
                     </AnimationDiv>
 
-                    <AnimationDiv 
+                    <AnimationDiv
                       className="widget-social mt-40"
                       initial="hidden"
                       whileInView="show"
@@ -546,7 +559,7 @@ const BlogDetailsPage: React.FC = () => {
                       </div>
                     </AnimationDiv>
 
-                    <AnimationDiv 
+                    <AnimationDiv
                       className="widget-catagory mt-55"
                       initial="hidden"
                       whileInView="show"
@@ -595,7 +608,7 @@ const BlogDetailsPage: React.FC = () => {
                       </ul>
                     </AnimationDiv>
 
-                    <AnimationDiv 
+                    <AnimationDiv
                       className="widget-news mt-50"
                       initial="hidden"
                       whileInView="show"
@@ -662,7 +675,7 @@ const BlogDetailsPage: React.FC = () => {
                         </li>
                       </ul>
                     </AnimationDiv>
-                    <AnimationDiv 
+                    <AnimationDiv
                       className="widget-tags mt-50"
                       initial="hidden"
                       whileInView="show"

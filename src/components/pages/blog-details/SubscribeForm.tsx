@@ -1,12 +1,14 @@
-"use client"
+import { subscribeEmail } from "./HandleReply";
 
 const SubscribeForm = () => {
   return (
     <>
-      <form onSubmit={(e: React.FormEvent<HTMLFormElement>) => e.preventDefault()} className="mt-15">
+      <form action={subscribeEmail} className="mt-15">
         <input
           className="form-control"
           type="text"
+          name="email"
+          id="subscribeEmail"
           placeholder="Enter your email"
         />
         <button className="theme-btn w-100 mt-30" type="submit">
