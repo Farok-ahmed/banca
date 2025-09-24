@@ -1,17 +1,13 @@
-"use client";
-import "./custom.css";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React from "react";
 import Logo from "@/assets/img/logo/Logo.png";
 import { fadeInLeft, fadeInUp } from "../animation";
 import LanguageSelectTwo from "./LanguageSelectTwo";
 import AnimationDiv from "../animation/AnimationDiv";
+
 const FooterThree = () => {
-  const patheName = usePathname();
-  const mobile = patheName === "/mobile-app";
-  if (!mobile) return null;
+
   return (
     <>
       <footer className="footer footer-1">

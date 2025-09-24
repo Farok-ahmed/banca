@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Select, { SingleValue, StylesConfig } from "react-select";
-import "./custom.css";
 
 // Option type define
 interface OptionType {

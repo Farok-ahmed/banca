@@ -13,11 +13,9 @@ import SecurityTipsSection from "./SecurityTipsSection";
 import ClientSection from "./ClientSection";
 
 const MobileAppPage = () => {
-  // helper to render caret icon on mobile
-
   return (
     <>
-      <DefaultLayout>
+      <DefaultLayout footerType="three">
         <main>
           <MobileBanner />
 

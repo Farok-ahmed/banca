@@ -35,7 +35,7 @@ import AnimationDiv, { AnimationH1, AnimationH2, AnimationLink, AnimationP } fro
 const SampleBancaPage = () => {
   return (
     <>
-      <DefaultLayout>
+      <DefaultLayout footerType="two">
         <main>
           <section className="banner-area-3 pt-90" id="banner_animation2">
             <div className="bg-slides">

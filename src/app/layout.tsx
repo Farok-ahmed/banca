@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import "@/styles/css/elegant-icons.min.css";
 import "@/styles/css/all.min.css";
 import "@/styles/css/animate.css";
@@ -8,8 +7,8 @@ import "@/styles/css/responsive.css";
 import type { Metadata } from 'next';
 import BackToTop from '@/components/BackToTop';
 import PreLoader from '@/components/Loader';
-import { ThemeProvider } from '@/contextAPi/ThemeContext';
 import { quote } from '@/utils/get-random-quote';
+import ClientWraper from '@/components/ClientWraper';
 
 export const metadata: Metadata = {
   title: 'Banca - Banking & Business Loan Next Js Template',
@@ -25,11 +24,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body >
-        <ThemeProvider>
           <BackToTop />
           <PreLoader quote={quote} />
-          {children}
-        </ThemeProvider>
+          <ClientWraper>{children}</ClientWraper>
       </body>
     </html>
   );

@@ -55,7 +55,7 @@ import AnimationDiv, { AnimationH1, AnimationH2, AnimationLink, AnimationP } fro
 const LoanStepsPage = () => {
   return (
     <>
-      <DefaultLayout>
+      <DefaultLayout footerType="one">
         <main>
           <section
             className="banner-area-2 pt-200 pb-95"

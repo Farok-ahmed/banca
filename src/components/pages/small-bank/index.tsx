@@ -52,7 +52,7 @@ import AnimationDiv, { AnimationH1, AnimationH5, AnimationImg, AnimationLink, An
 const SmallBankPage = () => {
   return (
     <>
-      <DefaultLayout>
+      <DefaultLayout footerType="five">
         <main>
           <section className="bank-banner-area">
             <Image className="wave_img" src={wavePng} alt="" />

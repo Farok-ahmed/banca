@@ -37,7 +37,7 @@ import AnimationDiv, { AnimationH1, AnimationH2, AnimationH4, AnimationH5, Anima
 const FinanceSassAppPage = () => {
   return (
     <>
-      <DefaultLayout>
+      <DefaultLayout footerType="four">
         <main>
           <section className="banner-saas-area">
             <Image className="shape_img" src={gridPng} alt="grid images" />

@@ -14,7 +14,7 @@ import CtaSection from "./CtaSection";
 export default function Home() {
     return (
         <>
-            <DefaultLayout>
+            <DefaultLayout footerType="one">
                 <main>
                     <HomeBanner />
 

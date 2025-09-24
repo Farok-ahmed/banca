@@ -1,18 +1,14 @@
-"use client"
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import VisaImg from "@/assets/img/saas-app/visa.png";
 import AmazonImg from "@/assets/img/saas-app/amazon.png";
 import StripeImg from "@/assets/img/saas-app/stripe.png";
 import PaypalImg from "@/assets/img/saas-app/paypal.png";
 import AmexImg from "@/assets/img/saas-app/amex.png";
 import DiscoverImg from "@/assets/img/saas-app/discover.png";
+
 const FooterFour = () => {
-  const patheName = usePathname();
-  const financeSass = patheName === "/finance-sass-app";
-  if (!financeSass) return null;
   return (
     <>
       <footer className="saas-footer-area bg-white">

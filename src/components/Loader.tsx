@@ -8,7 +8,7 @@ export default function PreLoader({ quote }: { quote: string }) {
   const [loading, setLoading] = useState(true);
 
  useEffect(() => {
-  const timer = setTimeout(() => setLoading(false), 1000); // ১ সেকেন্ড পরে hide
+  const timer = setTimeout(() => setLoading(false), 1000); 
   return () => clearTimeout(timer);
 }, []);
 

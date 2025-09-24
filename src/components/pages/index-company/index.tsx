@@ -17,7 +17,7 @@ import ConsultationSection from "./ConsultationSection";
 const CompanyPage = () => {
   return (
     <>
-      <DefaultLayout>
+      <DefaultLayout footerType="two">
         <main>
           <CompanyBanner/>
 

@@ -1,16 +1,12 @@
-"use client"
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import Logo from "@/assets/img/logo/Logo.png";
-import { usePathname } from "next/navigation";
 import { fadeInLeft, fadeInUp } from "../animation";
 import AnimationDiv from "../animation/AnimationDiv";
+
 const FooterTwo = () => {
-  const pathName = usePathname();
-  const indexCompany = pathName === "/index-company";
-  const simpleBanca = pathName === "/simple-banca";
-  if (!indexCompany && !simpleBanca) return null;
+
   return (
     <>
       <footer

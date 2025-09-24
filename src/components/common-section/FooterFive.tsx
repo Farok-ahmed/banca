@@ -1,12 +1,8 @@
-"use client"
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import Logo from "@/assets/img/logo/Logo.png";
+
 const FooterFive = () => {
-  const patheName = usePathname();
-  const smallBank = patheName === "/small-bank";
-  if (!smallBank) return null;
   return (
     <>
       <footer className="bank-footer-area">
@@ -16,10 +12,7 @@ const FooterFive = () => {
               <div className="col-lg-4 col-sm-6">
                 <div className="f-widget about-widget">
                   <Link href="/" className="p-0 m-0">
-                    <Image
-                      src={Logo}
-                      alt="logo"
-                    />
+                    <Image src={Logo} alt="logo" />
                   </Link>
                   <p>
                     It is difficult to find examples of lorem ipsum in use
