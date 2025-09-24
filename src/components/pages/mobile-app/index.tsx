@@ -10,11 +10,12 @@ import CardPaymentSection from "./CardPaymentSection";
 import InternetBankingSection from "./InternetBankingSection";
 import SecurityTipsSection from "./SecurityTipsSection";
 import ClientSection from "./ClientSection";
+import FooterThree from "@/components/common-section/FooterThree";
 
 const MobileAppPage = () => {
   return (
     <>
-      <DefaultLayout footerType="three">
+      <DefaultLayout footer={<FooterThree />}>
         <main>
           <MobileBanner />
 

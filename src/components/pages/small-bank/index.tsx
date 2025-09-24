@@ -47,11 +47,12 @@ import cLogo5 from "@/assets/img/saas-app/c_logo_5.png";
 import mobileTwo from "@/assets/img/bank/mobile-two.png";
 import CardArea from "./CardArea";
 import AnimationDiv, { AnimationH1, AnimationH5, AnimationImg, AnimationLink, AnimationP, AnimationSpan } from "@/components/animation/AnimationDiv";
+import FooterFive from "@/components/common-section/FooterFive";
 
 const SmallBankPage = () => {
   return (
     <>
-      <DefaultLayout footerType="five">
+      <DefaultLayout footer={<FooterFive />}>
         <main>
           <section className="bank-banner-area">
             <Image className="wave_img" src={wavePng} alt="" />

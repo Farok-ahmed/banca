@@ -6,7 +6,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import "@/styles/css/testimonial.css"
 import tClient4 from '@/assets/img/testimonial/client-4.png';
 import tClient1 from '@/assets/img/testimonial/client-1.png';
 import tClient2 from '@/assets/img/testimonial/client-2.png';

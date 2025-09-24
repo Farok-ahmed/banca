@@ -10,11 +10,12 @@ import AboutSection from "./AboutSection";
 import ServicesSection from "./ServicesSection";
 import BlogSection from "./BlogSection";
 import CtaSection from "./CtaSection";
+import Footer from "@/components/common-section/Footer";
 
 export default function Home() {
     return (
         <>
-            <DefaultLayout footerType="one">
+            <DefaultLayout footer={<Footer />}>
                 <main>
                     <HomeBanner />
 

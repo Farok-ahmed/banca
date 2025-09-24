@@ -5,7 +5,7 @@ import NewsLatter from "@/components/common-section/NewsLatter";
 import Link from "next/link";
 const Typography = () => {
   return (
-    <DefaultLayout footerType="one">
+    <DefaultLayout>
       <>
         <div className="breadcrumb_area_three">
           <div className="container">

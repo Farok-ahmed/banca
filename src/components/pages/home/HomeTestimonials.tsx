@@ -2,7 +2,6 @@
 import React from "react";
 import { Testimonial } from "@/types/Testimonial";
 import Slider, { CustomArrowProps, Settings } from "react-slick";
-import "@/styles/css/testimonial.css";
 import Image from "next/image";
 import clientRev1 from "@/assets/img/home-4/client-rev-1.png";
 import clientRev2 from "@/assets/img/home-4/client-rev-2.png";

@@ -30,11 +30,12 @@ import faqAdvisor from "@/assets/img/faq/advisor.png";
 import helpCtaBg from "@/assets/img/help-ad/bg-shape.png";
 import { fadeInRight, fadeInLeft, fadeInUp } from "@/components/animation";
 import AnimationDiv, { AnimationH1, AnimationH2, AnimationLink, AnimationP } from "@/components/animation/AnimationDiv";
+import FooterTwo from "@/components/common-section/FooterTwo";
 
 const SampleBancaPage = () => {
   return (
     <>
-      <DefaultLayout footerType="two">
+      <DefaultLayout footer={<FooterTwo />}>
         <main>
           <section className="banner-area-3 pt-90" id="banner_animation2">
             <div className="bg-slides">

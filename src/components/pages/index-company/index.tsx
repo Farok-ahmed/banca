@@ -13,11 +13,12 @@ import CalculatorSection from "./CalculatorSection";
 import CompanyAbout from "./CompanyAbout";
 import CoverageSection from "./CoverageSection";
 import ConsultationSection from "./ConsultationSection";
+import FooterTwo from "@/components/common-section/FooterTwo";
 
 const CompanyPage = () => {
   return (
     <>
-      <DefaultLayout footerType="two">
+      <DefaultLayout footer={<FooterTwo />}>
         <main>
           <CompanyBanner/>
 

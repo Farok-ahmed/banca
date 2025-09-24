@@ -17,7 +17,7 @@ import AnimationDiv, { AnimationH2, AnimationP } from "@/components/animation/An
 const ContactUsPage = () => {
   return (
     <>
-      <DefaultLayout footerType="one">
+      <DefaultLayout>
         <main>
           <section className="breadcrumb-area">
             <div

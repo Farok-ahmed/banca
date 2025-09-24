@@ -32,11 +32,12 @@ import dashAppSmall from "@/assets/img/saas-app/dash_app_small.png";
 import dashAppSmall2 from "@/assets/img/saas-app/dash_app_small2.png";
 import subscribeDashboard from "@/assets/img/saas-app/subscribe-dashboard.png";
 import AnimationDiv, { AnimationH1, AnimationH2, AnimationH4, AnimationH5, AnimationImg, AnimationLink, AnimationP } from "@/components/animation/AnimationDiv";
+import FooterFour from "@/components/common-section/FooterFour";
 
 const FinanceSassAppPage = () => {
   return (
     <>
-      <DefaultLayout footerType="four">
+      <DefaultLayout footer={<FooterFour />}>
         <main>
           <section className="banner-saas-area">
             <Image className="shape_img" src={gridPng} alt="grid images" />
