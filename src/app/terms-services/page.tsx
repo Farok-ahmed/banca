@@ -1,11 +1,6 @@
 import DefaultLayout from "@/components/Layout";
 import React from "react";
 import breadcrumbBg1 from "@/assets/img/breadcrumb/bg-1.png";
-import "@/styles/css/default.css";
-import "@/styles/css/responsive.css";
-import "@/styles/css/list-style.css";
-import "@/styles/css/elegant-icons.min.css";
-import "@/styles/css/all.min.css";
 const TermsServices = () => {
   return (
     <DefaultLayout>

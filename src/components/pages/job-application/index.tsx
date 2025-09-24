@@ -1,5 +1,3 @@
-import "@/styles/css/nice-select.css";
-import "@/styles/css/jquery-editable-select.css";
 import JobApplicationSection from "@/components/JobForm";
 import DefaultLayout from "@/components/Layout";
 import breadcrumbBg2 from "@/assets/img/breadcrumb/bg-2.png";

@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import "@/styles/css/nice-select.css";
 import Image from "next/image";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";

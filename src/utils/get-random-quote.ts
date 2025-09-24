@@ -1,8 +1,8 @@
 export function getRandomQuote(): string {
 	const quotes = [
-		"We design kbDoc for the readers, optimizing not for page views or engagement",
-		"kbDoc turns out that context is a key part of learning.",
-		"You can create any type of product documentation with kbDoc",
+		"We design Banca for the readers, optimizing not for page views or engagement",
+		"Banca turns out that context is a key part of learning.",
+		"You can create any type of product documentation with Banca",
 		"Advanced visual search system powered by Ajax",
 	];
 	const randomIndex = Math.floor(Math.random() * quotes.length);

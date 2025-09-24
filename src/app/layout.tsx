@@ -5,9 +5,6 @@ import "@/styles/css/default.css";
 import "@/styles/sass/style.scss";
 import "@/styles/css/responsive.css";
 import type { Metadata } from 'next';
-import BackToTop from '@/components/BackToTop';
-import PreLoader from '@/components/Loader';
-import { quote } from '@/utils/get-random-quote';
 import ClientWraper from '@/components/ClientWraper';
 
 export const metadata: Metadata = {
@@ -24,8 +21,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body >
-          <BackToTop />
-          <PreLoader quote={quote} />
           <ClientWraper>{children}</ClientWraper>
       </body>
     </html>

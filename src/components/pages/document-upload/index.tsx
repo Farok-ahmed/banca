@@ -1,4 +1,3 @@
-import "@/styles/css/nice-select.css";
 import Link from "next/link";
 import DefaultLayout from "@/components/Layout";
 import DocumentForm from "./DocumentForm";

@@ -1,7 +1,6 @@
 import NewsSlider from "@/components/BancaNews";
 import "@/styles/css/slick.css";
 import "@/styles/css/slick-theme.css";
-import "@/styles/css/nice-select.css";
 import DefaultLayout from "@/components/Layout";
 // Assets
 import MobileBanner from "./MobileBanner";

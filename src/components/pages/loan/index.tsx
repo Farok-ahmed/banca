@@ -1,8 +1,5 @@
-import "@/styles/css/nice-select.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "@/styles/css/jquery-editable-select.css";
-import "@/styles/css/jquery.fancybox.min.css";
 import "nouislider/dist/nouislider.css";
 import { fadeInRight, fadeInLeft, fadeInUp } from "@/components/animation";
 import BankCalculator from "@/components/BankCalculator";

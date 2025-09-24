@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { fadeInUp, fadeInLeft } from "@/components/animation";
-import "@/styles/css/nice-select.css";
 import DefaultLayout from "@/components/Layout";
 import breadcrumbBg from "@/assets/img/breadcrumb/bg-3.jpg";
 import polygon1 from "@/assets/img/breadcrumb/Polygon-1.png";

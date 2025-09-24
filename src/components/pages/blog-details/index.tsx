@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { fadeInUp, fadeInLeft, fadeInRight } from "@/components/animation";
-import "@/styles/css/nice-select.css";
 import DefaultLayout from "@/components/Layout";
 import SubscribeForm from "./SubscribeForm";
 import ReplyForm from "./ReplyForm";

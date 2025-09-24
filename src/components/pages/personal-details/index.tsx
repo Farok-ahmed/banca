@@ -1,6 +1,4 @@
 "use client";
-import "@/styles/css/nice-select.css";
-
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import intlTelInput from "intl-tel-input";

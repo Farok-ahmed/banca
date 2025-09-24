@@ -1,4 +1,3 @@
-import "@/styles/css/nice-select.css";
 import LoanAccordion from "@/components/LoanAccordion";
 import Image from "next/image";
 import Link from "next/link";

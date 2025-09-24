@@ -4,7 +4,6 @@ import Image from "next/image";
 import { fadeInUp, fadeInLeft, fadeInRight } from "@/components/animation";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "@/styles/css/nice-select.css";
 import "nouislider/dist/nouislider.css";
 import "@/styles/css/jquery.fancybox.min.css";
 import DefaultLayout from "@/components/Layout";
